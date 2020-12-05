@@ -1,4 +1,4 @@
-# OpenapiClient::BenefitsApi
+# MergeHRISClient::BenefitsApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -25,23 +25,23 @@ Creates a `Benefit` object with the given values.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::BenefitsApi.new
+api_instance = MergeHRISClient::BenefitsApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  benefit: OpenapiClient::Benefit.new # Benefit | 
+  benefit: MergeHRISClient::Benefit.new # Benefit | 
 }
 
 begin
   result = api_instance.benefits_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling BenefitsApi->benefits_create: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Deletes a `Benefit` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::BenefitsApi.new
+api_instance = MergeHRISClient::BenefitsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
@@ -96,7 +96,7 @@ opts = {
 begin
   result = api_instance.benefits_destroy(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling BenefitsApi->benefits_destroy: #{e}"
 end
 ```
@@ -135,14 +135,14 @@ Returns a list of `Benefit` objects.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::BenefitsApi.new
+api_instance = MergeHRISClient::BenefitsApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   expand: 'expand_example', # String | Which relations should be returned in expanded form.
@@ -153,7 +153,7 @@ opts = {
 begin
   result = api_instance.benefits_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling BenefitsApi->benefits_list: #{e}"
 end
 ```
@@ -194,24 +194,24 @@ Updates a `Benefit` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::BenefitsApi.new
+api_instance = MergeHRISClient::BenefitsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  patched_benefit: OpenapiClient::PatchedBenefit.new # PatchedBenefit | 
+  patched_benefit: MergeHRISClient::PatchedBenefit.new # PatchedBenefit | 
 }
 
 begin
   result = api_instance.benefits_partial_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling BenefitsApi->benefits_partial_update: #{e}"
 end
 ```
@@ -251,14 +251,14 @@ Returns a `Benefit` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::BenefitsApi.new
+api_instance = MergeHRISClient::BenefitsApi.new
 id = 'id_example' # String | 
 opts = {
   expand: 'expand_example' # String | Which relations should be returned in expanded form.
@@ -267,7 +267,7 @@ opts = {
 begin
   result = api_instance.benefits_retrieve(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling BenefitsApi->benefits_retrieve: #{e}"
 end
 ```
@@ -304,23 +304,23 @@ Name | Type | Description  | Notes
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::BenefitsApi.new
+api_instance = MergeHRISClient::BenefitsApi.new
 id = 'id_example' # String | 
 opts = {
-  benefit: OpenapiClient::Benefit.new # Benefit | 
+  benefit: MergeHRISClient::Benefit.new # Benefit | 
 }
 
 begin
   result = api_instance.benefits_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling BenefitsApi->benefits_update: #{e}"
 end
 ```

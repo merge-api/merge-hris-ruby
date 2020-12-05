@@ -1,4 +1,4 @@
-# OpenapiClient::TerminationDate
+# MergeHRISClient::TerminationDate
 
 ## Properties
 
@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::TerminationDate.new(date: null)
+instance = MergeHRISClient::TerminationDate.new(date: null)
 ```
 
 

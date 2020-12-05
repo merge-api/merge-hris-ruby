@@ -1,4 +1,4 @@
-# OpenapiClient::PaginatedDeductionList
+# MergeHRISClient::PaginatedDeductionList
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PaginatedDeductionList.new(_next: null,
+instance = MergeHRISClient::PaginatedDeductionList.new(_next: null,
                                  previous: null,
                                  results: null)
 ```

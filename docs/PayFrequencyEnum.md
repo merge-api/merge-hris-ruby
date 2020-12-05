@@ -1,4 +1,4 @@
-# OpenapiClient::PayFrequencyEnum
+# MergeHRISClient::PayFrequencyEnum
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PayFrequencyEnum.new()
+instance = MergeHRISClient::PayFrequencyEnum.new()
 ```
 
 

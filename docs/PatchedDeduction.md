@@ -1,4 +1,4 @@
-# OpenapiClient::PatchedDeduction
+# MergeHRISClient::PatchedDeduction
 
 ## Properties
 
@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PatchedDeduction.new(employee_payroll_run: 35347df1-95e7-46e2-93cc-66f1191edca5,
+instance = MergeHRISClient::PatchedDeduction.new(employee_payroll_run: 35347df1-95e7-46e2-93cc-66f1191edca5,
                                  name: Social Security,
                                  employee_deduction: 34.54,
                                  company_deduction: 78.78)

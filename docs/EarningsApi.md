@@ -1,4 +1,4 @@
-# OpenapiClient::EarningsApi
+# MergeHRISClient::EarningsApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -25,23 +25,23 @@ Creates an `Earning` object with the given values.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EarningsApi.new
+api_instance = MergeHRISClient::EarningsApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  earning: OpenapiClient::Earning.new # Earning | 
+  earning: MergeHRISClient::Earning.new # Earning | 
 }
 
 begin
   result = api_instance.earnings_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EarningsApi->earnings_create: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Deletes an `Earning` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EarningsApi.new
+api_instance = MergeHRISClient::EarningsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
@@ -96,7 +96,7 @@ opts = {
 begin
   result = api_instance.earnings_destroy(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EarningsApi->earnings_destroy: #{e}"
 end
 ```
@@ -135,14 +135,14 @@ Returns a list of `Earning` objects.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EarningsApi.new
+api_instance = MergeHRISClient::EarningsApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   linked_account_id: 'linked_account_id_example', # String | If provided, will only return objects associated with the given `linked_account_id`.
@@ -152,7 +152,7 @@ opts = {
 begin
   result = api_instance.earnings_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EarningsApi->earnings_list: #{e}"
 end
 ```
@@ -192,24 +192,24 @@ Updates an `Earning` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EarningsApi.new
+api_instance = MergeHRISClient::EarningsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  patched_earning: OpenapiClient::PatchedEarning.new # PatchedEarning | 
+  patched_earning: MergeHRISClient::PatchedEarning.new # PatchedEarning | 
 }
 
 begin
   result = api_instance.earnings_partial_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EarningsApi->earnings_partial_update: #{e}"
 end
 ```
@@ -249,20 +249,20 @@ Returns an `Earning` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EarningsApi.new
+api_instance = MergeHRISClient::EarningsApi.new
 id = 'id_example' # String | 
 
 begin
   result = api_instance.earnings_retrieve(id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EarningsApi->earnings_retrieve: #{e}"
 end
 ```
@@ -298,23 +298,23 @@ Name | Type | Description  | Notes
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EarningsApi.new
+api_instance = MergeHRISClient::EarningsApi.new
 id = 'id_example' # String | 
 opts = {
-  earning: OpenapiClient::Earning.new # Earning | 
+  earning: MergeHRISClient::Earning.new # Earning | 
 }
 
 begin
   result = api_instance.earnings_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EarningsApi->earnings_update: #{e}"
 end
 ```

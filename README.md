@@ -1,6 +1,6 @@
-# openapi_client
+# merge_hris_client
 
-OpenapiClient - the Ruby gem for the Merge HRIS API
+MergeHRISClient - the Ruby gem for the Merge HRIS API
 
 The unified API for building rich integrations with multiple HR Information System platforms.
 
@@ -18,28 +18,28 @@ For more information, please visit [https://www.merge.dev/](https://www.merge.de
 To build the Ruby code into a gem:
 
 ```shell
-gem build openapi_client.gemspec
+gem build merge_hris_client.gemspec
 ```
 
 Then either install the gem locally:
 
 ```shell
-gem install ./openapi_client-1.0.0.gem
+gem install ./merge_hris_client-1.0.0.gem
 ```
 
-(for development, run `gem install --dev ./openapi_client-1.0.0.gem` to install the development dependencies)
+(for development, run `gem install --dev ./merge_hris_client-1.0.0.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'openapi_client', '~> 1.0.0'
+    gem 'merge_hris_client', '~> 1.0.0'
 
 ### Install from Git
 
 If the Ruby gem is hosted at a git repository: https://github.com/GIT_USER_ID/GIT_REPO_ID, then add the following in the Gemfile:
 
-    gem 'openapi_client', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
+    gem 'merge_hris_client', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
 
 ### Include the Ruby code directly
 
@@ -55,24 +55,24 @@ Please follow the [installation](#installation) procedure and then run the follo
 
 ```ruby
 # Load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 
 # Setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::BenefitsApi.new
+api_instance = MergeHRISClient::BenefitsApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  benefit: OpenapiClient::Benefit.new # Benefit | 
+  benefit: MergeHRISClient::Benefit.new # Benefit | 
 }
 
 begin
   result = api_instance.benefits_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling BenefitsApi->benefits_create: #{e}"
 end
 
@@ -84,165 +84,165 @@ All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenapiClient::BenefitsApi* | [**benefits_create**](docs/BenefitsApi.md#benefits_create) | **POST** /benefits | 
-*OpenapiClient::BenefitsApi* | [**benefits_destroy**](docs/BenefitsApi.md#benefits_destroy) | **DELETE** /benefits/{id} | 
-*OpenapiClient::BenefitsApi* | [**benefits_list**](docs/BenefitsApi.md#benefits_list) | **GET** /benefits | 
-*OpenapiClient::BenefitsApi* | [**benefits_partial_update**](docs/BenefitsApi.md#benefits_partial_update) | **PATCH** /benefits/{id} | 
-*OpenapiClient::BenefitsApi* | [**benefits_retrieve**](docs/BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} | 
-*OpenapiClient::BenefitsApi* | [**benefits_update**](docs/BenefitsApi.md#benefits_update) | **PUT** /benefits/{id} | 
-*OpenapiClient::CompaniesApi* | [**companies_create**](docs/CompaniesApi.md#companies_create) | **POST** /companies | 
-*OpenapiClient::CompaniesApi* | [**companies_destroy**](docs/CompaniesApi.md#companies_destroy) | **DELETE** /companies/{id} | 
-*OpenapiClient::CompaniesApi* | [**companies_list**](docs/CompaniesApi.md#companies_list) | **GET** /companies | 
-*OpenapiClient::CompaniesApi* | [**companies_partial_update**](docs/CompaniesApi.md#companies_partial_update) | **PATCH** /companies/{id} | 
-*OpenapiClient::CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
-*OpenapiClient::CompaniesApi* | [**companies_update**](docs/CompaniesApi.md#companies_update) | **PUT** /companies/{id} | 
-*OpenapiClient::DeductionsApi* | [**deductions_create**](docs/DeductionsApi.md#deductions_create) | **POST** /deductions | 
-*OpenapiClient::DeductionsApi* | [**deductions_destroy**](docs/DeductionsApi.md#deductions_destroy) | **DELETE** /deductions/{id} | 
-*OpenapiClient::DeductionsApi* | [**deductions_list**](docs/DeductionsApi.md#deductions_list) | **GET** /deductions | 
-*OpenapiClient::DeductionsApi* | [**deductions_partial_update**](docs/DeductionsApi.md#deductions_partial_update) | **PATCH** /deductions/{id} | 
-*OpenapiClient::DeductionsApi* | [**deductions_retrieve**](docs/DeductionsApi.md#deductions_retrieve) | **GET** /deductions/{id} | 
-*OpenapiClient::DeductionsApi* | [**deductions_update**](docs/DeductionsApi.md#deductions_update) | **PUT** /deductions/{id} | 
-*OpenapiClient::DocumentsApi* | [**documents_create**](docs/DocumentsApi.md#documents_create) | **POST** /documents | 
-*OpenapiClient::DocumentsApi* | [**documents_destroy**](docs/DocumentsApi.md#documents_destroy) | **DELETE** /documents/{id} | 
-*OpenapiClient::DocumentsApi* | [**documents_list**](docs/DocumentsApi.md#documents_list) | **GET** /documents | 
-*OpenapiClient::DocumentsApi* | [**documents_partial_update**](docs/DocumentsApi.md#documents_partial_update) | **PATCH** /documents/{id} | 
-*OpenapiClient::DocumentsApi* | [**documents_retrieve**](docs/DocumentsApi.md#documents_retrieve) | **GET** /documents/{id} | 
-*OpenapiClient::DocumentsApi* | [**documents_update**](docs/DocumentsApi.md#documents_update) | **PUT** /documents/{id} | 
-*OpenapiClient::EarningsApi* | [**earnings_create**](docs/EarningsApi.md#earnings_create) | **POST** /earnings | 
-*OpenapiClient::EarningsApi* | [**earnings_destroy**](docs/EarningsApi.md#earnings_destroy) | **DELETE** /earnings/{id} | 
-*OpenapiClient::EarningsApi* | [**earnings_list**](docs/EarningsApi.md#earnings_list) | **GET** /earnings | 
-*OpenapiClient::EarningsApi* | [**earnings_partial_update**](docs/EarningsApi.md#earnings_partial_update) | **PATCH** /earnings/{id} | 
-*OpenapiClient::EarningsApi* | [**earnings_retrieve**](docs/EarningsApi.md#earnings_retrieve) | **GET** /earnings/{id} | 
-*OpenapiClient::EarningsApi* | [**earnings_update**](docs/EarningsApi.md#earnings_update) | **PUT** /earnings/{id} | 
-*OpenapiClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_create**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_create) | **POST** /employee-payroll-runs | 
-*OpenapiClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_destroy**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_destroy) | **DELETE** /employee-payroll-runs/{id} | 
-*OpenapiClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
-*OpenapiClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_partial_update**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_partial_update) | **PATCH** /employee-payroll-runs/{id} | 
-*OpenapiClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
-*OpenapiClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_update**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_update) | **PUT** /employee-payroll-runs/{id} | 
-*OpenapiClient::EmployeesApi* | [**employees_create**](docs/EmployeesApi.md#employees_create) | **POST** /employees | 
-*OpenapiClient::EmployeesApi* | [**employees_destroy**](docs/EmployeesApi.md#employees_destroy) | **DELETE** /employees/{id} | 
-*OpenapiClient::EmployeesApi* | [**employees_list**](docs/EmployeesApi.md#employees_list) | **GET** /employees | 
-*OpenapiClient::EmployeesApi* | [**employees_partial_update**](docs/EmployeesApi.md#employees_partial_update) | **PATCH** /employees/{id} | 
-*OpenapiClient::EmployeesApi* | [**employees_retrieve**](docs/EmployeesApi.md#employees_retrieve) | **GET** /employees/{id} | 
-*OpenapiClient::EmployeesApi* | [**employees_update**](docs/EmployeesApi.md#employees_update) | **PUT** /employees/{id} | 
-*OpenapiClient::EmploymentsApi* | [**employments_create**](docs/EmploymentsApi.md#employments_create) | **POST** /employments | 
-*OpenapiClient::EmploymentsApi* | [**employments_destroy**](docs/EmploymentsApi.md#employments_destroy) | **DELETE** /employments/{id} | 
-*OpenapiClient::EmploymentsApi* | [**employments_list**](docs/EmploymentsApi.md#employments_list) | **GET** /employments | 
-*OpenapiClient::EmploymentsApi* | [**employments_partial_update**](docs/EmploymentsApi.md#employments_partial_update) | **PATCH** /employments/{id} | 
-*OpenapiClient::EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
-*OpenapiClient::EmploymentsApi* | [**employments_update**](docs/EmploymentsApi.md#employments_update) | **PUT** /employments/{id} | 
-*OpenapiClient::LocationsApi* | [**locations_create**](docs/LocationsApi.md#locations_create) | **POST** /locations | 
-*OpenapiClient::LocationsApi* | [**locations_destroy**](docs/LocationsApi.md#locations_destroy) | **DELETE** /locations/{id} | 
-*OpenapiClient::LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
-*OpenapiClient::LocationsApi* | [**locations_partial_update**](docs/LocationsApi.md#locations_partial_update) | **PATCH** /locations/{id} | 
-*OpenapiClient::LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
-*OpenapiClient::LocationsApi* | [**locations_update**](docs/LocationsApi.md#locations_update) | **PUT** /locations/{id} | 
-*OpenapiClient::PayrollRunsApi* | [**payroll_runs_create**](docs/PayrollRunsApi.md#payroll_runs_create) | **POST** /payroll-runs | 
-*OpenapiClient::PayrollRunsApi* | [**payroll_runs_destroy**](docs/PayrollRunsApi.md#payroll_runs_destroy) | **DELETE** /payroll-runs/{id} | 
-*OpenapiClient::PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
-*OpenapiClient::PayrollRunsApi* | [**payroll_runs_partial_update**](docs/PayrollRunsApi.md#payroll_runs_partial_update) | **PATCH** /payroll-runs/{id} | 
-*OpenapiClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
-*OpenapiClient::PayrollRunsApi* | [**payroll_runs_update**](docs/PayrollRunsApi.md#payroll_runs_update) | **PUT** /payroll-runs/{id} | 
-*OpenapiClient::ReportsApi* | [**reports_create**](docs/ReportsApi.md#reports_create) | **POST** /reports | 
-*OpenapiClient::ReportsApi* | [**reports_destroy**](docs/ReportsApi.md#reports_destroy) | **DELETE** /reports/{id} | 
-*OpenapiClient::ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
-*OpenapiClient::ReportsApi* | [**reports_partial_update**](docs/ReportsApi.md#reports_partial_update) | **PATCH** /reports/{id} | 
-*OpenapiClient::ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
-*OpenapiClient::ReportsApi* | [**reports_update**](docs/ReportsApi.md#reports_update) | **PUT** /reports/{id} | 
-*OpenapiClient::TasksApi* | [**tasks_list**](docs/TasksApi.md#tasks_list) | **GET** /tasks | 
-*OpenapiClient::TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{task_id} | 
-*OpenapiClient::TaxesApi* | [**taxes_create**](docs/TaxesApi.md#taxes_create) | **POST** /taxes | 
-*OpenapiClient::TaxesApi* | [**taxes_destroy**](docs/TaxesApi.md#taxes_destroy) | **DELETE** /taxes/{id} | 
-*OpenapiClient::TaxesApi* | [**taxes_list**](docs/TaxesApi.md#taxes_list) | **GET** /taxes | 
-*OpenapiClient::TaxesApi* | [**taxes_partial_update**](docs/TaxesApi.md#taxes_partial_update) | **PATCH** /taxes/{id} | 
-*OpenapiClient::TaxesApi* | [**taxes_retrieve**](docs/TaxesApi.md#taxes_retrieve) | **GET** /taxes/{id} | 
-*OpenapiClient::TaxesApi* | [**taxes_update**](docs/TaxesApi.md#taxes_update) | **PUT** /taxes/{id} | 
-*OpenapiClient::TeamsApi* | [**teams_create**](docs/TeamsApi.md#teams_create) | **POST** /teams | 
-*OpenapiClient::TeamsApi* | [**teams_destroy**](docs/TeamsApi.md#teams_destroy) | **DELETE** /teams/{id} | 
-*OpenapiClient::TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
-*OpenapiClient::TeamsApi* | [**teams_partial_update**](docs/TeamsApi.md#teams_partial_update) | **PATCH** /teams/{id} | 
-*OpenapiClient::TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
-*OpenapiClient::TeamsApi* | [**teams_update**](docs/TeamsApi.md#teams_update) | **PUT** /teams/{id} | 
-*OpenapiClient::TimeOffApi* | [**time_off_create**](docs/TimeOffApi.md#time_off_create) | **POST** /time-off | 
-*OpenapiClient::TimeOffApi* | [**time_off_destroy**](docs/TimeOffApi.md#time_off_destroy) | **DELETE** /time-off/{id} | 
-*OpenapiClient::TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
-*OpenapiClient::TimeOffApi* | [**time_off_partial_update**](docs/TimeOffApi.md#time_off_partial_update) | **PATCH** /time-off/{id} | 
-*OpenapiClient::TimeOffApi* | [**time_off_retrieve**](docs/TimeOffApi.md#time_off_retrieve) | **GET** /time-off/{id} | 
-*OpenapiClient::TimeOffApi* | [**time_off_update**](docs/TimeOffApi.md#time_off_update) | **PUT** /time-off/{id} | 
+*MergeHRISClient::BenefitsApi* | [**benefits_create**](docs/BenefitsApi.md#benefits_create) | **POST** /benefits | 
+*MergeHRISClient::BenefitsApi* | [**benefits_destroy**](docs/BenefitsApi.md#benefits_destroy) | **DELETE** /benefits/{id} | 
+*MergeHRISClient::BenefitsApi* | [**benefits_list**](docs/BenefitsApi.md#benefits_list) | **GET** /benefits | 
+*MergeHRISClient::BenefitsApi* | [**benefits_partial_update**](docs/BenefitsApi.md#benefits_partial_update) | **PATCH** /benefits/{id} | 
+*MergeHRISClient::BenefitsApi* | [**benefits_retrieve**](docs/BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} | 
+*MergeHRISClient::BenefitsApi* | [**benefits_update**](docs/BenefitsApi.md#benefits_update) | **PUT** /benefits/{id} | 
+*MergeHRISClient::CompaniesApi* | [**companies_create**](docs/CompaniesApi.md#companies_create) | **POST** /companies | 
+*MergeHRISClient::CompaniesApi* | [**companies_destroy**](docs/CompaniesApi.md#companies_destroy) | **DELETE** /companies/{id} | 
+*MergeHRISClient::CompaniesApi* | [**companies_list**](docs/CompaniesApi.md#companies_list) | **GET** /companies | 
+*MergeHRISClient::CompaniesApi* | [**companies_partial_update**](docs/CompaniesApi.md#companies_partial_update) | **PATCH** /companies/{id} | 
+*MergeHRISClient::CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
+*MergeHRISClient::CompaniesApi* | [**companies_update**](docs/CompaniesApi.md#companies_update) | **PUT** /companies/{id} | 
+*MergeHRISClient::DeductionsApi* | [**deductions_create**](docs/DeductionsApi.md#deductions_create) | **POST** /deductions | 
+*MergeHRISClient::DeductionsApi* | [**deductions_destroy**](docs/DeductionsApi.md#deductions_destroy) | **DELETE** /deductions/{id} | 
+*MergeHRISClient::DeductionsApi* | [**deductions_list**](docs/DeductionsApi.md#deductions_list) | **GET** /deductions | 
+*MergeHRISClient::DeductionsApi* | [**deductions_partial_update**](docs/DeductionsApi.md#deductions_partial_update) | **PATCH** /deductions/{id} | 
+*MergeHRISClient::DeductionsApi* | [**deductions_retrieve**](docs/DeductionsApi.md#deductions_retrieve) | **GET** /deductions/{id} | 
+*MergeHRISClient::DeductionsApi* | [**deductions_update**](docs/DeductionsApi.md#deductions_update) | **PUT** /deductions/{id} | 
+*MergeHRISClient::DocumentsApi* | [**documents_create**](docs/DocumentsApi.md#documents_create) | **POST** /documents | 
+*MergeHRISClient::DocumentsApi* | [**documents_destroy**](docs/DocumentsApi.md#documents_destroy) | **DELETE** /documents/{id} | 
+*MergeHRISClient::DocumentsApi* | [**documents_list**](docs/DocumentsApi.md#documents_list) | **GET** /documents | 
+*MergeHRISClient::DocumentsApi* | [**documents_partial_update**](docs/DocumentsApi.md#documents_partial_update) | **PATCH** /documents/{id} | 
+*MergeHRISClient::DocumentsApi* | [**documents_retrieve**](docs/DocumentsApi.md#documents_retrieve) | **GET** /documents/{id} | 
+*MergeHRISClient::DocumentsApi* | [**documents_update**](docs/DocumentsApi.md#documents_update) | **PUT** /documents/{id} | 
+*MergeHRISClient::EarningsApi* | [**earnings_create**](docs/EarningsApi.md#earnings_create) | **POST** /earnings | 
+*MergeHRISClient::EarningsApi* | [**earnings_destroy**](docs/EarningsApi.md#earnings_destroy) | **DELETE** /earnings/{id} | 
+*MergeHRISClient::EarningsApi* | [**earnings_list**](docs/EarningsApi.md#earnings_list) | **GET** /earnings | 
+*MergeHRISClient::EarningsApi* | [**earnings_partial_update**](docs/EarningsApi.md#earnings_partial_update) | **PATCH** /earnings/{id} | 
+*MergeHRISClient::EarningsApi* | [**earnings_retrieve**](docs/EarningsApi.md#earnings_retrieve) | **GET** /earnings/{id} | 
+*MergeHRISClient::EarningsApi* | [**earnings_update**](docs/EarningsApi.md#earnings_update) | **PUT** /earnings/{id} | 
+*MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_create**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_create) | **POST** /employee-payroll-runs | 
+*MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_destroy**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_destroy) | **DELETE** /employee-payroll-runs/{id} | 
+*MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
+*MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_partial_update**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_partial_update) | **PATCH** /employee-payroll-runs/{id} | 
+*MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
+*MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_update**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_update) | **PUT** /employee-payroll-runs/{id} | 
+*MergeHRISClient::EmployeesApi* | [**employees_create**](docs/EmployeesApi.md#employees_create) | **POST** /employees | 
+*MergeHRISClient::EmployeesApi* | [**employees_destroy**](docs/EmployeesApi.md#employees_destroy) | **DELETE** /employees/{id} | 
+*MergeHRISClient::EmployeesApi* | [**employees_list**](docs/EmployeesApi.md#employees_list) | **GET** /employees | 
+*MergeHRISClient::EmployeesApi* | [**employees_partial_update**](docs/EmployeesApi.md#employees_partial_update) | **PATCH** /employees/{id} | 
+*MergeHRISClient::EmployeesApi* | [**employees_retrieve**](docs/EmployeesApi.md#employees_retrieve) | **GET** /employees/{id} | 
+*MergeHRISClient::EmployeesApi* | [**employees_update**](docs/EmployeesApi.md#employees_update) | **PUT** /employees/{id} | 
+*MergeHRISClient::EmploymentsApi* | [**employments_create**](docs/EmploymentsApi.md#employments_create) | **POST** /employments | 
+*MergeHRISClient::EmploymentsApi* | [**employments_destroy**](docs/EmploymentsApi.md#employments_destroy) | **DELETE** /employments/{id} | 
+*MergeHRISClient::EmploymentsApi* | [**employments_list**](docs/EmploymentsApi.md#employments_list) | **GET** /employments | 
+*MergeHRISClient::EmploymentsApi* | [**employments_partial_update**](docs/EmploymentsApi.md#employments_partial_update) | **PATCH** /employments/{id} | 
+*MergeHRISClient::EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
+*MergeHRISClient::EmploymentsApi* | [**employments_update**](docs/EmploymentsApi.md#employments_update) | **PUT** /employments/{id} | 
+*MergeHRISClient::LocationsApi* | [**locations_create**](docs/LocationsApi.md#locations_create) | **POST** /locations | 
+*MergeHRISClient::LocationsApi* | [**locations_destroy**](docs/LocationsApi.md#locations_destroy) | **DELETE** /locations/{id} | 
+*MergeHRISClient::LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
+*MergeHRISClient::LocationsApi* | [**locations_partial_update**](docs/LocationsApi.md#locations_partial_update) | **PATCH** /locations/{id} | 
+*MergeHRISClient::LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
+*MergeHRISClient::LocationsApi* | [**locations_update**](docs/LocationsApi.md#locations_update) | **PUT** /locations/{id} | 
+*MergeHRISClient::PayrollRunsApi* | [**payroll_runs_create**](docs/PayrollRunsApi.md#payroll_runs_create) | **POST** /payroll-runs | 
+*MergeHRISClient::PayrollRunsApi* | [**payroll_runs_destroy**](docs/PayrollRunsApi.md#payroll_runs_destroy) | **DELETE** /payroll-runs/{id} | 
+*MergeHRISClient::PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
+*MergeHRISClient::PayrollRunsApi* | [**payroll_runs_partial_update**](docs/PayrollRunsApi.md#payroll_runs_partial_update) | **PATCH** /payroll-runs/{id} | 
+*MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
+*MergeHRISClient::PayrollRunsApi* | [**payroll_runs_update**](docs/PayrollRunsApi.md#payroll_runs_update) | **PUT** /payroll-runs/{id} | 
+*MergeHRISClient::ReportsApi* | [**reports_create**](docs/ReportsApi.md#reports_create) | **POST** /reports | 
+*MergeHRISClient::ReportsApi* | [**reports_destroy**](docs/ReportsApi.md#reports_destroy) | **DELETE** /reports/{id} | 
+*MergeHRISClient::ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
+*MergeHRISClient::ReportsApi* | [**reports_partial_update**](docs/ReportsApi.md#reports_partial_update) | **PATCH** /reports/{id} | 
+*MergeHRISClient::ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
+*MergeHRISClient::ReportsApi* | [**reports_update**](docs/ReportsApi.md#reports_update) | **PUT** /reports/{id} | 
+*MergeHRISClient::TasksApi* | [**tasks_list**](docs/TasksApi.md#tasks_list) | **GET** /tasks | 
+*MergeHRISClient::TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{task_id} | 
+*MergeHRISClient::TaxesApi* | [**taxes_create**](docs/TaxesApi.md#taxes_create) | **POST** /taxes | 
+*MergeHRISClient::TaxesApi* | [**taxes_destroy**](docs/TaxesApi.md#taxes_destroy) | **DELETE** /taxes/{id} | 
+*MergeHRISClient::TaxesApi* | [**taxes_list**](docs/TaxesApi.md#taxes_list) | **GET** /taxes | 
+*MergeHRISClient::TaxesApi* | [**taxes_partial_update**](docs/TaxesApi.md#taxes_partial_update) | **PATCH** /taxes/{id} | 
+*MergeHRISClient::TaxesApi* | [**taxes_retrieve**](docs/TaxesApi.md#taxes_retrieve) | **GET** /taxes/{id} | 
+*MergeHRISClient::TaxesApi* | [**taxes_update**](docs/TaxesApi.md#taxes_update) | **PUT** /taxes/{id} | 
+*MergeHRISClient::TeamsApi* | [**teams_create**](docs/TeamsApi.md#teams_create) | **POST** /teams | 
+*MergeHRISClient::TeamsApi* | [**teams_destroy**](docs/TeamsApi.md#teams_destroy) | **DELETE** /teams/{id} | 
+*MergeHRISClient::TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
+*MergeHRISClient::TeamsApi* | [**teams_partial_update**](docs/TeamsApi.md#teams_partial_update) | **PATCH** /teams/{id} | 
+*MergeHRISClient::TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
+*MergeHRISClient::TeamsApi* | [**teams_update**](docs/TeamsApi.md#teams_update) | **PUT** /teams/{id} | 
+*MergeHRISClient::TimeOffApi* | [**time_off_create**](docs/TimeOffApi.md#time_off_create) | **POST** /time-off | 
+*MergeHRISClient::TimeOffApi* | [**time_off_destroy**](docs/TimeOffApi.md#time_off_destroy) | **DELETE** /time-off/{id} | 
+*MergeHRISClient::TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
+*MergeHRISClient::TimeOffApi* | [**time_off_partial_update**](docs/TimeOffApi.md#time_off_partial_update) | **PATCH** /time-off/{id} | 
+*MergeHRISClient::TimeOffApi* | [**time_off_retrieve**](docs/TimeOffApi.md#time_off_retrieve) | **GET** /time-off/{id} | 
+*MergeHRISClient::TimeOffApi* | [**time_off_update**](docs/TimeOffApi.md#time_off_update) | **PUT** /time-off/{id} | 
 
 
 ## Documentation for Models
 
- - [OpenapiClient::AsyncTaskExecution](docs/AsyncTaskExecution.md)
- - [OpenapiClient::AsyncTaskExecutionStatusEnum](docs/AsyncTaskExecutionStatusEnum.md)
- - [OpenapiClient::Benefit](docs/Benefit.md)
- - [OpenapiClient::BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
- - [OpenapiClient::BlankEnum](docs/BlankEnum.md)
- - [OpenapiClient::Company](docs/Company.md)
- - [OpenapiClient::CountryEnum](docs/CountryEnum.md)
- - [OpenapiClient::Deduction](docs/Deduction.md)
- - [OpenapiClient::Document](docs/Document.md)
- - [OpenapiClient::EIN](docs/EIN.md)
- - [OpenapiClient::Earning](docs/Earning.md)
- - [OpenapiClient::Employee](docs/Employee.md)
- - [OpenapiClient::EmployeePayrollRun](docs/EmployeePayrollRun.md)
- - [OpenapiClient::Employment](docs/Employment.md)
- - [OpenapiClient::EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
- - [OpenapiClient::EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
- - [OpenapiClient::EthnicityEnum](docs/EthnicityEnum.md)
- - [OpenapiClient::FlsaStatusEnum](docs/FlsaStatusEnum.md)
- - [OpenapiClient::GenderEnum](docs/GenderEnum.md)
- - [OpenapiClient::HireDate](docs/HireDate.md)
- - [OpenapiClient::Location](docs/Location.md)
- - [OpenapiClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
- - [OpenapiClient::NullEnum](docs/NullEnum.md)
- - [OpenapiClient::PaginatedAsyncTaskExecutionList](docs/PaginatedAsyncTaskExecutionList.md)
- - [OpenapiClient::PaginatedBenefitList](docs/PaginatedBenefitList.md)
- - [OpenapiClient::PaginatedCompanyList](docs/PaginatedCompanyList.md)
- - [OpenapiClient::PaginatedDeductionList](docs/PaginatedDeductionList.md)
- - [OpenapiClient::PaginatedDocumentList](docs/PaginatedDocumentList.md)
- - [OpenapiClient::PaginatedEarningList](docs/PaginatedEarningList.md)
- - [OpenapiClient::PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
- - [OpenapiClient::PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
- - [OpenapiClient::PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
- - [OpenapiClient::PaginatedLocationList](docs/PaginatedLocationList.md)
- - [OpenapiClient::PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
- - [OpenapiClient::PaginatedReportList](docs/PaginatedReportList.md)
- - [OpenapiClient::PaginatedTaxList](docs/PaginatedTaxList.md)
- - [OpenapiClient::PaginatedTeamList](docs/PaginatedTeamList.md)
- - [OpenapiClient::PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
- - [OpenapiClient::PatchedBenefit](docs/PatchedBenefit.md)
- - [OpenapiClient::PatchedCompany](docs/PatchedCompany.md)
- - [OpenapiClient::PatchedDeduction](docs/PatchedDeduction.md)
- - [OpenapiClient::PatchedDocument](docs/PatchedDocument.md)
- - [OpenapiClient::PatchedEIN](docs/PatchedEIN.md)
- - [OpenapiClient::PatchedEarning](docs/PatchedEarning.md)
- - [OpenapiClient::PatchedEmployee](docs/PatchedEmployee.md)
- - [OpenapiClient::PatchedEmployeePayrollRun](docs/PatchedEmployeePayrollRun.md)
- - [OpenapiClient::PatchedEmployment](docs/PatchedEmployment.md)
- - [OpenapiClient::PatchedLocation](docs/PatchedLocation.md)
- - [OpenapiClient::PatchedPayrollRun](docs/PatchedPayrollRun.md)
- - [OpenapiClient::PatchedReport](docs/PatchedReport.md)
- - [OpenapiClient::PatchedTax](docs/PatchedTax.md)
- - [OpenapiClient::PatchedTeam](docs/PatchedTeam.md)
- - [OpenapiClient::PatchedTimeOff](docs/PatchedTimeOff.md)
- - [OpenapiClient::PayCurrencyEnum](docs/PayCurrencyEnum.md)
- - [OpenapiClient::PayFrequencyEnum](docs/PayFrequencyEnum.md)
- - [OpenapiClient::PayPeriodEnum](docs/PayPeriodEnum.md)
- - [OpenapiClient::PayrollRun](docs/PayrollRun.md)
- - [OpenapiClient::Report](docs/Report.md)
- - [OpenapiClient::RequestTypeEnum](docs/RequestTypeEnum.md)
- - [OpenapiClient::RunStateEnum](docs/RunStateEnum.md)
- - [OpenapiClient::RunTypeEnum](docs/RunTypeEnum.md)
- - [OpenapiClient::StateEnum](docs/StateEnum.md)
- - [OpenapiClient::Tax](docs/Tax.md)
- - [OpenapiClient::Team](docs/Team.md)
- - [OpenapiClient::TerminationDate](docs/TerminationDate.md)
- - [OpenapiClient::TimeOff](docs/TimeOff.md)
- - [OpenapiClient::TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
- - [OpenapiClient::TypeEnum](docs/TypeEnum.md)
- - [OpenapiClient::UnitsEnum](docs/UnitsEnum.md)
+ - [MergeHRISClient::AsyncTaskExecution](docs/AsyncTaskExecution.md)
+ - [MergeHRISClient::AsyncTaskExecutionStatusEnum](docs/AsyncTaskExecutionStatusEnum.md)
+ - [MergeHRISClient::Benefit](docs/Benefit.md)
+ - [MergeHRISClient::BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
+ - [MergeHRISClient::BlankEnum](docs/BlankEnum.md)
+ - [MergeHRISClient::Company](docs/Company.md)
+ - [MergeHRISClient::CountryEnum](docs/CountryEnum.md)
+ - [MergeHRISClient::Deduction](docs/Deduction.md)
+ - [MergeHRISClient::Document](docs/Document.md)
+ - [MergeHRISClient::EIN](docs/EIN.md)
+ - [MergeHRISClient::Earning](docs/Earning.md)
+ - [MergeHRISClient::Employee](docs/Employee.md)
+ - [MergeHRISClient::EmployeePayrollRun](docs/EmployeePayrollRun.md)
+ - [MergeHRISClient::Employment](docs/Employment.md)
+ - [MergeHRISClient::EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
+ - [MergeHRISClient::EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
+ - [MergeHRISClient::EthnicityEnum](docs/EthnicityEnum.md)
+ - [MergeHRISClient::FlsaStatusEnum](docs/FlsaStatusEnum.md)
+ - [MergeHRISClient::GenderEnum](docs/GenderEnum.md)
+ - [MergeHRISClient::HireDate](docs/HireDate.md)
+ - [MergeHRISClient::Location](docs/Location.md)
+ - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
+ - [MergeHRISClient::NullEnum](docs/NullEnum.md)
+ - [MergeHRISClient::PaginatedAsyncTaskExecutionList](docs/PaginatedAsyncTaskExecutionList.md)
+ - [MergeHRISClient::PaginatedBenefitList](docs/PaginatedBenefitList.md)
+ - [MergeHRISClient::PaginatedCompanyList](docs/PaginatedCompanyList.md)
+ - [MergeHRISClient::PaginatedDeductionList](docs/PaginatedDeductionList.md)
+ - [MergeHRISClient::PaginatedDocumentList](docs/PaginatedDocumentList.md)
+ - [MergeHRISClient::PaginatedEarningList](docs/PaginatedEarningList.md)
+ - [MergeHRISClient::PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
+ - [MergeHRISClient::PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
+ - [MergeHRISClient::PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
+ - [MergeHRISClient::PaginatedLocationList](docs/PaginatedLocationList.md)
+ - [MergeHRISClient::PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
+ - [MergeHRISClient::PaginatedReportList](docs/PaginatedReportList.md)
+ - [MergeHRISClient::PaginatedTaxList](docs/PaginatedTaxList.md)
+ - [MergeHRISClient::PaginatedTeamList](docs/PaginatedTeamList.md)
+ - [MergeHRISClient::PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
+ - [MergeHRISClient::PatchedBenefit](docs/PatchedBenefit.md)
+ - [MergeHRISClient::PatchedCompany](docs/PatchedCompany.md)
+ - [MergeHRISClient::PatchedDeduction](docs/PatchedDeduction.md)
+ - [MergeHRISClient::PatchedDocument](docs/PatchedDocument.md)
+ - [MergeHRISClient::PatchedEIN](docs/PatchedEIN.md)
+ - [MergeHRISClient::PatchedEarning](docs/PatchedEarning.md)
+ - [MergeHRISClient::PatchedEmployee](docs/PatchedEmployee.md)
+ - [MergeHRISClient::PatchedEmployeePayrollRun](docs/PatchedEmployeePayrollRun.md)
+ - [MergeHRISClient::PatchedEmployment](docs/PatchedEmployment.md)
+ - [MergeHRISClient::PatchedLocation](docs/PatchedLocation.md)
+ - [MergeHRISClient::PatchedPayrollRun](docs/PatchedPayrollRun.md)
+ - [MergeHRISClient::PatchedReport](docs/PatchedReport.md)
+ - [MergeHRISClient::PatchedTax](docs/PatchedTax.md)
+ - [MergeHRISClient::PatchedTeam](docs/PatchedTeam.md)
+ - [MergeHRISClient::PatchedTimeOff](docs/PatchedTimeOff.md)
+ - [MergeHRISClient::PayCurrencyEnum](docs/PayCurrencyEnum.md)
+ - [MergeHRISClient::PayFrequencyEnum](docs/PayFrequencyEnum.md)
+ - [MergeHRISClient::PayPeriodEnum](docs/PayPeriodEnum.md)
+ - [MergeHRISClient::PayrollRun](docs/PayrollRun.md)
+ - [MergeHRISClient::Report](docs/Report.md)
+ - [MergeHRISClient::RequestTypeEnum](docs/RequestTypeEnum.md)
+ - [MergeHRISClient::RunStateEnum](docs/RunStateEnum.md)
+ - [MergeHRISClient::RunTypeEnum](docs/RunTypeEnum.md)
+ - [MergeHRISClient::StateEnum](docs/StateEnum.md)
+ - [MergeHRISClient::Tax](docs/Tax.md)
+ - [MergeHRISClient::Team](docs/Team.md)
+ - [MergeHRISClient::TerminationDate](docs/TerminationDate.md)
+ - [MergeHRISClient::TimeOff](docs/TimeOff.md)
+ - [MergeHRISClient::TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
+ - [MergeHRISClient::TypeEnum](docs/TypeEnum.md)
+ - [MergeHRISClient::UnitsEnum](docs/UnitsEnum.md)
 
 
 ## Documentation for Authorization

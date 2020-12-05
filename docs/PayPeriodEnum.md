@@ -1,4 +1,4 @@
-# OpenapiClient::PayPeriodEnum
+# MergeHRISClient::PayPeriodEnum
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PayPeriodEnum.new()
+instance = MergeHRISClient::PayPeriodEnum.new()
 ```
 
 

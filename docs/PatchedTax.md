@@ -1,4 +1,4 @@
-# OpenapiClient::PatchedTax
+# MergeHRISClient::PatchedTax
 
 ## Properties
 
@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PatchedTax.new(employee_payroll_run: 35347df1-95e7-46e2-93cc-66f1191edca5,
+instance = MergeHRISClient::PatchedTax.new(employee_payroll_run: 35347df1-95e7-46e2-93cc-66f1191edca5,
                                  name: California State Income Tax,
                                  amount: 100.25,
                                  employer_tax: false)

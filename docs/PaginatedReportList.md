@@ -1,4 +1,4 @@
-# OpenapiClient::PaginatedReportList
+# MergeHRISClient::PaginatedReportList
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PaginatedReportList.new(_next: null,
+instance = MergeHRISClient::PaginatedReportList.new(_next: null,
                                  previous: null,
                                  results: null)
 ```

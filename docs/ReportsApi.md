@@ -1,4 +1,4 @@
-# OpenapiClient::ReportsApi
+# MergeHRISClient::ReportsApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -25,23 +25,23 @@ Creates a `Report` object with the given values.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::ReportsApi.new
+api_instance = MergeHRISClient::ReportsApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  report: OpenapiClient::Report.new # Report | 
+  report: MergeHRISClient::Report.new # Report | 
 }
 
 begin
   result = api_instance.reports_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling ReportsApi->reports_create: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Deletes a `Report` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::ReportsApi.new
+api_instance = MergeHRISClient::ReportsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
@@ -96,7 +96,7 @@ opts = {
 begin
   result = api_instance.reports_destroy(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling ReportsApi->reports_destroy: #{e}"
 end
 ```
@@ -135,14 +135,14 @@ Returns a list of `Report` objects.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::ReportsApi.new
+api_instance = MergeHRISClient::ReportsApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   linked_account_id: 'linked_account_id_example', # String | If provided, will only return objects associated with the given `linked_account_id`.
@@ -152,7 +152,7 @@ opts = {
 begin
   result = api_instance.reports_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling ReportsApi->reports_list: #{e}"
 end
 ```
@@ -192,24 +192,24 @@ Updates a `Report` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::ReportsApi.new
+api_instance = MergeHRISClient::ReportsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  patched_report: OpenapiClient::PatchedReport.new # PatchedReport | 
+  patched_report: MergeHRISClient::PatchedReport.new # PatchedReport | 
 }
 
 begin
   result = api_instance.reports_partial_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling ReportsApi->reports_partial_update: #{e}"
 end
 ```
@@ -249,20 +249,20 @@ Returns a `Report` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::ReportsApi.new
+api_instance = MergeHRISClient::ReportsApi.new
 id = 'id_example' # String | 
 
 begin
   result = api_instance.reports_retrieve(id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling ReportsApi->reports_retrieve: #{e}"
 end
 ```
@@ -298,23 +298,23 @@ Name | Type | Description  | Notes
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::ReportsApi.new
+api_instance = MergeHRISClient::ReportsApi.new
 id = 'id_example' # String | 
 opts = {
-  report: OpenapiClient::Report.new # Report | 
+  report: MergeHRISClient::Report.new # Report | 
 }
 
 begin
   result = api_instance.reports_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling ReportsApi->reports_update: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# OpenapiClient::AsyncTaskExecution
+# MergeHRISClient::AsyncTaskExecution
 
 ## Properties
 
@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::AsyncTaskExecution.new(id: 92e8a369-fffe-430d-b93a-f7e8a16563f1,
+instance = MergeHRISClient::AsyncTaskExecution.new(id: 92e8a369-fffe-430d-b93a-f7e8a16563f1,
                                  status: PENDING)
 ```
 

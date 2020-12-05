@@ -1,4 +1,4 @@
-# OpenapiClient::LocationsApi
+# MergeHRISClient::LocationsApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -25,23 +25,23 @@ Creates a `Location` object with the given values.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::LocationsApi.new
+api_instance = MergeHRISClient::LocationsApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  location: OpenapiClient::Location.new # Location | 
+  location: MergeHRISClient::Location.new # Location | 
 }
 
 begin
   result = api_instance.locations_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling LocationsApi->locations_create: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Deletes a `Location` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::LocationsApi.new
+api_instance = MergeHRISClient::LocationsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
@@ -96,7 +96,7 @@ opts = {
 begin
   result = api_instance.locations_destroy(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling LocationsApi->locations_destroy: #{e}"
 end
 ```
@@ -135,14 +135,14 @@ Returns a list of `Location` objects.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::LocationsApi.new
+api_instance = MergeHRISClient::LocationsApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   linked_account_id: 'linked_account_id_example', # String | If provided, will only return objects associated with the given `linked_account_id`.
@@ -152,7 +152,7 @@ opts = {
 begin
   result = api_instance.locations_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling LocationsApi->locations_list: #{e}"
 end
 ```
@@ -192,24 +192,24 @@ Updates a `Location` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::LocationsApi.new
+api_instance = MergeHRISClient::LocationsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  patched_location: OpenapiClient::PatchedLocation.new # PatchedLocation | 
+  patched_location: MergeHRISClient::PatchedLocation.new # PatchedLocation | 
 }
 
 begin
   result = api_instance.locations_partial_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling LocationsApi->locations_partial_update: #{e}"
 end
 ```
@@ -249,20 +249,20 @@ Returns a `Location` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::LocationsApi.new
+api_instance = MergeHRISClient::LocationsApi.new
 id = 'id_example' # String | 
 
 begin
   result = api_instance.locations_retrieve(id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling LocationsApi->locations_retrieve: #{e}"
 end
 ```
@@ -298,23 +298,23 @@ Name | Type | Description  | Notes
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::LocationsApi.new
+api_instance = MergeHRISClient::LocationsApi.new
 id = 'id_example' # String | 
 opts = {
-  location: OpenapiClient::Location.new # Location | 
+  location: MergeHRISClient::Location.new # Location | 
 }
 
 begin
   result = api_instance.locations_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling LocationsApi->locations_update: #{e}"
 end
 ```

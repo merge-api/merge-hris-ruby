@@ -1,4 +1,4 @@
-# OpenapiClient::Location
+# MergeHRISClient::Location
 
 ## Properties
 
@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::Location.new(id: null,
+instance = MergeHRISClient::Location.new(id: null,
                                  remote_id: 93018402,
                                  created_at: null,
                                  modified_at: null,

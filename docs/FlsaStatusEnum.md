@@ -1,4 +1,4 @@
-# OpenapiClient::FlsaStatusEnum
+# MergeHRISClient::FlsaStatusEnum
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::FlsaStatusEnum.new()
+instance = MergeHRISClient::FlsaStatusEnum.new()
 ```
 
 

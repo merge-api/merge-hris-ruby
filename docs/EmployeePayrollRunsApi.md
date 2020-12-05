@@ -1,4 +1,4 @@
-# OpenapiClient::EmployeePayrollRunsApi
+# MergeHRISClient::EmployeePayrollRunsApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -25,23 +25,23 @@ Creates an `EmployeePayrollRun` object with the given values.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmployeePayrollRunsApi.new
+api_instance = MergeHRISClient::EmployeePayrollRunsApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  employee_payroll_run: OpenapiClient::EmployeePayrollRun.new # EmployeePayrollRun | 
+  employee_payroll_run: MergeHRISClient::EmployeePayrollRun.new # EmployeePayrollRun | 
 }
 
 begin
   result = api_instance.employee_payroll_runs_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_create: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Deletes an `EmployeePayrollRun` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmployeePayrollRunsApi.new
+api_instance = MergeHRISClient::EmployeePayrollRunsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
@@ -96,7 +96,7 @@ opts = {
 begin
   result = api_instance.employee_payroll_runs_destroy(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_destroy: #{e}"
 end
 ```
@@ -135,14 +135,14 @@ Returns a list of `EmployeePayrollRun` objects.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmployeePayrollRunsApi.new
+api_instance = MergeHRISClient::EmployeePayrollRunsApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   expand: 'expand_example', # String | Which relations should be returned in expanded form.
@@ -153,7 +153,7 @@ opts = {
 begin
   result = api_instance.employee_payroll_runs_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_list: #{e}"
 end
 ```
@@ -194,24 +194,24 @@ Updates an `EmployeePayrollRun` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmployeePayrollRunsApi.new
+api_instance = MergeHRISClient::EmployeePayrollRunsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  patched_employee_payroll_run: OpenapiClient::PatchedEmployeePayrollRun.new # PatchedEmployeePayrollRun | 
+  patched_employee_payroll_run: MergeHRISClient::PatchedEmployeePayrollRun.new # PatchedEmployeePayrollRun | 
 }
 
 begin
   result = api_instance.employee_payroll_runs_partial_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_partial_update: #{e}"
 end
 ```
@@ -251,14 +251,14 @@ Returns an `EmployeePayrollRun` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmployeePayrollRunsApi.new
+api_instance = MergeHRISClient::EmployeePayrollRunsApi.new
 id = 'id_example' # String | 
 opts = {
   expand: 'expand_example' # String | Which relations should be returned in expanded form.
@@ -267,7 +267,7 @@ opts = {
 begin
   result = api_instance.employee_payroll_runs_retrieve(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_retrieve: #{e}"
 end
 ```
@@ -304,23 +304,23 @@ Name | Type | Description  | Notes
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmployeePayrollRunsApi.new
+api_instance = MergeHRISClient::EmployeePayrollRunsApi.new
 id = 'id_example' # String | 
 opts = {
-  employee_payroll_run: OpenapiClient::EmployeePayrollRun.new # EmployeePayrollRun | 
+  employee_payroll_run: MergeHRISClient::EmployeePayrollRun.new # EmployeePayrollRun | 
 }
 
 begin
   result = api_instance.employee_payroll_runs_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_update: #{e}"
 end
 ```

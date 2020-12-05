@@ -1,4 +1,4 @@
-# OpenapiClient::PaginatedAsyncTaskExecutionList
+# MergeHRISClient::PaginatedAsyncTaskExecutionList
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PaginatedAsyncTaskExecutionList.new(_next: null,
+instance = MergeHRISClient::PaginatedAsyncTaskExecutionList.new(_next: null,
                                  previous: null,
                                  results: null)
 ```

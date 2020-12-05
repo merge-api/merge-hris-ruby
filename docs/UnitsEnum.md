@@ -1,4 +1,4 @@
-# OpenapiClient::UnitsEnum
+# MergeHRISClient::UnitsEnum
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::UnitsEnum.new()
+instance = MergeHRISClient::UnitsEnum.new()
 ```
 
 

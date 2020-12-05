@@ -1,4 +1,4 @@
-# OpenapiClient::TimeOffApi
+# MergeHRISClient::TimeOffApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -25,23 +25,23 @@ Creates a `TimeOff` object with the given values.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TimeOffApi.new
+api_instance = MergeHRISClient::TimeOffApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  time_off: OpenapiClient::TimeOff.new # TimeOff | 
+  time_off: MergeHRISClient::TimeOff.new # TimeOff | 
 }
 
 begin
   result = api_instance.time_off_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TimeOffApi->time_off_create: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Deletes an `TimeOff` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TimeOffApi.new
+api_instance = MergeHRISClient::TimeOffApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
@@ -96,7 +96,7 @@ opts = {
 begin
   result = api_instance.time_off_destroy(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TimeOffApi->time_off_destroy: #{e}"
 end
 ```
@@ -135,14 +135,14 @@ Returns a list of `TimeOff` objects.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TimeOffApi.new
+api_instance = MergeHRISClient::TimeOffApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   expand: 'expand_example', # String | Which relations should be returned in expanded form.
@@ -153,7 +153,7 @@ opts = {
 begin
   result = api_instance.time_off_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TimeOffApi->time_off_list: #{e}"
 end
 ```
@@ -194,24 +194,24 @@ Updates an `TimeOff` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TimeOffApi.new
+api_instance = MergeHRISClient::TimeOffApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  patched_time_off: OpenapiClient::PatchedTimeOff.new # PatchedTimeOff | 
+  patched_time_off: MergeHRISClient::PatchedTimeOff.new # PatchedTimeOff | 
 }
 
 begin
   result = api_instance.time_off_partial_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TimeOffApi->time_off_partial_update: #{e}"
 end
 ```
@@ -251,14 +251,14 @@ Returns an `TimeOff` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TimeOffApi.new
+api_instance = MergeHRISClient::TimeOffApi.new
 id = 'id_example' # String | 
 opts = {
   expand: 'expand_example' # String | Which relations should be returned in expanded form.
@@ -267,7 +267,7 @@ opts = {
 begin
   result = api_instance.time_off_retrieve(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TimeOffApi->time_off_retrieve: #{e}"
 end
 ```
@@ -304,23 +304,23 @@ Name | Type | Description  | Notes
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TimeOffApi.new
+api_instance = MergeHRISClient::TimeOffApi.new
 id = 'id_example' # String | 
 opts = {
-  time_off: OpenapiClient::TimeOff.new # TimeOff | 
+  time_off: MergeHRISClient::TimeOff.new # TimeOff | 
 }
 
 begin
   result = api_instance.time_off_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TimeOffApi->time_off_update: #{e}"
 end
 ```

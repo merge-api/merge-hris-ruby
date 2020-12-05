@@ -1,4 +1,4 @@
-# OpenapiClient::Employee
+# MergeHRISClient::Employee
 
 ## Properties
 
@@ -35,9 +35,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::Employee.new(id: null,
+instance = MergeHRISClient::Employee.new(id: null,
                                  remote_id: 19202938,
                                  created_at: null,
                                  modified_at: null,

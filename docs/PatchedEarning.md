@@ -1,4 +1,4 @@
-# OpenapiClient::PatchedEarning
+# MergeHRISClient::PatchedEarning
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PatchedEarning.new(employee_payroll_run: 35347df1-95e7-46e2-93cc-66f1191edca5,
+instance = MergeHRISClient::PatchedEarning.new(employee_payroll_run: 35347df1-95e7-46e2-93cc-66f1191edca5,
                                  amount: 1002.34,
                                  type: SALARY)
 ```

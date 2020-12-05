@@ -1,4 +1,4 @@
-# OpenapiClient::PaginatedBenefitList
+# MergeHRISClient::PaginatedBenefitList
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PaginatedBenefitList.new(_next: null,
+instance = MergeHRISClient::PaginatedBenefitList.new(_next: null,
                                  previous: null,
                                  results: null)
 ```

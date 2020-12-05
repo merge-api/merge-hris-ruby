@@ -1,4 +1,4 @@
-# OpenapiClient::DocumentsApi
+# MergeHRISClient::DocumentsApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -25,23 +25,23 @@ Creates a `Document` object with the given values.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::DocumentsApi.new
+api_instance = MergeHRISClient::DocumentsApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  document: OpenapiClient::Document.new # Document | 
+  document: MergeHRISClient::Document.new # Document | 
 }
 
 begin
   result = api_instance.documents_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling DocumentsApi->documents_create: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Deletes a `Document` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::DocumentsApi.new
+api_instance = MergeHRISClient::DocumentsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
@@ -96,7 +96,7 @@ opts = {
 begin
   result = api_instance.documents_destroy(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling DocumentsApi->documents_destroy: #{e}"
 end
 ```
@@ -135,14 +135,14 @@ Returns a list of `Document` objects.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::DocumentsApi.new
+api_instance = MergeHRISClient::DocumentsApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   linked_account_id: 'linked_account_id_example', # String | If provided, will only return objects associated with the given `linked_account_id`.
@@ -152,7 +152,7 @@ opts = {
 begin
   result = api_instance.documents_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling DocumentsApi->documents_list: #{e}"
 end
 ```
@@ -192,24 +192,24 @@ Updates a `Document` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::DocumentsApi.new
+api_instance = MergeHRISClient::DocumentsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  patched_document: OpenapiClient::PatchedDocument.new # PatchedDocument | 
+  patched_document: MergeHRISClient::PatchedDocument.new # PatchedDocument | 
 }
 
 begin
   result = api_instance.documents_partial_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling DocumentsApi->documents_partial_update: #{e}"
 end
 ```
@@ -249,20 +249,20 @@ Returns a `Document` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::DocumentsApi.new
+api_instance = MergeHRISClient::DocumentsApi.new
 id = 'id_example' # String | 
 
 begin
   result = api_instance.documents_retrieve(id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling DocumentsApi->documents_retrieve: #{e}"
 end
 ```
@@ -298,23 +298,23 @@ Name | Type | Description  | Notes
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::DocumentsApi.new
+api_instance = MergeHRISClient::DocumentsApi.new
 id = 'id_example' # String | 
 opts = {
-  document: OpenapiClient::Document.new # Document | 
+  document: MergeHRISClient::Document.new # Document | 
 }
 
 begin
   result = api_instance.documents_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling DocumentsApi->documents_update: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# OpenapiClient::PatchedReport
+# MergeHRISClient::PatchedReport
 
 ## Properties
 
@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PatchedReport.new(name: Dan&#39;s Employee Review,
+instance = MergeHRISClient::PatchedReport.new(name: Dan&#39;s Employee Review,
                                  content: While Dan is a tremendous employee, somebody should probably be reviewing the documentation he writes, as he likes to fill them with little jokes to amuse himself.)
 ```
 

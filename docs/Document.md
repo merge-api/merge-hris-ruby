@@ -1,4 +1,4 @@
-# OpenapiClient::Document
+# MergeHRISClient::Document
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::Document.new(employee: d2f972d0-2526-434b-9409-4c3b468e08f0,
+instance = MergeHRISClient::Document.new(employee: d2f972d0-2526-434b-9409-4c3b468e08f0,
                                  file_name: Merge Company Secrets,
                                  file_url: http://alturl.com/p749b)
 ```

@@ -1,4 +1,4 @@
-# OpenapiClient::EthnicityEnum
+# MergeHRISClient::EthnicityEnum
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::EthnicityEnum.new()
+instance = MergeHRISClient::EthnicityEnum.new()
 ```
 
 

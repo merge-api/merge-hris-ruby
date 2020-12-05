@@ -1,4 +1,4 @@
-# OpenapiClient::PaginatedLocationList
+# MergeHRISClient::PaginatedLocationList
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PaginatedLocationList.new(_next: null,
+instance = MergeHRISClient::PaginatedLocationList.new(_next: null,
                                  previous: null,
                                  results: null)
 ```

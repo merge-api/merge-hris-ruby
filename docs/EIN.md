@@ -1,4 +1,4 @@
-# OpenapiClient::EIN
+# MergeHRISClient::EIN
 
 ## Properties
 
@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::EIN.new(value: 12-3456789)
+instance = MergeHRISClient::EIN.new(value: 12-3456789)
 ```
 
 

@@ -1,4 +1,4 @@
-# OpenapiClient::TasksApi
+# MergeHRISClient::TasksApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -21,9 +21,9 @@ Returns all `AsyncTaskExecution` objects for the requester's organization.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure API key authorization: cookieAuth
   config.api_key['Session'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
@@ -33,7 +33,7 @@ OpenapiClient.configure do |config|
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TasksApi.new
+api_instance = MergeHRISClient::TasksApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   linked_account_id: 'linked_account_id_example', # String | If provided, will only return objects associated with the given `linked_account_id`.
@@ -44,7 +44,7 @@ opts = {
 begin
   result = api_instance.tasks_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TasksApi->tasks_list: #{e}"
 end
 ```
@@ -85,9 +85,9 @@ Returns an `AsyncTaskExecution` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure API key authorization: cookieAuth
   config.api_key['Session'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
@@ -97,13 +97,13 @@ OpenapiClient.configure do |config|
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TasksApi.new
+api_instance = MergeHRISClient::TasksApi.new
 task_id = 'task_id_example' # String | 
 
 begin
   result = api_instance.tasks_retrieve(task_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TasksApi->tasks_retrieve: #{e}"
 end
 ```

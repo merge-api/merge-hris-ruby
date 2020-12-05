@@ -1,4 +1,4 @@
-# OpenapiClient::PatchedEmployment
+# MergeHRISClient::PatchedEmployment
 
 ## Properties
 
@@ -20,9 +20,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::PatchedEmployment.new(id: null,
+instance = MergeHRISClient::PatchedEmployment.new(id: null,
                                  remote_id: 19202938,
                                  created_at: null,
                                  modified_at: null,

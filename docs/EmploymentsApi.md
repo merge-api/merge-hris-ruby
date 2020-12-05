@@ -1,4 +1,4 @@
-# OpenapiClient::EmploymentsApi
+# MergeHRISClient::EmploymentsApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -25,23 +25,23 @@ Creates an `Employment` object with the given values.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmploymentsApi.new
+api_instance = MergeHRISClient::EmploymentsApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  employment: OpenapiClient::Employment.new # Employment | 
+  employment: MergeHRISClient::Employment.new # Employment | 
 }
 
 begin
   result = api_instance.employments_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmploymentsApi->employments_create: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Deletes an `Employment` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmploymentsApi.new
+api_instance = MergeHRISClient::EmploymentsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
@@ -96,7 +96,7 @@ opts = {
 begin
   result = api_instance.employments_destroy(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmploymentsApi->employments_destroy: #{e}"
 end
 ```
@@ -135,14 +135,14 @@ Returns a list of `Employment` objects.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmploymentsApi.new
+api_instance = MergeHRISClient::EmploymentsApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   linked_account_id: 'linked_account_id_example', # String | If provided, will only return objects associated with the given `linked_account_id`.
@@ -152,7 +152,7 @@ opts = {
 begin
   result = api_instance.employments_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmploymentsApi->employments_list: #{e}"
 end
 ```
@@ -192,24 +192,24 @@ Updates an `Employment` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmploymentsApi.new
+api_instance = MergeHRISClient::EmploymentsApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  patched_employment: OpenapiClient::PatchedEmployment.new # PatchedEmployment | 
+  patched_employment: MergeHRISClient::PatchedEmployment.new # PatchedEmployment | 
 }
 
 begin
   result = api_instance.employments_partial_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmploymentsApi->employments_partial_update: #{e}"
 end
 ```
@@ -249,20 +249,20 @@ Returns an `Employment` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmploymentsApi.new
+api_instance = MergeHRISClient::EmploymentsApi.new
 id = 'id_example' # String | 
 
 begin
   result = api_instance.employments_retrieve(id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmploymentsApi->employments_retrieve: #{e}"
 end
 ```
@@ -298,23 +298,23 @@ Name | Type | Description  | Notes
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::EmploymentsApi.new
+api_instance = MergeHRISClient::EmploymentsApi.new
 id = 'id_example' # String | 
 opts = {
-  employment: OpenapiClient::Employment.new # Employment | 
+  employment: MergeHRISClient::Employment.new # Employment | 
 }
 
 begin
   result = api_instance.employments_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EmploymentsApi->employments_update: #{e}"
 end
 ```

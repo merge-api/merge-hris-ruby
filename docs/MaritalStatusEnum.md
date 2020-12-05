@@ -1,4 +1,4 @@
-# OpenapiClient::MaritalStatusEnum
+# MergeHRISClient::MaritalStatusEnum
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::MaritalStatusEnum.new()
+instance = MergeHRISClient::MaritalStatusEnum.new()
 ```
 
 

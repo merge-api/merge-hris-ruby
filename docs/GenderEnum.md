@@ -1,4 +1,4 @@
-# OpenapiClient::GenderEnum
+# MergeHRISClient::GenderEnum
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::GenderEnum.new()
+instance = MergeHRISClient::GenderEnum.new()
 ```
 
 

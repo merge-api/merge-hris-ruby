@@ -1,4 +1,4 @@
-# OpenapiClient::EmploymentStatusEnum
+# MergeHRISClient::EmploymentStatusEnum
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'MergeHRISClient'
 
-instance = OpenapiClient::EmploymentStatusEnum.new()
+instance = MergeHRISClient::EmploymentStatusEnum.new()
 ```
 
 

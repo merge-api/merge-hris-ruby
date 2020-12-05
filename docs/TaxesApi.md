@@ -1,4 +1,4 @@
-# OpenapiClient::TaxesApi
+# MergeHRISClient::TaxesApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
@@ -25,23 +25,23 @@ Creates a `Tax` object with the given values.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TaxesApi.new
+api_instance = MergeHRISClient::TaxesApi.new
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  tax: OpenapiClient::Tax.new # Tax | 
+  tax: MergeHRISClient::Tax.new # Tax | 
 }
 
 begin
   result = api_instance.taxes_create(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TaxesApi->taxes_create: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Deletes a `Tax` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TaxesApi.new
+api_instance = MergeHRISClient::TaxesApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
@@ -96,7 +96,7 @@ opts = {
 begin
   result = api_instance.taxes_destroy(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TaxesApi->taxes_destroy: #{e}"
 end
 ```
@@ -135,14 +135,14 @@ Returns a list of `Tax` objects.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TaxesApi.new
+api_instance = MergeHRISClient::TaxesApi.new
 opts = {
   cursor: 56, # Integer | The pagination cursor value.
   linked_account_id: 'linked_account_id_example', # String | If provided, will only return objects associated with the given `linked_account_id`.
@@ -152,7 +152,7 @@ opts = {
 begin
   result = api_instance.taxes_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TaxesApi->taxes_list: #{e}"
 end
 ```
@@ -192,24 +192,24 @@ Updates a `Tax` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TaxesApi.new
+api_instance = MergeHRISClient::TaxesApi.new
 id = 'id_example' # String | 
 opts = {
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  patched_tax: OpenapiClient::PatchedTax.new # PatchedTax | 
+  patched_tax: MergeHRISClient::PatchedTax.new # PatchedTax | 
 }
 
 begin
   result = api_instance.taxes_partial_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TaxesApi->taxes_partial_update: #{e}"
 end
 ```
@@ -249,20 +249,20 @@ Returns a `Tax` object with the given `id`.
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TaxesApi.new
+api_instance = MergeHRISClient::TaxesApi.new
 id = 'id_example' # String | 
 
 begin
   result = api_instance.taxes_retrieve(id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TaxesApi->taxes_retrieve: #{e}"
 end
 ```
@@ -298,23 +298,23 @@ Name | Type | Description  | Notes
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'merge_hris_client'
 # setup authorization
-OpenapiClient.configure do |config|
+MergeHRISClient.configure do |config|
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = OpenapiClient::TaxesApi.new
+api_instance = MergeHRISClient::TaxesApi.new
 id = 'id_example' # String | 
 opts = {
-  tax: OpenapiClient::Tax.new # Tax | 
+  tax: MergeHRISClient::Tax.new # Tax | 
 }
 
 begin
   result = api_instance.taxes_update(id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TaxesApi->taxes_update: #{e}"
 end
 ```
