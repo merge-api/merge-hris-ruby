@@ -248,13 +248,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 
-### cookieAuth
-
-
-- **Type**: API key
-- **API key parameter name**: Session
-- **Location**: 
-
 ### tokenAuth
 
 - **Type**: Bearer authentication (Token)

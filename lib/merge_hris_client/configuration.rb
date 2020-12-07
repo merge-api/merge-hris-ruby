@@ -193,13 +193,6 @@ module MergeHRISClient
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
-        'cookieAuth' =>
-          {
-            type: 'api_key',
-            in: ,
-            key: 'Session',
-            value: api_key_with_prefix('Session')
-          },
         'tokenAuth' =>
           {
             type: 'bearer',

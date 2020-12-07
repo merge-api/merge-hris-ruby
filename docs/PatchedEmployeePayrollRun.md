@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] [readonly] 
 **remote_id** | **String** | The third-party API ID of the matching object. | [optional] 
-**created_at** | **DateTime** |  | [optional] [readonly] 
-**modified_at** | **DateTime** |  | [optional] [readonly] 
 **employee** | **String** | The employee who&#39;s payroll is being run. | [optional] 
 **payroll_run** | **String** | The payroll being run. | [optional] 
 **gross_pay** | **Float** | The gross pay from the run. | [optional] 
@@ -26,8 +24,6 @@ require 'MergeHRISClient'
 
 instance = MergeHRISClient::PatchedEmployeePayrollRun.new(id: null,
                                  remote_id: 19202938,
-                                 created_at: null,
-                                 modified_at: null,
                                  employee: d2f972d0-2526-434b-9409-4c3b468e08f0,
                                  payroll_run: 35347df1-95e7-46e2-93cc-66f1191edca5,
                                  gross_pay: 1342.67,

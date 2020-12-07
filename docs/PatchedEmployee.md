@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] [readonly] 
 **remote_id** | **String** | The third-party API ID of the matching object. | [optional] 
-**created_at** | **DateTime** |  | [optional] [readonly] 
-**modified_at** | **DateTime** |  | [optional] [readonly] 
 **company** | **String** | The ID of the Employee&#39;s company. | [optional] 
 **first_name** | **String** | The employee&#39;s first name. | [optional] 
 **last_name** | **String** | The employee&#39;s last name. | [optional] 
@@ -39,8 +37,6 @@ require 'MergeHRISClient'
 
 instance = MergeHRISClient::PatchedEmployee.new(id: null,
                                  remote_id: 19202938,
-                                 created_at: null,
-                                 modified_at: null,
                                  company: 8d9fd929-436c-4fd4-a48b-0c61f68d6178,
                                  first_name: Jane,
                                  last_name: Doe,

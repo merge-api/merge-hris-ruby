@@ -24,11 +24,6 @@ Returns all `AsyncTaskExecution` objects for the requester's organization.
 require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
-  # Configure API key authorization: cookieAuth
-  config.api_key['Session'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Session'] = 'Bearer'
-
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
@@ -65,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+[tokenAuth](../README.md#tokenAuth)
 
 ### HTTP request headers
 
@@ -88,11 +83,6 @@ Returns an `AsyncTaskExecution` object with the given `id`.
 require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
-  # Configure API key authorization: cookieAuth
-  config.api_key['Session'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Session'] = 'Bearer'
-
   # Configure Bearer authorization (Token): tokenAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
@@ -121,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+[tokenAuth](../README.md#tokenAuth)
 
 ### HTTP request headers
 

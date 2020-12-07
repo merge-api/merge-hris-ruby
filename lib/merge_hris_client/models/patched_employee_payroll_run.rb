@@ -20,10 +20,6 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    attr_accessor :created_at
-
-    attr_accessor :modified_at
-
     # The employee who's payroll is being run.
     attr_accessor :employee
 
@@ -56,8 +52,6 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
-        :'created_at' => :'created_at',
-        :'modified_at' => :'modified_at',
         :'employee' => :'employee',
         :'payroll_run' => :'payroll_run',
         :'gross_pay' => :'gross_pay',
@@ -76,8 +70,6 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
-        :'created_at' => :'DateTime',
-        :'modified_at' => :'DateTime',
         :'employee' => :'String',
         :'payroll_run' => :'String',
         :'gross_pay' => :'Float',
@@ -126,14 +118,6 @@ module MergeHRISClient
 
       if attributes.key?(:'remote_id')
         self.remote_id = attributes[:'remote_id']
-      end
-
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
       end
 
       if attributes.key?(:'employee')
@@ -203,8 +187,6 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
-          created_at == o.created_at &&
-          modified_at == o.modified_at &&
           employee == o.employee &&
           payroll_run == o.payroll_run &&
           gross_pay == o.gross_pay &&
@@ -226,7 +208,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, created_at, modified_at, employee, payroll_run, gross_pay, net_pay, start_date, end_date, check_date, earnings, deductions, taxes].hash
+      [id, remote_id, employee, payroll_run, gross_pay, net_pay, start_date, end_date, check_date, earnings, deductions, taxes].hash
     end
 
     # Builds the object from hash

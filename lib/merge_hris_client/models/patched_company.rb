@@ -20,10 +20,6 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    attr_accessor :created_at
-
-    attr_accessor :modified_at
-
     # The company's legal name.
     attr_accessor :legal_name
 
@@ -37,8 +33,6 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
-        :'created_at' => :'created_at',
-        :'modified_at' => :'modified_at',
         :'legal_name' => :'legal_name',
         :'display_name' => :'display_name',
         :'ei_ns' => :'EINs'
@@ -50,8 +44,6 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
-        :'created_at' => :'DateTime',
-        :'modified_at' => :'DateTime',
         :'legal_name' => :'String',
         :'display_name' => :'String',
         :'ei_ns' => :'Array<PatchedEIN>'
@@ -90,14 +82,6 @@ module MergeHRISClient
         self.remote_id = attributes[:'remote_id']
       end
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
-      end
-
       if attributes.key?(:'legal_name')
         self.legal_name = attributes[:'legal_name']
       end
@@ -133,8 +117,6 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
-          created_at == o.created_at &&
-          modified_at == o.modified_at &&
           legal_name == o.legal_name &&
           display_name == o.display_name &&
           ei_ns == o.ei_ns
@@ -149,7 +131,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, created_at, modified_at, legal_name, display_name, ei_ns].hash
+      [id, remote_id, legal_name, display_name, ei_ns].hash
     end
 
     # Builds the object from hash
