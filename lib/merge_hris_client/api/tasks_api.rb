@@ -67,7 +67,7 @@ module MergeHRISClient
       return_type = opts[:return_type] || 'PaginatedAsyncTaskExecutionList' 
 
       # auth_names
-      auth_names = opts[:auth_names] || ['cookieAuth', 'tokenAuth']
+      auth_names = opts[:auth_names] || ['tokenAuth']
 
       new_options = opts.merge(
         :header_params => header_params,
@@ -127,7 +127,7 @@ module MergeHRISClient
       return_type = opts[:return_type] || 'AsyncTaskExecution' 
 
       # auth_names
-      auth_names = opts[:auth_names] || ['cookieAuth', 'tokenAuth']
+      auth_names = opts[:auth_names] || ['tokenAuth']
 
       new_options = opts.merge(
         :header_params => header_params,

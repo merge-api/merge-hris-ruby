@@ -20,10 +20,6 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    attr_accessor :created_at
-
-    attr_accessor :modified_at
-
     # The location's phone number.
     attr_accessor :phone_number
 
@@ -50,8 +46,6 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
-        :'created_at' => :'created_at',
-        :'modified_at' => :'modified_at',
         :'phone_number' => :'phone_number',
         :'street_1' => :'street_1',
         :'street_2' => :'street_2',
@@ -67,8 +61,6 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
-        :'created_at' => :'DateTime',
-        :'modified_at' => :'DateTime',
         :'phone_number' => :'String',
         :'street_1' => :'String',
         :'street_2' => :'String',
@@ -114,14 +106,6 @@ module MergeHRISClient
 
       if attributes.key?(:'remote_id')
         self.remote_id = attributes[:'remote_id']
-      end
-
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
       end
 
       if attributes.key?(:'phone_number')
@@ -199,8 +183,6 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
-          created_at == o.created_at &&
-          modified_at == o.modified_at &&
           phone_number == o.phone_number &&
           street_1 == o.street_1 &&
           street_2 == o.street_2 &&
@@ -219,7 +201,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, created_at, modified_at, phone_number, street_1, street_2, city, state, zip_code, country].hash
+      [id, remote_id, phone_number, street_1, street_2, city, state, zip_code, country].hash
     end
 
     # Builds the object from hash

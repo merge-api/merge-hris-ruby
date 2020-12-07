@@ -20,10 +20,6 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    attr_accessor :created_at
-
-    attr_accessor :modified_at
-
     # The position's title.
     attr_accessor :job_title
 
@@ -53,8 +49,6 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
-        :'created_at' => :'created_at',
-        :'modified_at' => :'modified_at',
         :'job_title' => :'job_title',
         :'pay_rate' => :'pay_rate',
         :'pay_period' => :'pay_period',
@@ -71,8 +65,6 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
-        :'created_at' => :'DateTime',
-        :'modified_at' => :'DateTime',
         :'job_title' => :'String',
         :'pay_rate' => :'Float',
         :'pay_period' => :'OneOfPayPeriodEnumBlankEnumNullEnum',
@@ -122,14 +114,6 @@ module MergeHRISClient
         self.remote_id = attributes[:'remote_id']
       end
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
-      end
-
       if attributes.key?(:'job_title')
         self.job_title = attributes[:'job_title']
       end
@@ -171,14 +155,6 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @modified_at.nil?
-        invalid_properties.push('invalid value for "modified_at", modified_at cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -186,8 +162,6 @@ module MergeHRISClient
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
-      return false if @created_at.nil?
-      return false if @modified_at.nil?
       true
     end
 
@@ -198,8 +172,6 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
-          created_at == o.created_at &&
-          modified_at == o.modified_at &&
           job_title == o.job_title &&
           pay_rate == o.pay_rate &&
           pay_period == o.pay_period &&
@@ -219,7 +191,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, created_at, modified_at, job_title, pay_rate, pay_period, pay_frequency, pay_currency, flsa_status, effective_date, employment_type].hash
+      [id, remote_id, job_title, pay_rate, pay_period, pay_frequency, pay_currency, flsa_status, effective_date, employment_type].hash
     end
 
     # Builds the object from hash

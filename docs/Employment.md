@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [readonly] 
 **remote_id** | **String** | The third-party API ID of the matching object. | [optional] 
-**created_at** | **DateTime** |  | [readonly] 
-**modified_at** | **DateTime** |  | [readonly] 
 **job_title** | **String** | The position&#39;s title. | [optional] 
 **pay_rate** | **Float** | The position&#39;s pay rate in dollars. | [optional] 
 **pay_period** | [**OneOfPayPeriodEnumBlankEnumNullEnum**](OneOfPayPeriodEnumBlankEnumNullEnum.md) | The time period this pay rate encompasses. | [optional] 
@@ -24,8 +22,6 @@ require 'MergeHRISClient'
 
 instance = MergeHRISClient::Employment.new(id: null,
                                  remote_id: 19202938,
-                                 created_at: null,
-                                 modified_at: null,
                                  job_title: Software Engineer,
                                  pay_rate: 80000.00,
                                  pay_period: YEAR,
