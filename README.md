@@ -37,9 +37,9 @@ Finally add this to the Gemfile:
 
 ### Install from Git
 
-If the Ruby gem is hosted at a git repository: https://github.com/merge-api/merge-hris-python, then add the following in the Gemfile:
+If the Ruby gem is hosted at a git repository: https://github.com/merge-api/merge-hris-ruby, then add the following in the Gemfile:
 
-    gem 'merge_hris_client', :git => 'https://github.com/merge-api/merge-hris-python.git'
+    gem 'merge_hris_client', :git => 'https://github.com/merge-api/merge-hris-ruby.git'
 
 ### Include the Ruby code directly
 
