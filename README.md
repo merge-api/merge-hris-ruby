@@ -65,6 +65,7 @@ end
 
 api_instance = MergeHRISClient::BenefitsApi.new
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
   benefit: MergeHRISClient::Benefit.new # Benefit | 
 }

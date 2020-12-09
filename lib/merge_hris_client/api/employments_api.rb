@@ -21,6 +21,7 @@ module MergeHRISClient
     end
     # Creates an `Employment` object with the given values.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @option opts [Employment] :employment 
     # @return [Employment]
@@ -31,6 +32,7 @@ module MergeHRISClient
 
     # Creates an &#x60;Employment&#x60; object with the given values.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @option opts [Employment] :employment 
     # @return [Array<(Employment, Integer, Hash)>] Employment data, response status code and response headers
@@ -51,6 +53,7 @@ module MergeHRISClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
+      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -83,6 +86,7 @@ module MergeHRISClient
     # Deletes an `Employment` object with the given `id`.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @return [AsyncTaskExecution]
     def employments_destroy(id, opts = {})
@@ -93,6 +97,7 @@ module MergeHRISClient
     # Deletes an &#x60;Employment&#x60; object with the given &#x60;id&#x60;.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @return [Array<(AsyncTaskExecution, Integer, Hash)>] AsyncTaskExecution data, response status code and response headers
     def employments_destroy_with_http_info(id, opts = {})
@@ -114,6 +119,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -145,6 +151,7 @@ module MergeHRISClient
 
     # Returns a list of `Employment` objects.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
@@ -156,6 +163,7 @@ module MergeHRISClient
 
     # Returns a list of &#x60;Employment&#x60; objects.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
@@ -177,6 +185,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -209,6 +218,7 @@ module MergeHRISClient
     # Updates an `Employment` object with the given `id`.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @option opts [PatchedEmployment] :patched_employment 
     # @return [Employment]
@@ -220,6 +230,7 @@ module MergeHRISClient
     # Updates an &#x60;Employment&#x60; object with the given &#x60;id&#x60;.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @option opts [PatchedEmployment] :patched_employment 
     # @return [Array<(Employment, Integer, Hash)>] Employment data, response status code and response headers
@@ -244,6 +255,7 @@ module MergeHRISClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
+      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -276,6 +288,7 @@ module MergeHRISClient
     # Returns an `Employment` object with the given `id`.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @return [Employment]
     def employments_retrieve(id, opts = {})
       data, _status_code, _headers = employments_retrieve_with_http_info(id, opts)
@@ -285,6 +298,7 @@ module MergeHRISClient
     # Returns an &#x60;Employment&#x60; object with the given &#x60;id&#x60;.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @return [Array<(Employment, Integer, Hash)>] Employment data, response status code and response headers
     def employments_retrieve_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -304,6 +318,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
