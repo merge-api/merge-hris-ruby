@@ -21,6 +21,7 @@ module MergeHRISClient
     end
     # Returns all `AsyncTaskExecution` objects for the requester's organization.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
@@ -33,6 +34,7 @@ module MergeHRISClient
 
     # Returns all &#x60;AsyncTaskExecution&#x60; objects for the requester&#39;s organization.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
@@ -56,6 +58,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -88,6 +91,7 @@ module MergeHRISClient
     # Returns an `AsyncTaskExecution` object with the given `id`.
     # @param task_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @return [AsyncTaskExecution]
     def tasks_retrieve(task_id, opts = {})
       data, _status_code, _headers = tasks_retrieve_with_http_info(task_id, opts)
@@ -97,6 +101,7 @@ module MergeHRISClient
     # Returns an &#x60;AsyncTaskExecution&#x60; object with the given &#x60;id&#x60;.
     # @param task_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_link_token Token identifying the end user.
     # @return [Array<(AsyncTaskExecution, Integer, Hash)>] AsyncTaskExecution data, response status code and response headers
     def tasks_retrieve_with_http_info(task_id, opts = {})
       if @api_client.config.debugging
@@ -116,6 +121,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

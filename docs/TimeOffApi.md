@@ -34,6 +34,7 @@ end
 
 api_instance = MergeHRISClient::TimeOffApi.new
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
   time_off: MergeHRISClient::TimeOff.new # TimeOff | 
 }
@@ -51,6 +52,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
  **run_async** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **time_off** | [**TimeOff**](TimeOff.md)|  | [optional] 
 
@@ -90,6 +92,7 @@ end
 api_instance = MergeHRISClient::TimeOffApi.new
 id = 'id_example' # String | 
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
 }
 
@@ -107,6 +110,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**String**](.md)|  | 
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
  **run_async** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
 
 ### Return type
@@ -144,6 +148,7 @@ end
 
 api_instance = MergeHRISClient::TimeOffApi.new
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   cursor: 56, # Integer | The pagination cursor value.
   expand: 'expand_example', # String | Which relations should be returned in expanded form.
   linked_account_id: 'linked_account_id_example', # String | If provided, will only return objects associated with the given `linked_account_id`.
@@ -163,6 +168,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
  **cursor** | **Integer**| The pagination cursor value. | [optional] 
  **expand** | **String**| Which relations should be returned in expanded form. | [optional] 
  **linked_account_id** | **String**| If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;. | [optional] 
@@ -204,6 +210,7 @@ end
 api_instance = MergeHRISClient::TimeOffApi.new
 id = 'id_example' # String | 
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
   patched_time_off: MergeHRISClient::PatchedTimeOff.new # PatchedTimeOff | 
 }
@@ -222,6 +229,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**String**](.md)|  | 
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
  **run_async** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **patched_time_off** | [**PatchedTimeOff**](PatchedTimeOff.md)|  | [optional] 
 
@@ -261,6 +269,7 @@ end
 api_instance = MergeHRISClient::TimeOffApi.new
 id = 'id_example' # String | 
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   expand: 'expand_example' # String | Which relations should be returned in expanded form.
 }
 
@@ -278,6 +287,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**String**](.md)|  | 
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
  **expand** | **String**| Which relations should be returned in expanded form. | [optional] 
 
 ### Return type

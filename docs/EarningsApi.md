@@ -34,6 +34,7 @@ end
 
 api_instance = MergeHRISClient::EarningsApi.new
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
   earning: MergeHRISClient::Earning.new # Earning | 
 }
@@ -51,6 +52,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
  **run_async** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **earning** | [**Earning**](Earning.md)|  | [optional] 
 
@@ -90,6 +92,7 @@ end
 api_instance = MergeHRISClient::EarningsApi.new
 id = 'id_example' # String | 
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
 }
 
@@ -107,6 +110,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**String**](.md)|  | 
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
  **run_async** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
 
 ### Return type
@@ -144,6 +148,7 @@ end
 
 api_instance = MergeHRISClient::EarningsApi.new
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   cursor: 56, # Integer | The pagination cursor value.
   linked_account_id: 'linked_account_id_example', # String | If provided, will only return objects associated with the given `linked_account_id`.
   remote_id: 'remote_id_example' # String | The API provider's ID for the given object.
@@ -162,6 +167,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
  **cursor** | **Integer**| The pagination cursor value. | [optional] 
  **linked_account_id** | **String**| If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;. | [optional] 
  **remote_id** | **String**| The API provider&#39;s ID for the given object. | [optional] 
@@ -202,6 +208,7 @@ end
 api_instance = MergeHRISClient::EarningsApi.new
 id = 'id_example' # String | 
 opts = {
+  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
   run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
   patched_earning: MergeHRISClient::PatchedEarning.new # PatchedEarning | 
 }
@@ -220,6 +227,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**String**](.md)|  | 
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
  **run_async** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **patched_earning** | [**PatchedEarning**](PatchedEarning.md)|  | [optional] 
 
@@ -239,7 +247,7 @@ Name | Type | Description  | Notes
 
 ## earnings_retrieve
 
-> Earning earnings_retrieve(id)
+> Earning earnings_retrieve(id, opts)
 
 
 
@@ -258,9 +266,12 @@ end
 
 api_instance = MergeHRISClient::EarningsApi.new
 id = 'id_example' # String | 
+opts = {
+  x_link_token: 'x_link_token_example' # String | Token identifying the end user.
+}
 
 begin
-  result = api_instance.earnings_retrieve(id)
+  result = api_instance.earnings_retrieve(id, opts)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Exception when calling EarningsApi->earnings_retrieve: #{e}"
@@ -273,6 +284,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**String**](.md)|  | 
+ **x_link_token** | **String**| Token identifying the end user. | [optional] 
 
 ### Return type
 
