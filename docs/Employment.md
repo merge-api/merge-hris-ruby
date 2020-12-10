@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [readonly] 
+**id** | **String** |  | [optional] [readonly] 
 **remote_id** | **String** | The third-party API ID of the matching object. | [optional] 
 **job_title** | **String** | The position&#39;s title. | [optional] 
 **pay_rate** | **Float** | The position&#39;s pay rate in dollars. | [optional] 

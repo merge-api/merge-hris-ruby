@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [readonly] 
+**id** | **String** |  | [optional] [readonly] 
 **remote_id** | **String** | The third-party API ID of the matching object. | [optional] 
 **phone_number** | **String** | The location&#39;s phone number. | [optional] 
 **street_1** | **String** | Line 1 of the location&#39;s street address. | [optional] 

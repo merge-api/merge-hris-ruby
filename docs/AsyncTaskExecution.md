@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [readonly] 
+**id** | **String** |  | [optional] [readonly] 
 **status** | [**AsyncTaskExecutionStatusEnum**](AsyncTaskExecutionStatusEnum.md) |  | 
 
 ## Code Sample

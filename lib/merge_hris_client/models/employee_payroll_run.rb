@@ -171,32 +171,12 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @earnings.nil?
-        invalid_properties.push('invalid value for "earnings", earnings cannot be nil.')
-      end
-
-      if @deductions.nil?
-        invalid_properties.push('invalid value for "deductions", deductions cannot be nil.')
-      end
-
-      if @taxes.nil?
-        invalid_properties.push('invalid value for "taxes", taxes cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      return false if @earnings.nil?
-      return false if @deductions.nil?
-      return false if @taxes.nil?
       true
     end
 

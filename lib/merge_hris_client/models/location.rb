@@ -141,10 +141,6 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
       if !@phone_number.nil? && @phone_number.to_s.length > 17
         invalid_properties.push('invalid value for "phone_number", the character length must be smaller than or equal to 17.')
       end
@@ -160,7 +156,6 @@ module MergeHRISClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
       return false if !@phone_number.nil? && @phone_number.to_s.length > 17
       return false if !@phone_number.nil? && @phone_number !~ Regexp.new(/^\+?1?\d{9,15}$/)
       true
