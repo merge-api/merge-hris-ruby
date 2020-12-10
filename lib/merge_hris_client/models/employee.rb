@@ -301,10 +301,6 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
       if !@work_email.nil? && @work_email.to_s.length > 254
         invalid_properties.push('invalid value for "work_email", the character length must be smaller than or equal to 254.')
       end
@@ -322,28 +318,12 @@ module MergeHRISClient
         invalid_properties.push("invalid value for \"mobile_phone_number\", must conform to the pattern #{pattern}.")
       end
 
-      if @employments.nil?
-        invalid_properties.push('invalid value for "employments", employments cannot be nil.')
-      end
-
       if !@ssn.nil? && @ssn.to_s.length > 9
         invalid_properties.push('invalid value for "ssn", the character length must be smaller than or equal to 9.')
       end
 
-      if @hire_dates.nil?
-        invalid_properties.push('invalid value for "hire_dates", hire_dates cannot be nil.')
-      end
-
-      if @termination_dates.nil?
-        invalid_properties.push('invalid value for "termination_dates", termination_dates cannot be nil.')
-      end
-
       if !@avatar.nil? && @avatar.to_s.length > 200
         invalid_properties.push('invalid value for "avatar", the character length must be smaller than or equal to 200.')
-      end
-
-      if @documents.nil?
-        invalid_properties.push('invalid value for "documents", documents cannot be nil.')
       end
 
       invalid_properties
@@ -352,17 +332,12 @@ module MergeHRISClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
       return false if !@work_email.nil? && @work_email.to_s.length > 254
       return false if !@personal_email.nil? && @personal_email.to_s.length > 254
       return false if !@mobile_phone_number.nil? && @mobile_phone_number.to_s.length > 17
       return false if !@mobile_phone_number.nil? && @mobile_phone_number !~ Regexp.new(/^\+?1?\d{9,15}$/)
-      return false if @employments.nil?
       return false if !@ssn.nil? && @ssn.to_s.length > 9
-      return false if @hire_dates.nil?
-      return false if @termination_dates.nil?
       return false if !@avatar.nil? && @avatar.to_s.length > 200
-      return false if @documents.nil?
       true
     end
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [readonly] 
+**id** | **String** |  | [optional] [readonly] 
 **remote_id** | **String** | The third-party API ID of the matching object. | [optional] 
 **company** | **String** | The ID of the Employee&#39;s company. | [optional] 
 **first_name** | **String** | The employee&#39;s first name. | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **work_email** | **String** | The employee&#39;s work email. | [optional] 
 **personal_email** | **String** | The employee&#39;s personal email. | [optional] 
 **mobile_phone_number** | **String** | The employee&#39;s mobile phone number. | [optional] 
-**employments** | **Array&lt;String&gt;** |  | [readonly] 
+**employments** | **Array&lt;String&gt;** |  | [optional] [readonly] 
 **home_location** | **String** | The employee&#39;s home address. | [optional] 
 **work_location** | **String** | The employee&#39;s work address. | [optional] 
 **manager** | **String** | The employeee ID of the employee&#39;s manager. | [optional] 
@@ -23,12 +23,12 @@ Name | Type | Description | Notes
 **ethnicity** | [**OneOfEthnicityEnumBlankEnumNullEnum**](OneOfEthnicityEnumBlankEnumNullEnum.md) | The employee&#39;s ethnicity. | [optional] 
 **marital_status** | [**OneOfMaritalStatusEnumBlankEnumNullEnum**](OneOfMaritalStatusEnumBlankEnumNullEnum.md) | The employee&#39;s marital status. | [optional] 
 **date_of_birth** | **DateTime** | The employee&#39;s date of birth. | [optional] 
-**hire_dates** | [**Array&lt;HireDate&gt;**](HireDate.md) |  | [readonly] 
+**hire_dates** | [**Array&lt;HireDate&gt;**](HireDate.md) |  | [optional] [readonly] 
 **employment_status** | [**OneOfEmploymentStatusEnumBlankEnumNullEnum**](OneOfEmploymentStatusEnumBlankEnumNullEnum.md) | The employment status of the employee. | [optional] 
-**termination_dates** | [**Array&lt;TerminationDate&gt;**](TerminationDate.md) |  | [readonly] 
+**termination_dates** | [**Array&lt;TerminationDate&gt;**](TerminationDate.md) |  | [optional] [readonly] 
 **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] 
 **about** | **String** | A description of the employee. | [optional] 
-**documents** | **Array&lt;String&gt;** |  | [readonly] 
+**documents** | **Array&lt;String&gt;** |  | [optional] [readonly] 
 
 ## Code Sample
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [readonly] 
+**id** | **String** |  | [optional] [readonly] 
 **remote_id** | **String** | The third-party API ID of the matching object. | [optional] 
 **employee** | **String** | The employee who&#39;s payroll is being run. | [optional] 
 **payroll_run** | **String** | The payroll being run. | [optional] 
@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **start_date** | **DateTime** | The day and time the payroll run started. | [optional] 
 **end_date** | **DateTime** | The day and time the payroll run ended. | [optional] 
 **check_date** | **DateTime** | The day and time the payroll run was checked. | [optional] 
-**earnings** | [**Array&lt;Earning&gt;**](Earning.md) |  | [readonly] 
-**deductions** | [**Array&lt;Deduction&gt;**](Deduction.md) |  | [readonly] 
-**taxes** | [**Array&lt;Tax&gt;**](Tax.md) |  | [readonly] 
+**earnings** | [**Array&lt;Earning&gt;**](Earning.md) |  | [optional] [readonly] 
+**deductions** | [**Array&lt;Deduction&gt;**](Deduction.md) |  | [optional] [readonly] 
+**taxes** | [**Array&lt;Tax&gt;**](Tax.md) |  | [optional] [readonly] 
 
 ## Code Sample
 
