@@ -23,11 +23,10 @@ Name | Type | Description | Notes
 **ethnicity** | [**OneOfEthnicityEnumBlankEnumNullEnum**](OneOfEthnicityEnumBlankEnumNullEnum.md) | The employee&#39;s ethnicity. | [optional] 
 **marital_status** | [**OneOfMaritalStatusEnumBlankEnumNullEnum**](OneOfMaritalStatusEnumBlankEnumNullEnum.md) | The employee&#39;s marital status. | [optional] 
 **date_of_birth** | **DateTime** | The employee&#39;s date of birth. | [optional] 
-**hire_dates** | [**Array&lt;HireDate&gt;**](HireDate.md) |  | [optional] [readonly] 
+**hire_dates** | **Array&lt;DateTime&gt;** | A list of the employee&#39;s hire dates. | [optional] 
 **employment_status** | [**OneOfEmploymentStatusEnumBlankEnumNullEnum**](OneOfEmploymentStatusEnumBlankEnumNullEnum.md) | The employment status of the employee. | [optional] 
-**termination_dates** | [**Array&lt;TerminationDate&gt;**](TerminationDate.md) |  | [optional] [readonly] 
+**termination_dates** | **Array&lt;DateTime&gt;** | A list of the employee&#39;s termination dates. | [optional] 
 **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] 
-**about** | **String** | A description of the employee. | [optional] 
 **documents** | **Array&lt;String&gt;** |  | [optional] [readonly] 
 
 ## Code Sample
@@ -35,7 +34,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'MergeHRISClient'
 
-instance = MergeHRISClient::PatchedEmployee.new(id: null,
+instance = MergeHRISClient::PatchedEmployee.new(id: 0958cbc6-6040-430a-848e-aafacbadf4ae,
                                  remote_id: 19202938,
                                  company: 8d9fd929-436c-4fd4-a48b-0c61f68d6178,
                                  first_name: Jane,
@@ -58,7 +57,6 @@ instance = MergeHRISClient::PatchedEmployee.new(id: null,
                                  employment_status: ACTIVE,
                                  termination_dates: [&quot;2020-11-10 00:59:25.309761+00:00&quot;],
                                  avatar: http://alturl.com/h2h8m,
-                                 about: I kind of have a thing for integrations!,
                                  documents: [&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;])
 ```
 

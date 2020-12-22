@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::CompaniesApi* | [**companies_partial_update**](docs/CompaniesApi.md#companies_partial_update) | **PATCH** /companies/{id} | 
 *MergeHRISClient::CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
 *MergeHRISClient::CompaniesApi* | [**companies_update**](docs/CompaniesApi.md#companies_update) | **PUT** /companies/{id} | 
+*MergeHRISClient::CreateLinkTokenApi* | [**create_link_token_create**](docs/CreateLinkTokenApi.md#create_link_token_create) | **POST** /create-link-token | 
 *MergeHRISClient::DeductionsApi* | [**deductions_create**](docs/DeductionsApi.md#deductions_create) | **POST** /deductions | 
 *MergeHRISClient::DeductionsApi* | [**deductions_destroy**](docs/DeductionsApi.md#deductions_destroy) | **DELETE** /deductions/{id} | 
 *MergeHRISClient::DeductionsApi* | [**deductions_list**](docs/DeductionsApi.md#deductions_list) | **GET** /deductions | 
@@ -145,6 +146,7 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_partial_update**](docs/PayrollRunsApi.md#payroll_runs_partial_update) | **PATCH** /payroll-runs/{id} | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_update**](docs/PayrollRunsApi.md#payroll_runs_update) | **PUT** /payroll-runs/{id} | 
+*MergeHRISClient::PrivateTokenApi* | [**private_token_retrieve**](docs/PrivateTokenApi.md#private_token_retrieve) | **GET** /private-token/{public_token} | 
 *MergeHRISClient::ReportsApi* | [**reports_create**](docs/ReportsApi.md#reports_create) | **POST** /reports | 
 *MergeHRISClient::ReportsApi* | [**reports_destroy**](docs/ReportsApi.md#reports_destroy) | **DELETE** /reports/{id} | 
 *MergeHRISClient::ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
@@ -184,7 +186,6 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::CountryEnum](docs/CountryEnum.md)
  - [MergeHRISClient::Deduction](docs/Deduction.md)
  - [MergeHRISClient::Document](docs/Document.md)
- - [MergeHRISClient::EIN](docs/EIN.md)
  - [MergeHRISClient::Earning](docs/Earning.md)
  - [MergeHRISClient::Employee](docs/Employee.md)
  - [MergeHRISClient::EmployeePayrollRun](docs/EmployeePayrollRun.md)
@@ -194,7 +195,6 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::EthnicityEnum](docs/EthnicityEnum.md)
  - [MergeHRISClient::FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [MergeHRISClient::GenderEnum](docs/GenderEnum.md)
- - [MergeHRISClient::HireDate](docs/HireDate.md)
  - [MergeHRISClient::Location](docs/Location.md)
  - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
  - [MergeHRISClient::NullEnum](docs/NullEnum.md)
@@ -217,7 +217,6 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::PatchedCompany](docs/PatchedCompany.md)
  - [MergeHRISClient::PatchedDeduction](docs/PatchedDeduction.md)
  - [MergeHRISClient::PatchedDocument](docs/PatchedDocument.md)
- - [MergeHRISClient::PatchedEIN](docs/PatchedEIN.md)
  - [MergeHRISClient::PatchedEarning](docs/PatchedEarning.md)
  - [MergeHRISClient::PatchedEmployee](docs/PatchedEmployee.md)
  - [MergeHRISClient::PatchedEmployeePayrollRun](docs/PatchedEmployeePayrollRun.md)
@@ -239,7 +238,6 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::StateEnum](docs/StateEnum.md)
  - [MergeHRISClient::Tax](docs/Tax.md)
  - [MergeHRISClient::Team](docs/Team.md)
- - [MergeHRISClient::TerminationDate](docs/TerminationDate.md)
  - [MergeHRISClient::TimeOff](docs/TimeOff.md)
  - [MergeHRISClient::TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
  - [MergeHRISClient::TypeEnum](docs/TypeEnum.md)

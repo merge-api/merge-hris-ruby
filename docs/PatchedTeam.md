@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'MergeHRISClient'
 
-instance = MergeHRISClient::PatchedTeam.new(id: null,
+instance = MergeHRISClient::PatchedTeam.new(id: 13a72919-9fae-4f54-81ca-ddfd8712a1ba,
                                  remote_id: 19202938,
                                  name: Engineering)
 ```

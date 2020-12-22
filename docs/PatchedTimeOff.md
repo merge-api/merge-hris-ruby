@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'MergeHRISClient'
 
-instance = MergeHRISClient::PatchedTimeOff.new(id: null,
+instance = MergeHRISClient::PatchedTimeOff.new(id: 91b2b905-e866-40c8-8be2-efe53827a0aa,
                                  remote_id: 19202938,
                                  employee: d2f972d0-2526-434b-9409-4c3b468e08f0,
                                  approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f,

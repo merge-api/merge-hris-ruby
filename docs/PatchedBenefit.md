@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'MergeHRISClient'
 
-instance = MergeHRISClient::PatchedBenefit.new(id: null,
+instance = MergeHRISClient::PatchedBenefit.new(id: 3fe5ae7a-f1ba-4529-b7af-84e86dc6d232,
                                  remote_id: 19202938,
                                  employee: d2f972d0-2526-434b-9409-4c3b468e08f0,
                                  provider_name: Blue Shield of California,
