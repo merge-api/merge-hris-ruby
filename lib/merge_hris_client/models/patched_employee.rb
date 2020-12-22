@@ -70,18 +70,17 @@ module MergeHRISClient
     # The employee's date of birth.
     attr_accessor :date_of_birth
 
+    # A list of the employee's hire dates.
     attr_accessor :hire_dates
 
     # The employment status of the employee.
     attr_accessor :employment_status
 
+    # A list of the employee's termination dates.
     attr_accessor :termination_dates
 
     # The URL of the employee's avatar image.
     attr_accessor :avatar
-
-    # A description of the employee.
-    attr_accessor :about
 
     attr_accessor :documents
 
@@ -111,7 +110,6 @@ module MergeHRISClient
         :'employment_status' => :'employment_status',
         :'termination_dates' => :'termination_dates',
         :'avatar' => :'avatar',
-        :'about' => :'about',
         :'documents' => :'documents'
       }
     end
@@ -138,11 +136,10 @@ module MergeHRISClient
         :'ethnicity' => :'OneOfEthnicityEnumBlankEnumNullEnum',
         :'marital_status' => :'OneOfMaritalStatusEnumBlankEnumNullEnum',
         :'date_of_birth' => :'DateTime',
-        :'hire_dates' => :'Array<HireDate>',
+        :'hire_dates' => :'Array<DateTime>',
         :'employment_status' => :'OneOfEmploymentStatusEnumBlankEnumNullEnum',
-        :'termination_dates' => :'Array<TerminationDate>',
+        :'termination_dates' => :'Array<DateTime>',
         :'avatar' => :'String',
-        :'about' => :'String',
         :'documents' => :'Array<String>'
       }
     end
@@ -167,9 +164,10 @@ module MergeHRISClient
         :'ethnicity',
         :'marital_status',
         :'date_of_birth',
+        :'hire_dates',
         :'employment_status',
+        :'termination_dates',
         :'avatar',
-        :'about',
       ])
     end
 
@@ -286,10 +284,6 @@ module MergeHRISClient
         self.avatar = attributes[:'avatar']
       end
 
-      if attributes.key?(:'about')
-        self.about = attributes[:'about']
-      end
-
       if attributes.key?(:'documents')
         if (value = attributes[:'documents']).is_a?(Array)
           self.documents = value
@@ -318,12 +312,12 @@ module MergeHRISClient
         invalid_properties.push("invalid value for \"mobile_phone_number\", must conform to the pattern #{pattern}.")
       end
 
-      if !@ssn.nil? && @ssn.to_s.length > 9
-        invalid_properties.push('invalid value for "ssn", the character length must be smaller than or equal to 9.')
+      if !@ssn.nil? && @ssn.to_s.length > 100
+        invalid_properties.push('invalid value for "ssn", the character length must be smaller than or equal to 100.')
       end
 
-      if !@avatar.nil? && @avatar.to_s.length > 200
-        invalid_properties.push('invalid value for "avatar", the character length must be smaller than or equal to 200.')
+      if !@avatar.nil? && @avatar.to_s.length > 700
+        invalid_properties.push('invalid value for "avatar", the character length must be smaller than or equal to 700.')
       end
 
       invalid_properties
@@ -336,8 +330,8 @@ module MergeHRISClient
       return false if !@personal_email.nil? && @personal_email.to_s.length > 254
       return false if !@mobile_phone_number.nil? && @mobile_phone_number.to_s.length > 17
       return false if !@mobile_phone_number.nil? && @mobile_phone_number !~ Regexp.new(/^\+?1?\d{9,15}$/)
-      return false if !@ssn.nil? && @ssn.to_s.length > 9
-      return false if !@avatar.nil? && @avatar.to_s.length > 200
+      return false if !@ssn.nil? && @ssn.to_s.length > 100
+      return false if !@avatar.nil? && @avatar.to_s.length > 700
       true
     end
 
@@ -379,8 +373,8 @@ module MergeHRISClient
     # Custom attribute writer method with validation
     # @param [Object] ssn Value to be assigned
     def ssn=(ssn)
-      if !ssn.nil? && ssn.to_s.length > 9
-        fail ArgumentError, 'invalid value for "ssn", the character length must be smaller than or equal to 9.'
+      if !ssn.nil? && ssn.to_s.length > 100
+        fail ArgumentError, 'invalid value for "ssn", the character length must be smaller than or equal to 100.'
       end
 
       @ssn = ssn
@@ -389,8 +383,8 @@ module MergeHRISClient
     # Custom attribute writer method with validation
     # @param [Object] avatar Value to be assigned
     def avatar=(avatar)
-      if !avatar.nil? && avatar.to_s.length > 200
-        fail ArgumentError, 'invalid value for "avatar", the character length must be smaller than or equal to 200.'
+      if !avatar.nil? && avatar.to_s.length > 700
+        fail ArgumentError, 'invalid value for "avatar", the character length must be smaller than or equal to 700.'
       end
 
       @avatar = avatar
@@ -424,7 +418,6 @@ module MergeHRISClient
           employment_status == o.employment_status &&
           termination_dates == o.termination_dates &&
           avatar == o.avatar &&
-          about == o.about &&
           documents == o.documents
     end
 
@@ -437,7 +430,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, ssn, gender, ethnicity, marital_status, date_of_birth, hire_dates, employment_status, termination_dates, avatar, about, documents].hash
+      [id, remote_id, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, ssn, gender, ethnicity, marital_status, date_of_birth, hire_dates, employment_status, termination_dates, avatar, documents].hash
     end
 
     # Builds the object from hash

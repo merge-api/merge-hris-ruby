@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'MergeHRISClient'
 
-instance = MergeHRISClient::PayrollRun.new(id: null,
+instance = MergeHRISClient::PayrollRun.new(id: 37336947-b3d4-4a4c-a310-ab6ab510e079,
                                  remote_id: 19202938,
                                  run_state: PAID,
                                  run_type: REGULAR,

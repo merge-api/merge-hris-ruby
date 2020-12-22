@@ -26,6 +26,7 @@ module MergeHRISClient
     # The company's display name.
     attr_accessor :display_name
 
+    # The company's Employer Identification Numbers.
     attr_accessor :ei_ns
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -46,7 +47,7 @@ module MergeHRISClient
         :'remote_id' => :'String',
         :'legal_name' => :'String',
         :'display_name' => :'String',
-        :'ei_ns' => :'Array<EIN>'
+        :'ei_ns' => :'Array<String>'
       }
     end
 
@@ -56,6 +57,7 @@ module MergeHRISClient
         :'remote_id',
         :'legal_name',
         :'display_name',
+        :'ei_ns'
       ])
     end
 

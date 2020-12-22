@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'MergeHRISClient'
 
-instance = MergeHRISClient::Employment.new(id: null,
+instance = MergeHRISClient::Employment.new(id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982,
                                  remote_id: 19202938,
                                  job_title: Software Engineer,
                                  pay_rate: 80000.00,
