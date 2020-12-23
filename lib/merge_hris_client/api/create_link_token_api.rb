@@ -20,21 +20,27 @@ module MergeHRISClient
       @api_client = api_client
     end
     # Creates a link token to be used when linking a new end user.
+    # @param link_token [LinkToken] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :production_key The requesting organization&#39;s production key.
-    # @return [nil]
-    def create_link_token_create(opts = {})
-      create_link_token_create_with_http_info(opts)
-      nil
+    # @return [LinkToken]
+    def create_link_token_create(link_token, opts = {})
+      data, _status_code, _headers = create_link_token_create_with_http_info(link_token, opts)
+      data
     end
 
     # Creates a link token to be used when linking a new end user.
+    # @param link_token [LinkToken] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :production_key The requesting organization&#39;s production key.
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def create_link_token_create_with_http_info(opts = {})
+    # @return [Array<(LinkToken, Integer, Hash)>] LinkToken data, response status code and response headers
+    def create_link_token_create_with_http_info(link_token, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CreateLinkTokenApi.create_link_token_create ...'
+      end
+      # verify the required parameter 'link_token' is set
+      if @api_client.config.client_side_validation && link_token.nil?
+        fail ArgumentError, "Missing the required parameter 'link_token' when calling CreateLinkTokenApi.create_link_token_create"
       end
       # resource path
       local_var_path = '/create-link-token'
@@ -45,15 +51,19 @@ module MergeHRISClient
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] 
+      post_body = opts[:body] || @api_client.object_to_http_body(link_token) 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'LinkToken' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['tokenAuth']

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## private_token_retrieve
 
-> private_token_retrieve(public_token, opts)
+> PrivateToken private_token_retrieve(public_token, opts)
 
 
 
@@ -34,7 +34,8 @@ opts = {
 }
 
 begin
-  api_instance.private_token_retrieve(public_token, opts)
+  result = api_instance.private_token_retrieve(public_token, opts)
+  p result
 rescue MergeHRISClient::ApiError => e
   puts "Exception when calling PrivateTokenApi->private_token_retrieve: #{e}"
 end
@@ -50,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+[**PrivateToken**](PrivateToken.md)
 
 ### Authorization
 
@@ -59,5 +60,5 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 

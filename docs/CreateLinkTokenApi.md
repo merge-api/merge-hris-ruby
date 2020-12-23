@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## create_link_token_create
 
-> create_link_token_create(opts)
+> LinkToken create_link_token_create(link_token, opts)
 
 
 
@@ -28,12 +28,14 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::CreateLinkTokenApi.new
+link_token = MergeHRISClient::LinkToken.new # LinkToken | 
 opts = {
   production_key: 'production_key_example' # String | The requesting organization's production key.
 }
 
 begin
-  api_instance.create_link_token_create(opts)
+  result = api_instance.create_link_token_create(link_token, opts)
+  p result
 rescue MergeHRISClient::ApiError => e
   puts "Exception when calling CreateLinkTokenApi->create_link_token_create: #{e}"
 end
@@ -44,11 +46,12 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **link_token** | [**LinkToken**](LinkToken.md)|  | 
  **production_key** | **String**| The requesting organization&#39;s production key. | [optional] 
 
 ### Return type
 
-nil (empty response body)
+[**LinkToken**](LinkToken.md)
 
 ### Authorization
 
@@ -56,6 +59,6 @@ nil (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
 

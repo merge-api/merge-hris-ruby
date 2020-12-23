@@ -23,17 +23,17 @@ module MergeHRISClient
     # @param public_token [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :production_key The requesting organization&#39;s production key.
-    # @return [nil]
+    # @return [PrivateToken]
     def private_token_retrieve(public_token, opts = {})
-      private_token_retrieve_with_http_info(public_token, opts)
-      nil
+      data, _status_code, _headers = private_token_retrieve_with_http_info(public_token, opts)
+      data
     end
 
     # Returns the private token for the end user with the provided public token.
     # @param public_token [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :production_key The requesting organization&#39;s production key.
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(PrivateToken, Integer, Hash)>] PrivateToken data, response status code and response headers
     def private_token_retrieve_with_http_info(public_token, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PrivateTokenApi.private_token_retrieve ...'
@@ -51,6 +51,8 @@ module MergeHRISClient
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -59,7 +61,7 @@ module MergeHRISClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:return_type] || 'PrivateToken' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['tokenAuth']
