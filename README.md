@@ -59,8 +59,10 @@ require 'merge_hris_client'
 
 # Setup authorization
 MergeHRISClient.configure do |config|
-  # Configure Bearer authorization (Token): tokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
+  # Configure API key authorization: tokenAuth
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::BenefitsApi.new
@@ -181,7 +183,6 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::AsyncTaskExecutionStatusEnum](docs/AsyncTaskExecutionStatusEnum.md)
  - [MergeHRISClient::Benefit](docs/Benefit.md)
  - [MergeHRISClient::BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
- - [MergeHRISClient::BlankEnum](docs/BlankEnum.md)
  - [MergeHRISClient::Company](docs/Company.md)
  - [MergeHRISClient::CountryEnum](docs/CountryEnum.md)
  - [MergeHRISClient::Deduction](docs/Deduction.md)
@@ -198,7 +199,6 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::LinkToken](docs/LinkToken.md)
  - [MergeHRISClient::Location](docs/Location.md)
  - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
- - [MergeHRISClient::NullEnum](docs/NullEnum.md)
  - [MergeHRISClient::PaginatedAsyncTaskExecutionList](docs/PaginatedAsyncTaskExecutionList.md)
  - [MergeHRISClient::PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [MergeHRISClient::PaginatedCompanyList](docs/PaginatedCompanyList.md)
@@ -251,5 +251,8 @@ Class | Method | HTTP request | Description
 
 ### tokenAuth
 
-- **Type**: Bearer authentication (Token)
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
 

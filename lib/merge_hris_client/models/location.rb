@@ -65,9 +65,9 @@ module MergeHRISClient
         :'street_1' => :'String',
         :'street_2' => :'String',
         :'city' => :'String',
-        :'state' => :'OneOfStateEnumBlankEnumNullEnum',
+        :'state' => :'StateEnum',
         :'zip_code' => :'String',
-        :'country' => :'OneOfCountryEnumBlankEnumNullEnum'
+        :'country' => :'CountryEnum'
       }
     end
 

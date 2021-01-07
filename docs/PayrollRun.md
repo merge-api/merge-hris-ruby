@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] [readonly] 
 **remote_id** | **String** | The third-party API ID of the matching object. | [optional] 
-**run_state** | [**OneOfRunStateEnumBlankEnumNullEnum**](OneOfRunStateEnumBlankEnumNullEnum.md) | The state of the payroll run | [optional] 
-**run_type** | [**OneOfRunTypeEnumBlankEnumNullEnum**](OneOfRunTypeEnumBlankEnumNullEnum.md) | The type of the payroll run | [optional] 
+**run_state** | [**RunStateEnum**](RunStateEnum.md) | The state of the payroll run | [optional] 
+**run_type** | [**RunTypeEnum**](RunTypeEnum.md) | The type of the payroll run | [optional] 
 **start_date** | **DateTime** | The day and time the payroll run started. | [optional] 
 **end_date** | **DateTime** | The day and time the payroll run ended. | [optional] 
 **check_date** | **DateTime** | The day and time the payroll run was checked. | [optional] 

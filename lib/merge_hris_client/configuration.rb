@@ -195,11 +195,10 @@ module MergeHRISClient
       {
         'tokenAuth' =>
           {
-            type: 'bearer',
+            type: 'api_key',
             in: 'header',
-            format: 'Token',
             key: 'Authorization',
-            value: "Bearer #{access_token}"
+            value: api_key_with_prefix('Authorization')
           },
       }
     end
