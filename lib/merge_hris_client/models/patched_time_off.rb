@@ -63,11 +63,11 @@ module MergeHRISClient
         :'remote_id' => :'String',
         :'employee' => :'String',
         :'approver' => :'String',
-        :'status' => :'OneOfTimeOffStatusEnumBlankEnumNullEnum',
+        :'status' => :'TimeOffStatusEnum',
         :'employee_note' => :'String',
-        :'units' => :'OneOfUnitsEnumBlankEnumNullEnum',
+        :'units' => :'UnitsEnum',
         :'amount' => :'Float',
-        :'request_type' => :'OneOfRequestTypeEnumBlankEnumNullEnum'
+        :'request_type' => :'RequestTypeEnum'
       }
     end
 

@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **remote_id** | **String** | The third-party API ID of the matching object. | [optional] 
 **employee** | **String** | The employee requesting time off. | [optional] 
 **approver** | **String** | The employee approving the time off request. | [optional] 
-**status** | [**OneOfTimeOffStatusEnumBlankEnumNullEnum**](OneOfTimeOffStatusEnumBlankEnumNullEnum.md) | The status of this time off request. | [optional] 
+**status** | [**TimeOffStatusEnum**](TimeOffStatusEnum.md) | The status of this time off request. | [optional] 
 **employee_note** | **String** | The status of this time off request. | [optional] 
-**units** | [**OneOfUnitsEnumBlankEnumNullEnum**](OneOfUnitsEnumBlankEnumNullEnum.md) | The unit of time requested. | [optional] 
+**units** | [**UnitsEnum**](UnitsEnum.md) | The unit of time requested. | [optional] 
 **amount** | **Float** | The number of time off units requested. | [optional] 
-**request_type** | [**OneOfRequestTypeEnumBlankEnumNullEnum**](OneOfRequestTypeEnumBlankEnumNullEnum.md) | The type of time off request. | [optional] 
+**request_type** | [**RequestTypeEnum**](RequestTypeEnum.md) | The type of time off request. | [optional] 
 
 ## Code Sample
 

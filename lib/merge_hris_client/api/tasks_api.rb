@@ -22,14 +22,13 @@ module MergeHRISClient
     # Returns all `AsyncTaskExecution` objects for the requester's organization.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_link_token Token identifying the end user.
-    # @option opts [String] :created_after If provided, will only return objects created after this datetime.
-    # @option opts [String] :created_before If provided, will only return objects created before this datetime.
+    # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
+    # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
-    # @option opts [String] :modified_after If provided, will only return objects modified after this datetime.
-    # @option opts [String] :modified_before If provided, will only return objects modified before this datetime.
+    # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
+    # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @option opts [String] :status The status of the task.
     # @return [PaginatedAsyncTaskExecutionList]
     def tasks_list(opts = {})
@@ -40,19 +39,22 @@ module MergeHRISClient
     # Returns all &#x60;AsyncTaskExecution&#x60; objects for the requester&#39;s organization.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_link_token Token identifying the end user.
-    # @option opts [String] :created_after If provided, will only return objects created after this datetime.
-    # @option opts [String] :created_before If provided, will only return objects created before this datetime.
+    # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
+    # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
-    # @option opts [String] :modified_after If provided, will only return objects modified after this datetime.
-    # @option opts [String] :modified_before If provided, will only return objects modified before this datetime.
+    # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
+    # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @option opts [String] :status The status of the task.
     # @return [Array<(PaginatedAsyncTaskExecutionList, Integer, Hash)>] PaginatedAsyncTaskExecutionList data, response status code and response headers
     def tasks_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TasksApi.tasks_list ...'
+      end
+      allowable_values = ["PENDING", "STARTED", "COMPLETED"]
+      if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
+        fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/tasks'
@@ -66,7 +68,6 @@ module MergeHRISClient
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
       query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
 
       # header parameters

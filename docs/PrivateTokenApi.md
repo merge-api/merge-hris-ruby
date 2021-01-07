@@ -23,8 +23,10 @@ Returns the private token for the end user with the provided public token.
 require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
-  # Configure Bearer authorization (Token): tokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
+  # Configure API key authorization: tokenAuth
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::PrivateTokenApi.new

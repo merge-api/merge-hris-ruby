@@ -67,12 +67,12 @@ module MergeHRISClient
         :'remote_id' => :'String',
         :'job_title' => :'String',
         :'pay_rate' => :'Float',
-        :'pay_period' => :'OneOfPayPeriodEnumBlankEnumNullEnum',
-        :'pay_frequency' => :'OneOfPayFrequencyEnumBlankEnumNullEnum',
-        :'pay_currency' => :'OneOfPayCurrencyEnumBlankEnumNullEnum',
-        :'flsa_status' => :'OneOfFlsaStatusEnumBlankEnumNullEnum',
+        :'pay_period' => :'PayPeriodEnum',
+        :'pay_frequency' => :'PayFrequencyEnum',
+        :'pay_currency' => :'PayCurrencyEnum',
+        :'flsa_status' => :'FlsaStatusEnum',
         :'effective_date' => :'DateTime',
-        :'employment_type' => :'OneOfEmploymentTypeEnumBlankEnumNullEnum'
+        :'employment_type' => :'EmploymentTypeEnum'
       }
     end
 

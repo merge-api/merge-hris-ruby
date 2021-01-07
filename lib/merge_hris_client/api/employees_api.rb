@@ -152,13 +152,13 @@ module MergeHRISClient
     # Returns a list of `Employee` objects.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_link_token Token identifying the end user.
-    # @option opts [String] :created_after If provided, will only return objects created after this datetime.
-    # @option opts [String] :created_before If provided, will only return objects created before this datetime.
+    # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
+    # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form.
     # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
-    # @option opts [String] :modified_after If provided, will only return objects modified after this datetime.
-    # @option opts [String] :modified_before If provided, will only return objects modified before this datetime.
+    # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
+    # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [PaginatedEmployeeList]
@@ -170,13 +170,13 @@ module MergeHRISClient
     # Returns a list of &#x60;Employee&#x60; objects.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_link_token Token identifying the end user.
-    # @option opts [String] :created_after If provided, will only return objects created after this datetime.
-    # @option opts [String] :created_before If provided, will only return objects created before this datetime.
+    # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
+    # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form.
     # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
-    # @option opts [String] :modified_after If provided, will only return objects modified after this datetime.
-    # @option opts [String] :modified_before If provided, will only return objects modified before this datetime.
+    # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
+    # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [Array<(PaginatedEmployeeList, Integer, Hash)>] PaginatedEmployeeList data, response status code and response headers

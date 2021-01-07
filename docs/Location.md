@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **street_1** | **String** | Line 1 of the location&#39;s street address. | [optional] 
 **street_2** | **String** | Line 2 of the location&#39;s street address. | [optional] 
 **city** | **String** | The location&#39;s city. | [optional] 
-**state** | [**OneOfStateEnumBlankEnumNullEnum**](OneOfStateEnumBlankEnumNullEnum.md) | The location&#39;s state. | [optional] 
+**state** | [**StateEnum**](StateEnum.md) | The location&#39;s state. | [optional] 
 **zip_code** | **String** | The location&#39;s zip code. | [optional] 
-**country** | [**OneOfCountryEnumBlankEnumNullEnum**](OneOfCountryEnumBlankEnumNullEnum.md) | The location&#39;s country. | [optional] 
+**country** | [**CountryEnum**](CountryEnum.md) | The location&#39;s country. | [optional] 
 
 ## Code Sample
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **employee_payroll_run** | **String** | The earning&#39;s employee payroll run. | [optional] 
 **amount** | **Float** | The amount earned. | [optional] 
-**type** | [**OneOfTypeEnumBlankEnumNullEnum**](OneOfTypeEnumBlankEnumNullEnum.md) | The type of earning. | [optional] 
+**type** | [**TypeEnum**](TypeEnum.md) | The type of earning. | [optional] 
 
 ## Code Sample
 

@@ -55,7 +55,7 @@ module MergeHRISClient
         :'remote_id' => :'String',
         :'employee' => :'String',
         :'provider_name' => :'String',
-        :'benefit_plan_type' => :'OneOfBenefitPlanTypeEnumBlankEnumNullEnum',
+        :'benefit_plan_type' => :'BenefitPlanTypeEnum',
         :'employee_contribution' => :'Float',
         :'company_contribution' => :'Float'
       }

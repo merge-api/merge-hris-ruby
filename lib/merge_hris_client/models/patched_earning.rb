@@ -38,7 +38,7 @@ module MergeHRISClient
       {
         :'employee_payroll_run' => :'String',
         :'amount' => :'Float',
-        :'type' => :'OneOfTypeEnumBlankEnumNullEnum'
+        :'type' => :'TypeEnum'
       }
     end
 

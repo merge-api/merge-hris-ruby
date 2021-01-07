@@ -53,8 +53,8 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
-        :'run_state' => :'OneOfRunStateEnumBlankEnumNullEnum',
-        :'run_type' => :'OneOfRunTypeEnumBlankEnumNullEnum',
+        :'run_state' => :'RunStateEnum',
+        :'run_type' => :'RunTypeEnum',
         :'start_date' => :'DateTime',
         :'end_date' => :'DateTime',
         :'check_date' => :'DateTime'
