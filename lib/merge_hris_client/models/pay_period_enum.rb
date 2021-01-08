@@ -20,6 +20,7 @@ module MergeHRISClient
     EVERY_TWO_WEEKS = "EVERY_TWO_WEEKS".freeze
     MONTH = "MONTH".freeze
     QUARTER = "QUARTER".freeze
+    EVERY_SIX_MONTHS = "EVERY_SIX_MONTHS".freeze
     YEAR = "YEAR".freeze
 
     # Builds the enum from string
