@@ -17,7 +17,9 @@ module MergeHRISClient
     HOUR = "HOUR".freeze
     DAY = "DAY".freeze
     WEEK = "WEEK".freeze
+    EVERY_TWO_WEEKS = "EVERY_TWO_WEEKS".freeze
     MONTH = "MONTH".freeze
+    QUARTER = "QUARTER".freeze
     YEAR = "YEAR".freeze
 
     # Builds the enum from string

@@ -65,18 +65,17 @@ MergeHRISClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = MergeHRISClient::BenefitsApi.new
+api_instance = MergeHRISClient::AccountTokenApi.new
+public_token = 'public_token_example' # String | 
 opts = {
-  x_link_token: 'x_link_token_example', # String | Token identifying the end user.
-  run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
-  benefit: MergeHRISClient::Benefit.new # Benefit | 
+  production_key: 'production_key_example' # String | The requesting organization's production key.
 }
 
 begin
-  result = api_instance.benefits_create(opts)
+  result = api_instance.account_token_retrieve(public_token, opts)
   p result
 rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling BenefitsApi->benefits_create: #{e}"
+  puts "Exception when calling AccountTokenApi->account_token_retrieve: #{e}"
 end
 
 ```
@@ -87,6 +86,7 @@ All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*MergeHRISClient::AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 *MergeHRISClient::BenefitsApi* | [**benefits_create**](docs/BenefitsApi.md#benefits_create) | **POST** /benefits | 
 *MergeHRISClient::BenefitsApi* | [**benefits_destroy**](docs/BenefitsApi.md#benefits_destroy) | **DELETE** /benefits/{id} | 
 *MergeHRISClient::BenefitsApi* | [**benefits_list**](docs/BenefitsApi.md#benefits_list) | **GET** /benefits | 
@@ -148,7 +148,6 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_partial_update**](docs/PayrollRunsApi.md#payroll_runs_partial_update) | **PATCH** /payroll-runs/{id} | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_update**](docs/PayrollRunsApi.md#payroll_runs_update) | **PUT** /payroll-runs/{id} | 
-*MergeHRISClient::PrivateTokenApi* | [**private_token_retrieve**](docs/PrivateTokenApi.md#private_token_retrieve) | **GET** /private-token/{public_token} | 
 *MergeHRISClient::ReportsApi* | [**reports_create**](docs/ReportsApi.md#reports_create) | **POST** /reports | 
 *MergeHRISClient::ReportsApi* | [**reports_destroy**](docs/ReportsApi.md#reports_destroy) | **DELETE** /reports/{id} | 
 *MergeHRISClient::ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
@@ -179,6 +178,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [MergeHRISClient::AccountToken](docs/AccountToken.md)
  - [MergeHRISClient::AsyncTaskExecution](docs/AsyncTaskExecution.md)
  - [MergeHRISClient::AsyncTaskExecutionStatusEnum](docs/AsyncTaskExecutionStatusEnum.md)
  - [MergeHRISClient::Benefit](docs/Benefit.md)
@@ -232,7 +232,6 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::PayFrequencyEnum](docs/PayFrequencyEnum.md)
  - [MergeHRISClient::PayPeriodEnum](docs/PayPeriodEnum.md)
  - [MergeHRISClient::PayrollRun](docs/PayrollRun.md)
- - [MergeHRISClient::PrivateToken](docs/PrivateToken.md)
  - [MergeHRISClient::Report](docs/Report.md)
  - [MergeHRISClient::RequestTypeEnum](docs/RequestTypeEnum.md)
  - [MergeHRISClient::RunStateEnum](docs/RunStateEnum.md)
