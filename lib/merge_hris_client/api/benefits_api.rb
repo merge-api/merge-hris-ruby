@@ -21,7 +21,7 @@ module MergeHRISClient
     end
     # Creates a `Benefit` object with the given values.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @option opts [Benefit] :benefit 
     # @return [Benefit]
@@ -32,7 +32,7 @@ module MergeHRISClient
 
     # Creates a &#x60;Benefit&#x60; object with the given values.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @option opts [Benefit] :benefit 
     # @return [Array<(Benefit, Integer, Hash)>] Benefit data, response status code and response headers
@@ -53,7 +53,7 @@ module MergeHRISClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
-      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
+      header_params[:'X-Account-Token'] = opts[:'x_account_token'] if !opts[:'x_account_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -86,7 +86,7 @@ module MergeHRISClient
     # Deletes a `Benefit` object with the given `id`.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @return [AsyncTaskExecution]
     def benefits_destroy(id, opts = {})
@@ -97,7 +97,7 @@ module MergeHRISClient
     # Deletes a &#x60;Benefit&#x60; object with the given &#x60;id&#x60;.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @return [Array<(AsyncTaskExecution, Integer, Hash)>] AsyncTaskExecution data, response status code and response headers
     def benefits_destroy_with_http_info(id, opts = {})
@@ -119,7 +119,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
+      header_params[:'X-Account-Token'] = opts[:'x_account_token'] if !opts[:'x_account_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -151,12 +151,11 @@ module MergeHRISClient
 
     # Returns a list of `Benefit` objects.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form.
-    # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
@@ -169,12 +168,11 @@ module MergeHRISClient
 
     # Returns a list of &#x60;Benefit&#x60; objects.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form.
-    # @option opts [String] :linked_account_id If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
@@ -197,7 +195,6 @@ module MergeHRISClient
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
-      query_params[:'linked_account_id'] = opts[:'linked_account_id'] if !opts[:'linked_account_id'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
@@ -207,7 +204,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
+      header_params[:'X-Account-Token'] = opts[:'x_account_token'] if !opts[:'x_account_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -240,7 +237,7 @@ module MergeHRISClient
     # Updates a `Benefit` object with the given `id`.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @option opts [PatchedBenefit] :patched_benefit 
     # @return [Benefit]
@@ -252,7 +249,7 @@ module MergeHRISClient
     # Updates a &#x60;Benefit&#x60; object with the given &#x60;id&#x60;.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @option opts [PatchedBenefit] :patched_benefit 
     # @return [Array<(Benefit, Integer, Hash)>] Benefit data, response status code and response headers
@@ -277,7 +274,7 @@ module MergeHRISClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
-      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
+      header_params[:'X-Account-Token'] = opts[:'x_account_token'] if !opts[:'x_account_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -310,7 +307,7 @@ module MergeHRISClient
     # Returns a `Benefit` object with the given `id`.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [String] :expand Which relations should be returned in expanded form.
     # @return [Benefit]
     def benefits_retrieve(id, opts = {})
@@ -321,7 +318,7 @@ module MergeHRISClient
     # Returns a &#x60;Benefit&#x60; object with the given &#x60;id&#x60;.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_link_token Token identifying the end user.
+    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [String] :expand Which relations should be returned in expanded form.
     # @return [Array<(Benefit, Integer, Hash)>] Benefit data, response status code and response headers
     def benefits_retrieve_with_http_info(id, opts = {})
@@ -347,7 +344,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'X-Link-Token'] = opts[:'x_link_token'] if !opts[:'x_link_token'].nil?
+      header_params[:'X-Account-Token'] = opts[:'x_account_token'] if !opts[:'x_account_token'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
