@@ -88,7 +88,7 @@ module MergeHRISClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
-    # @return [AsyncTaskExecution]
+    # @return [Benefit]
     def benefits_destroy(id, opts = {})
       data, _status_code, _headers = benefits_destroy_with_http_info(id, opts)
       data
@@ -99,7 +99,7 @@ module MergeHRISClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
-    # @return [Array<(AsyncTaskExecution, Integer, Hash)>] AsyncTaskExecution data, response status code and response headers
+    # @return [Array<(Benefit, Integer, Hash)>] Benefit data, response status code and response headers
     def benefits_destroy_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BenefitsApi.benefits_destroy ...'
@@ -128,7 +128,7 @@ module MergeHRISClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'AsyncTaskExecution' 
+      return_type = opts[:return_type] || 'Benefit' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['tokenAuth']

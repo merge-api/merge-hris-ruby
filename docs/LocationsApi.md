@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## locations_destroy
 
-> AsyncTaskExecution locations_destroy(id, opts)
+> Location locations_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Location**](Location.md)
 
 ### Authorization
 

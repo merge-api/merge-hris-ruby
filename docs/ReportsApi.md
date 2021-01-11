@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## reports_destroy
 
-> AsyncTaskExecution reports_destroy(id, opts)
+> Report reports_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Report**](Report.md)
 
 ### Authorization
 

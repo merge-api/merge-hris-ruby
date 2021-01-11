@@ -13,41 +13,41 @@ OpenAPI Generator version: 4.3.1
 require 'cgi'
 
 module MergeHRISClient
-  class AccountTokenApi
+  class LinkTokenApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Returns the account token for the end user with the provided public token.
+    # Creates a link token to be used when linking a new end user.
     # @param production_key [String] The requesting organization&#39;s production key.
-    # @param public_token [String] 
+    # @param end_user_details [EndUserDetails] 
     # @param [Hash] opts the optional parameters
-    # @return [AccountToken]
-    def account_token_retrieve(production_key, public_token, opts = {})
-      data, _status_code, _headers = account_token_retrieve_with_http_info(production_key, public_token, opts)
+    # @return [LinkToken]
+    def link_token_create(production_key, end_user_details, opts = {})
+      data, _status_code, _headers = link_token_create_with_http_info(production_key, end_user_details, opts)
       data
     end
 
-    # Returns the account token for the end user with the provided public token.
+    # Creates a link token to be used when linking a new end user.
     # @param production_key [String] The requesting organization&#39;s production key.
-    # @param public_token [String] 
+    # @param end_user_details [EndUserDetails] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(AccountToken, Integer, Hash)>] AccountToken data, response status code and response headers
-    def account_token_retrieve_with_http_info(production_key, public_token, opts = {})
+    # @return [Array<(LinkToken, Integer, Hash)>] LinkToken data, response status code and response headers
+    def link_token_create_with_http_info(production_key, end_user_details, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AccountTokenApi.account_token_retrieve ...'
+        @api_client.config.logger.debug 'Calling API: LinkTokenApi.link_token_create ...'
       end
       # verify the required parameter 'production_key' is set
       if @api_client.config.client_side_validation && production_key.nil?
-        fail ArgumentError, "Missing the required parameter 'production_key' when calling AccountTokenApi.account_token_retrieve"
+        fail ArgumentError, "Missing the required parameter 'production_key' when calling LinkTokenApi.link_token_create"
       end
-      # verify the required parameter 'public_token' is set
-      if @api_client.config.client_side_validation && public_token.nil?
-        fail ArgumentError, "Missing the required parameter 'public_token' when calling AccountTokenApi.account_token_retrieve"
+      # verify the required parameter 'end_user_details' is set
+      if @api_client.config.client_side_validation && end_user_details.nil?
+        fail ArgumentError, "Missing the required parameter 'end_user_details' when calling LinkTokenApi.link_token_create"
       end
       # resource path
-      local_var_path = '/account-token/{public_token}'.sub('{' + 'public_token' + '}', CGI.escape(public_token.to_s))
+      local_var_path = '/link-token'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -57,15 +57,17 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] 
+      post_body = opts[:body] || @api_client.object_to_http_body(end_user_details) 
 
       # return_type
-      return_type = opts[:return_type] || 'AccountToken' 
+      return_type = opts[:return_type] || 'LinkToken' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['tokenAuth']
@@ -79,9 +81,9 @@ module MergeHRISClient
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AccountTokenApi#account_token_retrieve\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LinkTokenApi#link_token_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

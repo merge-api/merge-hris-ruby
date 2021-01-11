@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## documents_destroy
 
-> AsyncTaskExecution documents_destroy(id, opts)
+> Document documents_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Document**](Document.md)
 
 ### Authorization
 

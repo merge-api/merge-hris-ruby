@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## employees_destroy
 
-> AsyncTaskExecution employees_destroy(id, opts)
+> Employee employees_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Employee**](Employee.md)
 
 ### Authorization
 

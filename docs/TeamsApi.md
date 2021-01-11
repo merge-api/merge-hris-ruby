@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## teams_destroy
 
-> AsyncTaskExecution teams_destroy(id, opts)
+> Team teams_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Team**](Team.md)
 
 ### Authorization
 

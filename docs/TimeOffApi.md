@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## time_off_destroy
 
-> AsyncTaskExecution time_off_destroy(id, opts)
+> TimeOff time_off_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**TimeOff**](TimeOff.md)
 
 ### Authorization
 

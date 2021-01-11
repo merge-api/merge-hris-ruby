@@ -145,11 +145,6 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "phone_number", the character length must be smaller than or equal to 17.')
       end
 
-      pattern = Regexp.new(/^\+?1?\d{9,15}$/)
-      if !@phone_number.nil? && @phone_number !~ pattern
-        invalid_properties.push("invalid value for \"phone_number\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -157,7 +152,6 @@ module MergeHRISClient
     # @return true if the model is valid
     def valid?
       return false if !@phone_number.nil? && @phone_number.to_s.length > 17
-      return false if !@phone_number.nil? && @phone_number !~ Regexp.new(/^\+?1?\d{9,15}$/)
       true
     end
 
@@ -166,11 +160,6 @@ module MergeHRISClient
     def phone_number=(phone_number)
       if !phone_number.nil? && phone_number.to_s.length > 17
         fail ArgumentError, 'invalid value for "phone_number", the character length must be smaller than or equal to 17.'
-      end
-
-      pattern = Regexp.new(/^\+?1?\d{9,15}$/)
-      if !phone_number.nil? && phone_number !~ pattern
-        fail ArgumentError, "invalid value for \"phone_number\", must conform to the pattern #{pattern}."
       end
 
       @phone_number = phone_number

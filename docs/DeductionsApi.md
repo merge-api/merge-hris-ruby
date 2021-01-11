@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## deductions_destroy
 
-> AsyncTaskExecution deductions_destroy(id, opts)
+> Deduction deductions_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Deduction**](Deduction.md)
 
 ### Authorization
 

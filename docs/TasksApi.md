@@ -5,7 +5,7 @@ All URIs are relative to *https://app.merge.dev/api/hris/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**tasks_list**](TasksApi.md#tasks_list) | **GET** /tasks | 
-[**tasks_retrieve**](TasksApi.md#tasks_retrieve) | **GET** /tasks/{task_id} | 
+[**tasks_retrieve**](TasksApi.md#tasks_retrieve) | **GET** /tasks/{common_model_id} | 
 
 
 
@@ -33,13 +33,8 @@ end
 api_instance = MergeHRISClient::TasksApi.new
 opts = {
   x_account_token: 'x_account_token_example', # String | Token identifying the end user.
-  created_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects created after this datetime.
-  created_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects created before this datetime.
   cursor: 56, # Integer | The pagination cursor value.
-  modified_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects modified after this datetime.
-  modified_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects modified before this datetime.
-  page_size: 56, # Integer | Number of results to return per page.
-  status: 'status_example' # String | The status of the task.
+  page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
@@ -56,13 +51,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **String**| Token identifying the end user. | [optional] 
- **created_after** | **DateTime**| If provided, will only return objects created after this datetime. | [optional] 
- **created_before** | **DateTime**| If provided, will only return objects created before this datetime. | [optional] 
  **cursor** | **Integer**| The pagination cursor value. | [optional] 
- **modified_after** | **DateTime**| If provided, will only return objects modified after this datetime. | [optional] 
- **modified_before** | **DateTime**| If provided, will only return objects modified before this datetime. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **status** | **String**| The status of the task. | [optional] 
 
 ### Return type
 
@@ -80,7 +70,7 @@ Name | Type | Description  | Notes
 
 ## tasks_retrieve
 
-> AsyncTaskExecution tasks_retrieve(task_id, opts)
+> AsyncTaskExecution tasks_retrieve(common_model_id, opts)
 
 
 
@@ -100,13 +90,13 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::TasksApi.new
-task_id = 'task_id_example' # String | 
+common_model_id = 'common_model_id_example' # String | 
 opts = {
   x_account_token: 'x_account_token_example' # String | Token identifying the end user.
 }
 
 begin
-  result = api_instance.tasks_retrieve(task_id, opts)
+  result = api_instance.tasks_retrieve(common_model_id, opts)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Exception when calling TasksApi->tasks_retrieve: #{e}"
@@ -118,7 +108,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **task_id** | [**String**](.md)|  | 
+ **common_model_id** | [**String**](.md)|  | 
  **x_account_token** | **String**| Token identifying the end user. | [optional] 
 
 ### Return type

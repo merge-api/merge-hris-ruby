@@ -1,20 +1,20 @@
-# MergeHRISClient::AccountTokenApi
+# MergeHRISClient::LinkTokenApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**account_token_retrieve**](AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
+[**link_token_create**](LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 
 
 
-## account_token_retrieve
+## link_token_create
 
-> AccountToken account_token_retrieve(production_key, public_token)
+> LinkToken link_token_create(production_key, end_user_details)
 
 
 
-Returns the account token for the end user with the provided public token.
+Creates a link token to be used when linking a new end user.
 
 ### Example
 
@@ -29,15 +29,15 @@ MergeHRISClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = MergeHRISClient::AccountTokenApi.new
+api_instance = MergeHRISClient::LinkTokenApi.new
 production_key = 'production_key_example' # String | The requesting organization's production key.
-public_token = 'public_token_example' # String | 
+end_user_details = MergeHRISClient::EndUserDetails.new # EndUserDetails | 
 
 begin
-  result = api_instance.account_token_retrieve(production_key, public_token)
+  result = api_instance.link_token_create(production_key, end_user_details)
   p result
 rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling AccountTokenApi->account_token_retrieve: #{e}"
+  puts "Exception when calling LinkTokenApi->link_token_create: #{e}"
 end
 ```
 
@@ -47,11 +47,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **production_key** | **String**| The requesting organization&#39;s production key. | 
- **public_token** | **String**|  | 
+ **end_user_details** | [**EndUserDetails**](EndUserDetails.md)|  | 
 
 ### Return type
 
-[**AccountToken**](AccountToken.md)
+[**LinkToken**](LinkToken.md)
 
 ### Authorization
 
@@ -59,6 +59,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 

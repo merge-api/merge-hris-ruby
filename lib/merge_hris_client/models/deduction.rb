@@ -15,6 +15,8 @@ require 'date'
 module MergeHRISClient
   # # The Deduction Object ### Description The `Deduction` object is used to represent a deduction for a given employee's payroll run. One run could include several deductions.  ### Usage Example Fetch from the `LIST Deductions` endpoint and filter by `ID` to show all deductions.
   class Deduction
+    attr_accessor :id
+
     # The deduction's employee payroll run.
     attr_accessor :employee_payroll_run
 
@@ -30,6 +32,7 @@ module MergeHRISClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'employee_payroll_run' => :'employee_payroll_run',
         :'name' => :'name',
         :'employee_deduction' => :'employee_deduction',
@@ -40,6 +43,7 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'id' => :'String',
         :'employee_payroll_run' => :'String',
         :'name' => :'String',
         :'employee_deduction' => :'Float',
@@ -71,6 +75,10 @@ module MergeHRISClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.key?(:'employee_payroll_run')
         self.employee_payroll_run = attributes[:'employee_payroll_run']
@@ -107,6 +115,7 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           employee_payroll_run == o.employee_payroll_run &&
           name == o.name &&
           employee_deduction == o.employee_deduction &&
@@ -122,7 +131,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_payroll_run, name, employee_deduction, company_deduction].hash
+      [id, employee_payroll_run, name, employee_deduction, company_deduction].hash
     end
 
     # Builds the object from hash
