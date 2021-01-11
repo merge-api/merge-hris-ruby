@@ -22,13 +22,8 @@ module MergeHRISClient
     # Returns all `AsyncTaskExecution` objects for the requester's organization.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
-    # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
-    # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
-    # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
-    # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [String] :status The status of the task.
     # @return [PaginatedAsyncTaskExecutionList]
     def tasks_list(opts = {})
       data, _status_code, _headers = tasks_list_with_http_info(opts)
@@ -38,34 +33,20 @@ module MergeHRISClient
     # Returns all &#x60;AsyncTaskExecution&#x60; objects for the requester&#39;s organization.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
-    # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
-    # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
-    # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
-    # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [String] :status The status of the task.
     # @return [Array<(PaginatedAsyncTaskExecutionList, Integer, Hash)>] PaginatedAsyncTaskExecutionList data, response status code and response headers
     def tasks_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TasksApi.tasks_list ...'
-      end
-      allowable_values = ["PENDING", "STARTED", "COMPLETED"]
-      if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
-        fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/tasks'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'created_after'] = opts[:'created_after'] if !opts[:'created_after'].nil?
-      query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
-      query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
-      query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -102,30 +83,30 @@ module MergeHRISClient
     end
 
     # Returns an `AsyncTaskExecution` object with the given `id`.
-    # @param task_id [String] 
+    # @param common_model_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
     # @return [AsyncTaskExecution]
-    def tasks_retrieve(task_id, opts = {})
-      data, _status_code, _headers = tasks_retrieve_with_http_info(task_id, opts)
+    def tasks_retrieve(common_model_id, opts = {})
+      data, _status_code, _headers = tasks_retrieve_with_http_info(common_model_id, opts)
       data
     end
 
     # Returns an &#x60;AsyncTaskExecution&#x60; object with the given &#x60;id&#x60;.
-    # @param task_id [String] 
+    # @param common_model_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
     # @return [Array<(AsyncTaskExecution, Integer, Hash)>] AsyncTaskExecution data, response status code and response headers
-    def tasks_retrieve_with_http_info(task_id, opts = {})
+    def tasks_retrieve_with_http_info(common_model_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TasksApi.tasks_retrieve ...'
       end
-      # verify the required parameter 'task_id' is set
-      if @api_client.config.client_side_validation && task_id.nil?
-        fail ArgumentError, "Missing the required parameter 'task_id' when calling TasksApi.tasks_retrieve"
+      # verify the required parameter 'common_model_id' is set
+      if @api_client.config.client_side_validation && common_model_id.nil?
+        fail ArgumentError, "Missing the required parameter 'common_model_id' when calling TasksApi.tasks_retrieve"
       end
       # resource path
-      local_var_path = '/tasks/{task_id}'.sub('{' + 'task_id' + '}', CGI.escape(task_id.to_s))
+      local_var_path = '/tasks/{common_model_id}'.sub('{' + 'common_model_id' + '}', CGI.escape(common_model_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

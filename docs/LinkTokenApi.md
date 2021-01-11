@@ -1,16 +1,16 @@
-# MergeHRISClient::CreateLinkTokenApi
+# MergeHRISClient::LinkTokenApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_link_token_create**](CreateLinkTokenApi.md#create_link_token_create) | **POST** /create-link-token | 
+[**link_token_create**](LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 
 
 
-## create_link_token_create
+## link_token_create
 
-> LinkToken create_link_token_create(link_token, opts)
+> LinkToken link_token_create(production_key, end_user_details)
 
 
 
@@ -29,17 +29,15 @@ MergeHRISClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = MergeHRISClient::CreateLinkTokenApi.new
-link_token = MergeHRISClient::LinkToken.new # LinkToken | 
-opts = {
-  production_key: 'production_key_example' # String | The requesting organization's production key.
-}
+api_instance = MergeHRISClient::LinkTokenApi.new
+production_key = 'production_key_example' # String | The requesting organization's production key.
+end_user_details = MergeHRISClient::EndUserDetails.new # EndUserDetails | 
 
 begin
-  result = api_instance.create_link_token_create(link_token, opts)
+  result = api_instance.link_token_create(production_key, end_user_details)
   p result
 rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling CreateLinkTokenApi->create_link_token_create: #{e}"
+  puts "Exception when calling LinkTokenApi->link_token_create: #{e}"
 end
 ```
 
@@ -48,8 +46,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **link_token** | [**LinkToken**](LinkToken.md)|  | 
- **production_key** | **String**| The requesting organization&#39;s production key. | [optional] 
+ **production_key** | **String**| The requesting organization&#39;s production key. | 
+ **end_user_details** | [**EndUserDetails**](EndUserDetails.md)|  | 
 
 ### Return type
 

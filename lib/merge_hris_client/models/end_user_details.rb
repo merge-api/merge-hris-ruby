@@ -13,20 +13,54 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module MergeHRISClient
-  class PrivateToken
-    attr_accessor :private_token
+  class EndUserDetails
+    attr_accessor :end_user_email_address
+
+    attr_accessor :end_user_organization_name
+
+    attr_accessor :end_user_origin_id
+
+    attr_accessor :categories
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'private_token' => :'private_token'
+        :'end_user_email_address' => :'end_user_email_address',
+        :'end_user_organization_name' => :'end_user_organization_name',
+        :'end_user_origin_id' => :'end_user_origin_id',
+        :'categories' => :'categories'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'private_token' => :'String'
+        :'end_user_email_address' => :'String',
+        :'end_user_organization_name' => :'String',
+        :'end_user_origin_id' => :'String',
+        :'categories' => :'Array<String>'
       }
     end
 
@@ -40,19 +74,33 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::PrivateToken` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::EndUserDetails` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::PrivateToken`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::EndUserDetails`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'private_token')
-        self.private_token = attributes[:'private_token']
+      if attributes.key?(:'end_user_email_address')
+        self.end_user_email_address = attributes[:'end_user_email_address']
+      end
+
+      if attributes.key?(:'end_user_organization_name')
+        self.end_user_organization_name = attributes[:'end_user_organization_name']
+      end
+
+      if attributes.key?(:'end_user_origin_id')
+        self.end_user_origin_id = attributes[:'end_user_origin_id']
+      end
+
+      if attributes.key?(:'categories')
+        if (value = attributes[:'categories']).is_a?(Array)
+          self.categories = value
+        end
       end
     end
 
@@ -60,8 +108,20 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @private_token.nil?
-        invalid_properties.push('invalid value for "private_token", private_token cannot be nil.')
+      if @end_user_email_address.nil?
+        invalid_properties.push('invalid value for "end_user_email_address", end_user_email_address cannot be nil.')
+      end
+
+      if @end_user_organization_name.nil?
+        invalid_properties.push('invalid value for "end_user_organization_name", end_user_organization_name cannot be nil.')
+      end
+
+      if @end_user_origin_id.nil?
+        invalid_properties.push('invalid value for "end_user_origin_id", end_user_origin_id cannot be nil.')
+      end
+
+      if @categories.nil?
+        invalid_properties.push('invalid value for "categories", categories cannot be nil.')
       end
 
       invalid_properties
@@ -70,7 +130,10 @@ module MergeHRISClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @private_token.nil?
+      return false if @end_user_email_address.nil?
+      return false if @end_user_organization_name.nil?
+      return false if @end_user_origin_id.nil?
+      return false if @categories.nil?
       true
     end
 
@@ -79,7 +142,10 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          private_token == o.private_token
+          end_user_email_address == o.end_user_email_address &&
+          end_user_organization_name == o.end_user_organization_name &&
+          end_user_origin_id == o.end_user_origin_id &&
+          categories == o.categories
     end
 
     # @see the `==` method
@@ -91,7 +157,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [private_token].hash
+      [end_user_email_address, end_user_organization_name, end_user_origin_id, categories].hash
     end
 
     # Builds the object from hash

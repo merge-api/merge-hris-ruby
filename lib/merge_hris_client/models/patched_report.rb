@@ -15,6 +15,8 @@ require 'date'
 module MergeHRISClient
   # # The Report Object ### Description The `Report` object is used to represent a Report.  ### Usage Example Fetch from the `LIST Reports` endpoint and filter by `ID` to show all reports.
   class PatchedReport
+    attr_accessor :id
+
     # The report's name.
     attr_accessor :name
 
@@ -24,6 +26,7 @@ module MergeHRISClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'name' => :'name',
         :'content' => :'content'
       }
@@ -32,6 +35,7 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'id' => :'String',
         :'name' => :'String',
         :'content' => :'String'
       }
@@ -60,6 +64,10 @@ module MergeHRISClient
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -87,6 +95,7 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           name == o.name &&
           content == o.content
     end
@@ -100,7 +109,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, content].hash
+      [id, name, content].hash
     end
 
     # Builds the object from hash

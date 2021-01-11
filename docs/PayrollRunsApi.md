@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## payroll_runs_destroy
 
-> AsyncTaskExecution payroll_runs_destroy(id, opts)
+> PayrollRun payroll_runs_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**PayrollRun**](PayrollRun.md)
 
 ### Authorization
 

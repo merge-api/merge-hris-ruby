@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## companies_destroy
 
-> AsyncTaskExecution companies_destroy(id, opts)
+> Company companies_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Company**](Company.md)
 
 ### Authorization
 

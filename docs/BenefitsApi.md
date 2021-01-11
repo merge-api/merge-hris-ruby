@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## benefits_destroy
 
-> AsyncTaskExecution benefits_destroy(id, opts)
+> Benefit benefits_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Benefit**](Benefit.md)
 
 ### Authorization
 

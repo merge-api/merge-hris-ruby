@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## earnings_destroy
 
-> AsyncTaskExecution earnings_destroy(id, opts)
+> Earning earnings_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Earning**](Earning.md)
 
 ### Authorization
 

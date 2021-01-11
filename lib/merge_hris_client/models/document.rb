@@ -15,6 +15,8 @@ require 'date'
 module MergeHRISClient
   # # The Document Object ### Description The `Document` object is used to represent a Document for an employee.  ### Usage Example Fetch from the `LIST Documents` endpoint and filter by `ID` to show all documents.
   class Document
+    attr_accessor :id
+
     # The employee this document belongs to.
     attr_accessor :employee
 
@@ -27,6 +29,7 @@ module MergeHRISClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'employee' => :'employee',
         :'file_name' => :'file_name',
         :'file_url' => :'file_url'
@@ -36,6 +39,7 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'id' => :'String',
         :'employee' => :'String',
         :'file_name' => :'String',
         :'file_url' => :'String'
@@ -65,6 +69,10 @@ module MergeHRISClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.key?(:'employee')
         self.employee = attributes[:'employee']
@@ -112,6 +120,7 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           employee == o.employee &&
           file_name == o.file_name &&
           file_url == o.file_url
@@ -126,7 +135,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee, file_name, file_url].hash
+      [id, employee, file_name, file_url].hash
     end
 
     # Builds the object from hash

@@ -13,41 +13,45 @@ OpenAPI Generator version: 4.3.1
 require 'cgi'
 
 module MergeHRISClient
-  class CreateLinkTokenApi
+  class LinkTokenApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
     # Creates a link token to be used when linking a new end user.
-    # @param link_token [LinkToken] 
+    # @param production_key [String] The requesting organization&#39;s production key.
+    # @param end_user_details [EndUserDetails] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :production_key The requesting organization&#39;s production key.
     # @return [LinkToken]
-    def create_link_token_create(link_token, opts = {})
-      data, _status_code, _headers = create_link_token_create_with_http_info(link_token, opts)
+    def link_token_create(production_key, end_user_details, opts = {})
+      data, _status_code, _headers = link_token_create_with_http_info(production_key, end_user_details, opts)
       data
     end
 
     # Creates a link token to be used when linking a new end user.
-    # @param link_token [LinkToken] 
+    # @param production_key [String] The requesting organization&#39;s production key.
+    # @param end_user_details [EndUserDetails] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :production_key The requesting organization&#39;s production key.
     # @return [Array<(LinkToken, Integer, Hash)>] LinkToken data, response status code and response headers
-    def create_link_token_create_with_http_info(link_token, opts = {})
+    def link_token_create_with_http_info(production_key, end_user_details, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CreateLinkTokenApi.create_link_token_create ...'
+        @api_client.config.logger.debug 'Calling API: LinkTokenApi.link_token_create ...'
       end
-      # verify the required parameter 'link_token' is set
-      if @api_client.config.client_side_validation && link_token.nil?
-        fail ArgumentError, "Missing the required parameter 'link_token' when calling CreateLinkTokenApi.create_link_token_create"
+      # verify the required parameter 'production_key' is set
+      if @api_client.config.client_side_validation && production_key.nil?
+        fail ArgumentError, "Missing the required parameter 'production_key' when calling LinkTokenApi.link_token_create"
+      end
+      # verify the required parameter 'end_user_details' is set
+      if @api_client.config.client_side_validation && end_user_details.nil?
+        fail ArgumentError, "Missing the required parameter 'end_user_details' when calling LinkTokenApi.link_token_create"
       end
       # resource path
-      local_var_path = '/create-link-token'
+      local_var_path = '/link-token'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'production_key'] = opts[:'production_key'] if !opts[:'production_key'].nil?
+      query_params[:'production_key'] = production_key
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -60,7 +64,7 @@ module MergeHRISClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(link_token) 
+      post_body = opts[:body] || @api_client.object_to_http_body(end_user_details) 
 
       # return_type
       return_type = opts[:return_type] || 'LinkToken' 
@@ -79,7 +83,7 @@ module MergeHRISClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CreateLinkTokenApi#create_link_token_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LinkTokenApi#link_token_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

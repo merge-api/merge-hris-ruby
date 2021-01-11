@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## taxes_destroy
 
-> AsyncTaskExecution taxes_destroy(id, opts)
+> Tax taxes_destroy(id, opts)
 
 
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Tax**](Tax.md)
 
 ### Authorization
 

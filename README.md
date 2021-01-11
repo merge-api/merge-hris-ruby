@@ -66,13 +66,11 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::AccountTokenApi.new
+production_key = 'production_key_example' # String | The requesting organization's production key.
 public_token = 'public_token_example' # String | 
-opts = {
-  production_key: 'production_key_example' # String | The requesting organization's production key.
-}
 
 begin
-  result = api_instance.account_token_retrieve(public_token, opts)
+  result = api_instance.account_token_retrieve(production_key, public_token)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Exception when calling AccountTokenApi->account_token_retrieve: #{e}"
@@ -99,7 +97,6 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::CompaniesApi* | [**companies_partial_update**](docs/CompaniesApi.md#companies_partial_update) | **PATCH** /companies/{id} | 
 *MergeHRISClient::CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
 *MergeHRISClient::CompaniesApi* | [**companies_update**](docs/CompaniesApi.md#companies_update) | **PUT** /companies/{id} | 
-*MergeHRISClient::CreateLinkTokenApi* | [**create_link_token_create**](docs/CreateLinkTokenApi.md#create_link_token_create) | **POST** /create-link-token | 
 *MergeHRISClient::DeductionsApi* | [**deductions_create**](docs/DeductionsApi.md#deductions_create) | **POST** /deductions | 
 *MergeHRISClient::DeductionsApi* | [**deductions_destroy**](docs/DeductionsApi.md#deductions_destroy) | **DELETE** /deductions/{id} | 
 *MergeHRISClient::DeductionsApi* | [**deductions_list**](docs/DeductionsApi.md#deductions_list) | **GET** /deductions | 
@@ -136,6 +133,7 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::EmploymentsApi* | [**employments_partial_update**](docs/EmploymentsApi.md#employments_partial_update) | **PATCH** /employments/{id} | 
 *MergeHRISClient::EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
 *MergeHRISClient::EmploymentsApi* | [**employments_update**](docs/EmploymentsApi.md#employments_update) | **PUT** /employments/{id} | 
+*MergeHRISClient::LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 *MergeHRISClient::LocationsApi* | [**locations_create**](docs/LocationsApi.md#locations_create) | **POST** /locations | 
 *MergeHRISClient::LocationsApi* | [**locations_destroy**](docs/LocationsApi.md#locations_destroy) | **DELETE** /locations/{id} | 
 *MergeHRISClient::LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
@@ -155,7 +153,7 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
 *MergeHRISClient::ReportsApi* | [**reports_update**](docs/ReportsApi.md#reports_update) | **PUT** /reports/{id} | 
 *MergeHRISClient::TasksApi* | [**tasks_list**](docs/TasksApi.md#tasks_list) | **GET** /tasks | 
-*MergeHRISClient::TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{task_id} | 
+*MergeHRISClient::TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{common_model_id} | 
 *MergeHRISClient::TaxesApi* | [**taxes_create**](docs/TaxesApi.md#taxes_create) | **POST** /taxes | 
 *MergeHRISClient::TaxesApi* | [**taxes_destroy**](docs/TaxesApi.md#taxes_destroy) | **DELETE** /taxes/{id} | 
 *MergeHRISClient::TaxesApi* | [**taxes_list**](docs/TaxesApi.md#taxes_list) | **GET** /taxes | 
@@ -193,6 +191,7 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::Employment](docs/Employment.md)
  - [MergeHRISClient::EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
  - [MergeHRISClient::EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
+ - [MergeHRISClient::EndUserDetails](docs/EndUserDetails.md)
  - [MergeHRISClient::EthnicityEnum](docs/EthnicityEnum.md)
  - [MergeHRISClient::FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [MergeHRISClient::GenderEnum](docs/GenderEnum.md)
