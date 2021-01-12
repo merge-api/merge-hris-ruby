@@ -152,9 +152,11 @@ module MergeHRISClient
     # Returns a list of `TimeOff` objects.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
+    # @option opts [String] :approver_id If provided, will only return time off for this approver.
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :employee_id If provided, will only return time off for this employee.
     # @option opts [String] :expand Which relations should be returned in expanded form.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
@@ -169,9 +171,11 @@ module MergeHRISClient
     # Returns a list of &#x60;TimeOff&#x60; objects.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
+    # @option opts [String] :approver_id If provided, will only return time off for this approver.
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :employee_id If provided, will only return time off for this employee.
     # @option opts [String] :expand Which relations should be returned in expanded form.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
@@ -191,9 +195,11 @@ module MergeHRISClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'approver_id'] = opts[:'approver_id'] if !opts[:'approver_id'].nil?
       query_params[:'created_after'] = opts[:'created_after'] if !opts[:'created_after'].nil?
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
+      query_params[:'employee_id'] = opts[:'employee_id'] if !opts[:'employee_id'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?

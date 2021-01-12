@@ -155,14 +155,18 @@ end
 api_instance = MergeHRISClient::EmployeesApi.new
 opts = {
   x_account_token: 'x_account_token_example', # String | Token identifying the end user.
+  company_id: 'company_id_example', # String | If provided, will only return employees for this company.
   created_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects created after this datetime.
   created_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects created before this datetime.
   cursor: 56, # Integer | The pagination cursor value.
   expand: 'expand_example', # String | Which relations should be returned in expanded form.
+  manager_id: 'manager_id_example', # String | If provided, will only return employees for this manager.
   modified_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects modified after this datetime.
   modified_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects modified before this datetime.
   page_size: 56, # Integer | Number of results to return per page.
-  remote_id: 'remote_id_example' # String | The API provider's ID for the given object.
+  remote_id: 'remote_id_example', # String | The API provider's ID for the given object.
+  team_id: 'team_id_example', # String | If provided, will only return employees for this team.
+  work_location_id: 'work_location_id_example' # String | If provided, will only return employees for this location.
 }
 
 begin
@@ -179,14 +183,18 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **String**| Token identifying the end user. | [optional] 
+ **company_id** | [**String**](.md)| If provided, will only return employees for this company. | [optional] 
  **created_after** | **DateTime**| If provided, will only return objects created after this datetime. | [optional] 
  **created_before** | **DateTime**| If provided, will only return objects created before this datetime. | [optional] 
  **cursor** | **Integer**| The pagination cursor value. | [optional] 
  **expand** | **String**| Which relations should be returned in expanded form. | [optional] 
+ **manager_id** | [**String**](.md)| If provided, will only return employees for this manager. | [optional] 
  **modified_after** | **DateTime**| If provided, will only return objects modified after this datetime. | [optional] 
  **modified_before** | **DateTime**| If provided, will only return objects modified before this datetime. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
  **remote_id** | **String**| The API provider&#39;s ID for the given object. | [optional] 
+ **team_id** | [**String**](.md)| If provided, will only return employees for this team. | [optional] 
+ **work_location_id** | [**String**](.md)| If provided, will only return employees for this location. | [optional] 
 
 ### Return type
 

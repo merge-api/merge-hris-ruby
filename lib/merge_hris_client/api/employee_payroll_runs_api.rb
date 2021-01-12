@@ -155,10 +155,12 @@ module MergeHRISClient
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :employee_id If provided, will only return employee payroll runs for this employee.
     # @option opts [String] :expand Which relations should be returned in expanded form.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :payroll_run_id If provided, will only return employee payroll runs for this employee.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [PaginatedEmployeePayrollRunList]
     def employee_payroll_runs_list(opts = {})
@@ -172,10 +174,12 @@ module MergeHRISClient
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :employee_id If provided, will only return employee payroll runs for this employee.
     # @option opts [String] :expand Which relations should be returned in expanded form.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :payroll_run_id If provided, will only return employee payroll runs for this employee.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [Array<(PaginatedEmployeePayrollRunList, Integer, Hash)>] PaginatedEmployeePayrollRunList data, response status code and response headers
     def employee_payroll_runs_list_with_http_info(opts = {})
@@ -194,10 +198,12 @@ module MergeHRISClient
       query_params[:'created_after'] = opts[:'created_after'] if !opts[:'created_after'].nil?
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
+      query_params[:'employee_id'] = opts[:'employee_id'] if !opts[:'employee_id'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'payroll_run_id'] = opts[:'payroll_run_id'] if !opts[:'payroll_run_id'].nil?
       query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
 
       # header parameters
