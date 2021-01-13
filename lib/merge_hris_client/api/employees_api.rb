@@ -152,14 +152,18 @@ module MergeHRISClient
     # Returns a list of `Employee` objects.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
+    # @option opts [String] :company_id If provided, will only return employees for this company.
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form.
+    # @option opts [String] :manager_id If provided, will only return employees for this manager.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
+    # @option opts [String] :team_id If provided, will only return employees for this team.
+    # @option opts [String] :work_location_id If provided, will only return employees for this location.
     # @return [PaginatedEmployeeList]
     def employees_list(opts = {})
       data, _status_code, _headers = employees_list_with_http_info(opts)
@@ -169,20 +173,24 @@ module MergeHRISClient
     # Returns a list of &#x60;Employee&#x60; objects.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_account_token Token identifying the end user.
+    # @option opts [String] :company_id If provided, will only return employees for this company.
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form.
+    # @option opts [String] :manager_id If provided, will only return employees for this manager.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
+    # @option opts [String] :team_id If provided, will only return employees for this team.
+    # @option opts [String] :work_location_id If provided, will only return employees for this location.
     # @return [Array<(PaginatedEmployeeList, Integer, Hash)>] PaginatedEmployeeList data, response status code and response headers
     def employees_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeesApi.employees_list ...'
       end
-      allowable_values = ["documents", "employments", "home_location", "manager", "team", "work_location"]
+      allowable_values = ["company", "documents", "employments", "home_location", "manager", "team", "work_location"]
       if @api_client.config.client_side_validation && opts[:'expand'] && !allowable_values.include?(opts[:'expand'])
         fail ArgumentError, "invalid value for \"expand\", must be one of #{allowable_values}"
       end
@@ -191,14 +199,18 @@ module MergeHRISClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'company_id'] = opts[:'company_id'] if !opts[:'company_id'].nil?
       query_params[:'created_after'] = opts[:'created_after'] if !opts[:'created_after'].nil?
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+      query_params[:'manager_id'] = opts[:'manager_id'] if !opts[:'manager_id'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
+      query_params[:'team_id'] = opts[:'team_id'] if !opts[:'team_id'].nil?
+      query_params[:'work_location_id'] = opts[:'work_location_id'] if !opts[:'work_location_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -329,7 +341,7 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling EmployeesApi.employees_retrieve"
       end
-      allowable_values = ["documents", "employments", "home_location", "manager", "team", "work_location"]
+      allowable_values = ["company", "documents", "employments", "home_location", "manager", "team", "work_location"]
       if @api_client.config.client_side_validation && opts[:'expand'] && !allowable_values.include?(opts[:'expand'])
         fail ArgumentError, "invalid value for \"expand\", must be one of #{allowable_values}"
       end

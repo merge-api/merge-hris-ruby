@@ -155,6 +155,7 @@ module MergeHRISClient
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :employee_id If provided, will only return documents for this employee.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
@@ -171,6 +172,7 @@ module MergeHRISClient
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
     # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :employee_id If provided, will only return documents for this employee.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
@@ -188,6 +190,7 @@ module MergeHRISClient
       query_params[:'created_after'] = opts[:'created_after'] if !opts[:'created_after'].nil?
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
+      query_params[:'employee_id'] = opts[:'employee_id'] if !opts[:'employee_id'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?

@@ -158,6 +158,7 @@ opts = {
   created_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects created after this datetime.
   created_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects created before this datetime.
   cursor: 56, # Integer | The pagination cursor value.
+  employee_payroll_run_id: 'employee_payroll_run_id_example', # String | If provided, will only return taxes for this employee payroll run.
   modified_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects modified after this datetime.
   modified_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects modified before this datetime.
   page_size: 56, # Integer | Number of results to return per page.
@@ -181,6 +182,7 @@ Name | Type | Description  | Notes
  **created_after** | **DateTime**| If provided, will only return objects created after this datetime. | [optional] 
  **created_before** | **DateTime**| If provided, will only return objects created before this datetime. | [optional] 
  **cursor** | **Integer**| The pagination cursor value. | [optional] 
+ **employee_payroll_run_id** | [**String**](.md)| If provided, will only return taxes for this employee payroll run. | [optional] 
  **modified_after** | **DateTime**| If provided, will only return objects modified after this datetime. | [optional] 
  **modified_before** | **DateTime**| If provided, will only return objects modified before this datetime. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
