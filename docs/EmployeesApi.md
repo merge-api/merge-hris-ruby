@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**employees_list**](EmployeesApi.md#employees_list) | **GET** /employees | 
 [**employees_partial_update**](EmployeesApi.md#employees_partial_update) | **PATCH** /employees/{id} | 
 [**employees_retrieve**](EmployeesApi.md#employees_retrieve) | **GET** /employees/{id} | 
-[**employees_update**](EmployeesApi.md#employees_update) | **PUT** /employees/{id} | 
 
 
 
@@ -327,60 +326,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## employees_update
-
-> Employee employees_update(id, opts)
-
-
-
-### Example
-
-```ruby
-# load the gem
-require 'merge_hris_client'
-# setup authorization
-MergeHRISClient.configure do |config|
-  # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = MergeHRISClient::EmployeesApi.new
-id = 'id_example' # String | 
-opts = {
-  employee: MergeHRISClient::Employee.new # Employee | 
-}
-
-begin
-  result = api_instance.employees_update(id, opts)
-  p result
-rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling EmployeesApi->employees_update: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
- **employee** | [**Employee**](Employee.md)|  | [optional] 
-
-### Return type
-
-[**Employee**](Employee.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 

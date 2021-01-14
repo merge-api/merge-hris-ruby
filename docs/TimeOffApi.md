@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**time_off_list**](TimeOffApi.md#time_off_list) | **GET** /time-off | 
 [**time_off_partial_update**](TimeOffApi.md#time_off_partial_update) | **PATCH** /time-off/{id} | 
 [**time_off_retrieve**](TimeOffApi.md#time_off_retrieve) | **GET** /time-off/{id} | 
-[**time_off_update**](TimeOffApi.md#time_off_update) | **PUT** /time-off/{id} | 
 
 
 
@@ -323,60 +322,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## time_off_update
-
-> TimeOff time_off_update(id, opts)
-
-
-
-### Example
-
-```ruby
-# load the gem
-require 'merge_hris_client'
-# setup authorization
-MergeHRISClient.configure do |config|
-  # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = MergeHRISClient::TimeOffApi.new
-id = 'id_example' # String | 
-opts = {
-  time_off: MergeHRISClient::TimeOff.new # TimeOff | 
-}
-
-begin
-  result = api_instance.time_off_update(id, opts)
-  p result
-rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling TimeOffApi->time_off_update: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
- **time_off** | [**TimeOff**](TimeOff.md)|  | [optional] 
-
-### Return type
-
-[**TimeOff**](TimeOff.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 

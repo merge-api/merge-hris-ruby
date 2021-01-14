@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**taxes_list**](TaxesApi.md#taxes_list) | **GET** /taxes | 
 [**taxes_partial_update**](TaxesApi.md#taxes_partial_update) | **PATCH** /taxes/{id} | 
 [**taxes_retrieve**](TaxesApi.md#taxes_retrieve) | **GET** /taxes/{id} | 
-[**taxes_update**](TaxesApi.md#taxes_update) | **PUT** /taxes/{id} | 
 
 
 
@@ -317,60 +316,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## taxes_update
-
-> Tax taxes_update(id, opts)
-
-
-
-### Example
-
-```ruby
-# load the gem
-require 'merge_hris_client'
-# setup authorization
-MergeHRISClient.configure do |config|
-  # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = MergeHRISClient::TaxesApi.new
-id = 'id_example' # String | 
-opts = {
-  tax: MergeHRISClient::Tax.new # Tax | 
-}
-
-begin
-  result = api_instance.taxes_update(id, opts)
-  p result
-rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling TaxesApi->taxes_update: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
- **tax** | [**Tax**](Tax.md)|  | [optional] 
-
-### Return type
-
-[**Tax**](Tax.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 

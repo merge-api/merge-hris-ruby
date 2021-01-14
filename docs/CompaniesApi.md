@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**companies_list**](CompaniesApi.md#companies_list) | **GET** /companies | 
 [**companies_partial_update**](CompaniesApi.md#companies_partial_update) | **PATCH** /companies/{id} | 
 [**companies_retrieve**](CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
-[**companies_update**](CompaniesApi.md#companies_update) | **PUT** /companies/{id} | 
 
 
 
@@ -315,60 +314,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## companies_update
-
-> Company companies_update(id, opts)
-
-
-
-### Example
-
-```ruby
-# load the gem
-require 'merge_hris_client'
-# setup authorization
-MergeHRISClient.configure do |config|
-  # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = MergeHRISClient::CompaniesApi.new
-id = 'id_example' # String | 
-opts = {
-  company: MergeHRISClient::Company.new # Company | 
-}
-
-begin
-  result = api_instance.companies_update(id, opts)
-  p result
-rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling CompaniesApi->companies_update: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
- **company** | [**Company**](Company.md)|  | [optional] 
-
-### Return type
-
-[**Company**](Company.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 

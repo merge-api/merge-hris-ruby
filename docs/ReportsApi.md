@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**reports_list**](ReportsApi.md#reports_list) | **GET** /reports | 
 [**reports_partial_update**](ReportsApi.md#reports_partial_update) | **PATCH** /reports/{id} | 
 [**reports_retrieve**](ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
-[**reports_update**](ReportsApi.md#reports_update) | **PUT** /reports/{id} | 
 
 
 
@@ -315,60 +314,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## reports_update
-
-> Report reports_update(id, opts)
-
-
-
-### Example
-
-```ruby
-# load the gem
-require 'merge_hris_client'
-# setup authorization
-MergeHRISClient.configure do |config|
-  # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = MergeHRISClient::ReportsApi.new
-id = 'id_example' # String | 
-opts = {
-  report: MergeHRISClient::Report.new # Report | 
-}
-
-begin
-  result = api_instance.reports_update(id, opts)
-  p result
-rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling ReportsApi->reports_update: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
- **report** | [**Report**](Report.md)|  | [optional] 
-
-### Return type
-
-[**Report**](Report.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 

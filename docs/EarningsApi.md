@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**earnings_list**](EarningsApi.md#earnings_list) | **GET** /earnings | 
 [**earnings_partial_update**](EarningsApi.md#earnings_partial_update) | **PATCH** /earnings/{id} | 
 [**earnings_retrieve**](EarningsApi.md#earnings_retrieve) | **GET** /earnings/{id} | 
-[**earnings_update**](EarningsApi.md#earnings_update) | **PUT** /earnings/{id} | 
 
 
 
@@ -317,60 +316,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## earnings_update
-
-> Earning earnings_update(id, opts)
-
-
-
-### Example
-
-```ruby
-# load the gem
-require 'merge_hris_client'
-# setup authorization
-MergeHRISClient.configure do |config|
-  # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = MergeHRISClient::EarningsApi.new
-id = 'id_example' # String | 
-opts = {
-  earning: MergeHRISClient::Earning.new # Earning | 
-}
-
-begin
-  result = api_instance.earnings_update(id, opts)
-  p result
-rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling EarningsApi->earnings_update: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
- **earning** | [**Earning**](Earning.md)|  | [optional] 
-
-### Return type
-
-[**Earning**](Earning.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 

@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**employee_payroll_runs_list**](EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
 [**employee_payroll_runs_partial_update**](EmployeePayrollRunsApi.md#employee_payroll_runs_partial_update) | **PATCH** /employee-payroll-runs/{id} | 
 [**employee_payroll_runs_retrieve**](EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
-[**employee_payroll_runs_update**](EmployeePayrollRunsApi.md#employee_payroll_runs_update) | **PUT** /employee-payroll-runs/{id} | 
 
 
 
@@ -323,60 +322,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## employee_payroll_runs_update
-
-> EmployeePayrollRun employee_payroll_runs_update(id, opts)
-
-
-
-### Example
-
-```ruby
-# load the gem
-require 'merge_hris_client'
-# setup authorization
-MergeHRISClient.configure do |config|
-  # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = MergeHRISClient::EmployeePayrollRunsApi.new
-id = 'id_example' # String | 
-opts = {
-  employee_payroll_run: MergeHRISClient::EmployeePayrollRun.new # EmployeePayrollRun | 
-}
-
-begin
-  result = api_instance.employee_payroll_runs_update(id, opts)
-  p result
-rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_update: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
- **employee_payroll_run** | [**EmployeePayrollRun**](EmployeePayrollRun.md)|  | [optional] 
-
-### Return type
-
-[**EmployeePayrollRun**](EmployeePayrollRun.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
