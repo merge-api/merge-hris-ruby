@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**teams_list**](TeamsApi.md#teams_list) | **GET** /teams | 
 [**teams_partial_update**](TeamsApi.md#teams_partial_update) | **PATCH** /teams/{id} | 
 [**teams_retrieve**](TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
-[**teams_update**](TeamsApi.md#teams_update) | **PUT** /teams/{id} | 
 
 
 
@@ -315,60 +314,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## teams_update
-
-> Team teams_update(id, opts)
-
-
-
-### Example
-
-```ruby
-# load the gem
-require 'merge_hris_client'
-# setup authorization
-MergeHRISClient.configure do |config|
-  # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = MergeHRISClient::TeamsApi.new
-id = 'id_example' # String | 
-opts = {
-  team: MergeHRISClient::Team.new # Team | 
-}
-
-begin
-  result = api_instance.teams_update(id, opts)
-  p result
-rescue MergeHRISClient::ApiError => e
-  puts "Exception when calling TeamsApi->teams_update: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
- **team** | [**Team**](Team.md)|  | [optional] 
-
-### Return type
-
-[**Team**](Team.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
