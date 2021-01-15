@@ -70,14 +70,14 @@ module MergeHRISClient
     # The employee's date of birth.
     attr_accessor :date_of_birth
 
-    # A list of the employee's hire dates.
-    attr_accessor :hire_dates
+    # The employee's hire date.
+    attr_accessor :hire_date
 
     # The employment status of the employee.
     attr_accessor :employment_status
 
-    # A list of the employee's termination dates.
-    attr_accessor :termination_dates
+    # The employee's termination date.
+    attr_accessor :termination_date
 
     # The URL of the employee's avatar image.
     attr_accessor :avatar
@@ -106,9 +106,9 @@ module MergeHRISClient
         :'ethnicity' => :'ethnicity',
         :'marital_status' => :'marital_status',
         :'date_of_birth' => :'date_of_birth',
-        :'hire_dates' => :'hire_dates',
+        :'hire_date' => :'hire_date',
         :'employment_status' => :'employment_status',
-        :'termination_dates' => :'termination_dates',
+        :'termination_date' => :'termination_date',
         :'avatar' => :'avatar',
         :'documents' => :'documents'
       }
@@ -136,9 +136,9 @@ module MergeHRISClient
         :'ethnicity' => :'EthnicityEnum',
         :'marital_status' => :'MaritalStatusEnum',
         :'date_of_birth' => :'DateTime',
-        :'hire_dates' => :'Array<DateTime>',
+        :'hire_date' => :'DateTime',
         :'employment_status' => :'EmploymentStatusEnum',
-        :'termination_dates' => :'Array<DateTime>',
+        :'termination_date' => :'DateTime',
         :'avatar' => :'String',
         :'documents' => :'Array<String>'
       }
@@ -164,9 +164,9 @@ module MergeHRISClient
         :'ethnicity',
         :'marital_status',
         :'date_of_birth',
-        :'hire_dates',
+        :'hire_date',
         :'employment_status',
-        :'termination_dates',
+        :'termination_date',
         :'avatar',
       ])
     end
@@ -264,20 +264,16 @@ module MergeHRISClient
         self.date_of_birth = attributes[:'date_of_birth']
       end
 
-      if attributes.key?(:'hire_dates')
-        if (value = attributes[:'hire_dates']).is_a?(Array)
-          self.hire_dates = value
-        end
+      if attributes.key?(:'hire_date')
+        self.hire_date = attributes[:'hire_date']
       end
 
       if attributes.key?(:'employment_status')
         self.employment_status = attributes[:'employment_status']
       end
 
-      if attributes.key?(:'termination_dates')
-        if (value = attributes[:'termination_dates']).is_a?(Array)
-          self.termination_dates = value
-        end
+      if attributes.key?(:'termination_date')
+        self.termination_date = attributes[:'termination_date']
       end
 
       if attributes.key?(:'avatar')
@@ -403,9 +399,9 @@ module MergeHRISClient
           ethnicity == o.ethnicity &&
           marital_status == o.marital_status &&
           date_of_birth == o.date_of_birth &&
-          hire_dates == o.hire_dates &&
+          hire_date == o.hire_date &&
           employment_status == o.employment_status &&
-          termination_dates == o.termination_dates &&
+          termination_date == o.termination_date &&
           avatar == o.avatar &&
           documents == o.documents
     end
@@ -419,7 +415,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, ssn, gender, ethnicity, marital_status, date_of_birth, hire_dates, employment_status, termination_dates, avatar, documents].hash
+      [id, remote_id, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, employment_status, termination_date, avatar, documents].hash
     end
 
     # Builds the object from hash
