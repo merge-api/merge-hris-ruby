@@ -23,9 +23,9 @@ Name | Type | Description | Notes
 **ethnicity** | [**EthnicityEnum**](EthnicityEnum.md) | The employee&#39;s ethnicity. | [optional] 
 **marital_status** | [**MaritalStatusEnum**](MaritalStatusEnum.md) | The employee&#39;s marital status. | [optional] 
 **date_of_birth** | **DateTime** | The employee&#39;s date of birth. | [optional] 
-**hire_dates** | **Array&lt;DateTime&gt;** | A list of the employee&#39;s hire dates. | [optional] 
+**hire_date** | **DateTime** | The employee&#39;s hire date. | [optional] 
 **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) | The employment status of the employee. | [optional] 
-**termination_dates** | **Array&lt;DateTime&gt;** | A list of the employee&#39;s termination dates. | [optional] 
+**termination_date** | **DateTime** | The employee&#39;s termination date. | [optional] 
 **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] 
 **documents** | **Array&lt;String&gt;** |  | [optional] [readonly] 
 
@@ -53,9 +53,9 @@ instance = MergeHRISClient::Employee.new(id: 0958cbc6-6040-430a-848e-aafacbadf4a
                                  ethnicity: AMERICAN INDIAN OR ALASKA NATIVE,
                                  marital_status: SINGLE,
                                  date_of_birth: null,
-                                 hire_dates: [&quot;2020-11-10 00:59:25.309761+00:00&quot;],
+                                 hire_date: null,
                                  employment_status: ACTIVE,
-                                 termination_dates: [&quot;2020-11-10 00:59:25.309761+00:00&quot;],
+                                 termination_date: null,
                                  avatar: http://alturl.com/h2h8m,
                                  documents: [&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;])
 ```
