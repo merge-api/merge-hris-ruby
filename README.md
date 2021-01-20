@@ -108,8 +108,6 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *MergeHRISClient::ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
 *MergeHRISClient::ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
-*MergeHRISClient::TasksApi* | [**tasks_list**](docs/TasksApi.md#tasks_list) | **GET** /tasks | 
-*MergeHRISClient::TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{common_model_id} | 
 *MergeHRISClient::TaxesApi* | [**taxes_list**](docs/TaxesApi.md#taxes_list) | **GET** /taxes | 
 *MergeHRISClient::TaxesApi* | [**taxes_retrieve**](docs/TaxesApi.md#taxes_retrieve) | **GET** /taxes/{id} | 
 *MergeHRISClient::TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
@@ -121,8 +119,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [MergeHRISClient::AccountToken](docs/AccountToken.md)
- - [MergeHRISClient::AsyncTaskExecution](docs/AsyncTaskExecution.md)
- - [MergeHRISClient::AsyncTaskExecutionStatusEnum](docs/AsyncTaskExecutionStatusEnum.md)
  - [MergeHRISClient::Benefit](docs/Benefit.md)
  - [MergeHRISClient::BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [MergeHRISClient::Company](docs/Company.md)
@@ -142,7 +138,6 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::LinkToken](docs/LinkToken.md)
  - [MergeHRISClient::Location](docs/Location.md)
  - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
- - [MergeHRISClient::PaginatedAsyncTaskExecutionList](docs/PaginatedAsyncTaskExecutionList.md)
  - [MergeHRISClient::PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [MergeHRISClient::PaginatedCompanyList](docs/PaginatedCompanyList.md)
  - [MergeHRISClient::PaginatedDeductionList](docs/PaginatedDeductionList.md)
