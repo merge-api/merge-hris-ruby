@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'MergeHRISClient'
 
-instance = MergeHRISClient::AccountToken.new(account_token: null)
+instance = MergeHRISClient::AccountToken.new(account_token: T9klMDQrcHdm9jrtHuOS2Nf06BIHwMNjpPXPMB)
 ```
 
 

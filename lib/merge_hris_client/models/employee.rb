@@ -13,7 +13,7 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module MergeHRISClient
-  # # The Employee Object ### Description The `Employee` object is used to represent an Employee for a company. ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
+  # # The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
   class Employee
     attr_accessor :id
 
@@ -299,10 +299,6 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "personal_email", the character length must be smaller than or equal to 254.')
       end
 
-      if !@mobile_phone_number.nil? && @mobile_phone_number.to_s.length > 17
-        invalid_properties.push('invalid value for "mobile_phone_number", the character length must be smaller than or equal to 17.')
-      end
-
       if !@ssn.nil? && @ssn.to_s.length > 100
         invalid_properties.push('invalid value for "ssn", the character length must be smaller than or equal to 100.')
       end
@@ -319,7 +315,6 @@ module MergeHRISClient
     def valid?
       return false if !@work_email.nil? && @work_email.to_s.length > 254
       return false if !@personal_email.nil? && @personal_email.to_s.length > 254
-      return false if !@mobile_phone_number.nil? && @mobile_phone_number.to_s.length > 17
       return false if !@ssn.nil? && @ssn.to_s.length > 100
       return false if !@avatar.nil? && @avatar.to_s.length > 700
       true
@@ -343,16 +338,6 @@ module MergeHRISClient
       end
 
       @personal_email = personal_email
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] mobile_phone_number Value to be assigned
-    def mobile_phone_number=(mobile_phone_number)
-      if !mobile_phone_number.nil? && mobile_phone_number.to_s.length > 17
-        fail ArgumentError, 'invalid value for "mobile_phone_number", the character length must be smaller than or equal to 17.'
-      end
-
-      @mobile_phone_number = mobile_phone_number
     end
 
     # Custom attribute writer method with validation

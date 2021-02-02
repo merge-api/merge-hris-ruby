@@ -20,35 +20,39 @@ module MergeHRISClient
       @api_client = api_client
     end
     # Returns a list of `Report` objects.
+    # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
-    # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :cursor The pagination cursor value.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [PaginatedReportList]
-    def reports_list(opts = {})
-      data, _status_code, _headers = reports_list_with_http_info(opts)
+    def reports_list(x_account_token, opts = {})
+      data, _status_code, _headers = reports_list_with_http_info(x_account_token, opts)
       data
     end
 
     # Returns a list of &#x60;Report&#x60; objects.
+    # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_account_token Token identifying the end user.
     # @option opts [DateTime] :created_after If provided, will only return objects created after this datetime.
     # @option opts [DateTime] :created_before If provided, will only return objects created before this datetime.
-    # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :cursor The pagination cursor value.
     # @option opts [DateTime] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [DateTime] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [Array<(PaginatedReportList, Integer, Hash)>] PaginatedReportList data, response status code and response headers
-    def reports_list_with_http_info(opts = {})
+    def reports_list_with_http_info(x_account_token, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReportsApi.reports_list ...'
+      end
+      # verify the required parameter 'x_account_token' is set
+      if @api_client.config.client_side_validation && x_account_token.nil?
+        fail ArgumentError, "Missing the required parameter 'x_account_token' when calling ReportsApi.reports_list"
       end
       # resource path
       local_var_path = '/reports'
@@ -67,7 +71,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'X-Account-Token'] = opts[:'x_account_token'] if !opts[:'x_account_token'].nil?
+      header_params[:'X-Account-Token'] = x_account_token
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -98,23 +102,27 @@ module MergeHRISClient
     end
 
     # Returns a `Report` object with the given `id`.
+    # @param x_account_token [String] Token identifying the end user.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_account_token Token identifying the end user.
     # @return [Report]
-    def reports_retrieve(id, opts = {})
-      data, _status_code, _headers = reports_retrieve_with_http_info(id, opts)
+    def reports_retrieve(x_account_token, id, opts = {})
+      data, _status_code, _headers = reports_retrieve_with_http_info(x_account_token, id, opts)
       data
     end
 
     # Returns a &#x60;Report&#x60; object with the given &#x60;id&#x60;.
+    # @param x_account_token [String] Token identifying the end user.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_account_token Token identifying the end user.
     # @return [Array<(Report, Integer, Hash)>] Report data, response status code and response headers
-    def reports_retrieve_with_http_info(id, opts = {})
+    def reports_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReportsApi.reports_retrieve ...'
+      end
+      # verify the required parameter 'x_account_token' is set
+      if @api_client.config.client_side_validation && x_account_token.nil?
+        fail ArgumentError, "Missing the required parameter 'x_account_token' when calling ReportsApi.reports_retrieve"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
@@ -130,7 +138,7 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'X-Account-Token'] = opts[:'x_account_token'] if !opts[:'x_account_token'].nil?
+      header_params[:'X-Account-Token'] = x_account_token
 
       # form parameters
       form_params = opts[:form_params] || {}

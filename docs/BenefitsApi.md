@@ -1,6 +1,6 @@
 # MergeHRISClient::BenefitsApi
 
-All URIs are relative to *https://app.merge.dev/api/hris/v1*
+All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## benefits_list
 
-> PaginatedBenefitList benefits_list(opts)
+> PaginatedBenefitList benefits_list(x_account_token, opts)
 
 
 
@@ -31,13 +31,13 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::BenefitsApi.new
+x_account_token = 'x_account_token_example' # String | Token identifying the end user.
 opts = {
-  x_account_token: 'x_account_token_example', # String | Token identifying the end user.
   created_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects created after this datetime.
   created_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects created before this datetime.
-  cursor: 56, # Integer | The pagination cursor value.
+  cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
   employee_id: 'employee_id_example', # String | If provided, will only return benefits for this employee.
-  expand: 'expand_example', # String | Which relations should be returned in expanded form.
+  expand: 'employee', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   modified_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects modified after this datetime.
   modified_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | If provided, will only return objects modified before this datetime.
   page_size: 56, # Integer | Number of results to return per page.
@@ -45,7 +45,7 @@ opts = {
 }
 
 begin
-  result = api_instance.benefits_list(opts)
+  result = api_instance.benefits_list(x_account_token, opts)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Exception when calling BenefitsApi->benefits_list: #{e}"
@@ -57,12 +57,12 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_account_token** | **String**| Token identifying the end user. | [optional] 
+ **x_account_token** | **String**| Token identifying the end user. | 
  **created_after** | **DateTime**| If provided, will only return objects created after this datetime. | [optional] 
  **created_before** | **DateTime**| If provided, will only return objects created before this datetime. | [optional] 
- **cursor** | **Integer**| The pagination cursor value. | [optional] 
+ **cursor** | **String**| The pagination cursor value. | [optional] 
  **employee_id** | [**String**](.md)| If provided, will only return benefits for this employee. | [optional] 
- **expand** | **String**| Which relations should be returned in expanded form. | [optional] 
+ **expand** | **String**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] 
  **modified_after** | **DateTime**| If provided, will only return objects modified after this datetime. | [optional] 
  **modified_before** | **DateTime**| If provided, will only return objects modified before this datetime. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## benefits_retrieve
 
-> Benefit benefits_retrieve(id, opts)
+> Benefit benefits_retrieve(x_account_token, id, opts)
 
 
 
@@ -104,14 +104,14 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::BenefitsApi.new
+x_account_token = 'x_account_token_example' # String | Token identifying the end user.
 id = 'id_example' # String | 
 opts = {
-  x_account_token: 'x_account_token_example', # String | Token identifying the end user.
-  expand: 'expand_example' # String | Which relations should be returned in expanded form.
+  expand: 'employee' # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 }
 
 begin
-  result = api_instance.benefits_retrieve(id, opts)
+  result = api_instance.benefits_retrieve(x_account_token, id, opts)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Exception when calling BenefitsApi->benefits_retrieve: #{e}"
@@ -123,9 +123,9 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_account_token** | **String**| Token identifying the end user. | 
  **id** | [**String**](.md)|  | 
- **x_account_token** | **String**| Token identifying the end user. | [optional] 
- **expand** | **String**| Which relations should be returned in expanded form. | [optional] 
+ **expand** | **String**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] 
 
 ### Return type
 

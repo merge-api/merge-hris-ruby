@@ -1,6 +1,6 @@
 # MergeHRISClient::AccountTokenApi
 
-All URIs are relative to *https://app.merge.dev/api/hris/v1*
+All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
