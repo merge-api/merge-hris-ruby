@@ -79,7 +79,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://app.merge.dev/api/hris/v1*
+All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -88,12 +88,8 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::BenefitsApi* | [**benefits_retrieve**](docs/BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} | 
 *MergeHRISClient::CompaniesApi* | [**companies_list**](docs/CompaniesApi.md#companies_list) | **GET** /companies | 
 *MergeHRISClient::CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
-*MergeHRISClient::DeductionsApi* | [**deductions_list**](docs/DeductionsApi.md#deductions_list) | **GET** /deductions | 
-*MergeHRISClient::DeductionsApi* | [**deductions_retrieve**](docs/DeductionsApi.md#deductions_retrieve) | **GET** /deductions/{id} | 
 *MergeHRISClient::DocumentsApi* | [**documents_list**](docs/DocumentsApi.md#documents_list) | **GET** /documents | 
 *MergeHRISClient::DocumentsApi* | [**documents_retrieve**](docs/DocumentsApi.md#documents_retrieve) | **GET** /documents/{id} | 
-*MergeHRISClient::EarningsApi* | [**earnings_list**](docs/EarningsApi.md#earnings_list) | **GET** /earnings | 
-*MergeHRISClient::EarningsApi* | [**earnings_retrieve**](docs/EarningsApi.md#earnings_retrieve) | **GET** /earnings/{id} | 
 *MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
 *MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
 *MergeHRISClient::EmployeesApi* | [**employees_list**](docs/EmployeesApi.md#employees_list) | **GET** /employees | 
@@ -107,8 +103,6 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *MergeHRISClient::ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
 *MergeHRISClient::ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
-*MergeHRISClient::TaxesApi* | [**taxes_list**](docs/TaxesApi.md#taxes_list) | **GET** /taxes | 
-*MergeHRISClient::TaxesApi* | [**taxes_retrieve**](docs/TaxesApi.md#taxes_retrieve) | **GET** /taxes/{id} | 
 *MergeHRISClient::TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
 *MergeHRISClient::TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 *MergeHRISClient::TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
@@ -139,16 +133,13 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
  - [MergeHRISClient::PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [MergeHRISClient::PaginatedCompanyList](docs/PaginatedCompanyList.md)
- - [MergeHRISClient::PaginatedDeductionList](docs/PaginatedDeductionList.md)
  - [MergeHRISClient::PaginatedDocumentList](docs/PaginatedDocumentList.md)
- - [MergeHRISClient::PaginatedEarningList](docs/PaginatedEarningList.md)
  - [MergeHRISClient::PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
  - [MergeHRISClient::PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
  - [MergeHRISClient::PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
  - [MergeHRISClient::PaginatedLocationList](docs/PaginatedLocationList.md)
  - [MergeHRISClient::PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
  - [MergeHRISClient::PaginatedReportList](docs/PaginatedReportList.md)
- - [MergeHRISClient::PaginatedTaxList](docs/PaginatedTaxList.md)
  - [MergeHRISClient::PaginatedTeamList](docs/PaginatedTeamList.md)
  - [MergeHRISClient::PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
  - [MergeHRISClient::PayCurrencyEnum](docs/PayCurrencyEnum.md)

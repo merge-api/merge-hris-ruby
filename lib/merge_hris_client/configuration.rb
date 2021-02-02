@@ -127,7 +127,7 @@ module MergeHRISClient
 
     def initialize
       @scheme = 'https'
-      @host = 'app.merge.dev'
+      @host = 'api.merge.dev'
       @base_path = '/api/hris/v1'
       @api_key = {}
       @api_key_prefix = {}
@@ -207,12 +207,12 @@ module MergeHRISClient
     def server_settings
       [
         {
-          url: "https://app.merge.dev/api/hris/v1",
+          url: "https://api.merge.dev/api/hris/v1",
           description: "Production",
         },
         {
-          url: "https://app-staging.merge.dev/api/hris/v1",
-          description: "Staging",
+          url: "https://api-sandbox.merge.dev/api/hris/v1",
+          description: "Sandbox",
         }
       ]
     end

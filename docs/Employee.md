@@ -50,7 +50,7 @@ instance = MergeHRISClient::Employee.new(id: 0958cbc6-6040-430a-848e-aafacbadf4a
                                  team: 249c9faa-3045-4a31-953b-8f22d3613301,
                                  ssn: 1234567890,
                                  gender: FEMALE,
-                                 ethnicity: AMERICAN INDIAN OR ALASKA NATIVE,
+                                 ethnicity: AMERICAN_INDIAN_OR_ALASKA_NATIVE,
                                  marital_status: SINGLE,
                                  date_of_birth: null,
                                  hire_date: null,

@@ -27,7 +27,7 @@ module MergeHRISClient
     attr_accessor :display_name
 
     # The company's Employer Identification Numbers.
-    attr_accessor :ei_ns
+    attr_accessor :eins
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -36,7 +36,7 @@ module MergeHRISClient
         :'remote_id' => :'remote_id',
         :'legal_name' => :'legal_name',
         :'display_name' => :'display_name',
-        :'ei_ns' => :'EINs'
+        :'eins' => :'eins'
       }
     end
 
@@ -47,7 +47,7 @@ module MergeHRISClient
         :'remote_id' => :'String',
         :'legal_name' => :'String',
         :'display_name' => :'String',
-        :'ei_ns' => :'Array<String>'
+        :'eins' => :'Array<String>'
       }
     end
 
@@ -57,7 +57,7 @@ module MergeHRISClient
         :'remote_id',
         :'legal_name',
         :'display_name',
-        :'ei_ns'
+        :'eins'
       ])
     end
 
@@ -92,9 +92,9 @@ module MergeHRISClient
         self.display_name = attributes[:'display_name']
       end
 
-      if attributes.key?(:'ei_ns')
-        if (value = attributes[:'ei_ns']).is_a?(Array)
-          self.ei_ns = value
+      if attributes.key?(:'eins')
+        if (value = attributes[:'eins']).is_a?(Array)
+          self.eins = value
         end
       end
     end
@@ -121,7 +121,7 @@ module MergeHRISClient
           remote_id == o.remote_id &&
           legal_name == o.legal_name &&
           display_name == o.display_name &&
-          ei_ns == o.ei_ns
+          eins == o.eins
     end
 
     # @see the `==` method
@@ -133,7 +133,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, legal_name, display_name, ei_ns].hash
+      [id, remote_id, legal_name, display_name, eins].hash
     end
 
     # Builds the object from hash
