@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**account_token** | **String** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_token** | **String** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MergeHRISClient'
+require 'merge_hris_client'
 
-instance = MergeHRISClient::AccountToken.new(account_token: T9klMDQrcHdm9jrtHuOS2Nf06BIHwMNjpPXPMB)
+instance = MergeHRISClient::AccountToken.new(
+  account_token: T9klMDQrcHdm9jrtHuOS2Nf06BIHwMNjpPXPMB
+)
 ```
-
 
