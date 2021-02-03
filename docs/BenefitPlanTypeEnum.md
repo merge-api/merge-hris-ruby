@@ -2,15 +2,14 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MergeHRISClient'
+require 'merge_hris_client'
 
 instance = MergeHRISClient::BenefitPlanTypeEnum.new()
 ```
-
 
