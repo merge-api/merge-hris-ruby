@@ -84,12 +84,11 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *MergeHRISClient::AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
+*MergeHRISClient::AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
 *MergeHRISClient::BenefitsApi* | [**benefits_list**](docs/BenefitsApi.md#benefits_list) | **GET** /benefits | 
 *MergeHRISClient::BenefitsApi* | [**benefits_retrieve**](docs/BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} | 
 *MergeHRISClient::CompaniesApi* | [**companies_list**](docs/CompaniesApi.md#companies_list) | **GET** /companies | 
 *MergeHRISClient::CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
-*MergeHRISClient::DocumentsApi* | [**documents_list**](docs/DocumentsApi.md#documents_list) | **GET** /documents | 
-*MergeHRISClient::DocumentsApi* | [**documents_retrieve**](docs/DocumentsApi.md#documents_retrieve) | **GET** /documents/{id} | 
 *MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
 *MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
 *MergeHRISClient::EmployeesApi* | [**employees_list**](docs/EmployeesApi.md#employees_list) | **GET** /employees | 
@@ -101,8 +100,6 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
-*MergeHRISClient::ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
-*MergeHRISClient::ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
 *MergeHRISClient::TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
 *MergeHRISClient::TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 *MergeHRISClient::TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
@@ -112,12 +109,12 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [MergeHRISClient::AccountToken](docs/AccountToken.md)
+ - [MergeHRISClient::AvailableActions](docs/AvailableActions.md)
  - [MergeHRISClient::Benefit](docs/Benefit.md)
  - [MergeHRISClient::BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [MergeHRISClient::Company](docs/Company.md)
  - [MergeHRISClient::CountryEnum](docs/CountryEnum.md)
  - [MergeHRISClient::Deduction](docs/Deduction.md)
- - [MergeHRISClient::Document](docs/Document.md)
  - [MergeHRISClient::Earning](docs/Earning.md)
  - [MergeHRISClient::Employee](docs/Employee.md)
  - [MergeHRISClient::EmployeePayrollRun](docs/EmployeePayrollRun.md)
@@ -131,22 +128,20 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::LinkToken](docs/LinkToken.md)
  - [MergeHRISClient::Location](docs/Location.md)
  - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
+ - [MergeHRISClient::ModelOperation](docs/ModelOperation.md)
  - [MergeHRISClient::PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [MergeHRISClient::PaginatedCompanyList](docs/PaginatedCompanyList.md)
- - [MergeHRISClient::PaginatedDocumentList](docs/PaginatedDocumentList.md)
  - [MergeHRISClient::PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
  - [MergeHRISClient::PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
  - [MergeHRISClient::PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
  - [MergeHRISClient::PaginatedLocationList](docs/PaginatedLocationList.md)
  - [MergeHRISClient::PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
- - [MergeHRISClient::PaginatedReportList](docs/PaginatedReportList.md)
  - [MergeHRISClient::PaginatedTeamList](docs/PaginatedTeamList.md)
  - [MergeHRISClient::PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
  - [MergeHRISClient::PayCurrencyEnum](docs/PayCurrencyEnum.md)
  - [MergeHRISClient::PayFrequencyEnum](docs/PayFrequencyEnum.md)
  - [MergeHRISClient::PayPeriodEnum](docs/PayPeriodEnum.md)
  - [MergeHRISClient::PayrollRun](docs/PayrollRun.md)
- - [MergeHRISClient::Report](docs/Report.md)
  - [MergeHRISClient::RequestTypeEnum](docs/RequestTypeEnum.md)
  - [MergeHRISClient::RunStateEnum](docs/RunStateEnum.md)
  - [MergeHRISClient::RunTypeEnum](docs/RunTypeEnum.md)
