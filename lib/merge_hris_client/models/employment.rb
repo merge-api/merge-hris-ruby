@@ -45,6 +45,8 @@ module MergeHRISClient
     # The position's type of employment.
     attr_accessor :employment_type
 
+    attr_accessor :remote_data
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -57,7 +59,8 @@ module MergeHRISClient
         :'pay_currency' => :'pay_currency',
         :'flsa_status' => :'flsa_status',
         :'effective_date' => :'effective_date',
-        :'employment_type' => :'employment_type'
+        :'employment_type' => :'employment_type',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -78,7 +81,8 @@ module MergeHRISClient
         :'pay_currency' => :'PayCurrencyEnum',
         :'flsa_status' => :'FlsaStatusEnum',
         :'effective_date' => :'Time',
-        :'employment_type' => :'EmploymentTypeEnum'
+        :'employment_type' => :'EmploymentTypeEnum',
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
@@ -93,7 +97,8 @@ module MergeHRISClient
         :'pay_currency',
         :'flsa_status',
         :'effective_date',
-        :'employment_type'
+        :'employment_type',
+        :'remote_data'
       ])
     end
 
@@ -151,6 +156,12 @@ module MergeHRISClient
       if attributes.key?(:'employment_type')
         self.employment_type = attributes[:'employment_type']
       end
+
+      if attributes.key?(:'remote_data')
+        if (value = attributes[:'remote_data']).is_a?(Array)
+          self.remote_data = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -180,7 +191,8 @@ module MergeHRISClient
           pay_currency == o.pay_currency &&
           flsa_status == o.flsa_status &&
           effective_date == o.effective_date &&
-          employment_type == o.employment_type
+          employment_type == o.employment_type &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -192,7 +204,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, job_title, pay_rate, pay_period, pay_frequency, pay_currency, flsa_status, effective_date, employment_type].hash
+      [id, remote_id, job_title, pay_rate, pay_period, pay_frequency, pay_currency, flsa_status, effective_date, employment_type, remote_data].hash
     end
 
     # Builds the object from hash

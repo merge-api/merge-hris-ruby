@@ -36,6 +36,8 @@ module MergeHRISClient
     # The company's contribution.
     attr_accessor :company_contribution
 
+    attr_accessor :remote_data
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -45,7 +47,8 @@ module MergeHRISClient
         :'provider_name' => :'provider_name',
         :'benefit_plan_type' => :'benefit_plan_type',
         :'employee_contribution' => :'employee_contribution',
-        :'company_contribution' => :'company_contribution'
+        :'company_contribution' => :'company_contribution',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -63,7 +66,8 @@ module MergeHRISClient
         :'provider_name' => :'String',
         :'benefit_plan_type' => :'BenefitPlanTypeEnum',
         :'employee_contribution' => :'Float',
-        :'company_contribution' => :'Float'
+        :'company_contribution' => :'Float',
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
@@ -75,7 +79,8 @@ module MergeHRISClient
         :'provider_name',
         :'benefit_plan_type',
         :'employee_contribution',
-        :'company_contribution'
+        :'company_contribution',
+        :'remote_data'
       ])
     end
 
@@ -121,6 +126,12 @@ module MergeHRISClient
       if attributes.key?(:'company_contribution')
         self.company_contribution = attributes[:'company_contribution']
       end
+
+      if attributes.key?(:'remote_data')
+        if (value = attributes[:'remote_data']).is_a?(Array)
+          self.remote_data = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -147,7 +158,8 @@ module MergeHRISClient
           provider_name == o.provider_name &&
           benefit_plan_type == o.benefit_plan_type &&
           employee_contribution == o.employee_contribution &&
-          company_contribution == o.company_contribution
+          company_contribution == o.company_contribution &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -159,7 +171,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, provider_name, benefit_plan_type, employee_contribution, company_contribution].hash
+      [id, remote_id, employee, provider_name, benefit_plan_type, employee_contribution, company_contribution, remote_data].hash
     end
 
     # Builds the object from hash

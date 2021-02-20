@@ -30,6 +30,8 @@ module MergeHRISClient
     # The company's Employer Identification Numbers.
     attr_accessor :eins
 
+    attr_accessor :remote_data
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -37,7 +39,8 @@ module MergeHRISClient
         :'remote_id' => :'remote_id',
         :'legal_name' => :'legal_name',
         :'display_name' => :'display_name',
-        :'eins' => :'eins'
+        :'eins' => :'eins',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -53,7 +56,8 @@ module MergeHRISClient
         :'remote_id' => :'String',
         :'legal_name' => :'String',
         :'display_name' => :'String',
-        :'eins' => :'Array<String>'
+        :'eins' => :'Array<String>',
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
@@ -63,7 +67,8 @@ module MergeHRISClient
         :'remote_id',
         :'legal_name',
         :'display_name',
-        :'eins'
+        :'eins',
+        :'remote_data'
       ])
     end
 
@@ -103,6 +108,12 @@ module MergeHRISClient
           self.eins = value
         end
       end
+
+      if attributes.key?(:'remote_data')
+        if (value = attributes[:'remote_data']).is_a?(Array)
+          self.remote_data = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -127,7 +138,8 @@ module MergeHRISClient
           remote_id == o.remote_id &&
           legal_name == o.legal_name &&
           display_name == o.display_name &&
-          eins == o.eins
+          eins == o.eins &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -139,7 +151,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, legal_name, display_name, eins].hash
+      [id, remote_id, legal_name, display_name, eins, remote_data].hash
     end
 
     # Builds the object from hash

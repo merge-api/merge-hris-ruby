@@ -27,6 +27,7 @@
 | **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) | The employment status of the employee. | [optional] |
 | **termination_date** | **Time** | The employee&#39;s termination date. | [optional] |
 | **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] |
+| **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
 
@@ -56,7 +57,8 @@ instance = MergeHRISClient::Employee.new(
   hire_date: null,
   employment_status: ACTIVE,
   termination_date: null,
-  avatar: http://alturl.com/h2h8m
+  avatar: http://alturl.com/h2h8m,
+  remote_data: [{&quot;path&quot;:&quot;/people&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
 

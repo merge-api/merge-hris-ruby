@@ -21,7 +21,7 @@ module MergeHRISClient
     # The tax's employee payroll run.
     attr_accessor :employee_payroll_run
 
-    # The deduction's name.
+    # The tax's name.
     attr_accessor :name
 
     # The tax amount.

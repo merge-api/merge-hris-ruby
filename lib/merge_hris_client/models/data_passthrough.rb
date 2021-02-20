@@ -14,41 +14,23 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The PayrollRun Object ### Description The `PayrollRun` object is used to represent a payroll run.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.
-  class PayrollRun
-    attr_accessor :id
+  # # The DataPassthrough Object ### Description The `DataPassthrough` object is used to send information to an otherwise-unsupported third-party endpoint.  ### Usage Example Create a `DataPassthrough` to get team hierarchies from your Rippling integration.
+  class DataPassthrough
+    attr_accessor :method
 
-    # The third-party API ID of the matching object.
-    attr_accessor :remote_id
+    attr_accessor :path
 
-    # The state of the payroll run
-    attr_accessor :run_state
+    attr_accessor :data
 
-    # The type of the payroll run
-    attr_accessor :run_type
-
-    # The day and time the payroll run started.
-    attr_accessor :start_date
-
-    # The day and time the payroll run ended.
-    attr_accessor :end_date
-
-    # The day and time the payroll run was checked.
-    attr_accessor :check_date
-
-    attr_accessor :remote_data
+    attr_accessor :headers
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'remote_id' => :'remote_id',
-        :'run_state' => :'run_state',
-        :'run_type' => :'run_type',
-        :'start_date' => :'start_date',
-        :'end_date' => :'end_date',
-        :'check_date' => :'check_date',
-        :'remote_data' => :'remote_data'
+        :'method' => :'method',
+        :'path' => :'path',
+        :'data' => :'data',
+        :'headers' => :'headers'
       }
     end
 
@@ -60,27 +42,16 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'remote_id' => :'String',
-        :'run_state' => :'RunStateEnum',
-        :'run_type' => :'RunTypeEnum',
-        :'start_date' => :'Time',
-        :'end_date' => :'Time',
-        :'check_date' => :'Time',
-        :'remote_data' => :'Array<RemoteData>'
+        :'method' => :'MethodEnum',
+        :'path' => :'String',
+        :'data' => :'Hash<String, AnyType>',
+        :'headers' => :'Hash<String, AnyType>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'remote_id',
-        :'run_state',
-        :'run_type',
-        :'start_date',
-        :'end_date',
-        :'check_date',
-        :'remote_data'
       ])
     end
 
@@ -88,48 +59,34 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::PayrollRun` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::DataPassthrough` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::PayrollRun`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::DataPassthrough`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'method')
+        self.method = attributes[:'method']
       end
 
-      if attributes.key?(:'remote_id')
-        self.remote_id = attributes[:'remote_id']
+      if attributes.key?(:'path')
+        self.path = attributes[:'path']
       end
 
-      if attributes.key?(:'run_state')
-        self.run_state = attributes[:'run_state']
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Hash)
+          self.data = value
+        end
       end
 
-      if attributes.key?(:'run_type')
-        self.run_type = attributes[:'run_type']
-      end
-
-      if attributes.key?(:'start_date')
-        self.start_date = attributes[:'start_date']
-      end
-
-      if attributes.key?(:'end_date')
-        self.end_date = attributes[:'end_date']
-      end
-
-      if attributes.key?(:'check_date')
-        self.check_date = attributes[:'check_date']
-      end
-
-      if attributes.key?(:'remote_data')
-        if (value = attributes[:'remote_data']).is_a?(Array)
-          self.remote_data = value
+      if attributes.key?(:'headers')
+        if (value = attributes[:'headers']).is_a?(Hash)
+          self.headers = value
         end
       end
     end
@@ -138,12 +95,22 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @method.nil?
+        invalid_properties.push('invalid value for "method", method cannot be nil.')
+      end
+
+      if @path.nil?
+        invalid_properties.push('invalid value for "path", path cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @method.nil?
+      return false if @path.nil?
       true
     end
 
@@ -152,14 +119,10 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          remote_id == o.remote_id &&
-          run_state == o.run_state &&
-          run_type == o.run_type &&
-          start_date == o.start_date &&
-          end_date == o.end_date &&
-          check_date == o.check_date &&
-          remote_data == o.remote_data
+          method == o.method &&
+          path == o.path &&
+          data == o.data &&
+          headers == o.headers
     end
 
     # @see the `==` method
@@ -171,7 +134,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, run_state, run_type, start_date, end_date, check_date, remote_data].hash
+      [method, path, data, headers].hash
     end
 
     # Builds the object from hash

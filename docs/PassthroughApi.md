@@ -1,19 +1,19 @@
-# MergeHRISClient::AvailableActionsApi
+# MergeHRISClient::PassthroughApi
 
 All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**available_actions_retrieve**](AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions |  |
+| [**passthrough_create**](PassthroughApi.md#passthrough_create) | **POST** /passthrough |  |
 
 
-## available_actions_retrieve
+## passthrough_create
 
-> <AvailableActions> available_actions_retrieve(x_account_token, opts)
+> <RemoteResponse> passthrough_create(x_account_token, data_passthrough, opts)
 
 
 
-Returns a list of models and actions available for an account.
+Pull data from an endpoint not currently supported by Merge.
 
 ### Examples
 
@@ -28,36 +28,37 @@ MergeHRISClient.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = MergeHRISClient::AvailableActionsApi.new
+api_instance = MergeHRISClient::PassthroughApi.new
 x_account_token = 'x_account_token_example' # String | Token identifying the end user.
+data_passthrough = MergeHRISClient::DataPassthrough.new({method: MergeHRISClient::MethodEnum::GET, path: '/scooters'}) # DataPassthrough | 
 opts = {
   include_remote_data: true # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
 }
 
 begin
   
-  result = api_instance.available_actions_retrieve(x_account_token, opts)
+  result = api_instance.passthrough_create(x_account_token, data_passthrough, opts)
   p result
 rescue MergeHRISClient::ApiError => e
-  puts "Error when calling AvailableActionsApi->available_actions_retrieve: #{e}"
+  puts "Error when calling PassthroughApi->passthrough_create: #{e}"
 end
 ```
 
-#### Using the available_actions_retrieve_with_http_info variant
+#### Using the passthrough_create_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AvailableActions>, Integer, Hash)> available_actions_retrieve_with_http_info(x_account_token, opts)
+> <Array(<RemoteResponse>, Integer, Hash)> passthrough_create_with_http_info(x_account_token, data_passthrough, opts)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.available_actions_retrieve_with_http_info(x_account_token, opts)
+  data, status_code, headers = api_instance.passthrough_create_with_http_info(x_account_token, data_passthrough, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <AvailableActions>
+  p data # => <RemoteResponse>
 rescue MergeHRISClient::ApiError => e
-  puts "Error when calling AvailableActionsApi->available_actions_retrieve_with_http_info: #{e}"
+  puts "Error when calling PassthroughApi->passthrough_create_with_http_info: #{e}"
 end
 ```
 
@@ -66,11 +67,12 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **x_account_token** | **String** | Token identifying the end user. |  |
+| **data_passthrough** | [**DataPassthrough**](DataPassthrough.md) |  |  |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 
 ### Return type
 
-[**AvailableActions**](AvailableActions.md)
+[**RemoteResponse**](RemoteResponse.md)
 
 ### Authorization
 
@@ -78,6 +80,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 

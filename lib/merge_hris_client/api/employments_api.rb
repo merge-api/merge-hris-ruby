@@ -26,6 +26,7 @@ module MergeHRISClient
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [String] :employee_id If provided, will only return employments for this employee.
+    # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
@@ -43,6 +44,7 @@ module MergeHRISClient
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [String] :employee_id If provided, will only return employments for this employee.
+    # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
@@ -65,6 +67,7 @@ module MergeHRISClient
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
       query_params[:'employee_id'] = opts[:'employee_id'] if !opts[:'employee_id'].nil?
+      query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
@@ -109,6 +112,7 @@ module MergeHRISClient
     # @param x_account_token [String] Token identifying the end user.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @return [Employment]
     def employments_retrieve(x_account_token, id, opts = {})
       data, _status_code, _headers = employments_retrieve_with_http_info(x_account_token, id, opts)
@@ -119,6 +123,7 @@ module MergeHRISClient
     # @param x_account_token [String] Token identifying the end user.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @return [Array<(Employment, Integer, Hash)>] Employment data, response status code and response headers
     def employments_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging
@@ -137,6 +142,7 @@ module MergeHRISClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

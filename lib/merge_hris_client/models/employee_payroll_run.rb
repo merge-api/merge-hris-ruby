@@ -48,6 +48,8 @@ module MergeHRISClient
 
     attr_accessor :taxes
 
+    attr_accessor :remote_data
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -62,7 +64,8 @@ module MergeHRISClient
         :'check_date' => :'check_date',
         :'earnings' => :'earnings',
         :'deductions' => :'deductions',
-        :'taxes' => :'taxes'
+        :'taxes' => :'taxes',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -85,7 +88,8 @@ module MergeHRISClient
         :'check_date' => :'Time',
         :'earnings' => :'Array<Earning>',
         :'deductions' => :'Array<Deduction>',
-        :'taxes' => :'Array<Tax>'
+        :'taxes' => :'Array<Tax>',
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
@@ -100,6 +104,7 @@ module MergeHRISClient
         :'start_date',
         :'end_date',
         :'check_date',
+        :'remote_data'
       ])
     end
 
@@ -171,6 +176,12 @@ module MergeHRISClient
           self.taxes = value
         end
       end
+
+      if attributes.key?(:'remote_data')
+        if (value = attributes[:'remote_data']).is_a?(Array)
+          self.remote_data = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -202,7 +213,8 @@ module MergeHRISClient
           check_date == o.check_date &&
           earnings == o.earnings &&
           deductions == o.deductions &&
-          taxes == o.taxes
+          taxes == o.taxes &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -214,7 +226,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, payroll_run, gross_pay, net_pay, start_date, end_date, check_date, earnings, deductions, taxes].hash
+      [id, remote_id, employee, payroll_run, gross_pay, net_pay, start_date, end_date, check_date, earnings, deductions, taxes, remote_data].hash
     end
 
     # Builds the object from hash

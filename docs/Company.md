@@ -9,6 +9,7 @@
 | **legal_name** | **String** | The company&#39;s legal name. | [optional] |
 | **display_name** | **String** | The company&#39;s display name. | [optional] |
 | **eins** | **Array&lt;String&gt;** | The company&#39;s Employer Identification Numbers. | [optional] |
+| **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = MergeHRISClient::Company.new(
   remote_id: 19202938,
   legal_name: We Love Integrations Inc.,
   display_name: We Love Integrations,
-  eins: [&quot;12-3456789&quot;,&quot;12-3451111&quot;,&quot;11-0011000&quot;]
+  eins: [&quot;12-3456789&quot;,&quot;12-3451111&quot;,&quot;11-0011000&quot;],
+  remote_data: [{&quot;path&quot;:&quot;/companies&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
 
