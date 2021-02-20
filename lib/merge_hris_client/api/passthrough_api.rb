@@ -13,37 +13,43 @@ OpenAPI Generator version: 5.0.0
 require 'cgi'
 
 module MergeHRISClient
-  class AvailableActionsApi
+  class PassthroughApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Returns a list of models and actions available for an account.
+    # Pull data from an endpoint not currently supported by Merge.
     # @param x_account_token [String] Token identifying the end user.
+    # @param data_passthrough [DataPassthrough] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
-    # @return [AvailableActions]
-    def available_actions_retrieve(x_account_token, opts = {})
-      data, _status_code, _headers = available_actions_retrieve_with_http_info(x_account_token, opts)
+    # @return [RemoteResponse]
+    def passthrough_create(x_account_token, data_passthrough, opts = {})
+      data, _status_code, _headers = passthrough_create_with_http_info(x_account_token, data_passthrough, opts)
       data
     end
 
-    # Returns a list of models and actions available for an account.
+    # Pull data from an endpoint not currently supported by Merge.
     # @param x_account_token [String] Token identifying the end user.
+    # @param data_passthrough [DataPassthrough] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
-    # @return [Array<(AvailableActions, Integer, Hash)>] AvailableActions data, response status code and response headers
-    def available_actions_retrieve_with_http_info(x_account_token, opts = {})
+    # @return [Array<(RemoteResponse, Integer, Hash)>] RemoteResponse data, response status code and response headers
+    def passthrough_create_with_http_info(x_account_token, data_passthrough, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AvailableActionsApi.available_actions_retrieve ...'
+        @api_client.config.logger.debug 'Calling API: PassthroughApi.passthrough_create ...'
       end
       # verify the required parameter 'x_account_token' is set
       if @api_client.config.client_side_validation && x_account_token.nil?
-        fail ArgumentError, "Missing the required parameter 'x_account_token' when calling AvailableActionsApi.available_actions_retrieve"
+        fail ArgumentError, "Missing the required parameter 'x_account_token' when calling PassthroughApi.passthrough_create"
+      end
+      # verify the required parameter 'data_passthrough' is set
+      if @api_client.config.client_side_validation && data_passthrough.nil?
+        fail ArgumentError, "Missing the required parameter 'data_passthrough' when calling PassthroughApi.passthrough_create"
       end
       # resource path
-      local_var_path = '/available-actions'
+      local_var_path = '/passthrough'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -53,22 +59,24 @@ module MergeHRISClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
       header_params[:'X-Account-Token'] = x_account_token
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body]
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data_passthrough)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'AvailableActions'
+      return_type = opts[:debug_return_type] || 'RemoteResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['tokenAuth']
 
       new_options = opts.merge(
-        :operation => :"AvailableActionsApi.available_actions_retrieve",
+        :operation => :"PassthroughApi.passthrough_create",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -77,9 +85,9 @@ module MergeHRISClient
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AvailableActionsApi#available_actions_retrieve\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PassthroughApi#passthrough_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

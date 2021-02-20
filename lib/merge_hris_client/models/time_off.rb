@@ -42,6 +42,8 @@ module MergeHRISClient
     # The type of time off request.
     attr_accessor :request_type
 
+    attr_accessor :remote_data
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -53,7 +55,8 @@ module MergeHRISClient
         :'employee_note' => :'employee_note',
         :'units' => :'units',
         :'amount' => :'amount',
-        :'request_type' => :'request_type'
+        :'request_type' => :'request_type',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -73,7 +76,8 @@ module MergeHRISClient
         :'employee_note' => :'String',
         :'units' => :'UnitsEnum',
         :'amount' => :'Float',
-        :'request_type' => :'RequestTypeEnum'
+        :'request_type' => :'RequestTypeEnum',
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
@@ -87,7 +91,8 @@ module MergeHRISClient
         :'employee_note',
         :'units',
         :'amount',
-        :'request_type'
+        :'request_type',
+        :'remote_data'
       ])
     end
 
@@ -141,6 +146,12 @@ module MergeHRISClient
       if attributes.key?(:'request_type')
         self.request_type = attributes[:'request_type']
       end
+
+      if attributes.key?(:'remote_data')
+        if (value = attributes[:'remote_data']).is_a?(Array)
+          self.remote_data = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -169,7 +180,8 @@ module MergeHRISClient
           employee_note == o.employee_note &&
           units == o.units &&
           amount == o.amount &&
-          request_type == o.request_type
+          request_type == o.request_type &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -181,7 +193,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, approver, status, employee_note, units, amount, request_type].hash
+      [id, remote_id, employee, approver, status, employee_note, units, amount, request_type, remote_data].hash
     end
 
     # Builds the object from hash

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **employee_payroll_run** | **String** | The tax&#39;s employee payroll run. | [optional] |
-| **name** | **String** | The deduction&#39;s name. | [optional] |
+| **name** | **String** | The tax&#39;s name. | [optional] |
 | **amount** | **Float** | The tax amount. | [optional] |
 | **employer_tax** | **Boolean** | Whether or not the employer is responsible for paying the tax. | [optional] |
 

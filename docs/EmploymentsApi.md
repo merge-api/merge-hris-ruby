@@ -36,6 +36,7 @@ opts = {
   created_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects created before this datetime.
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
   employee_id: 'employee_id_example', # String | If provided, will only return employments for this employee.
+  include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified after this datetime.
   modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified before this datetime.
   page_size: 56, # Integer | Number of results to return per page.
@@ -78,6 +79,7 @@ end
 | **created_before** | **Time** | If provided, will only return objects created before this datetime. | [optional] |
 | **cursor** | **String** | The pagination cursor value. | [optional] |
 | **employee_id** | **String** | If provided, will only return employments for this employee. | [optional] |
+| **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **modified_after** | **Time** | If provided, will only return objects modified after this datetime. | [optional] |
 | **modified_before** | **Time** | If provided, will only return objects modified before this datetime. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
@@ -99,7 +101,7 @@ end
 
 ## employments_retrieve
 
-> <Employment> employments_retrieve(x_account_token, id)
+> <Employment> employments_retrieve(x_account_token, id, opts)
 
 
 
@@ -121,10 +123,13 @@ end
 api_instance = MergeHRISClient::EmploymentsApi.new
 x_account_token = 'x_account_token_example' # String | Token identifying the end user.
 id = TODO # String | 
+opts = {
+  include_remote_data: true # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
+}
 
 begin
   
-  result = api_instance.employments_retrieve(x_account_token, id)
+  result = api_instance.employments_retrieve(x_account_token, id, opts)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Error when calling EmploymentsApi->employments_retrieve: #{e}"
@@ -135,12 +140,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Employment>, Integer, Hash)> employments_retrieve_with_http_info(x_account_token, id)
+> <Array(<Employment>, Integer, Hash)> employments_retrieve_with_http_info(x_account_token, id, opts)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.employments_retrieve_with_http_info(x_account_token, id)
+  data, status_code, headers = api_instance.employments_retrieve_with_http_info(x_account_token, id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Employment>
@@ -155,6 +160,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **x_account_token** | **String** | Token identifying the end user. |  |
 | **id** | [**String**](.md) |  |  |
+| **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 
 ### Return type
 

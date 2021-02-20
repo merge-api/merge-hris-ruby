@@ -14,41 +14,29 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The PayrollRun Object ### Description The `PayrollRun` object is used to represent a payroll run.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.
-  class PayrollRun
-    attr_accessor :id
+  class AccountIntegration
+    # Company name.
+    attr_accessor :name
 
-    # The third-party API ID of the matching object.
-    attr_accessor :remote_id
+    attr_accessor :categories
 
-    # The state of the payroll run
-    attr_accessor :run_state
+    # Company logo.
+    attr_accessor :image
 
-    # The type of the payroll run
-    attr_accessor :run_type
+    # Company logo in square shape.
+    attr_accessor :square_image
 
-    # The day and time the payroll run started.
-    attr_accessor :start_date
-
-    # The day and time the payroll run ended.
-    attr_accessor :end_date
-
-    # The day and time the payroll run was checked.
-    attr_accessor :check_date
-
-    attr_accessor :remote_data
+    # The color of this integration used for buttons and text throughout the app and landing pages. Choose a darker, saturated color.
+    attr_accessor :color
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'remote_id' => :'remote_id',
-        :'run_state' => :'run_state',
-        :'run_type' => :'run_type',
-        :'start_date' => :'start_date',
-        :'end_date' => :'end_date',
-        :'check_date' => :'check_date',
-        :'remote_data' => :'remote_data'
+        :'name' => :'name',
+        :'categories' => :'categories',
+        :'image' => :'image',
+        :'square_image' => :'square_image',
+        :'color' => :'color'
       }
     end
 
@@ -60,27 +48,19 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'remote_id' => :'String',
-        :'run_state' => :'RunStateEnum',
-        :'run_type' => :'RunTypeEnum',
-        :'start_date' => :'Time',
-        :'end_date' => :'Time',
-        :'check_date' => :'Time',
-        :'remote_data' => :'Array<RemoteData>'
+        :'name' => :'String',
+        :'categories' => :'String',
+        :'image' => :'String',
+        :'square_image' => :'String',
+        :'color' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'remote_id',
-        :'run_state',
-        :'run_type',
-        :'start_date',
-        :'end_date',
-        :'check_date',
-        :'remote_data'
+        :'image',
+        :'square_image',
       ])
     end
 
@@ -88,49 +68,35 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::PayrollRun` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::AccountIntegration` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::PayrollRun`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::AccountIntegration`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'remote_id')
-        self.remote_id = attributes[:'remote_id']
+      if attributes.key?(:'categories')
+        self.categories = attributes[:'categories']
       end
 
-      if attributes.key?(:'run_state')
-        self.run_state = attributes[:'run_state']
+      if attributes.key?(:'image')
+        self.image = attributes[:'image']
       end
 
-      if attributes.key?(:'run_type')
-        self.run_type = attributes[:'run_type']
+      if attributes.key?(:'square_image')
+        self.square_image = attributes[:'square_image']
       end
 
-      if attributes.key?(:'start_date')
-        self.start_date = attributes[:'start_date']
-      end
-
-      if attributes.key?(:'end_date')
-        self.end_date = attributes[:'end_date']
-      end
-
-      if attributes.key?(:'check_date')
-        self.check_date = attributes[:'check_date']
-      end
-
-      if attributes.key?(:'remote_data')
-        if (value = attributes[:'remote_data']).is_a?(Array)
-          self.remote_data = value
-        end
+      if attributes.key?(:'color')
+        self.color = attributes[:'color']
       end
     end
 
@@ -138,13 +104,44 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if !@color.nil? && @color.to_s.length > 18
+        invalid_properties.push('invalid value for "color", the character length must be smaller than or equal to 18.')
+      end
+
+      pattern = Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
+      if !@color.nil? && @color !~ pattern
+        invalid_properties.push("invalid value for \"color\", must conform to the pattern #{pattern}.")
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @name.nil?
+      return false if !@color.nil? && @color.to_s.length > 18
+      return false if !@color.nil? && @color !~ Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] color Value to be assigned
+    def color=(color)
+      if !color.nil? && color.to_s.length > 18
+        fail ArgumentError, 'invalid value for "color", the character length must be smaller than or equal to 18.'
+      end
+
+      pattern = Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
+      if !color.nil? && color !~ pattern
+        fail ArgumentError, "invalid value for \"color\", must conform to the pattern #{pattern}."
+      end
+
+      @color = color
     end
 
     # Checks equality by comparing each attribute.
@@ -152,14 +149,11 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          remote_id == o.remote_id &&
-          run_state == o.run_state &&
-          run_type == o.run_type &&
-          start_date == o.start_date &&
-          end_date == o.end_date &&
-          check_date == o.check_date &&
-          remote_data == o.remote_data
+          name == o.name &&
+          categories == o.categories &&
+          image == o.image &&
+          square_image == o.square_image &&
+          color == o.color
     end
 
     # @see the `==` method
@@ -171,7 +165,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, run_state, run_type, start_date, end_date, check_date, remote_data].hash
+      [name, categories, image, square_image, color].hash
     end
 
     # Builds the object from hash

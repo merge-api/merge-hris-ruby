@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 *MergeHRISClient::LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
 *MergeHRISClient::LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
+*MergeHRISClient::PassthroughApi* | [**passthrough_create**](docs/PassthroughApi.md#passthrough_create) | **POST** /passthrough | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *MergeHRISClient::TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
@@ -108,12 +109,14 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [MergeHRISClient::AccountIntegration](docs/AccountIntegration.md)
  - [MergeHRISClient::AccountToken](docs/AccountToken.md)
  - [MergeHRISClient::AvailableActions](docs/AvailableActions.md)
  - [MergeHRISClient::Benefit](docs/Benefit.md)
  - [MergeHRISClient::BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [MergeHRISClient::Company](docs/Company.md)
  - [MergeHRISClient::CountryEnum](docs/CountryEnum.md)
+ - [MergeHRISClient::DataPassthrough](docs/DataPassthrough.md)
  - [MergeHRISClient::Deduction](docs/Deduction.md)
  - [MergeHRISClient::Earning](docs/Earning.md)
  - [MergeHRISClient::Employee](docs/Employee.md)
@@ -128,6 +131,7 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::LinkToken](docs/LinkToken.md)
  - [MergeHRISClient::Location](docs/Location.md)
  - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
+ - [MergeHRISClient::MethodEnum](docs/MethodEnum.md)
  - [MergeHRISClient::ModelOperation](docs/ModelOperation.md)
  - [MergeHRISClient::PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [MergeHRISClient::PaginatedCompanyList](docs/PaginatedCompanyList.md)
@@ -142,6 +146,8 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::PayFrequencyEnum](docs/PayFrequencyEnum.md)
  - [MergeHRISClient::PayPeriodEnum](docs/PayPeriodEnum.md)
  - [MergeHRISClient::PayrollRun](docs/PayrollRun.md)
+ - [MergeHRISClient::RemoteData](docs/RemoteData.md)
+ - [MergeHRISClient::RemoteResponse](docs/RemoteResponse.md)
  - [MergeHRISClient::RequestTypeEnum](docs/RequestTypeEnum.md)
  - [MergeHRISClient::RunStateEnum](docs/RunStateEnum.md)
  - [MergeHRISClient::RunTypeEnum](docs/RunTypeEnum.md)

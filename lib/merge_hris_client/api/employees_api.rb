@@ -27,6 +27,7 @@ module MergeHRISClient
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :manager_id If provided, will only return employees for this manager.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
@@ -48,6 +49,7 @@ module MergeHRISClient
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :manager_id If provided, will only return employees for this manager.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
@@ -78,6 +80,7 @@ module MergeHRISClient
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+      query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
       query_params[:'manager_id'] = opts[:'manager_id'] if !opts[:'manager_id'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
@@ -126,6 +129,7 @@ module MergeHRISClient
     # @param id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @return [Employee]
     def employees_retrieve(x_account_token, id, opts = {})
       data, _status_code, _headers = employees_retrieve_with_http_info(x_account_token, id, opts)
@@ -137,6 +141,7 @@ module MergeHRISClient
     # @param id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @return [Array<(Employee, Integer, Hash)>] Employee data, response status code and response headers
     def employees_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging
@@ -160,6 +165,7 @@ module MergeHRISClient
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+      query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

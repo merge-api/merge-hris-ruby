@@ -11,6 +11,7 @@
 | **benefit_plan_type** | [**BenefitPlanTypeEnum**](BenefitPlanTypeEnum.md) | The type of benefit plan | [optional] |
 | **employee_contribution** | **Float** | The employee&#39;s contribution. | [optional] |
 | **company_contribution** | **Float** | The company&#39;s contribution. | [optional] |
+| **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = MergeHRISClient::Benefit.new(
   provider_name: Blue Shield of California,
   benefit_plan_type: MEDICAL,
   employee_contribution: 23.65,
-  company_contribution: 150.0
+  company_contribution: 150.0,
+  remote_data: [{&quot;path&quot;:&quot;/benefits&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
 

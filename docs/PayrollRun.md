@@ -11,6 +11,7 @@
 | **start_date** | **Time** | The day and time the payroll run started. | [optional] |
 | **end_date** | **Time** | The day and time the payroll run ended. | [optional] |
 | **check_date** | **Time** | The day and time the payroll run was checked. | [optional] |
+| **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = MergeHRISClient::PayrollRun.new(
   run_type: REGULAR,
   start_date: null,
   end_date: null,
-  check_date: null
+  check_date: null,
+  remote_data: [{&quot;path&quot;:&quot;/payroll&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
 

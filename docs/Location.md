@@ -13,6 +13,7 @@
 | **state** | [**StateEnum**](StateEnum.md) | The location&#39;s state. | [optional] |
 | **zip_code** | **String** | The location&#39;s zip code. | [optional] |
 | **country** | [**CountryEnum**](CountryEnum.md) | The location&#39;s country. | [optional] |
+| **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = MergeHRISClient::Location.new(
   city: New York ,
   state: NY,
   zip_code: 10027,
-  country: USA
+  country: USA,
+  remote_data: [{&quot;path&quot;:&quot;/locations&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
 
