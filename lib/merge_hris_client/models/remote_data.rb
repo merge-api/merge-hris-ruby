@@ -36,7 +36,7 @@ module MergeHRISClient
     def self.openapi_types
       {
         :'path' => :'String',
-        :'data' => :'Hash<String, AnyType>'
+        :'data' => :'Hash<String, Object>'
       }
     end
 
