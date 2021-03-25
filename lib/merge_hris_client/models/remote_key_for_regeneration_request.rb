@@ -14,52 +14,14 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  class AccountIntegration
-    # Company name.
+  # # The RemoteResponse Object ### Description The `RemoteResponse` object is used to represent information returned from a third-party endpoint.  ### Usage Example View the `RemoteResponse` returned from your `DataPassthrough`.
+  class RemoteKeyForRegenerationRequest
     attr_accessor :name
-
-    # Category or categories this integration belongs to.
-    attr_accessor :categories
-
-    # Company logo in rectangular shape.
-    attr_accessor :image
-
-    # Company logo in square shape.
-    attr_accessor :square_image
-
-    # The color of this integration used for buttons and text throughout the app and landing pages.
-    attr_accessor :color
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'categories' => :'categories',
-        :'image' => :'image',
-        :'square_image' => :'square_image',
-        :'color' => :'color'
+        :'name' => :'name'
       }
     end
 
@@ -71,19 +33,13 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'categories' => :'Array<String>',
-        :'image' => :'String',
-        :'square_image' => :'String',
-        :'color' => :'String'
+        :'name' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'image',
-        :'square_image',
       ])
     end
 
@@ -91,37 +47,19 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::AccountIntegration` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::RemoteKeyForRegenerationRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::AccountIntegration`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::RemoteKeyForRegenerationRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'categories')
-        if (value = attributes[:'categories']).is_a?(Array)
-          self.categories = value
-        end
-      end
-
-      if attributes.key?(:'image')
-        self.image = attributes[:'image']
-      end
-
-      if attributes.key?(:'square_image')
-        self.square_image = attributes[:'square_image']
-      end
-
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
       end
     end
 
@@ -133,15 +71,6 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if !@color.nil? && @color.to_s.length > 18
-        invalid_properties.push('invalid value for "color", the character length must be smaller than or equal to 18.')
-      end
-
-      pattern = Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
-      if !@color.nil? && @color !~ pattern
-        invalid_properties.push("invalid value for \"color\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -149,24 +78,7 @@ module MergeHRISClient
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if !@color.nil? && @color.to_s.length > 18
-      return false if !@color.nil? && @color !~ Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] color Value to be assigned
-    def color=(color)
-      if !color.nil? && color.to_s.length > 18
-        fail ArgumentError, 'invalid value for "color", the character length must be smaller than or equal to 18.'
-      end
-
-      pattern = Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
-      if !color.nil? && color !~ pattern
-        fail ArgumentError, "invalid value for \"color\", must conform to the pattern #{pattern}."
-      end
-
-      @color = color
     end
 
     # Checks equality by comparing each attribute.
@@ -174,11 +86,7 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          categories == o.categories &&
-          image == o.image &&
-          square_image == o.square_image &&
-          color == o.color
+          name == o.name
     end
 
     # @see the `==` method
@@ -190,7 +98,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, categories, image, square_image, color].hash
+      [name].hash
     end
 
     # Builds the object from hash

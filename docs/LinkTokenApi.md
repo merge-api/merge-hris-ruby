@@ -9,7 +9,7 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 ## link_token_create
 
-> <LinkToken> link_token_create(end_user_details)
+> <LinkToken> link_token_create(end_user_details_request)
 
 
 
@@ -29,11 +29,11 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::LinkTokenApi.new
-end_user_details = MergeHRISClient::EndUserDetails.new({end_user_email_address: 'end_user_email_address_example', end_user_organization_name: 'end_user_organization_name_example', end_user_origin_id: 'end_user_origin_id_example', categories: ['hris']}) # EndUserDetails | 
+end_user_details_request = MergeHRISClient::EndUserDetailsRequest.new({end_user_email_address: 'end_user_email_address_example', end_user_organization_name: 'end_user_organization_name_example', end_user_origin_id: 'end_user_origin_id_example', categories: ['hris']}) # EndUserDetailsRequest | 
 
 begin
   
-  result = api_instance.link_token_create(end_user_details)
+  result = api_instance.link_token_create(end_user_details_request)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Error when calling LinkTokenApi->link_token_create: #{e}"
@@ -44,12 +44,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<LinkToken>, Integer, Hash)> link_token_create_with_http_info(end_user_details)
+> <Array(<LinkToken>, Integer, Hash)> link_token_create_with_http_info(end_user_details_request)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.link_token_create_with_http_info(end_user_details)
+  data, status_code, headers = api_instance.link_token_create_with_http_info(end_user_details_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <LinkToken>
@@ -62,7 +62,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **end_user_details** | [**EndUserDetails**](EndUserDetails.md) |  |  |
+| **end_user_details_request** | [**EndUserDetailsRequest**](EndUserDetailsRequest.md) |  |  |
 
 ### Return type
 

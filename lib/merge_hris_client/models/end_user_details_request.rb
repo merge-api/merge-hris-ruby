@@ -14,21 +14,14 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  class AccountIntegration
-    # Company name.
-    attr_accessor :name
+  class EndUserDetailsRequest
+    attr_accessor :end_user_email_address
 
-    # Category or categories this integration belongs to.
+    attr_accessor :end_user_organization_name
+
+    attr_accessor :end_user_origin_id
+
     attr_accessor :categories
-
-    # Company logo in rectangular shape.
-    attr_accessor :image
-
-    # Company logo in square shape.
-    attr_accessor :square_image
-
-    # The color of this integration used for buttons and text throughout the app and landing pages.
-    attr_accessor :color
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -55,11 +48,10 @@ module MergeHRISClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'categories' => :'categories',
-        :'image' => :'image',
-        :'square_image' => :'square_image',
-        :'color' => :'color'
+        :'end_user_email_address' => :'end_user_email_address',
+        :'end_user_organization_name' => :'end_user_organization_name',
+        :'end_user_origin_id' => :'end_user_origin_id',
+        :'categories' => :'categories'
       }
     end
 
@@ -71,19 +63,16 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'categories' => :'Array<String>',
-        :'image' => :'String',
-        :'square_image' => :'String',
-        :'color' => :'String'
+        :'end_user_email_address' => :'String',
+        :'end_user_organization_name' => :'String',
+        :'end_user_origin_id' => :'String',
+        :'categories' => :'Array<String>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'image',
-        :'square_image',
       ])
     end
 
@@ -91,19 +80,27 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::AccountIntegration` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::EndUserDetailsRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::AccountIntegration`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::EndUserDetailsRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'end_user_email_address')
+        self.end_user_email_address = attributes[:'end_user_email_address']
+      end
+
+      if attributes.key?(:'end_user_organization_name')
+        self.end_user_organization_name = attributes[:'end_user_organization_name']
+      end
+
+      if attributes.key?(:'end_user_origin_id')
+        self.end_user_origin_id = attributes[:'end_user_origin_id']
       end
 
       if attributes.key?(:'categories')
@@ -111,35 +108,26 @@ module MergeHRISClient
           self.categories = value
         end
       end
-
-      if attributes.key?(:'image')
-        self.image = attributes[:'image']
-      end
-
-      if attributes.key?(:'square_image')
-        self.square_image = attributes[:'square_image']
-      end
-
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @end_user_email_address.nil?
+        invalid_properties.push('invalid value for "end_user_email_address", end_user_email_address cannot be nil.')
       end
 
-      if !@color.nil? && @color.to_s.length > 18
-        invalid_properties.push('invalid value for "color", the character length must be smaller than or equal to 18.')
+      if @end_user_organization_name.nil?
+        invalid_properties.push('invalid value for "end_user_organization_name", end_user_organization_name cannot be nil.')
       end
 
-      pattern = Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
-      if !@color.nil? && @color !~ pattern
-        invalid_properties.push("invalid value for \"color\", must conform to the pattern #{pattern}.")
+      if @end_user_origin_id.nil?
+        invalid_properties.push('invalid value for "end_user_origin_id", end_user_origin_id cannot be nil.')
+      end
+
+      if @categories.nil?
+        invalid_properties.push('invalid value for "categories", categories cannot be nil.')
       end
 
       invalid_properties
@@ -148,25 +136,11 @@ module MergeHRISClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if !@color.nil? && @color.to_s.length > 18
-      return false if !@color.nil? && @color !~ Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
+      return false if @end_user_email_address.nil?
+      return false if @end_user_organization_name.nil?
+      return false if @end_user_origin_id.nil?
+      return false if @categories.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] color Value to be assigned
-    def color=(color)
-      if !color.nil? && color.to_s.length > 18
-        fail ArgumentError, 'invalid value for "color", the character length must be smaller than or equal to 18.'
-      end
-
-      pattern = Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
-      if !color.nil? && color !~ pattern
-        fail ArgumentError, "invalid value for \"color\", must conform to the pattern #{pattern}."
-      end
-
-      @color = color
     end
 
     # Checks equality by comparing each attribute.
@@ -174,11 +148,10 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          categories == o.categories &&
-          image == o.image &&
-          square_image == o.square_image &&
-          color == o.color
+          end_user_email_address == o.end_user_email_address &&
+          end_user_organization_name == o.end_user_organization_name &&
+          end_user_origin_id == o.end_user_origin_id &&
+          categories == o.categories
     end
 
     # @see the `==` method
@@ -190,7 +163,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, categories, image, square_image, color].hash
+      [end_user_email_address, end_user_organization_name, end_user_origin_id, categories].hash
     end
 
     # Builds the object from hash

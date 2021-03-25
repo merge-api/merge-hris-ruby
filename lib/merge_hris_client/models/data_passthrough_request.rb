@@ -14,52 +14,26 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  class AccountIntegration
-    # Company name.
-    attr_accessor :name
+  # # The DataPassthrough Object ### Description The `DataPassthrough` object is used to send information to an otherwise-unsupported third-party endpoint.  ### Usage Example Create a `DataPassthrough` to get team hierarchies from your Rippling integration.
+  class DataPassthroughRequest
+    attr_accessor :method
 
-    # Category or categories this integration belongs to.
-    attr_accessor :categories
+    attr_accessor :path
 
-    # Company logo in rectangular shape.
-    attr_accessor :image
+    attr_accessor :base_url_override
 
-    # Company logo in square shape.
-    attr_accessor :square_image
+    attr_accessor :data
 
-    # The color of this integration used for buttons and text throughout the app and landing pages.
-    attr_accessor :color
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :headers
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'categories' => :'categories',
-        :'image' => :'image',
-        :'square_image' => :'square_image',
-        :'color' => :'color'
+        :'method' => :'method',
+        :'path' => :'path',
+        :'base_url_override' => :'base_url_override',
+        :'data' => :'data',
+        :'headers' => :'headers'
       }
     end
 
@@ -71,19 +45,19 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'categories' => :'Array<String>',
-        :'image' => :'String',
-        :'square_image' => :'String',
-        :'color' => :'String'
+        :'method' => :'MethodEnum',
+        :'path' => :'String',
+        :'base_url_override' => :'String',
+        :'data' => :'Hash<String, AnyType>',
+        :'headers' => :'Hash<String, AnyType>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'image',
-        :'square_image',
+        :'data',
+        :'headers'
       ])
     end
 
@@ -91,37 +65,39 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::AccountIntegration` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::DataPassthroughRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::AccountIntegration`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::DataPassthroughRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'method')
+        self.method = attributes[:'method']
       end
 
-      if attributes.key?(:'categories')
-        if (value = attributes[:'categories']).is_a?(Array)
-          self.categories = value
+      if attributes.key?(:'path')
+        self.path = attributes[:'path']
+      end
+
+      if attributes.key?(:'base_url_override')
+        self.base_url_override = attributes[:'base_url_override']
+      end
+
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Hash)
+          self.data = value
         end
       end
 
-      if attributes.key?(:'image')
-        self.image = attributes[:'image']
-      end
-
-      if attributes.key?(:'square_image')
-        self.square_image = attributes[:'square_image']
-      end
-
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
+      if attributes.key?(:'headers')
+        if (value = attributes[:'headers']).is_a?(Hash)
+          self.headers = value
+        end
       end
     end
 
@@ -129,17 +105,12 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @method.nil?
+        invalid_properties.push('invalid value for "method", method cannot be nil.')
       end
 
-      if !@color.nil? && @color.to_s.length > 18
-        invalid_properties.push('invalid value for "color", the character length must be smaller than or equal to 18.')
-      end
-
-      pattern = Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
-      if !@color.nil? && @color !~ pattern
-        invalid_properties.push("invalid value for \"color\", must conform to the pattern #{pattern}.")
+      if @path.nil?
+        invalid_properties.push('invalid value for "path", path cannot be nil.')
       end
 
       invalid_properties
@@ -148,25 +119,9 @@ module MergeHRISClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if !@color.nil? && @color.to_s.length > 18
-      return false if !@color.nil? && @color !~ Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
+      return false if @method.nil?
+      return false if @path.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] color Value to be assigned
-    def color=(color)
-      if !color.nil? && color.to_s.length > 18
-        fail ArgumentError, 'invalid value for "color", the character length must be smaller than or equal to 18.'
-      end
-
-      pattern = Regexp.new(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
-      if !color.nil? && color !~ pattern
-        fail ArgumentError, "invalid value for \"color\", must conform to the pattern #{pattern}."
-      end
-
-      @color = color
     end
 
     # Checks equality by comparing each attribute.
@@ -174,11 +129,11 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          categories == o.categories &&
-          image == o.image &&
-          square_image == o.square_image &&
-          color == o.color
+          method == o.method &&
+          path == o.path &&
+          base_url_override == o.base_url_override &&
+          data == o.data &&
+          headers == o.headers
     end
 
     # @see the `==` method
@@ -190,7 +145,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, categories, image, square_image, color].hash
+      [method, path, base_url_override, data, headers].hash
     end
 
     # Builds the object from hash

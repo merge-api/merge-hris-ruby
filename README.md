@@ -101,6 +101,7 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::PassthroughApi* | [**passthrough_create**](docs/PassthroughApi.md#passthrough_create) | **POST** /passthrough | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
+*MergeHRISClient::RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
 *MergeHRISClient::TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
 *MergeHRISClient::TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 *MergeHRISClient::TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
@@ -116,7 +117,7 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [MergeHRISClient::Company](docs/Company.md)
  - [MergeHRISClient::CountryEnum](docs/CountryEnum.md)
- - [MergeHRISClient::DataPassthrough](docs/DataPassthrough.md)
+ - [MergeHRISClient::DataPassthroughRequest](docs/DataPassthroughRequest.md)
  - [MergeHRISClient::Deduction](docs/Deduction.md)
  - [MergeHRISClient::Earning](docs/Earning.md)
  - [MergeHRISClient::Employee](docs/Employee.md)
@@ -124,7 +125,7 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::Employment](docs/Employment.md)
  - [MergeHRISClient::EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
  - [MergeHRISClient::EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
- - [MergeHRISClient::EndUserDetails](docs/EndUserDetails.md)
+ - [MergeHRISClient::EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
  - [MergeHRISClient::EthnicityEnum](docs/EthnicityEnum.md)
  - [MergeHRISClient::FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [MergeHRISClient::GenderEnum](docs/GenderEnum.md)
@@ -147,6 +148,8 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::PayPeriodEnum](docs/PayPeriodEnum.md)
  - [MergeHRISClient::PayrollRun](docs/PayrollRun.md)
  - [MergeHRISClient::RemoteData](docs/RemoteData.md)
+ - [MergeHRISClient::RemoteKey](docs/RemoteKey.md)
+ - [MergeHRISClient::RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [MergeHRISClient::RemoteResponse](docs/RemoteResponse.md)
  - [MergeHRISClient::RequestTypeEnum](docs/RequestTypeEnum.md)
  - [MergeHRISClient::RunStateEnum](docs/RunStateEnum.md)

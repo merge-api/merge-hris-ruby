@@ -33,9 +33,9 @@ instance = MergeHRISClient::EmployeePayrollRun.new(
   start_date: null,
   end_date: null,
   check_date: null,
-  earnings: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;amount&quot;:1002.34,&quot;type&quot;:&quot;SALARY&quot;},{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;amount&quot;:8342.34,&quot;type&quot;:&quot;OVERTIME&quot;,&quot;remote_data&quot;:null}],
-  deductions: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;name&quot;:&quot;Social Security&quot;,&quot;employee_deduction&quot;:34.54,&quot;company_deduction&quot;:78.78,&quot;remote_data&quot;:null}],
-  taxes: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;name&quot;:&quot;California State Income Tax&quot;,&quot;amount&quot;:100.25,&quot;employer_tax&quot;:&quot;False&quot;,&quot;remote_data&quot;:null}],
+  earnings: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;amount&quot;:1002.34,&quot;type&quot;:&quot;SALARY&quot;},{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;amount&quot;:8342.34,&quot;type&quot;:&quot;OVERTIME&quot;}],
+  deductions: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;name&quot;:&quot;Social Security&quot;,&quot;employee_deduction&quot;:34.54,&quot;company_deduction&quot;:78.78}],
+  taxes: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;name&quot;:&quot;California State Income Tax&quot;,&quot;amount&quot;:100.25,&quot;employer_tax&quot;:&quot;False&quot;}],
   remote_data: [{&quot;path&quot;:&quot;/employee-payroll&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
