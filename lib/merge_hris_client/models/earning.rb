@@ -27,13 +27,16 @@ module MergeHRISClient
     # The type of earning.
     attr_accessor :type
 
+    attr_accessor :remote_data
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'employee_payroll_run' => :'employee_payroll_run',
         :'amount' => :'amount',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -48,7 +51,8 @@ module MergeHRISClient
         :'id' => :'String',
         :'employee_payroll_run' => :'String',
         :'amount' => :'Float',
-        :'type' => :'TypeEnum'
+        :'type' => :'TypeEnum',
+        :'remote_data' => :'Array<Hash<String, AnyType>>'
       }
     end
 
@@ -57,7 +61,8 @@ module MergeHRISClient
       Set.new([
         :'employee_payroll_run',
         :'amount',
-        :'type'
+        :'type',
+        :'remote_data'
       ])
     end
 
@@ -91,6 +96,12 @@ module MergeHRISClient
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
+      if attributes.key?(:'remote_data')
+        if (value = attributes[:'remote_data']).is_a?(Array)
+          self.remote_data = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -114,7 +125,8 @@ module MergeHRISClient
           id == o.id &&
           employee_payroll_run == o.employee_payroll_run &&
           amount == o.amount &&
-          type == o.type
+          type == o.type &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -126,7 +138,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, employee_payroll_run, amount, type].hash
+      [id, employee_payroll_run, amount, type, remote_data].hash
     end
 
     # Builds the object from hash

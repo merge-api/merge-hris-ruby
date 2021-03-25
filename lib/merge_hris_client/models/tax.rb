@@ -30,6 +30,8 @@ module MergeHRISClient
     # Whether or not the employer is responsible for paying the tax.
     attr_accessor :employer_tax
 
+    attr_accessor :remote_data
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -37,7 +39,8 @@ module MergeHRISClient
         :'employee_payroll_run' => :'employee_payroll_run',
         :'name' => :'name',
         :'amount' => :'amount',
-        :'employer_tax' => :'employer_tax'
+        :'employer_tax' => :'employer_tax',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -53,7 +56,8 @@ module MergeHRISClient
         :'employee_payroll_run' => :'String',
         :'name' => :'String',
         :'amount' => :'Float',
-        :'employer_tax' => :'Boolean'
+        :'employer_tax' => :'Boolean',
+        :'remote_data' => :'Array<Hash<String, AnyType>>'
       }
     end
 
@@ -63,7 +67,8 @@ module MergeHRISClient
         :'employee_payroll_run',
         :'name',
         :'amount',
-        :'employer_tax'
+        :'employer_tax',
+        :'remote_data'
       ])
     end
 
@@ -101,6 +106,12 @@ module MergeHRISClient
       if attributes.key?(:'employer_tax')
         self.employer_tax = attributes[:'employer_tax']
       end
+
+      if attributes.key?(:'remote_data')
+        if (value = attributes[:'remote_data']).is_a?(Array)
+          self.remote_data = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -125,7 +136,8 @@ module MergeHRISClient
           employee_payroll_run == o.employee_payroll_run &&
           name == o.name &&
           amount == o.amount &&
-          employer_tax == o.employer_tax
+          employer_tax == o.employer_tax &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -137,7 +149,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, employee_payroll_run, name, amount, employer_tax].hash
+      [id, employee_payroll_run, name, amount, employer_tax, remote_data].hash
     end
 
     # Builds the object from hash
