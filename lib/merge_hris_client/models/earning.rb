@@ -52,7 +52,7 @@ module MergeHRISClient
         :'employee_payroll_run' => :'String',
         :'amount' => :'Float',
         :'type' => :'TypeEnum',
-        :'remote_data' => :'Array<Hash<String, AnyType>>'
+        :'remote_data' => :'Array<Hash<RemoteData>>'
       }
     end
 
