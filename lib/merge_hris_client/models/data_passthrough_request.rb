@@ -48,8 +48,8 @@ module MergeHRISClient
         :'method' => :'MethodEnum',
         :'path' => :'String',
         :'base_url_override' => :'String',
-        :'data' => :'Hash<String, AnyType>',
-        :'headers' => :'Hash<String, AnyType>'
+        :'data' => :'Hash<String, Object>',
+        :'headers' => :'Hash<String, Object>'
       }
     end
 

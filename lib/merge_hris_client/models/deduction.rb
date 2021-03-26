@@ -57,7 +57,7 @@ module MergeHRISClient
         :'name' => :'String',
         :'employee_deduction' => :'Float',
         :'company_deduction' => :'Float',
-        :'remote_data' => :'Array<Hash<String, AnyType>>'
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
