@@ -32,7 +32,6 @@ module MergeHRISClient
     # @return [String] The enum value
     def build_from_hash(value)
       constantValues = RequestTypeEnum.constants.select { |c| RequestTypeEnum::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #RequestTypeEnum" if constantValues.empty?
       value
     end
   end
