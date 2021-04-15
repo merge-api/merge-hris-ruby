@@ -30,7 +30,7 @@ module MergeHRISClient
     # The status of this time off request.
     attr_accessor :status
 
-    # The status of this time off request.
+    # The employee note for this time off request.
     attr_accessor :employee_note
 
     # The unit of time requested.

@@ -95,6 +95,7 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::EmployeesApi* | [**employees_retrieve**](docs/EmployeesApi.md#employees_retrieve) | **GET** /employees/{id} | 
 *MergeHRISClient::EmploymentsApi* | [**employments_list**](docs/EmploymentsApi.md#employments_list) | **GET** /employments | 
 *MergeHRISClient::EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
+*MergeHRISClient::GenerateKeyApi* | [**generate_key_create**](docs/GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
 *MergeHRISClient::LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 *MergeHRISClient::LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
 *MergeHRISClient::LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
@@ -102,6 +103,7 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *MergeHRISClient::RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
+*MergeHRISClient::SyncStatusApi* | [**sync_status_retrieve**](docs/SyncStatusApi.md#sync_status_retrieve) | **GET** /sync-status | 
 *MergeHRISClient::TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
 *MergeHRISClient::TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 *MergeHRISClient::TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
@@ -129,6 +131,7 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::EthnicityEnum](docs/EthnicityEnum.md)
  - [MergeHRISClient::FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [MergeHRISClient::GenderEnum](docs/GenderEnum.md)
+ - [MergeHRISClient::GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
  - [MergeHRISClient::LinkToken](docs/LinkToken.md)
  - [MergeHRISClient::Location](docs/Location.md)
  - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
@@ -155,6 +158,7 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::RunStateEnum](docs/RunStateEnum.md)
  - [MergeHRISClient::RunTypeEnum](docs/RunTypeEnum.md)
  - [MergeHRISClient::StateEnum](docs/StateEnum.md)
+ - [MergeHRISClient::SyncStatus](docs/SyncStatus.md)
  - [MergeHRISClient::Tax](docs/Tax.md)
  - [MergeHRISClient::Team](docs/Team.md)
  - [MergeHRISClient::TimeOff](docs/TimeOff.md)

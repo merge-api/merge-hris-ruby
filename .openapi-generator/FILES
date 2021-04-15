@@ -31,6 +31,8 @@ docs/EndUserDetailsRequest.md
 docs/EthnicityEnum.md
 docs/FlsaStatusEnum.md
 docs/GenderEnum.md
+docs/GenerateKeyApi.md
+docs/GenerateRemoteKeyRequest.md
 docs/LinkToken.md
 docs/LinkTokenApi.md
 docs/Location.md
@@ -62,6 +64,8 @@ docs/RequestTypeEnum.md
 docs/RunStateEnum.md
 docs/RunTypeEnum.md
 docs/StateEnum.md
+docs/SyncStatus.md
+docs/SyncStatusApi.md
 docs/Tax.md
 docs/Team.md
 docs/TeamsApi.md
@@ -79,11 +83,13 @@ lib/merge_hris_client/api/companies_api.rb
 lib/merge_hris_client/api/employee_payroll_runs_api.rb
 lib/merge_hris_client/api/employees_api.rb
 lib/merge_hris_client/api/employments_api.rb
+lib/merge_hris_client/api/generate_key_api.rb
 lib/merge_hris_client/api/link_token_api.rb
 lib/merge_hris_client/api/locations_api.rb
 lib/merge_hris_client/api/passthrough_api.rb
 lib/merge_hris_client/api/payroll_runs_api.rb
 lib/merge_hris_client/api/regenerate_key_api.rb
+lib/merge_hris_client/api/sync_status_api.rb
 lib/merge_hris_client/api/teams_api.rb
 lib/merge_hris_client/api/time_off_api.rb
 lib/merge_hris_client/api_client.rb
@@ -109,6 +115,7 @@ lib/merge_hris_client/models/end_user_details_request.rb
 lib/merge_hris_client/models/ethnicity_enum.rb
 lib/merge_hris_client/models/flsa_status_enum.rb
 lib/merge_hris_client/models/gender_enum.rb
+lib/merge_hris_client/models/generate_remote_key_request.rb
 lib/merge_hris_client/models/link_token.rb
 lib/merge_hris_client/models/location.rb
 lib/merge_hris_client/models/marital_status_enum.rb
@@ -135,6 +142,7 @@ lib/merge_hris_client/models/request_type_enum.rb
 lib/merge_hris_client/models/run_state_enum.rb
 lib/merge_hris_client/models/run_type_enum.rb
 lib/merge_hris_client/models/state_enum.rb
+lib/merge_hris_client/models/sync_status.rb
 lib/merge_hris_client/models/tax.rb
 lib/merge_hris_client/models/team.rb
 lib/merge_hris_client/models/time_off.rb
@@ -143,9 +151,10 @@ lib/merge_hris_client/models/type_enum.rb
 lib/merge_hris_client/models/units_enum.rb
 lib/merge_hris_client/version.rb
 merge_hris_client.gemspec
+spec/api/generate_key_api_spec.rb
+spec/api/sync_status_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
-spec/models/data_passthrough_request_spec.rb
-spec/models/end_user_details_request_spec.rb
-spec/models/remote_key_for_regeneration_request_spec.rb
+spec/models/generate_remote_key_request_spec.rb
+spec/models/sync_status_spec.rb
 spec/spec_helper.rb

@@ -16,7 +16,7 @@
 | **employments** | **Array&lt;String&gt;** |  | [optional][readonly] |
 | **home_location** | **String** | The employee&#39;s home address. | [optional] |
 | **work_location** | **String** | The employee&#39;s work address. | [optional] |
-| **manager** | **String** | The employeee ID of the employee&#39;s manager. | [optional] |
+| **manager** | **String** | The employee ID of the employee&#39;s manager. | [optional] |
 | **team** | **String** | The employee&#39;s team. | [optional] |
 | **ssn** | **String** | The employee&#39;s social security number. | [optional] |
 | **gender** | [**GenderEnum**](GenderEnum.md) | The employee&#39;s gender. | [optional] |
@@ -27,6 +27,7 @@
 | **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) | The employment status of the employee. | [optional] |
 | **termination_date** | **Time** | The employee&#39;s termination date. | [optional] |
 | **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] |
+| **employee_number** | **String** | The identification number for the employee. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -58,6 +59,7 @@ instance = MergeHRISClient::Employee.new(
   employment_status: ACTIVE,
   termination_date: null,
   avatar: http://alturl.com/h2h8m,
+  employee_number: null,
   remote_data: [{&quot;path&quot;:&quot;/people&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
