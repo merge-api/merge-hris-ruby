@@ -14,47 +14,14 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  class EndUserDetailsRequest
-    attr_accessor :end_user_email_address
-
-    attr_accessor :end_user_organization_name
-
-    attr_accessor :end_user_origin_id
-
-    attr_accessor :categories
-
-    attr_accessor :integration
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+  # # The GenerateRemoteKey Object ### Description The `GenerateRemoteKey` object is used to represent a request for a new remote key.  ### Usage Example Post a `GenerateRemoteKey` to create a new remote key.
+  class GenerateRemoteKeyRequest
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'end_user_email_address' => :'end_user_email_address',
-        :'end_user_organization_name' => :'end_user_organization_name',
-        :'end_user_origin_id' => :'end_user_origin_id',
-        :'categories' => :'categories',
-        :'integration' => :'integration'
+        :'name' => :'name'
       }
     end
 
@@ -66,11 +33,7 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'end_user_email_address' => :'String',
-        :'end_user_organization_name' => :'String',
-        :'end_user_origin_id' => :'String',
-        :'categories' => :'Array<String>',
-        :'integration' => :'String'
+        :'name' => :'String'
       }
     end
 
@@ -84,37 +47,19 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::EndUserDetailsRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::GenerateRemoteKeyRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::EndUserDetailsRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::GenerateRemoteKeyRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'end_user_email_address')
-        self.end_user_email_address = attributes[:'end_user_email_address']
-      end
-
-      if attributes.key?(:'end_user_organization_name')
-        self.end_user_organization_name = attributes[:'end_user_organization_name']
-      end
-
-      if attributes.key?(:'end_user_origin_id')
-        self.end_user_origin_id = attributes[:'end_user_origin_id']
-      end
-
-      if attributes.key?(:'categories')
-        if (value = attributes[:'categories']).is_a?(Array)
-          self.categories = value
-        end
-      end
-
-      if attributes.key?(:'integration')
-        self.integration = attributes[:'integration']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -122,20 +67,8 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @end_user_email_address.nil?
-        invalid_properties.push('invalid value for "end_user_email_address", end_user_email_address cannot be nil.')
-      end
-
-      if @end_user_organization_name.nil?
-        invalid_properties.push('invalid value for "end_user_organization_name", end_user_organization_name cannot be nil.')
-      end
-
-      if @end_user_origin_id.nil?
-        invalid_properties.push('invalid value for "end_user_origin_id", end_user_origin_id cannot be nil.')
-      end
-
-      if @categories.nil?
-        invalid_properties.push('invalid value for "categories", categories cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
       invalid_properties
@@ -144,10 +77,7 @@ module MergeHRISClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @end_user_email_address.nil?
-      return false if @end_user_organization_name.nil?
-      return false if @end_user_origin_id.nil?
-      return false if @categories.nil?
+      return false if @name.nil?
       true
     end
 
@@ -156,11 +86,7 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          end_user_email_address == o.end_user_email_address &&
-          end_user_organization_name == o.end_user_organization_name &&
-          end_user_origin_id == o.end_user_origin_id &&
-          categories == o.categories &&
-          integration == o.integration
+          name == o.name
     end
 
     # @see the `==` method
@@ -172,7 +98,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [end_user_email_address, end_user_organization_name, end_user_origin_id, categories, integration].hash
+      [name].hash
     end
 
     # Builds the object from hash

@@ -50,7 +50,7 @@ module MergeHRISClient
     # The employee's work address.
     attr_accessor :work_location
 
-    # The employeee ID of the employee's manager.
+    # The employee ID of the employee's manager.
     attr_accessor :manager
 
     # The employee's team.
@@ -83,6 +83,9 @@ module MergeHRISClient
     # The URL of the employee's avatar image.
     attr_accessor :avatar
 
+    # The identification number for the employee.
+    attr_accessor :employee_number
+
     attr_accessor :remote_data
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -111,6 +114,7 @@ module MergeHRISClient
         :'employment_status' => :'employment_status',
         :'termination_date' => :'termination_date',
         :'avatar' => :'avatar',
+        :'employee_number' => :'employee_number',
         :'remote_data' => :'remote_data'
       }
     end
@@ -146,6 +150,7 @@ module MergeHRISClient
         :'employment_status' => :'EmploymentStatusEnum',
         :'termination_date' => :'Time',
         :'avatar' => :'String',
+        :'employee_number' => :'String',
         :'remote_data' => :'Array<RemoteData>'
       }
     end
@@ -174,6 +179,7 @@ module MergeHRISClient
         :'employment_status',
         :'termination_date',
         :'avatar',
+        :'employee_number',
         :'remote_data'
       ])
     end
@@ -287,6 +293,10 @@ module MergeHRISClient
         self.avatar = attributes[:'avatar']
       end
 
+      if attributes.key?(:'employee_number')
+        self.employee_number = attributes[:'employee_number']
+      end
+
       if attributes.key?(:'remote_data')
         if (value = attributes[:'remote_data']).is_a?(Array)
           self.remote_data = value
@@ -395,6 +405,7 @@ module MergeHRISClient
           employment_status == o.employment_status &&
           termination_date == o.termination_date &&
           avatar == o.avatar &&
+          employee_number == o.employee_number &&
           remote_data == o.remote_data
     end
 
@@ -407,7 +418,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, employment_status, termination_date, avatar, remote_data].hash
+      [id, remote_id, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, employment_status, termination_date, avatar, employee_number, remote_data].hash
     end
 
     # Builds the object from hash

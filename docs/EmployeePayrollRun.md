@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
-| **employee** | **String** | The employee who&#39;s payroll is being run. | [optional] |
+| **employee** | **String** | The employee whose payroll is being run. | [optional] |
 | **payroll_run** | **String** | The payroll being run. | [optional] |
 | **gross_pay** | **Float** | The gross pay from the run. | [optional] |
 | **net_pay** | **Float** | The net pay from the run. | [optional] |

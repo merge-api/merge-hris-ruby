@@ -13,35 +13,35 @@ OpenAPI Generator version: 5.0.0
 require 'cgi'
 
 module MergeHRISClient
-  class AvailableActionsApi
+  class SyncStatusApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Returns a list of models and actions available for an account.
+    # Get syncing status.
     # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @return [AvailableActions]
-    def available_actions_retrieve(x_account_token, opts = {})
-      data, _status_code, _headers = available_actions_retrieve_with_http_info(x_account_token, opts)
+    # @return [SyncStatus]
+    def sync_status_retrieve(x_account_token, opts = {})
+      data, _status_code, _headers = sync_status_retrieve_with_http_info(x_account_token, opts)
       data
     end
 
-    # Returns a list of models and actions available for an account.
+    # Get syncing status.
     # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(AvailableActions, Integer, Hash)>] AvailableActions data, response status code and response headers
-    def available_actions_retrieve_with_http_info(x_account_token, opts = {})
+    # @return [Array<(SyncStatus, Integer, Hash)>] SyncStatus data, response status code and response headers
+    def sync_status_retrieve_with_http_info(x_account_token, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AvailableActionsApi.available_actions_retrieve ...'
+        @api_client.config.logger.debug 'Calling API: SyncStatusApi.sync_status_retrieve ...'
       end
       # verify the required parameter 'x_account_token' is set
       if @api_client.config.client_side_validation && x_account_token.nil?
-        fail ArgumentError, "Missing the required parameter 'x_account_token' when calling AvailableActionsApi.available_actions_retrieve"
+        fail ArgumentError, "Missing the required parameter 'x_account_token' when calling SyncStatusApi.sync_status_retrieve"
       end
       # resource path
-      local_var_path = '/available-actions'
+      local_var_path = '/sync-status'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -59,13 +59,13 @@ module MergeHRISClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'AvailableActions'
+      return_type = opts[:debug_return_type] || 'SyncStatus'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['tokenAuth']
 
       new_options = opts.merge(
-        :operation => :"AvailableActionsApi.available_actions_retrieve",
+        :operation => :"SyncStatusApi.sync_status_retrieve",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -76,7 +76,7 @@ module MergeHRISClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AvailableActionsApi#available_actions_retrieve\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SyncStatusApi#sync_status_retrieve\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

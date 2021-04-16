@@ -21,7 +21,7 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The employee who's payroll is being run.
+    # The employee whose payroll is being run.
     attr_accessor :employee
 
     # The payroll being run.

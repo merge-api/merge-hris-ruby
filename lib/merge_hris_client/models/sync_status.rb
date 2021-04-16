@@ -14,47 +14,29 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  class EndUserDetailsRequest
-    attr_accessor :end_user_email_address
+  # # The SyncStatus Object ### Description The `SyncStatus` object is used to represent the syncing state of an account  ### Usage Example View the `SyncStatus` for an account to see how recently its models were synced.
+  class SyncStatus
+    attr_accessor :model_name
 
-    attr_accessor :end_user_organization_name
+    attr_accessor :model_id
 
-    attr_accessor :end_user_origin_id
+    attr_accessor :last_sync_start
 
-    attr_accessor :categories
+    attr_accessor :next_sync_start
 
-    attr_accessor :integration
+    attr_accessor :status
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :is_initial_sync
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'end_user_email_address' => :'end_user_email_address',
-        :'end_user_organization_name' => :'end_user_organization_name',
-        :'end_user_origin_id' => :'end_user_origin_id',
-        :'categories' => :'categories',
-        :'integration' => :'integration'
+        :'model_name' => :'model_name',
+        :'model_id' => :'model_id',
+        :'last_sync_start' => :'last_sync_start',
+        :'next_sync_start' => :'next_sync_start',
+        :'status' => :'status',
+        :'is_initial_sync' => :'is_initial_sync'
       }
     end
 
@@ -66,11 +48,12 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'end_user_email_address' => :'String',
-        :'end_user_organization_name' => :'String',
-        :'end_user_origin_id' => :'String',
-        :'categories' => :'Array<String>',
-        :'integration' => :'String'
+        :'model_name' => :'String',
+        :'model_id' => :'String',
+        :'last_sync_start' => :'Time',
+        :'next_sync_start' => :'Time',
+        :'status' => :'String',
+        :'is_initial_sync' => :'Boolean'
       }
     end
 
@@ -84,37 +67,39 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::EndUserDetailsRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::SyncStatus` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::EndUserDetailsRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::SyncStatus`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'end_user_email_address')
-        self.end_user_email_address = attributes[:'end_user_email_address']
+      if attributes.key?(:'model_name')
+        self.model_name = attributes[:'model_name']
       end
 
-      if attributes.key?(:'end_user_organization_name')
-        self.end_user_organization_name = attributes[:'end_user_organization_name']
+      if attributes.key?(:'model_id')
+        self.model_id = attributes[:'model_id']
       end
 
-      if attributes.key?(:'end_user_origin_id')
-        self.end_user_origin_id = attributes[:'end_user_origin_id']
+      if attributes.key?(:'last_sync_start')
+        self.last_sync_start = attributes[:'last_sync_start']
       end
 
-      if attributes.key?(:'categories')
-        if (value = attributes[:'categories']).is_a?(Array)
-          self.categories = value
-        end
+      if attributes.key?(:'next_sync_start')
+        self.next_sync_start = attributes[:'next_sync_start']
       end
 
-      if attributes.key?(:'integration')
-        self.integration = attributes[:'integration']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'is_initial_sync')
+        self.is_initial_sync = attributes[:'is_initial_sync']
       end
     end
 
@@ -122,20 +107,28 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @end_user_email_address.nil?
-        invalid_properties.push('invalid value for "end_user_email_address", end_user_email_address cannot be nil.')
+      if @model_name.nil?
+        invalid_properties.push('invalid value for "model_name", model_name cannot be nil.')
       end
 
-      if @end_user_organization_name.nil?
-        invalid_properties.push('invalid value for "end_user_organization_name", end_user_organization_name cannot be nil.')
+      if @model_id.nil?
+        invalid_properties.push('invalid value for "model_id", model_id cannot be nil.')
       end
 
-      if @end_user_origin_id.nil?
-        invalid_properties.push('invalid value for "end_user_origin_id", end_user_origin_id cannot be nil.')
+      if @last_sync_start.nil?
+        invalid_properties.push('invalid value for "last_sync_start", last_sync_start cannot be nil.')
       end
 
-      if @categories.nil?
-        invalid_properties.push('invalid value for "categories", categories cannot be nil.')
+      if @next_sync_start.nil?
+        invalid_properties.push('invalid value for "next_sync_start", next_sync_start cannot be nil.')
+      end
+
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
+      if @is_initial_sync.nil?
+        invalid_properties.push('invalid value for "is_initial_sync", is_initial_sync cannot be nil.')
       end
 
       invalid_properties
@@ -144,10 +137,12 @@ module MergeHRISClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @end_user_email_address.nil?
-      return false if @end_user_organization_name.nil?
-      return false if @end_user_origin_id.nil?
-      return false if @categories.nil?
+      return false if @model_name.nil?
+      return false if @model_id.nil?
+      return false if @last_sync_start.nil?
+      return false if @next_sync_start.nil?
+      return false if @status.nil?
+      return false if @is_initial_sync.nil?
       true
     end
 
@@ -156,11 +151,12 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          end_user_email_address == o.end_user_email_address &&
-          end_user_organization_name == o.end_user_organization_name &&
-          end_user_origin_id == o.end_user_origin_id &&
-          categories == o.categories &&
-          integration == o.integration
+          model_name == o.model_name &&
+          model_id == o.model_id &&
+          last_sync_start == o.last_sync_start &&
+          next_sync_start == o.next_sync_start &&
+          status == o.status &&
+          is_initial_sync == o.is_initial_sync
     end
 
     # @see the `==` method
@@ -172,7 +168,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [end_user_email_address, end_user_organization_name, end_user_origin_id, categories, integration].hash
+      [model_name, model_id, last_sync_start, next_sync_start, status, is_initial_sync].hash
     end
 
     # Builds the object from hash
