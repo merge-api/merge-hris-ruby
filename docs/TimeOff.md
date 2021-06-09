@@ -13,6 +13,8 @@
 | **units** | [**UnitsEnum**](UnitsEnum.md) | The unit of time requested. | [optional] |
 | **amount** | **Float** | The number of time off units requested. | [optional] |
 | **request_type** | [**RequestTypeEnum**](RequestTypeEnum.md) | The type of time off request. | [optional] |
+| **start_time** | **Time** | The day and time of the start of the time requested off. | [optional] |
+| **end_time** | **Time** | The day and time of the end of the time requested off. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -30,6 +32,8 @@ instance = MergeHRISClient::TimeOff.new(
   units: DAYS,
   amount: 13,
   request_type: VACATION,
+  start_time: null,
+  end_time: null,
   remote_data: [{&quot;path&quot;:&quot;/leave&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
