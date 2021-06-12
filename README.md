@@ -91,8 +91,10 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
 *MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
 *MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
+*MergeHRISClient::EmployeesApi* | [**employees_create**](docs/EmployeesApi.md#employees_create) | **POST** /employees | 
 *MergeHRISClient::EmployeesApi* | [**employees_list**](docs/EmployeesApi.md#employees_list) | **GET** /employees | 
 *MergeHRISClient::EmployeesApi* | [**employees_retrieve**](docs/EmployeesApi.md#employees_retrieve) | **GET** /employees/{id} | 
+*MergeHRISClient::EmploymentsApi* | [**employments_create**](docs/EmploymentsApi.md#employments_create) | **POST** /employments | 
 *MergeHRISClient::EmploymentsApi* | [**employments_list**](docs/EmploymentsApi.md#employments_list) | **GET** /employments | 
 *MergeHRISClient::EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
 *MergeHRISClient::GenerateKeyApi* | [**generate_key_create**](docs/GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
@@ -103,11 +105,14 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *MergeHRISClient::PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *MergeHRISClient::RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
-*MergeHRISClient::SyncStatusApi* | [**sync_status_retrieve**](docs/SyncStatusApi.md#sync_status_retrieve) | **GET** /sync-status | 
+*MergeHRISClient::SyncStatusApi* | [**sync_status_list**](docs/SyncStatusApi.md#sync_status_list) | **GET** /sync-status | 
+*MergeHRISClient::SyncStatusApi* | [**sync_status_resync_create**](docs/SyncStatusApi.md#sync_status_resync_create) | **POST** /sync-status/resync | 
 *MergeHRISClient::TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
 *MergeHRISClient::TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 *MergeHRISClient::TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
 *MergeHRISClient::TimeOffApi* | [**time_off_retrieve**](docs/TimeOffApi.md#time_off_retrieve) | **GET** /time-off/{id} | 
+*MergeHRISClient::TimeOffBalanceApi* | [**time_off_balance_list**](docs/TimeOffBalanceApi.md#time_off_balance_list) | **GET** /time-off-balance | 
+*MergeHRISClient::TimeOffBalanceApi* | [**time_off_balance_retrieve**](docs/TimeOffBalanceApi.md#time_off_balance_retrieve) | **GET** /time-off-balance/{id} | 
 
 
 ## Documentation for Models
@@ -124,7 +129,9 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::Earning](docs/Earning.md)
  - [MergeHRISClient::Employee](docs/Employee.md)
  - [MergeHRISClient::EmployeePayrollRun](docs/EmployeePayrollRun.md)
+ - [MergeHRISClient::EmployeeRequest](docs/EmployeeRequest.md)
  - [MergeHRISClient::Employment](docs/Employment.md)
+ - [MergeHRISClient::EmploymentRequest](docs/EmploymentRequest.md)
  - [MergeHRISClient::EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
  - [MergeHRISClient::EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
  - [MergeHRISClient::EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
@@ -144,24 +151,28 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
  - [MergeHRISClient::PaginatedLocationList](docs/PaginatedLocationList.md)
  - [MergeHRISClient::PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
+ - [MergeHRISClient::PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)
  - [MergeHRISClient::PaginatedTeamList](docs/PaginatedTeamList.md)
+ - [MergeHRISClient::PaginatedTimeOffBalanceList](docs/PaginatedTimeOffBalanceList.md)
  - [MergeHRISClient::PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
  - [MergeHRISClient::PayCurrencyEnum](docs/PayCurrencyEnum.md)
  - [MergeHRISClient::PayFrequencyEnum](docs/PayFrequencyEnum.md)
  - [MergeHRISClient::PayPeriodEnum](docs/PayPeriodEnum.md)
  - [MergeHRISClient::PayrollRun](docs/PayrollRun.md)
  - [MergeHRISClient::RemoteData](docs/RemoteData.md)
+ - [MergeHRISClient::RemoteDataRequest](docs/RemoteDataRequest.md)
  - [MergeHRISClient::RemoteKey](docs/RemoteKey.md)
  - [MergeHRISClient::RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [MergeHRISClient::RemoteResponse](docs/RemoteResponse.md)
  - [MergeHRISClient::RequestTypeEnum](docs/RequestTypeEnum.md)
  - [MergeHRISClient::RunStateEnum](docs/RunStateEnum.md)
  - [MergeHRISClient::RunTypeEnum](docs/RunTypeEnum.md)
- - [MergeHRISClient::StateEnum](docs/StateEnum.md)
  - [MergeHRISClient::SyncStatus](docs/SyncStatus.md)
+ - [MergeHRISClient::SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [MergeHRISClient::Tax](docs/Tax.md)
  - [MergeHRISClient::Team](docs/Team.md)
  - [MergeHRISClient::TimeOff](docs/TimeOff.md)
+ - [MergeHRISClient::TimeOffBalance](docs/TimeOffBalance.md)
  - [MergeHRISClient::TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
  - [MergeHRISClient::TypeEnum](docs/TypeEnum.md)
  - [MergeHRISClient::UnitsEnum](docs/UnitsEnum.md)
