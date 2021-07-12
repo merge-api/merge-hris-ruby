@@ -4,8 +4,86 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**benefits_create**](BenefitsApi.md#benefits_create) | **POST** /benefits |  |
 | [**benefits_list**](BenefitsApi.md#benefits_list) | **GET** /benefits |  |
 | [**benefits_retrieve**](BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} |  |
+
+
+## benefits_create
+
+> <Benefit> benefits_create(x_account_token, opts)
+
+
+
+Creates a `Benefit` object with the given values.
+
+### Examples
+
+```ruby
+require 'time'
+require 'merge_hris_client'
+# setup authorization
+MergeHRISClient.configure do |config|
+  # Configure API key authorization: tokenAuth
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
+end
+
+api_instance = MergeHRISClient::BenefitsApi.new
+x_account_token = 'x_account_token_example' # String | Token identifying the end user.
+opts = {
+  run_async: true, # Boolean | Whether or not third-party updates should be run asynchronously.
+  benefit_request: MergeHRISClient::BenefitRequest.new # BenefitRequest | 
+}
+
+begin
+  
+  result = api_instance.benefits_create(x_account_token, opts)
+  p result
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling BenefitsApi->benefits_create: #{e}"
+end
+```
+
+#### Using the benefits_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Benefit>, Integer, Hash)> benefits_create_with_http_info(x_account_token, opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.benefits_create_with_http_info(x_account_token, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Benefit>
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling BenefitsApi->benefits_create_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **x_account_token** | **String** | Token identifying the end user. |  |
+| **run_async** | **Boolean** | Whether or not third-party updates should be run asynchronously. | [optional] |
+| **benefit_request** | [**BenefitRequest**](BenefitRequest.md) |  | [optional] |
+
+### Return type
+
+[**Benefit**](Benefit.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
 
 
 ## benefits_list

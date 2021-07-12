@@ -14,7 +14,7 @@
 | **work_email** | **String** | The employee&#39;s work email. | [optional] |
 | **personal_email** | **String** | The employee&#39;s personal email. | [optional] |
 | **mobile_phone_number** | **String** | The employee&#39;s mobile phone number. | [optional] |
-| **employments** | **Array&lt;String&gt;** |  | [optional][readonly] |
+| **employments** | **Array&lt;String&gt;** | Array of &#x60;Employment&#x60; IDs for this Employee. | [optional][readonly] |
 | **home_location** | **String** | The employee&#39;s home address. | [optional] |
 | **work_location** | **String** | The employee&#39;s work address. | [optional] |
 | **manager** | **String** | The employee ID of the employee&#39;s manager. | [optional] |
@@ -25,6 +25,7 @@
 | **marital_status** | [**MaritalStatusEnum**](MaritalStatusEnum.md) | The employee&#39;s marital status. | [optional] |
 | **date_of_birth** | **Time** | The employee&#39;s date of birth. | [optional] |
 | **hire_date** | **Time** | The employee&#39;s hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. | [optional] |
+| **start_date** | **Time** | The employee&#39;s start date. | [optional] |
 | **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) | The employment status of the employee. | [optional] |
 | **termination_date** | **Time** | The employee&#39;s termination date. | [optional] |
 | **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] |
@@ -57,7 +58,8 @@ instance = MergeHRISClient::Employee.new(
   marital_status: SINGLE,
   date_of_birth: null,
   hire_date: null,
-  employment_status: ACTIVE,
+  start_date: null,
+  employment_status: INACTIVE,
   termination_date: null,
   avatar: http://alturl.com/h2h8m,
   remote_data: [{&quot;path&quot;:&quot;/people&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
