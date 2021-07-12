@@ -14,29 +14,19 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The Team Object ### Description The `Team` object is used to represent a Team within a company. `Employee` objects are often grouped this way. Note that in the Merge HRIS API, company subdivisions are all represented with `Teams`, rather than `Teams` and `Departments`.  ### Usage Example If you're building a way to filter by `Team`, you'd hit the `GET Teams` endpoint to fetch the `Teams`, and then use the `ID` of the team your user selects to filter the `GET Employees` endpoint.
-  class Team
-    attr_accessor :id
+  class PaginatedIssueList
+    attr_accessor :_next
 
-    # The third-party API ID of the matching object.
-    attr_accessor :remote_id
+    attr_accessor :previous
 
-    # The team's name.
-    attr_accessor :name
-
-    # The team's parent team.
-    attr_accessor :parent_team
-
-    attr_accessor :remote_data
+    attr_accessor :results
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'remote_id' => :'remote_id',
-        :'name' => :'name',
-        :'parent_team' => :'parent_team',
-        :'remote_data' => :'remote_data'
+        :'_next' => :'next',
+        :'previous' => :'previous',
+        :'results' => :'results'
       }
     end
 
@@ -48,21 +38,17 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'remote_id' => :'String',
-        :'name' => :'String',
-        :'parent_team' => :'String',
-        :'remote_data' => :'Array<RemoteData>'
+        :'_next' => :'String',
+        :'previous' => :'String',
+        :'results' => :'Array<Issue>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'remote_id',
-        :'name',
-        :'parent_team',
-        :'remote_data'
+        :'_next',
+        :'previous',
       ])
     end
 
@@ -70,36 +56,28 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::Team` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::PaginatedIssueList` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::Team`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::PaginatedIssueList`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'_next')
+        self._next = attributes[:'_next']
       end
 
-      if attributes.key?(:'remote_id')
-        self.remote_id = attributes[:'remote_id']
+      if attributes.key?(:'previous')
+        self.previous = attributes[:'previous']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'parent_team')
-        self.parent_team = attributes[:'parent_team']
-      end
-
-      if attributes.key?(:'remote_data')
-        if (value = attributes[:'remote_data']).is_a?(Array)
-          self.remote_data = value
+      if attributes.key?(:'results')
+        if (value = attributes[:'results']).is_a?(Array)
+          self.results = value
         end
       end
     end
@@ -122,11 +100,9 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          remote_id == o.remote_id &&
-          name == o.name &&
-          parent_team == o.parent_team &&
-          remote_data == o.remote_data
+          _next == o._next &&
+          previous == o.previous &&
+          results == o.results
     end
 
     # @see the `==` method
@@ -138,7 +114,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, name, parent_team, remote_data].hash
+      [_next, previous, results].hash
     end
 
     # Builds the object from hash

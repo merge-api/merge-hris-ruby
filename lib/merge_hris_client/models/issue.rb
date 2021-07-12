@@ -14,29 +14,31 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The Team Object ### Description The `Team` object is used to represent a Team within a company. `Employee` objects are often grouped this way. Note that in the Merge HRIS API, company subdivisions are all represented with `Teams`, rather than `Teams` and `Departments`.  ### Usage Example If you're building a way to filter by `Team`, you'd hit the `GET Teams` endpoint to fetch the `Teams`, and then use the `ID` of the team your user selects to filter the `GET Employees` endpoint.
-  class Team
+  class Issue
     attr_accessor :id
 
-    # The third-party API ID of the matching object.
-    attr_accessor :remote_id
+    attr_accessor :status
 
-    # The team's name.
-    attr_accessor :name
+    attr_accessor :error_description
 
-    # The team's parent team.
-    attr_accessor :parent_team
+    attr_accessor :end_user
 
-    attr_accessor :remote_data
+    attr_accessor :first_incident_time
+
+    attr_accessor :last_incident_time
+
+    attr_accessor :is_muted
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'remote_id' => :'remote_id',
-        :'name' => :'name',
-        :'parent_team' => :'parent_team',
-        :'remote_data' => :'remote_data'
+        :'status' => :'status',
+        :'error_description' => :'error_description',
+        :'end_user' => :'end_user',
+        :'first_incident_time' => :'first_incident_time',
+        :'last_incident_time' => :'last_incident_time',
+        :'is_muted' => :'is_muted'
       }
     end
 
@@ -49,20 +51,20 @@ module MergeHRISClient
     def self.openapi_types
       {
         :'id' => :'String',
-        :'remote_id' => :'String',
-        :'name' => :'String',
-        :'parent_team' => :'String',
-        :'remote_data' => :'Array<RemoteData>'
+        :'status' => :'IssueStatusEnum',
+        :'error_description' => :'String',
+        :'end_user' => :'Hash<String, AnyType>',
+        :'first_incident_time' => :'Time',
+        :'last_incident_time' => :'Time',
+        :'is_muted' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'remote_id',
-        :'name',
-        :'parent_team',
-        :'remote_data'
+        :'first_incident_time',
+        :'last_incident_time',
       ])
     end
 
@@ -70,13 +72,13 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::Team` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::Issue` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::Team`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::Issue`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -85,22 +87,30 @@ module MergeHRISClient
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'remote_id')
-        self.remote_id = attributes[:'remote_id']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'error_description')
+        self.error_description = attributes[:'error_description']
       end
 
-      if attributes.key?(:'parent_team')
-        self.parent_team = attributes[:'parent_team']
-      end
-
-      if attributes.key?(:'remote_data')
-        if (value = attributes[:'remote_data']).is_a?(Array)
-          self.remote_data = value
+      if attributes.key?(:'end_user')
+        if (value = attributes[:'end_user']).is_a?(Hash)
+          self.end_user = value
         end
+      end
+
+      if attributes.key?(:'first_incident_time')
+        self.first_incident_time = attributes[:'first_incident_time']
+      end
+
+      if attributes.key?(:'last_incident_time')
+        self.last_incident_time = attributes[:'last_incident_time']
+      end
+
+      if attributes.key?(:'is_muted')
+        self.is_muted = attributes[:'is_muted']
       end
     end
 
@@ -108,12 +118,17 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @error_description.nil?
+        invalid_properties.push('invalid value for "error_description", error_description cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @error_description.nil?
       true
     end
 
@@ -123,10 +138,12 @@ module MergeHRISClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          remote_id == o.remote_id &&
-          name == o.name &&
-          parent_team == o.parent_team &&
-          remote_data == o.remote_data
+          status == o.status &&
+          error_description == o.error_description &&
+          end_user == o.end_user &&
+          first_incident_time == o.first_incident_time &&
+          last_incident_time == o.last_incident_time &&
+          is_muted == o.is_muted
     end
 
     # @see the `==` method
@@ -138,7 +155,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, name, parent_team, remote_data].hash
+      [id, status, error_description, end_user, first_incident_time, last_incident_time, is_muted].hash
     end
 
     # Builds the object from hash

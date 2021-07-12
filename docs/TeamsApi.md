@@ -39,6 +39,7 @@ opts = {
   modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified after this datetime.
   modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified before this datetime.
   page_size: 56, # Integer | Number of results to return per page.
+  parent_team_id: TODO, # String | If provided, will only return teams with this parent team.
   remote_id: 'remote_id_example' # String | The API provider's ID for the given object.
 }
 
@@ -81,6 +82,7 @@ end
 | **modified_after** | **Time** | If provided, will only return objects modified after this datetime. | [optional] |
 | **modified_before** | **Time** | If provided, will only return objects modified before this datetime. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
+| **parent_team_id** | [**String**](.md) | If provided, will only return teams with this parent team. | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |
 
 ### Return type

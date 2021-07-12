@@ -14,29 +14,35 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The Team Object ### Description The `Team` object is used to represent a Team within a company. `Employee` objects are often grouped this way. Note that in the Merge HRIS API, company subdivisions are all represented with `Teams`, rather than `Teams` and `Departments`.  ### Usage Example If you're building a way to filter by `Team`, you'd hit the `GET Teams` endpoint to fetch the `Teams`, and then use the `ID` of the team your user selects to filter the `GET Employees` endpoint.
-  class Team
-    attr_accessor :id
-
+  # # The Benefit Object ### Description The `Benefit` object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.
+  class BenefitRequest
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The team's name.
-    attr_accessor :name
+    # The employee on the plan.
+    attr_accessor :employee
 
-    # The team's parent team.
-    attr_accessor :parent_team
+    # The name of the benefit provider.
+    attr_accessor :provider_name
 
-    attr_accessor :remote_data
+    # The type of benefit plan
+    attr_accessor :benefit_plan_type
+
+    # The employee's contribution.
+    attr_accessor :employee_contribution
+
+    # The company's contribution.
+    attr_accessor :company_contribution
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
         :'remote_id' => :'remote_id',
-        :'name' => :'name',
-        :'parent_team' => :'parent_team',
-        :'remote_data' => :'remote_data'
+        :'employee' => :'employee',
+        :'provider_name' => :'provider_name',
+        :'benefit_plan_type' => :'benefit_plan_type',
+        :'employee_contribution' => :'employee_contribution',
+        :'company_contribution' => :'company_contribution'
       }
     end
 
@@ -48,11 +54,12 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
         :'remote_id' => :'String',
-        :'name' => :'String',
-        :'parent_team' => :'String',
-        :'remote_data' => :'Array<RemoteData>'
+        :'employee' => :'String',
+        :'provider_name' => :'String',
+        :'benefit_plan_type' => :'BenefitPlanTypeEnum',
+        :'employee_contribution' => :'Float',
+        :'company_contribution' => :'Float'
       }
     end
 
@@ -60,9 +67,11 @@ module MergeHRISClient
     def self.openapi_nullable
       Set.new([
         :'remote_id',
-        :'name',
-        :'parent_team',
-        :'remote_data'
+        :'employee',
+        :'provider_name',
+        :'benefit_plan_type',
+        :'employee_contribution',
+        :'company_contribution'
       ])
     end
 
@@ -70,37 +79,39 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::Team` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::BenefitRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::Team`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::BenefitRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
 
       if attributes.key?(:'remote_id')
         self.remote_id = attributes[:'remote_id']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'employee')
+        self.employee = attributes[:'employee']
       end
 
-      if attributes.key?(:'parent_team')
-        self.parent_team = attributes[:'parent_team']
+      if attributes.key?(:'provider_name')
+        self.provider_name = attributes[:'provider_name']
       end
 
-      if attributes.key?(:'remote_data')
-        if (value = attributes[:'remote_data']).is_a?(Array)
-          self.remote_data = value
-        end
+      if attributes.key?(:'benefit_plan_type')
+        self.benefit_plan_type = attributes[:'benefit_plan_type']
+      end
+
+      if attributes.key?(:'employee_contribution')
+        self.employee_contribution = attributes[:'employee_contribution']
+      end
+
+      if attributes.key?(:'company_contribution')
+        self.company_contribution = attributes[:'company_contribution']
       end
     end
 
@@ -122,11 +133,12 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
           remote_id == o.remote_id &&
-          name == o.name &&
-          parent_team == o.parent_team &&
-          remote_data == o.remote_data
+          employee == o.employee &&
+          provider_name == o.provider_name &&
+          benefit_plan_type == o.benefit_plan_type &&
+          employee_contribution == o.employee_contribution &&
+          company_contribution == o.company_contribution
     end
 
     # @see the `==` method
@@ -138,7 +150,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, name, parent_team, remote_data].hash
+      [remote_id, employee, provider_name, benefit_plan_type, employee_contribution, company_contribution].hash
     end
 
     # Builds the object from hash

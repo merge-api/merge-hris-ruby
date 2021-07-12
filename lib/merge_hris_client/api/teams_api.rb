@@ -29,6 +29,7 @@ module MergeHRISClient
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :parent_team_id If provided, will only return teams with this parent team.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [PaginatedTeamList]
     def teams_list(x_account_token, opts = {})
@@ -46,6 +47,7 @@ module MergeHRISClient
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :parent_team_id If provided, will only return teams with this parent team.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [Array<(PaginatedTeamList, Integer, Hash)>] PaginatedTeamList data, response status code and response headers
     def teams_list_with_http_info(x_account_token, opts = {})
@@ -68,6 +70,7 @@ module MergeHRISClient
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'parent_team_id'] = opts[:'parent_team_id'] if !opts[:'parent_team_id'].nil?
       query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
 
       # header parameters

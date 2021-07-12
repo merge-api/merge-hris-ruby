@@ -73,6 +73,9 @@ module MergeHRISClient
     # The employee's hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date.
     attr_accessor :hire_date
 
+    # The employee's start date.
+    attr_accessor :start_date
+
     # The employment status of the employee.
     attr_accessor :employment_status
 
@@ -104,6 +107,7 @@ module MergeHRISClient
         :'marital_status' => :'marital_status',
         :'date_of_birth' => :'date_of_birth',
         :'hire_date' => :'hire_date',
+        :'start_date' => :'start_date',
         :'employment_status' => :'employment_status',
         :'termination_date' => :'termination_date',
         :'avatar' => :'avatar'
@@ -137,6 +141,7 @@ module MergeHRISClient
         :'marital_status' => :'MaritalStatusEnum',
         :'date_of_birth' => :'Time',
         :'hire_date' => :'Time',
+        :'start_date' => :'Time',
         :'employment_status' => :'EmploymentStatusEnum',
         :'termination_date' => :'Time',
         :'avatar' => :'String'
@@ -165,6 +170,7 @@ module MergeHRISClient
         :'marital_status',
         :'date_of_birth',
         :'hire_date',
+        :'start_date',
         :'employment_status',
         :'termination_date',
         :'avatar'
@@ -260,6 +266,10 @@ module MergeHRISClient
 
       if attributes.key?(:'hire_date')
         self.hire_date = attributes[:'hire_date']
+      end
+
+      if attributes.key?(:'start_date')
+        self.start_date = attributes[:'start_date']
       end
 
       if attributes.key?(:'employment_status')
@@ -372,6 +382,7 @@ module MergeHRISClient
           marital_status == o.marital_status &&
           date_of_birth == o.date_of_birth &&
           hire_date == o.hire_date &&
+          start_date == o.start_date &&
           employment_status == o.employment_status &&
           termination_date == o.termination_date &&
           avatar == o.avatar
@@ -386,7 +397,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [remote_id, employee_number, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, home_location, work_location, manager, team, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, employment_status, termination_date, avatar].hash
+      [remote_id, employee_number, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, home_location, work_location, manager, team, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar].hash
     end
 
     # Builds the object from hash

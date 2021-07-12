@@ -85,10 +85,12 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *MergeHRISClient::AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 *MergeHRISClient::AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
+*MergeHRISClient::BenefitsApi* | [**benefits_create**](docs/BenefitsApi.md#benefits_create) | **POST** /benefits | 
 *MergeHRISClient::BenefitsApi* | [**benefits_list**](docs/BenefitsApi.md#benefits_list) | **GET** /benefits | 
 *MergeHRISClient::BenefitsApi* | [**benefits_retrieve**](docs/BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} | 
 *MergeHRISClient::CompaniesApi* | [**companies_list**](docs/CompaniesApi.md#companies_list) | **GET** /companies | 
 *MergeHRISClient::CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
+*MergeHRISClient::DeleteAccountApi* | [**delete_account_create**](docs/DeleteAccountApi.md#delete_account_create) | **POST** /delete-account | 
 *MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
 *MergeHRISClient::EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
 *MergeHRISClient::EmployeesApi* | [**employees_create**](docs/EmployeesApi.md#employees_create) | **POST** /employees | 
@@ -98,6 +100,8 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::EmploymentsApi* | [**employments_list**](docs/EmploymentsApi.md#employments_list) | **GET** /employments | 
 *MergeHRISClient::EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
 *MergeHRISClient::GenerateKeyApi* | [**generate_key_create**](docs/GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
+*MergeHRISClient::IssuesApi* | [**issues_list**](docs/IssuesApi.md#issues_list) | **GET** /issues | 
+*MergeHRISClient::IssuesApi* | [**issues_retrieve**](docs/IssuesApi.md#issues_retrieve) | **GET** /issues/{id} | 
 *MergeHRISClient::LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 *MergeHRISClient::LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
 *MergeHRISClient::LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
@@ -122,6 +126,7 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::AvailableActions](docs/AvailableActions.md)
  - [MergeHRISClient::Benefit](docs/Benefit.md)
  - [MergeHRISClient::BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
+ - [MergeHRISClient::BenefitRequest](docs/BenefitRequest.md)
  - [MergeHRISClient::Company](docs/Company.md)
  - [MergeHRISClient::CountryEnum](docs/CountryEnum.md)
  - [MergeHRISClient::DataPassthroughRequest](docs/DataPassthroughRequest.md)
@@ -139,6 +144,8 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [MergeHRISClient::GenderEnum](docs/GenderEnum.md)
  - [MergeHRISClient::GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
+ - [MergeHRISClient::Issue](docs/Issue.md)
+ - [MergeHRISClient::IssueStatusEnum](docs/IssueStatusEnum.md)
  - [MergeHRISClient::LinkToken](docs/LinkToken.md)
  - [MergeHRISClient::Location](docs/Location.md)
  - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
@@ -149,6 +156,7 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
  - [MergeHRISClient::PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
  - [MergeHRISClient::PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
+ - [MergeHRISClient::PaginatedIssueList](docs/PaginatedIssueList.md)
  - [MergeHRISClient::PaginatedLocationList](docs/PaginatedLocationList.md)
  - [MergeHRISClient::PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
  - [MergeHRISClient::PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)
