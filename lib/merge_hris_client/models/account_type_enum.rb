@@ -14,13 +14,9 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  class RequestTypeEnum
-    VACATION = "VACATION".freeze
-    SICK = "SICK".freeze
-    PERSONAL = "PERSONAL".freeze
-    JURY_DUTY = "JURY_DUTY".freeze
-    VOLUNTEER = "VOLUNTEER".freeze
-    BEREAVEMENT = "BEREAVEMENT".freeze
+  class AccountTypeEnum
+    SAVINGS = "SAVINGS".freeze
+    CHECKING = "CHECKING".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -33,7 +29,8 @@ module MergeHRISClient
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = RequestTypeEnum.constants.select { |c| RequestTypeEnum::const_get(c) == value }
+      constantValues = AccountTypeEnum.constants.select { |c| AccountTypeEnum::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #AccountTypeEnum" if constantValues.empty?
       value
     end
   end
