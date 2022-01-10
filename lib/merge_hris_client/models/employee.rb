@@ -33,7 +33,7 @@ module MergeHRISClient
     # The employee's last name.
     attr_accessor :last_name
 
-    # The employee's full name, to use for display purposes.
+    # The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.
     attr_accessor :display_full_name
 
     # The employee's work email.
@@ -60,6 +60,9 @@ module MergeHRISClient
     # The employee's team.
     attr_accessor :team
 
+    # The employee's pay group
+    attr_accessor :pay_group
+
     # The employee's social security number.
     attr_accessor :ssn
 
@@ -75,10 +78,10 @@ module MergeHRISClient
     # The employee's date of birth.
     attr_accessor :date_of_birth
 
-    # The employee's hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date.
+    # The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you're looking for the employee's start date, refer to the start_date field.
     attr_accessor :hire_date
 
-    # The employee's start date.
+    # The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date.
     attr_accessor :start_date
 
     # The employment status of the employee.
@@ -91,6 +94,9 @@ module MergeHRISClient
     attr_accessor :avatar
 
     attr_accessor :remote_data
+
+    # Custom fields configured for a given model.
+    attr_accessor :custom_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -110,6 +116,7 @@ module MergeHRISClient
         :'work_location' => :'work_location',
         :'manager' => :'manager',
         :'team' => :'team',
+        :'pay_group' => :'pay_group',
         :'ssn' => :'ssn',
         :'gender' => :'gender',
         :'ethnicity' => :'ethnicity',
@@ -120,7 +127,8 @@ module MergeHRISClient
         :'employment_status' => :'employment_status',
         :'termination_date' => :'termination_date',
         :'avatar' => :'avatar',
-        :'remote_data' => :'remote_data'
+        :'remote_data' => :'remote_data',
+        :'custom_fields' => :'custom_fields'
       }
     end
 
@@ -147,6 +155,7 @@ module MergeHRISClient
         :'work_location' => :'String',
         :'manager' => :'String',
         :'team' => :'String',
+        :'pay_group' => :'String',
         :'ssn' => :'String',
         :'gender' => :'GenderEnum',
         :'ethnicity' => :'EthnicityEnum',
@@ -157,7 +166,8 @@ module MergeHRISClient
         :'employment_status' => :'EmploymentStatusEnum',
         :'termination_date' => :'Time',
         :'avatar' => :'String',
-        :'remote_data' => :'Array<RemoteData>'
+        :'remote_data' => :'Array<RemoteData>',
+        :'custom_fields' => :'Hash<String, Object>'
       }
     end
 
@@ -177,6 +187,7 @@ module MergeHRISClient
         :'work_location',
         :'manager',
         :'team',
+        :'pay_group',
         :'ssn',
         :'gender',
         :'ethnicity',
@@ -187,7 +198,8 @@ module MergeHRISClient
         :'employment_status',
         :'termination_date',
         :'avatar',
-        :'remote_data'
+        :'remote_data',
+        :'custom_fields'
       ])
     end
 
@@ -268,6 +280,10 @@ module MergeHRISClient
         self.team = attributes[:'team']
       end
 
+      if attributes.key?(:'pay_group')
+        self.pay_group = attributes[:'pay_group']
+      end
+
       if attributes.key?(:'ssn')
         self.ssn = attributes[:'ssn']
       end
@@ -311,6 +327,12 @@ module MergeHRISClient
       if attributes.key?(:'remote_data')
         if (value = attributes[:'remote_data']).is_a?(Array)
           self.remote_data = value
+        end
+      end
+
+      if attributes.key?(:'custom_fields')
+        if (value = attributes[:'custom_fields']).is_a?(Hash)
+          self.custom_fields = value
         end
       end
     end
@@ -408,6 +430,7 @@ module MergeHRISClient
           work_location == o.work_location &&
           manager == o.manager &&
           team == o.team &&
+          pay_group == o.pay_group &&
           ssn == o.ssn &&
           gender == o.gender &&
           ethnicity == o.ethnicity &&
@@ -418,7 +441,8 @@ module MergeHRISClient
           employment_status == o.employment_status &&
           termination_date == o.termination_date &&
           avatar == o.avatar &&
-          remote_data == o.remote_data
+          remote_data == o.remote_data &&
+          custom_fields == o.custom_fields
     end
 
     # @see the `==` method
@@ -430,7 +454,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, remote_data].hash
+      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, remote_data, custom_fields].hash
     end
 
     # Builds the object from hash

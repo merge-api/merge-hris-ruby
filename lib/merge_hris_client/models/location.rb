@@ -21,6 +21,9 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
+    # The location's name.
+    attr_accessor :name
+
     # The location's phone number.
     attr_accessor :phone_number
 
@@ -49,6 +52,7 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
+        :'name' => :'name',
         :'phone_number' => :'phone_number',
         :'street_1' => :'street_1',
         :'street_2' => :'street_2',
@@ -70,6 +74,7 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
+        :'name' => :'String',
         :'phone_number' => :'String',
         :'street_1' => :'String',
         :'street_2' => :'String',
@@ -85,6 +90,7 @@ module MergeHRISClient
     def self.openapi_nullable
       Set.new([
         :'remote_id',
+        :'name',
         :'phone_number',
         :'street_1',
         :'street_2',
@@ -117,6 +123,10 @@ module MergeHRISClient
 
       if attributes.key?(:'remote_id')
         self.remote_id = attributes[:'remote_id']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'phone_number')
@@ -174,6 +184,7 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
+          name == o.name &&
           phone_number == o.phone_number &&
           street_1 == o.street_1 &&
           street_2 == o.street_2 &&
@@ -193,7 +204,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, phone_number, street_1, street_2, city, state, zip_code, country, remote_data].hash
+      [id, remote_id, name, phone_number, street_1, street_2, city, state, zip_code, country, remote_data].hash
     end
 
     # Builds the object from hash

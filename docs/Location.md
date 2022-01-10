@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
+| **name** | **String** | The location&#39;s name. | [optional] |
 | **phone_number** | **String** | The location&#39;s phone number. | [optional] |
 | **street_1** | **String** | Line 1 of the location&#39;s street address. | [optional] |
 | **street_2** | **String** | Line 2 of the location&#39;s street address. | [optional] |
@@ -23,6 +24,7 @@ require 'merge_hris_client'
 instance = MergeHRISClient::Location.new(
   id: null,
   remote_id: 93018402,
+  name: NYC Office,
   phone_number: +1111111111,
   street_1: 2920 Broadway,
   street_2: 2nd Floor,

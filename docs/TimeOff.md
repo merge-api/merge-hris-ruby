@@ -30,10 +30,10 @@ instance = MergeHRISClient::TimeOff.new(
   status: APPROVED,
   employee_note: Trip to Iowa. Miss those cornfields!,
   units: DAYS,
-  amount: 13,
+  amount: 7,
   request_type: VACATION,
-  start_time: null,
-  end_time: null,
+  start_time: 2020-11-10T00:00Z,
+  end_time: 2020-11-17T00:00Z,
   remote_data: [{&quot;path&quot;:&quot;/leave&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```

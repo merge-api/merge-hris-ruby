@@ -69,7 +69,7 @@ module MergeHRISClient
         :'end_user_email_address' => :'String',
         :'end_user_organization_name' => :'String',
         :'end_user_origin_id' => :'String',
-        :'categories' => :'Array<String>',
+        :'categories' => :'Array<CategoriesEnum>',
         :'integration' => :'String'
       }
     end
@@ -127,12 +127,28 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "end_user_email_address", end_user_email_address cannot be nil.')
       end
 
+      if @end_user_email_address.to_s.length < 1
+        invalid_properties.push('invalid value for "end_user_email_address", the character length must be great than or equal to 1.')
+      end
+
       if @end_user_organization_name.nil?
         invalid_properties.push('invalid value for "end_user_organization_name", end_user_organization_name cannot be nil.')
       end
 
+      if @end_user_organization_name.to_s.length < 1
+        invalid_properties.push('invalid value for "end_user_organization_name", the character length must be great than or equal to 1.')
+      end
+
       if @end_user_origin_id.nil?
         invalid_properties.push('invalid value for "end_user_origin_id", end_user_origin_id cannot be nil.')
+      end
+
+      if @end_user_origin_id.to_s.length < 1
+        invalid_properties.push('invalid value for "end_user_origin_id", the character length must be great than or equal to 1.')
+      end
+
+      if !@integration.nil? && @integration.to_s.length < 1
+        invalid_properties.push('invalid value for "integration", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -142,9 +158,65 @@ module MergeHRISClient
     # @return true if the model is valid
     def valid?
       return false if @end_user_email_address.nil?
+      return false if @end_user_email_address.to_s.length < 1
       return false if @end_user_organization_name.nil?
+      return false if @end_user_organization_name.to_s.length < 1
       return false if @end_user_origin_id.nil?
+      return false if @end_user_origin_id.to_s.length < 1
+      return false if !@integration.nil? && @integration.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] end_user_email_address Value to be assigned
+    def end_user_email_address=(end_user_email_address)
+      if end_user_email_address.nil?
+        fail ArgumentError, 'end_user_email_address cannot be nil'
+      end
+
+      if end_user_email_address.to_s.length < 1
+        fail ArgumentError, 'invalid value for "end_user_email_address", the character length must be great than or equal to 1.'
+      end
+
+      @end_user_email_address = end_user_email_address
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] end_user_organization_name Value to be assigned
+    def end_user_organization_name=(end_user_organization_name)
+      if end_user_organization_name.nil?
+        fail ArgumentError, 'end_user_organization_name cannot be nil'
+      end
+
+      if end_user_organization_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "end_user_organization_name", the character length must be great than or equal to 1.'
+      end
+
+      @end_user_organization_name = end_user_organization_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] end_user_origin_id Value to be assigned
+    def end_user_origin_id=(end_user_origin_id)
+      if end_user_origin_id.nil?
+        fail ArgumentError, 'end_user_origin_id cannot be nil'
+      end
+
+      if end_user_origin_id.to_s.length < 1
+        fail ArgumentError, 'invalid value for "end_user_origin_id", the character length must be great than or equal to 1.'
+      end
+
+      @end_user_origin_id = end_user_origin_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] integration Value to be assigned
+    def integration=(integration)
+      if !integration.nil? && integration.to_s.length < 1
+        fail ArgumentError, 'invalid value for "integration", the character length must be great than or equal to 1.'
+      end
+
+      @integration = integration
     end
 
     # Checks equality by comparing each attribute.

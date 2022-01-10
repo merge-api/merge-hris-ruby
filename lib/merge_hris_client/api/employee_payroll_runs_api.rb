@@ -25,14 +25,19 @@ module MergeHRISClient
     # @option opts [Time] :created_after If provided, will only return objects created after this datetime.
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
-    # @option opts [String] :employee_id If provided, will only return time off for this employee.
+    # @option opts [String] :employee_id If provided, will only return employee payroll runs for this employee.
+    # @option opts [Time] :ended_after If provided, will only return employee payroll runs ended after this datetime.
+    # @option opts [Time] :ended_before If provided, will only return employee payroll runs ended before this datetime.
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :payroll_run_id If provided, will only return employee payroll runs for this employee.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
+    # @option opts [Time] :started_after If provided, will only return employee payroll runs started after this datetime.
+    # @option opts [Time] :started_before If provided, will only return employee payroll runs started before this datetime.
     # @return [PaginatedEmployeePayrollRunList]
     def employee_payroll_runs_list(x_account_token, opts = {})
       data, _status_code, _headers = employee_payroll_runs_list_with_http_info(x_account_token, opts)
@@ -45,14 +50,19 @@ module MergeHRISClient
     # @option opts [Time] :created_after If provided, will only return objects created after this datetime.
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
-    # @option opts [String] :employee_id If provided, will only return time off for this employee.
+    # @option opts [String] :employee_id If provided, will only return employee payroll runs for this employee.
+    # @option opts [Time] :ended_after If provided, will only return employee payroll runs ended after this datetime.
+    # @option opts [Time] :ended_before If provided, will only return employee payroll runs ended before this datetime.
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :payroll_run_id If provided, will only return employee payroll runs for this employee.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
+    # @option opts [Time] :started_after If provided, will only return employee payroll runs started after this datetime.
+    # @option opts [Time] :started_before If provided, will only return employee payroll runs started before this datetime.
     # @return [Array<(PaginatedEmployeePayrollRunList, Integer, Hash)>] PaginatedEmployeePayrollRunList data, response status code and response headers
     def employee_payroll_runs_list_with_http_info(x_account_token, opts = {})
       if @api_client.config.debugging
@@ -75,13 +85,18 @@ module MergeHRISClient
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
       query_params[:'employee_id'] = opts[:'employee_id'] if !opts[:'employee_id'].nil?
+      query_params[:'ended_after'] = opts[:'ended_after'] if !opts[:'ended_after'].nil?
+      query_params[:'ended_before'] = opts[:'ended_before'] if !opts[:'ended_before'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+      query_params[:'include_deleted_data'] = opts[:'include_deleted_data'] if !opts[:'include_deleted_data'].nil?
       query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'payroll_run_id'] = opts[:'payroll_run_id'] if !opts[:'payroll_run_id'].nil?
       query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
+      query_params[:'started_after'] = opts[:'started_after'] if !opts[:'started_after'].nil?
+      query_params[:'started_before'] = opts[:'started_before'] if !opts[:'started_before'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

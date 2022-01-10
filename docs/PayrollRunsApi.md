@@ -35,11 +35,17 @@ opts = {
   created_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects created after this datetime.
   created_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects created before this datetime.
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
+  ended_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return payroll runs ended after this datetime.
+  ended_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return payroll runs ended before this datetime.
+  include_deleted_data: true, # Boolean | Whether to include data that was deleted in the third-party service.
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified after this datetime.
   modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified before this datetime.
   page_size: 56, # Integer | Number of results to return per page.
-  remote_id: 'remote_id_example' # String | The API provider's ID for the given object.
+  remote_id: 'remote_id_example', # String | The API provider's ID for the given object.
+  run_type: 'CORRECTION', # String | If provided, will only return PayrollRun's with this status. Options: ('REGULAR', 'OFF_CYCLE', 'CORRECTION', 'TERMINATION', 'SIGN_ON_BONUS')
+  started_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return payroll runs started after this datetime.
+  started_before: Time.parse('2013-10-20T19:20:30+01:00') # Time | If provided, will only return payroll runs started before this datetime.
 }
 
 begin
@@ -77,11 +83,17 @@ end
 | **created_after** | **Time** | If provided, will only return objects created after this datetime. | [optional] |
 | **created_before** | **Time** | If provided, will only return objects created before this datetime. | [optional] |
 | **cursor** | **String** | The pagination cursor value. | [optional] |
+| **ended_after** | **Time** | If provided, will only return payroll runs ended after this datetime. | [optional] |
+| **ended_before** | **Time** | If provided, will only return payroll runs ended before this datetime. | [optional] |
+| **include_deleted_data** | **Boolean** | Whether to include data that was deleted in the third-party service. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **modified_after** | **Time** | If provided, will only return objects modified after this datetime. | [optional] |
 | **modified_before** | **Time** | If provided, will only return objects modified before this datetime. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |
+| **run_type** | **String** | If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) | [optional] |
+| **started_after** | **Time** | If provided, will only return payroll runs started after this datetime. | [optional] |
+| **started_before** | **Time** | If provided, will only return payroll runs started before this datetime. | [optional] |
 
 ### Return type
 

@@ -75,7 +75,7 @@ module MergeHRISClient
     def self.openapi_types
       {
         :'name' => :'String',
-        :'categories' => :'Array<String>',
+        :'categories' => :'Array<CategoriesEnum>',
         :'image' => :'String',
         :'square_image' => :'String',
         :'color' => :'String',

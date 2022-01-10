@@ -19,10 +19,10 @@ module MergeHRISClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get syncing status.
+    # Get syncing status. Possible values: `DISABLED`, `DONE`, `FAILED`, `SYNCING`
     # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @return [PaginatedSyncStatusList]
     def sync_status_list(x_account_token, opts = {})
@@ -30,10 +30,10 @@ module MergeHRISClient
       data
     end
 
-    # Get syncing status.
+    # Get syncing status. Possible values: &#x60;DISABLED&#x60;, &#x60;DONE&#x60;, &#x60;FAILED&#x60;, &#x60;SYNCING&#x60;
     # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :cursor The pagination cursor value.
+    # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @return [Array<(PaginatedSyncStatusList, Integer, Hash)>] PaginatedSyncStatusList data, response status code and response headers
     def sync_status_list_with_http_info(x_account_token, opts = {})
