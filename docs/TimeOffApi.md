@@ -25,9 +25,9 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['tokenAuth'] = 'YOUR API KEY'
+  config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['tokenAuth'] = 'Bearer'
+  config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::TimeOffApi.new
@@ -104,7 +104,7 @@ MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['Authorization'] = 'Bearer'
+  config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::TimeOffApi.new
@@ -205,7 +205,7 @@ MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['Authorization'] = 'Bearer'
+  config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::TimeOffApi.new
