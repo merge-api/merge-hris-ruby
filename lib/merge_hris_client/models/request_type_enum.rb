@@ -19,6 +19,8 @@ module MergeHRISClient
     SICK = "SICK".freeze
     PERSONAL = "PERSONAL".freeze
     JURY_DUTY = "JURY_DUTY".freeze
+    VOLUNTEER = "VOLUNTEER".freeze
+    BEREAVEMENT = "BEREAVEMENT".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -31,7 +33,6 @@ module MergeHRISClient
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = RequestTypeEnum.constants.select { |c| RequestTypeEnum::const_get(c) == value }
       value
     end
   end

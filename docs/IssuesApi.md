@@ -25,20 +25,21 @@ require 'merge_hris_client'
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
   config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::IssuesApi.new
 opts = {
-  account_token: 'account_token_example', # String | account_token
-  cursor: 56, # Integer | The pagination cursor value.
+  account_token: 'account_token_example', # String | 
+  cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
   end_date: 'end_date_example', # String | If included, will only include issues whose most recent action occurred before this time
-  end_user_organization_name: 'end_user_organization_name_example', # String | end_user_organization_name
+  end_user_organization_name: 'end_user_organization_name_example', # String | 
   include_muted: 'include_muted_example', # String | If True, will include muted issues
-  integration_name: 'integration_name_example', # String | integration_name
+  integration_name: 'integration_name_example', # String | 
   page_size: 56, # Integer | Number of results to return per page.
   start_date: 'start_date_example', # String | If included, will only include issues whose most recent action occurred after this time
-  status: 'ONGOING' # String | status
+  status: 'ONGOING' # String | 
 }
 
 begin
@@ -72,15 +73,15 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **account_token** | **String** | account_token | [optional] |
-| **cursor** | **Integer** | The pagination cursor value. | [optional] |
+| **account_token** | **String** |  | [optional] |
+| **cursor** | **String** | The pagination cursor value. | [optional] |
 | **end_date** | **String** | If included, will only include issues whose most recent action occurred before this time | [optional] |
-| **end_user_organization_name** | **String** | end_user_organization_name | [optional] |
+| **end_user_organization_name** | **String** |  | [optional] |
 | **include_muted** | **String** | If True, will include muted issues | [optional] |
-| **integration_name** | **String** | integration_name | [optional] |
+| **integration_name** | **String** |  | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
 | **start_date** | **String** | If included, will only include issues whose most recent action occurred after this time | [optional] |
-| **status** | **String** | status | [optional] |
+| **status** | **String** |  | [optional] |
 
 ### Return type
 
