@@ -21,6 +21,8 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
+    attr_accessor :employee
+
     # The position's title.
     attr_accessor :job_title
 
@@ -52,6 +54,7 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
+        :'employee' => :'employee',
         :'job_title' => :'job_title',
         :'pay_rate' => :'pay_rate',
         :'pay_period' => :'pay_period',
@@ -74,6 +77,7 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
+        :'employee' => :'String',
         :'job_title' => :'String',
         :'pay_rate' => :'Float',
         :'pay_period' => :'PayPeriodEnum',
@@ -90,6 +94,7 @@ module MergeHRISClient
     def self.openapi_nullable
       Set.new([
         :'remote_id',
+        :'employee',
         :'job_title',
         :'pay_rate',
         :'pay_period',
@@ -123,6 +128,10 @@ module MergeHRISClient
 
       if attributes.key?(:'remote_id')
         self.remote_id = attributes[:'remote_id']
+      end
+
+      if attributes.key?(:'employee')
+        self.employee = attributes[:'employee']
       end
 
       if attributes.key?(:'job_title')
@@ -184,6 +193,7 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
+          employee == o.employee &&
           job_title == o.job_title &&
           pay_rate == o.pay_rate &&
           pay_period == o.pay_period &&
@@ -204,7 +214,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, job_title, pay_rate, pay_period, pay_frequency, pay_currency, flsa_status, effective_date, employment_type, remote_data].hash
+      [id, remote_id, employee, job_title, pay_rate, pay_period, pay_frequency, pay_currency, flsa_status, effective_date, employment_type, remote_data].hash
     end
 
     # Builds the object from hash
@@ -247,7 +257,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

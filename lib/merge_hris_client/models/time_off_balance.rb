@@ -21,14 +21,16 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The employee the balance belongs to.
     attr_accessor :employee
 
-    # The current PTO balance.
+    # The current PTO balance in terms of hours.
     attr_accessor :balance
 
-    # The amount of PTO used.
+    # The amount of PTO used in terms of hours.
     attr_accessor :used
+
+    # The policy type of this time off balance.
+    attr_accessor :policy_type
 
     attr_accessor :remote_data
 
@@ -40,6 +42,7 @@ module MergeHRISClient
         :'employee' => :'employee',
         :'balance' => :'balance',
         :'used' => :'used',
+        :'policy_type' => :'policy_type',
         :'remote_data' => :'remote_data'
       }
     end
@@ -57,6 +60,7 @@ module MergeHRISClient
         :'employee' => :'String',
         :'balance' => :'Float',
         :'used' => :'Float',
+        :'policy_type' => :'PolicyTypeEnum',
         :'remote_data' => :'Array<RemoteData>'
       }
     end
@@ -68,6 +72,7 @@ module MergeHRISClient
         :'employee',
         :'balance',
         :'used',
+        :'policy_type',
         :'remote_data'
       ])
     end
@@ -107,6 +112,10 @@ module MergeHRISClient
         self.used = attributes[:'used']
       end
 
+      if attributes.key?(:'policy_type')
+        self.policy_type = attributes[:'policy_type']
+      end
+
       if attributes.key?(:'remote_data')
         if (value = attributes[:'remote_data']).is_a?(Array)
           self.remote_data = value
@@ -137,6 +146,7 @@ module MergeHRISClient
           employee == o.employee &&
           balance == o.balance &&
           used == o.used &&
+          policy_type == o.policy_type &&
           remote_data == o.remote_data
     end
 
@@ -149,7 +159,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, balance, used, remote_data].hash
+      [id, remote_id, employee, balance, used, policy_type, remote_data].hash
     end
 
     # Builds the object from hash
@@ -192,7 +202,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

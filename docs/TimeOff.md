@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
-| **employee** | **String** | The employee requesting time off. | [optional] |
-| **approver** | **String** | The employee approving the time off request. | [optional] |
+| **employee** | **String** |  | [optional] |
+| **approver** | **String** |  | [optional] |
 | **status** | [**TimeOffStatusEnum**](TimeOffStatusEnum.md) | The status of this time off request. | [optional] |
 | **employee_note** | **String** | The employee note for this time off request. | [optional] |
 | **units** | [**UnitsEnum**](UnitsEnum.md) | The unit of time requested. | [optional] |
@@ -30,10 +30,10 @@ instance = MergeHRISClient::TimeOff.new(
   status: APPROVED,
   employee_note: Trip to Iowa. Miss those cornfields!,
   units: DAYS,
-  amount: 13,
+  amount: 7,
   request_type: VACATION,
-  start_time: null,
-  end_time: null,
+  start_time: 2020-11-10T00:00Z,
+  end_time: 2020-11-17T00:00Z,
   remote_data: [{&quot;path&quot;:&quot;/leave&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```

@@ -25,6 +25,8 @@ module MergeHRISClient
     # @option opts [Time] :created_after If provided, will only return objects created after this datetime.
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
+    # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
@@ -43,6 +45,8 @@ module MergeHRISClient
     # @option opts [Time] :created_after If provided, will only return objects created after this datetime.
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
+    # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
@@ -58,6 +62,10 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && x_account_token.nil?
         fail ArgumentError, "Missing the required parameter 'x_account_token' when calling TeamsApi.teams_list"
       end
+      allowable_values = ["parent_team"]
+      if @api_client.config.client_side_validation && opts[:'expand'] && !allowable_values.include?(opts[:'expand'])
+        fail ArgumentError, "invalid value for \"expand\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/teams'
 
@@ -66,6 +74,8 @@ module MergeHRISClient
       query_params[:'created_after'] = opts[:'created_after'] if !opts[:'created_after'].nil?
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+      query_params[:'include_deleted_data'] = opts[:'include_deleted_data'] if !opts[:'include_deleted_data'].nil?
       query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
@@ -112,6 +122,7 @@ module MergeHRISClient
     # @param x_account_token [String] Token identifying the end user.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @return [Team]
     def teams_retrieve(x_account_token, id, opts = {})
@@ -123,6 +134,7 @@ module MergeHRISClient
     # @param x_account_token [String] Token identifying the end user.
     # @param id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @return [Array<(Team, Integer, Hash)>] Team data, response status code and response headers
     def teams_retrieve_with_http_info(x_account_token, id, opts = {})
@@ -137,11 +149,16 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling TeamsApi.teams_retrieve"
       end
+      allowable_values = ["parent_team"]
+      if @api_client.config.client_side_validation && opts[:'expand'] && !allowable_values.include?(opts[:'expand'])
+        fail ArgumentError, "invalid value for \"expand\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/teams/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
       query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
 
       # header parameters

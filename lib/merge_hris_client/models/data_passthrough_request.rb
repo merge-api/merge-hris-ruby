@@ -26,6 +26,8 @@ module MergeHRISClient
 
     attr_accessor :headers
 
+    attr_accessor :request_format
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -33,7 +35,8 @@ module MergeHRISClient
         :'path' => :'path',
         :'base_url_override' => :'base_url_override',
         :'data' => :'data',
-        :'headers' => :'headers'
+        :'headers' => :'headers',
+        :'request_format' => :'request_format'
       }
     end
 
@@ -48,8 +51,9 @@ module MergeHRISClient
         :'method' => :'MethodEnum',
         :'path' => :'String',
         :'base_url_override' => :'String',
-        :'data' => :'Hash<String, Object>',
-        :'headers' => :'Hash<String, Object>'
+        :'data' => :'String',
+        :'headers' => :'Hash<String, AnyType>',
+        :'request_format' => :'RequestFormatEnum'
       }
     end
 
@@ -58,7 +62,8 @@ module MergeHRISClient
       Set.new([
         :'base_url_override',
         :'data',
-        :'headers'
+        :'headers',
+        :'request_format'
       ])
     end
 
@@ -90,15 +95,17 @@ module MergeHRISClient
       end
 
       if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Hash)
-          self.data = value
-        end
+        self.data = attributes[:'data']
       end
 
       if attributes.key?(:'headers')
         if (value = attributes[:'headers']).is_a?(Hash)
           self.headers = value
         end
+      end
+
+      if attributes.key?(:'request_format')
+        self.request_format = attributes[:'request_format']
       end
     end
 
@@ -114,6 +121,18 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "path", path cannot be nil.')
       end
 
+      if @path.to_s.length < 1
+        invalid_properties.push('invalid value for "path", the character length must be great than or equal to 1.')
+      end
+
+      if !@base_url_override.nil? && @base_url_override.to_s.length < 1
+        invalid_properties.push('invalid value for "base_url_override", the character length must be great than or equal to 1.')
+      end
+
+      if !@data.nil? && @data.to_s.length < 1
+        invalid_properties.push('invalid value for "data", the character length must be great than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -122,7 +141,44 @@ module MergeHRISClient
     def valid?
       return false if @method.nil?
       return false if @path.nil?
+      return false if @path.to_s.length < 1
+      return false if !@base_url_override.nil? && @base_url_override.to_s.length < 1
+      return false if !@data.nil? && @data.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] path Value to be assigned
+    def path=(path)
+      if path.nil?
+        fail ArgumentError, 'path cannot be nil'
+      end
+
+      if path.to_s.length < 1
+        fail ArgumentError, 'invalid value for "path", the character length must be great than or equal to 1.'
+      end
+
+      @path = path
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] base_url_override Value to be assigned
+    def base_url_override=(base_url_override)
+      if !base_url_override.nil? && base_url_override.to_s.length < 1
+        fail ArgumentError, 'invalid value for "base_url_override", the character length must be great than or equal to 1.'
+      end
+
+      @base_url_override = base_url_override
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] data Value to be assigned
+    def data=(data)
+      if !data.nil? && data.to_s.length < 1
+        fail ArgumentError, 'invalid value for "data", the character length must be great than or equal to 1.'
+      end
+
+      @data = data
     end
 
     # Checks equality by comparing each attribute.
@@ -134,7 +190,8 @@ module MergeHRISClient
           path == o.path &&
           base_url_override == o.base_url_override &&
           data == o.data &&
-          headers == o.headers
+          headers == o.headers &&
+          request_format == o.request_format
     end
 
     # @see the `==` method
@@ -146,7 +203,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [method, path, base_url_override, data, headers].hash
+      [method, path, base_url_override, data, headers, request_format].hash
     end
 
     # Builds the object from hash
@@ -189,7 +246,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

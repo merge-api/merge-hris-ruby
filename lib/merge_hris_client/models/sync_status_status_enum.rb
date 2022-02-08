@@ -17,6 +17,8 @@ module MergeHRISClient
   class SyncStatusStatusEnum
     SYNCING = "SYNCING".freeze
     DONE = "DONE".freeze
+    FAILED = "FAILED".freeze
+    DISABLED = "DISABLED".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

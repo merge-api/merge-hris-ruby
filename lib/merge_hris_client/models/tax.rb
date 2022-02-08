@@ -18,7 +18,6 @@ module MergeHRISClient
   class Tax
     attr_accessor :id
 
-    # The tax's employee payroll run.
     attr_accessor :employee_payroll_run
 
     # The tax's name.
@@ -57,7 +56,7 @@ module MergeHRISClient
         :'name' => :'String',
         :'amount' => :'Float',
         :'employer_tax' => :'Boolean',
-        :'remote_data' => :'Array<RemoteData>'
+        :'remote_data' => :'String'
       }
     end
 
@@ -68,7 +67,6 @@ module MergeHRISClient
         :'name',
         :'amount',
         :'employer_tax',
-        :'remote_data'
       ])
     end
 
@@ -108,9 +106,7 @@ module MergeHRISClient
       end
 
       if attributes.key?(:'remote_data')
-        if (value = attributes[:'remote_data']).is_a?(Array)
-          self.remote_data = value
-        end
+        self.remote_data = attributes[:'remote_data']
       end
     end
 
@@ -192,7 +188,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

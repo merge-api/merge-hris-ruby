@@ -21,22 +21,24 @@ module MergeHRISClient
     end
     # Creates an `Employee` object with the given values.
     # @param x_account_token [String] Token identifying the end user.
+    # @param employee_endpoint_request [EmployeeEndpointRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :is_debug_mode Whether to include debug fields (such as log file links) in the response.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
-    # @option opts [EmployeeRequest] :employee_request 
-    # @return [Employee]
-    def employees_create(x_account_token, opts = {})
-      data, _status_code, _headers = employees_create_with_http_info(x_account_token, opts)
+    # @return [EmployeeResponse]
+    def employees_create(x_account_token, employee_endpoint_request, opts = {})
+      data, _status_code, _headers = employees_create_with_http_info(x_account_token, employee_endpoint_request, opts)
       data
     end
 
     # Creates an &#x60;Employee&#x60; object with the given values.
     # @param x_account_token [String] Token identifying the end user.
+    # @param employee_endpoint_request [EmployeeEndpointRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :is_debug_mode Whether to include debug fields (such as log file links) in the response.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
-    # @option opts [EmployeeRequest] :employee_request 
-    # @return [Array<(Employee, Integer, Hash)>] Employee data, response status code and response headers
-    def employees_create_with_http_info(x_account_token, opts = {})
+    # @return [Array<(EmployeeResponse, Integer, Hash)>] EmployeeResponse data, response status code and response headers
+    def employees_create_with_http_info(x_account_token, employee_endpoint_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeesApi.employees_create ...'
       end
@@ -44,11 +46,16 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && x_account_token.nil?
         fail ArgumentError, "Missing the required parameter 'x_account_token' when calling EmployeesApi.employees_create"
       end
+      # verify the required parameter 'employee_endpoint_request' is set
+      if @api_client.config.client_side_validation && employee_endpoint_request.nil?
+        fail ArgumentError, "Missing the required parameter 'employee_endpoint_request' when calling EmployeesApi.employees_create"
+      end
       # resource path
       local_var_path = '/employees'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'is_debug_mode'] = opts[:'is_debug_mode'] if !opts[:'is_debug_mode'].nil?
       query_params[:'run_async'] = opts[:'run_async'] if !opts[:'run_async'].nil?
 
       # header parameters
@@ -63,10 +70,10 @@ module MergeHRISClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'employee_request'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(employee_endpoint_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Employee'
+      return_type = opts[:debug_return_type] || 'EmployeeResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['tokenAuth']
@@ -88,6 +95,73 @@ module MergeHRISClient
       return data, status_code, headers
     end
 
+    # Ignores a specific row based on the `model_id` in the url. These records will have their properties set to null, and will not be updated in future syncs. The \"reason\" and \"message\" fields in the request body will be stored for audit purposes.
+    # @param model_id [String] 
+    # @param ignore_common_model_request [IgnoreCommonModelRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def employees_ignore_create(model_id, ignore_common_model_request, opts = {})
+      employees_ignore_create_with_http_info(model_id, ignore_common_model_request, opts)
+      nil
+    end
+
+    # Ignores a specific row based on the &#x60;model_id&#x60; in the url. These records will have their properties set to null, and will not be updated in future syncs. The \&quot;reason\&quot; and \&quot;message\&quot; fields in the request body will be stored for audit purposes.
+    # @param model_id [String] 
+    # @param ignore_common_model_request [IgnoreCommonModelRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def employees_ignore_create_with_http_info(model_id, ignore_common_model_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EmployeesApi.employees_ignore_create ...'
+      end
+      # verify the required parameter 'model_id' is set
+      if @api_client.config.client_side_validation && model_id.nil?
+        fail ArgumentError, "Missing the required parameter 'model_id' when calling EmployeesApi.employees_ignore_create"
+      end
+      # verify the required parameter 'ignore_common_model_request' is set
+      if @api_client.config.client_side_validation && ignore_common_model_request.nil?
+        fail ArgumentError, "Missing the required parameter 'ignore_common_model_request' when calling EmployeesApi.employees_ignore_create"
+      end
+      # resource path
+      local_var_path = '/employees/ignore/{model_id}'.sub('{' + 'model_id' + '}', CGI.escape(model_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(ignore_common_model_request)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['tokenAuth']
+
+      new_options = opts.merge(
+        :operation => :"EmployeesApi.employees_ignore_create",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EmployeesApi#employees_ignore_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Returns a list of `Employee` objects.
     # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
@@ -96,14 +170,18 @@ module MergeHRISClient
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
-    # @option opts [Boolean] :include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response.
+    # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
     # @option opts [String] :manager_id If provided, will only return employees for this manager.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :pay_group_id If provided, will only return employees for this pay group
+    # @option opts [String] :personal_email If provided, will only return Employees with this personal email
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @option opts [String] :team_id If provided, will only return employees for this team.
+    # @option opts [String] :work_email If provided, will only return Employees with this work email
     # @option opts [String] :work_location_id If provided, will only return employees for this location.
     # @return [PaginatedEmployeeList]
     def employees_list(x_account_token, opts = {})
@@ -119,14 +197,18 @@ module MergeHRISClient
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+    # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
-    # @option opts [Boolean] :include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response.
+    # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
     # @option opts [String] :manager_id If provided, will only return employees for this manager.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :pay_group_id If provided, will only return employees for this pay group
+    # @option opts [String] :personal_email If provided, will only return Employees with this personal email
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @option opts [String] :team_id If provided, will only return employees for this team.
+    # @option opts [String] :work_email If provided, will only return Employees with this work email
     # @option opts [String] :work_location_id If provided, will only return employees for this location.
     # @return [Array<(PaginatedEmployeeList, Integer, Hash)>] PaginatedEmployeeList data, response status code and response headers
     def employees_list_with_http_info(x_account_token, opts = {})
@@ -137,7 +219,7 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && x_account_token.nil?
         fail ArgumentError, "Missing the required parameter 'x_account_token' when calling EmployeesApi.employees_list"
       end
-      allowable_values = ["company", "employments", "employments,company", "employments,home_location", "employments,home_location,company", "employments,home_location,manager", "employments,home_location,manager,company", "employments,home_location,manager,team", "employments,home_location,manager,team,company", "employments,home_location,team", "employments,home_location,team,company", "employments,home_location,work_location", "employments,home_location,work_location,company", "employments,home_location,work_location,manager", "employments,home_location,work_location,manager,company", "employments,home_location,work_location,manager,team", "employments,home_location,work_location,manager,team,company", "employments,home_location,work_location,team", "employments,home_location,work_location,team,company", "employments,manager", "employments,manager,company", "employments,manager,team", "employments,manager,team,company", "employments,team", "employments,team,company", "employments,work_location", "employments,work_location,company", "employments,work_location,manager", "employments,work_location,manager,company", "employments,work_location,manager,team", "employments,work_location,manager,team,company", "employments,work_location,team", "employments,work_location,team,company", "home_location", "home_location,company", "home_location,manager", "home_location,manager,company", "home_location,manager,team", "home_location,manager,team,company", "home_location,team", "home_location,team,company", "home_location,work_location", "home_location,work_location,company", "home_location,work_location,manager", "home_location,work_location,manager,company", "home_location,work_location,manager,team", "home_location,work_location,manager,team,company", "home_location,work_location,team", "home_location,work_location,team,company", "manager", "manager,company", "manager,team", "manager,team,company", "team", "team,company", "work_location", "work_location,company", "work_location,manager", "work_location,manager,company", "work_location,manager,team", "work_location,manager,team,company", "work_location,team", "work_location,team,company"]
+      allowable_values = ["company", "company,pay_group", "employments", "employments,company", "employments,company,pay_group", "employments,home_location", "employments,home_location,company", "employments,home_location,company,pay_group", "employments,home_location,manager", "employments,home_location,manager,company", "employments,home_location,manager,company,pay_group", "employments,home_location,manager,pay_group", "employments,home_location,manager,team", "employments,home_location,manager,team,company", "employments,home_location,manager,team,company,pay_group", "employments,home_location,manager,team,pay_group", "employments,home_location,pay_group", "employments,home_location,team", "employments,home_location,team,company", "employments,home_location,team,company,pay_group", "employments,home_location,team,pay_group", "employments,home_location,work_location", "employments,home_location,work_location,company", "employments,home_location,work_location,company,pay_group", "employments,home_location,work_location,manager", "employments,home_location,work_location,manager,company", "employments,home_location,work_location,manager,company,pay_group", "employments,home_location,work_location,manager,pay_group", "employments,home_location,work_location,manager,team", "employments,home_location,work_location,manager,team,company", "employments,home_location,work_location,manager,team,company,pay_group", "employments,home_location,work_location,manager,team,pay_group", "employments,home_location,work_location,pay_group", "employments,home_location,work_location,team", "employments,home_location,work_location,team,company", "employments,home_location,work_location,team,company,pay_group", "employments,home_location,work_location,team,pay_group", "employments,manager", "employments,manager,company", "employments,manager,company,pay_group", "employments,manager,pay_group", "employments,manager,team", "employments,manager,team,company", "employments,manager,team,company,pay_group", "employments,manager,team,pay_group", "employments,pay_group", "employments,team", "employments,team,company", "employments,team,company,pay_group", "employments,team,pay_group", "employments,work_location", "employments,work_location,company", "employments,work_location,company,pay_group", "employments,work_location,manager", "employments,work_location,manager,company", "employments,work_location,manager,company,pay_group", "employments,work_location,manager,pay_group", "employments,work_location,manager,team", "employments,work_location,manager,team,company", "employments,work_location,manager,team,company,pay_group", "employments,work_location,manager,team,pay_group", "employments,work_location,pay_group", "employments,work_location,team", "employments,work_location,team,company", "employments,work_location,team,company,pay_group", "employments,work_location,team,pay_group", "home_location", "home_location,company", "home_location,company,pay_group", "home_location,manager", "home_location,manager,company", "home_location,manager,company,pay_group", "home_location,manager,pay_group", "home_location,manager,team", "home_location,manager,team,company", "home_location,manager,team,company,pay_group", "home_location,manager,team,pay_group", "home_location,pay_group", "home_location,team", "home_location,team,company", "home_location,team,company,pay_group", "home_location,team,pay_group", "home_location,work_location", "home_location,work_location,company", "home_location,work_location,company,pay_group", "home_location,work_location,manager", "home_location,work_location,manager,company", "home_location,work_location,manager,company,pay_group", "home_location,work_location,manager,pay_group", "home_location,work_location,manager,team", "home_location,work_location,manager,team,company", "home_location,work_location,manager,team,company,pay_group", "home_location,work_location,manager,team,pay_group", "home_location,work_location,pay_group", "home_location,work_location,team", "home_location,work_location,team,company", "home_location,work_location,team,company,pay_group", "home_location,work_location,team,pay_group", "manager", "manager,company", "manager,company,pay_group", "manager,pay_group", "manager,team", "manager,team,company", "manager,team,company,pay_group", "manager,team,pay_group", "pay_group", "team", "team,company", "team,company,pay_group", "team,pay_group", "work_location", "work_location,company", "work_location,company,pay_group", "work_location,manager", "work_location,manager,company", "work_location,manager,company,pay_group", "work_location,manager,pay_group", "work_location,manager,team", "work_location,manager,team,company", "work_location,manager,team,company,pay_group", "work_location,manager,team,pay_group", "work_location,pay_group", "work_location,team", "work_location,team,company", "work_location,team,company,pay_group", "work_location,team,pay_group"]
       if @api_client.config.client_side_validation && opts[:'expand'] && !allowable_values.include?(opts[:'expand'])
         fail ArgumentError, "invalid value for \"expand\", must be one of #{allowable_values}"
       end
@@ -151,14 +233,18 @@ module MergeHRISClient
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+      query_params[:'include_deleted_data'] = opts[:'include_deleted_data'] if !opts[:'include_deleted_data'].nil?
       query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
       query_params[:'include_sensitive_fields'] = opts[:'include_sensitive_fields'] if !opts[:'include_sensitive_fields'].nil?
       query_params[:'manager_id'] = opts[:'manager_id'] if !opts[:'manager_id'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'pay_group_id'] = opts[:'pay_group_id'] if !opts[:'pay_group_id'].nil?
+      query_params[:'personal_email'] = opts[:'personal_email'] if !opts[:'personal_email'].nil?
       query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
       query_params[:'team_id'] = opts[:'team_id'] if !opts[:'team_id'].nil?
+      query_params[:'work_email'] = opts[:'work_email'] if !opts[:'work_email'].nil?
       query_params[:'work_location_id'] = opts[:'work_location_id'] if !opts[:'work_location_id'].nil?
 
       # header parameters
@@ -202,7 +288,7 @@ module MergeHRISClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
-    # @option opts [Boolean] :include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response.
+    # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
     # @return [Employee]
     def employees_retrieve(x_account_token, id, opts = {})
       data, _status_code, _headers = employees_retrieve_with_http_info(x_account_token, id, opts)
@@ -215,7 +301,7 @@ module MergeHRISClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
-    # @option opts [Boolean] :include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response.
+    # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
     # @return [Array<(Employee, Integer, Hash)>] Employee data, response status code and response headers
     def employees_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging
@@ -229,7 +315,7 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling EmployeesApi.employees_retrieve"
       end
-      allowable_values = ["company", "employments", "employments,company", "employments,home_location", "employments,home_location,company", "employments,home_location,manager", "employments,home_location,manager,company", "employments,home_location,manager,team", "employments,home_location,manager,team,company", "employments,home_location,team", "employments,home_location,team,company", "employments,home_location,work_location", "employments,home_location,work_location,company", "employments,home_location,work_location,manager", "employments,home_location,work_location,manager,company", "employments,home_location,work_location,manager,team", "employments,home_location,work_location,manager,team,company", "employments,home_location,work_location,team", "employments,home_location,work_location,team,company", "employments,manager", "employments,manager,company", "employments,manager,team", "employments,manager,team,company", "employments,team", "employments,team,company", "employments,work_location", "employments,work_location,company", "employments,work_location,manager", "employments,work_location,manager,company", "employments,work_location,manager,team", "employments,work_location,manager,team,company", "employments,work_location,team", "employments,work_location,team,company", "home_location", "home_location,company", "home_location,manager", "home_location,manager,company", "home_location,manager,team", "home_location,manager,team,company", "home_location,team", "home_location,team,company", "home_location,work_location", "home_location,work_location,company", "home_location,work_location,manager", "home_location,work_location,manager,company", "home_location,work_location,manager,team", "home_location,work_location,manager,team,company", "home_location,work_location,team", "home_location,work_location,team,company", "manager", "manager,company", "manager,team", "manager,team,company", "team", "team,company", "work_location", "work_location,company", "work_location,manager", "work_location,manager,company", "work_location,manager,team", "work_location,manager,team,company", "work_location,team", "work_location,team,company"]
+      allowable_values = ["company", "company,pay_group", "employments", "employments,company", "employments,company,pay_group", "employments,home_location", "employments,home_location,company", "employments,home_location,company,pay_group", "employments,home_location,manager", "employments,home_location,manager,company", "employments,home_location,manager,company,pay_group", "employments,home_location,manager,pay_group", "employments,home_location,manager,team", "employments,home_location,manager,team,company", "employments,home_location,manager,team,company,pay_group", "employments,home_location,manager,team,pay_group", "employments,home_location,pay_group", "employments,home_location,team", "employments,home_location,team,company", "employments,home_location,team,company,pay_group", "employments,home_location,team,pay_group", "employments,home_location,work_location", "employments,home_location,work_location,company", "employments,home_location,work_location,company,pay_group", "employments,home_location,work_location,manager", "employments,home_location,work_location,manager,company", "employments,home_location,work_location,manager,company,pay_group", "employments,home_location,work_location,manager,pay_group", "employments,home_location,work_location,manager,team", "employments,home_location,work_location,manager,team,company", "employments,home_location,work_location,manager,team,company,pay_group", "employments,home_location,work_location,manager,team,pay_group", "employments,home_location,work_location,pay_group", "employments,home_location,work_location,team", "employments,home_location,work_location,team,company", "employments,home_location,work_location,team,company,pay_group", "employments,home_location,work_location,team,pay_group", "employments,manager", "employments,manager,company", "employments,manager,company,pay_group", "employments,manager,pay_group", "employments,manager,team", "employments,manager,team,company", "employments,manager,team,company,pay_group", "employments,manager,team,pay_group", "employments,pay_group", "employments,team", "employments,team,company", "employments,team,company,pay_group", "employments,team,pay_group", "employments,work_location", "employments,work_location,company", "employments,work_location,company,pay_group", "employments,work_location,manager", "employments,work_location,manager,company", "employments,work_location,manager,company,pay_group", "employments,work_location,manager,pay_group", "employments,work_location,manager,team", "employments,work_location,manager,team,company", "employments,work_location,manager,team,company,pay_group", "employments,work_location,manager,team,pay_group", "employments,work_location,pay_group", "employments,work_location,team", "employments,work_location,team,company", "employments,work_location,team,company,pay_group", "employments,work_location,team,pay_group", "home_location", "home_location,company", "home_location,company,pay_group", "home_location,manager", "home_location,manager,company", "home_location,manager,company,pay_group", "home_location,manager,pay_group", "home_location,manager,team", "home_location,manager,team,company", "home_location,manager,team,company,pay_group", "home_location,manager,team,pay_group", "home_location,pay_group", "home_location,team", "home_location,team,company", "home_location,team,company,pay_group", "home_location,team,pay_group", "home_location,work_location", "home_location,work_location,company", "home_location,work_location,company,pay_group", "home_location,work_location,manager", "home_location,work_location,manager,company", "home_location,work_location,manager,company,pay_group", "home_location,work_location,manager,pay_group", "home_location,work_location,manager,team", "home_location,work_location,manager,team,company", "home_location,work_location,manager,team,company,pay_group", "home_location,work_location,manager,team,pay_group", "home_location,work_location,pay_group", "home_location,work_location,team", "home_location,work_location,team,company", "home_location,work_location,team,company,pay_group", "home_location,work_location,team,pay_group", "manager", "manager,company", "manager,company,pay_group", "manager,pay_group", "manager,team", "manager,team,company", "manager,team,company,pay_group", "manager,team,pay_group", "pay_group", "team", "team,company", "team,company,pay_group", "team,pay_group", "work_location", "work_location,company", "work_location,company,pay_group", "work_location,manager", "work_location,manager,company", "work_location,manager,company,pay_group", "work_location,manager,pay_group", "work_location,manager,team", "work_location,manager,team,company", "work_location,manager,team,company,pay_group", "work_location,manager,team,pay_group", "work_location,pay_group", "work_location,team", "work_location,team,company", "work_location,team,company,pay_group", "work_location,team,pay_group"]
       if @api_client.config.client_side_validation && opts[:'expand'] && !allowable_values.include?(opts[:'expand'])
         fail ArgumentError, "invalid value for \"expand\", must be one of #{allowable_values}"
       end

@@ -50,6 +50,7 @@ module MergeHRISClient
     # @return [String] The enum value
     def build_from_hash(value)
       constantValues = BenefitPlanTypeEnum.constants.select { |c| BenefitPlanTypeEnum::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #BenefitPlanTypeEnum" if constantValues.empty?
       value
     end
   end

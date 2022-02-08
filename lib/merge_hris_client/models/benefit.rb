@@ -21,7 +21,6 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The employee on the plan.
     attr_accessor :employee
 
     # The name of the benefit provider.
@@ -214,7 +213,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

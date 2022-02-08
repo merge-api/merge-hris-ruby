@@ -18,7 +18,6 @@ module MergeHRISClient
   class Deduction
     attr_accessor :id
 
-    # The deduction's employee payroll run.
     attr_accessor :employee_payroll_run
 
     # The deduction's name.
@@ -192,7 +191,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

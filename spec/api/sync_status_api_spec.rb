@@ -33,24 +33,13 @@ describe 'SyncStatusApi' do
   end
 
   # unit tests for sync_status_list
-  # Get syncing status.
+  # Get syncing status. Possible values: &#x60;DISABLED&#x60;, &#x60;DONE&#x60;, &#x60;FAILED&#x60;, &#x60;SYNCING&#x60;
   # @param x_account_token Token identifying the end user.
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :cursor The pagination cursor value.
+  # @option opts [String] :cursor The pagination cursor value.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @return [PaginatedSyncStatusList]
   describe 'sync_status_list test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for sync_status_resync_create
-  # Force resync of all models.
-  # @param x_account_token Token identifying the end user.
-  # @param [Hash] opts the optional parameters
-  # @return [SyncStatus]
-  describe 'sync_status_resync_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -21,6 +21,9 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
+    # The location's name.
+    attr_accessor :name
+
     # The location's phone number.
     attr_accessor :phone_number
 
@@ -42,6 +45,9 @@ module MergeHRISClient
     # The location's country.
     attr_accessor :country
 
+    # The location's type. Can be either WORK or HOME
+    attr_accessor :location_type
+
     attr_accessor :remote_data
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -49,6 +55,7 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
+        :'name' => :'name',
         :'phone_number' => :'phone_number',
         :'street_1' => :'street_1',
         :'street_2' => :'street_2',
@@ -56,6 +63,7 @@ module MergeHRISClient
         :'state' => :'state',
         :'zip_code' => :'zip_code',
         :'country' => :'country',
+        :'location_type' => :'location_type',
         :'remote_data' => :'remote_data'
       }
     end
@@ -70,6 +78,7 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
+        :'name' => :'String',
         :'phone_number' => :'String',
         :'street_1' => :'String',
         :'street_2' => :'String',
@@ -77,6 +86,7 @@ module MergeHRISClient
         :'state' => :'String',
         :'zip_code' => :'String',
         :'country' => :'CountryEnum',
+        :'location_type' => :'LocationTypeEnum',
         :'remote_data' => :'Array<RemoteData>'
       }
     end
@@ -85,6 +95,7 @@ module MergeHRISClient
     def self.openapi_nullable
       Set.new([
         :'remote_id',
+        :'name',
         :'phone_number',
         :'street_1',
         :'street_2',
@@ -92,6 +103,7 @@ module MergeHRISClient
         :'state',
         :'zip_code',
         :'country',
+        :'location_type',
         :'remote_data'
       ])
     end
@@ -117,6 +129,10 @@ module MergeHRISClient
 
       if attributes.key?(:'remote_id')
         self.remote_id = attributes[:'remote_id']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'phone_number')
@@ -147,6 +163,10 @@ module MergeHRISClient
         self.country = attributes[:'country']
       end
 
+      if attributes.key?(:'location_type')
+        self.location_type = attributes[:'location_type']
+      end
+
       if attributes.key?(:'remote_data')
         if (value = attributes[:'remote_data']).is_a?(Array)
           self.remote_data = value
@@ -174,6 +194,7 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
+          name == o.name &&
           phone_number == o.phone_number &&
           street_1 == o.street_1 &&
           street_2 == o.street_2 &&
@@ -181,6 +202,7 @@ module MergeHRISClient
           state == o.state &&
           zip_code == o.zip_code &&
           country == o.country &&
+          location_type == o.location_type &&
           remote_data == o.remote_data
     end
 
@@ -193,7 +215,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, phone_number, street_1, street_2, city, state, zip_code, country, remote_data].hash
+      [id, remote_id, name, phone_number, street_1, street_2, city, state, zip_code, country, location_type, remote_data].hash
     end
 
     # Builds the object from hash
@@ -236,7 +258,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

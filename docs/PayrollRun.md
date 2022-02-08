@@ -23,9 +23,9 @@ instance = MergeHRISClient::PayrollRun.new(
   remote_id: 19202938,
   run_state: PAID,
   run_type: REGULAR,
-  start_date: null,
-  end_date: null,
-  check_date: null,
+  start_date: 2020-11-08T00:00Z,
+  end_date: 2020-11-15T00:00Z,
+  check_date: 2020-11-15T00:00Z,
   remote_data: [{&quot;path&quot;:&quot;/payroll&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```

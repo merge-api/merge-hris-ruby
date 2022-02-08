@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
-| **employee** | **String** | The employee whose payroll is being run. | [optional] |
-| **payroll_run** | **String** | The payroll being run. | [optional] |
+| **employee** | **String** |  | [optional] |
+| **payroll_run** | **String** |  | [optional] |
 | **gross_pay** | **Float** | The gross pay from the run. | [optional] |
 | **net_pay** | **Float** | The net pay from the run. | [optional] |
 | **start_date** | **Time** | The day and time the payroll run started. | [optional] |
@@ -30,9 +30,9 @@ instance = MergeHRISClient::EmployeePayrollRun.new(
   payroll_run: 35347df1-95e7-46e2-93cc-66f1191edca5,
   gross_pay: 1342.67,
   net_pay: 865.78,
-  start_date: null,
-  end_date: null,
-  check_date: null,
+  start_date: 2020-11-08T00:00Z,
+  end_date: 2020-11-09T00:00Z,
+  check_date: 2020-11-10T00:00Z,
   earnings: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;amount&quot;:1002.34,&quot;type&quot;:&quot;SALARY&quot;},{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;amount&quot;:8342.34,&quot;type&quot;:&quot;OVERTIME&quot;}],
   deductions: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;name&quot;:&quot;Social Security&quot;,&quot;employee_deduction&quot;:34.54,&quot;company_deduction&quot;:78.78}],
   taxes: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;name&quot;:&quot;California State Income Tax&quot;,&quot;amount&quot;:100.25,&quot;employer_tax&quot;:&quot;False&quot;}],

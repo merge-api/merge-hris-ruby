@@ -5,11 +5,11 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
-| **employee_payroll_run** | **String** | The tax&#39;s employee payroll run. | [optional] |
+| **employee_payroll_run** | **String** |  | [optional] |
 | **name** | **String** | The tax&#39;s name. | [optional] |
 | **amount** | **Float** | The tax amount. | [optional] |
 | **employer_tax** | **Boolean** | Whether or not the employer is responsible for paying the tax. | [optional] |
-| **remote_data** | **Array&lt;Hash&lt;String, AnyType&gt;&gt;** |  | [optional] |
+| **remote_data** | **String** |  | [optional][readonly] |
 
 ## Example
 
