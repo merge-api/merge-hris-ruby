@@ -22,12 +22,11 @@ module MergeHRISClient
     # Returns a list of `BankInfo` objects.
     # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :account_type The bank account type
-    # @option opts [String] :bank_name 
+    # @option opts [String] :account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;)
+    # @option opts [String] :bank_name If provided, will only return BankInfo&#39;s with this bank name.
     # @option opts [Time] :created_after If provided, will only return objects created after this datetime.
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
-    # @option opts [String] :employee If provided, will only return bank accounts for this employee.
     # @option opts [String] :employee_id If provided, will only return bank accounts for this employee.
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
@@ -36,7 +35,6 @@ module MergeHRISClient
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [String] :order_by Overrides the default ordering for this endpoint.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Time] :remote_created_at 
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [PaginatedBankInfoList]
     def bank_info_list(x_account_token, opts = {})
@@ -47,12 +45,11 @@ module MergeHRISClient
     # Returns a list of &#x60;BankInfo&#x60; objects.
     # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :account_type The bank account type
-    # @option opts [String] :bank_name 
+    # @option opts [String] :account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;)
+    # @option opts [String] :bank_name If provided, will only return BankInfo&#39;s with this bank name.
     # @option opts [Time] :created_after If provided, will only return objects created after this datetime.
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
-    # @option opts [String] :employee If provided, will only return bank accounts for this employee.
     # @option opts [String] :employee_id If provided, will only return bank accounts for this employee.
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
@@ -61,7 +58,6 @@ module MergeHRISClient
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [String] :order_by Overrides the default ordering for this endpoint.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Time] :remote_created_at 
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @return [Array<(PaginatedBankInfoList, Integer, Hash)>] PaginatedBankInfoList data, response status code and response headers
     def bank_info_list_with_http_info(x_account_token, opts = {})
@@ -94,7 +90,6 @@ module MergeHRISClient
       query_params[:'created_after'] = opts[:'created_after'] if !opts[:'created_after'].nil?
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
-      query_params[:'employee'] = opts[:'employee'] if !opts[:'employee'].nil?
       query_params[:'employee_id'] = opts[:'employee_id'] if !opts[:'employee_id'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
       query_params[:'include_deleted_data'] = opts[:'include_deleted_data'] if !opts[:'include_deleted_data'].nil?
@@ -103,7 +98,6 @@ module MergeHRISClient
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'order_by'] = opts[:'order_by'] if !opts[:'order_by'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'remote_created_at'] = opts[:'remote_created_at'] if !opts[:'remote_created_at'].nil?
       query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
 
       # header parameters

@@ -21,7 +21,6 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The employee on the plan.
     attr_accessor :employee
 
     # The name of the benefit provider.
@@ -64,7 +63,7 @@ module MergeHRISClient
         :'remote_id' => :'String',
         :'employee' => :'String',
         :'provider_name' => :'String',
-        :'benefit_plan_type' => :'BenefitPlanTypeEnum',
+        :'benefit_plan_type' => :'String',
         :'employee_contribution' => :'Float',
         :'company_contribution' => :'Float',
         :'remote_data' => :'Array<RemoteData>'

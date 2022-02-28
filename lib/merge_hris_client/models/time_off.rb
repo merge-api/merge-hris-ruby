@@ -21,10 +21,8 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The employee requesting time off.
     attr_accessor :employee
 
-    # The employee approving the time off request.
     attr_accessor :approver
 
     # The status of this time off request.

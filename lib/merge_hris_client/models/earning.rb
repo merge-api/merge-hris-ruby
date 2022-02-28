@@ -18,7 +18,6 @@ module MergeHRISClient
   class Earning
     attr_accessor :id
 
-    # The earning's employee payroll run.
     attr_accessor :employee_payroll_run
 
     # The amount earned.
@@ -51,8 +50,8 @@ module MergeHRISClient
         :'id' => :'String',
         :'employee_payroll_run' => :'String',
         :'amount' => :'Float',
-        :'type' => :'TypeEnum',
-        :'remote_data' => :'Array<Hash<RemoteData>>'
+        :'type' => :'EarningTypeEnum',
+        :'remote_data' => :'String'
       }
     end
 
@@ -62,7 +61,6 @@ module MergeHRISClient
         :'employee_payroll_run',
         :'amount',
         :'type',
-        :'remote_data'
       ])
     end
 
@@ -98,9 +96,7 @@ module MergeHRISClient
       end
 
       if attributes.key?(:'remote_data')
-        if (value = attributes[:'remote_data']).is_a?(Array)
-          self.remote_data = value
-        end
+        self.remote_data = attributes[:'remote_data']
       end
     end
 
@@ -181,7 +177,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

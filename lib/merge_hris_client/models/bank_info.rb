@@ -21,7 +21,6 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The employee with this bank account.
     attr_accessor :employee
 
     # The account number.

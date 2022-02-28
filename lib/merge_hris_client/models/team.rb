@@ -24,7 +24,6 @@ module MergeHRISClient
     # The team's name.
     attr_accessor :name
 
-    # The team's parent team.
     attr_accessor :parent_team
 
     attr_accessor :remote_data

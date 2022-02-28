@@ -5,7 +5,6 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**sync_status_list**](SyncStatusApi.md#sync_status_list) | **GET** /sync-status |  |
-| [**sync_status_resync_create**](SyncStatusApi.md#sync_status_resync_create) | **POST** /sync-status/resync |  |
 
 
 ## sync_status_list

@@ -29,6 +29,8 @@ module MergeHRISClient
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
+      constantValues = AccountTypeEnum.constants.select { |c| AccountTypeEnum::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #AccountTypeEnum" if constantValues.empty?
       value
     end
   end

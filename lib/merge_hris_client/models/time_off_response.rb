@@ -21,12 +21,15 @@ module MergeHRISClient
 
     attr_accessor :errors
 
+    attr_accessor :logs
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'model' => :'model',
         :'warnings' => :'warnings',
-        :'errors' => :'errors'
+        :'errors' => :'errors',
+        :'logs' => :'logs'
       }
     end
 
@@ -40,7 +43,8 @@ module MergeHRISClient
       {
         :'model' => :'TimeOff',
         :'warnings' => :'Array<WarningValidationProblem>',
-        :'errors' => :'Array<ErrorValidationProblem>'
+        :'errors' => :'Array<ErrorValidationProblem>',
+        :'logs' => :'Array<DebugModeLog>'
       }
     end
 
@@ -80,6 +84,12 @@ module MergeHRISClient
           self.errors = value
         end
       end
+
+      if attributes.key?(:'logs')
+        if (value = attributes[:'logs']).is_a?(Array)
+          self.logs = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -117,7 +127,8 @@ module MergeHRISClient
       self.class == o.class &&
           model == o.model &&
           warnings == o.warnings &&
-          errors == o.errors
+          errors == o.errors &&
+          logs == o.logs
     end
 
     # @see the `==` method
@@ -129,7 +140,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [model, warnings, errors].hash
+      [model, warnings, errors, logs].hash
     end
 
     # Builds the object from hash
@@ -172,7 +183,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

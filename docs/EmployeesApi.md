@@ -4,8 +4,162 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**employees_create**](EmployeesApi.md#employees_create) | **POST** /employees |  |
+| [**employees_ignore_create**](EmployeesApi.md#employees_ignore_create) | **POST** /employees/ignore/{model_id} |  |
 | [**employees_list**](EmployeesApi.md#employees_list) | **GET** /employees |  |
 | [**employees_retrieve**](EmployeesApi.md#employees_retrieve) | **GET** /employees/{id} |  |
+
+
+## employees_create
+
+> <EmployeeResponse> employees_create(x_account_token, employee_endpoint_request, opts)
+
+
+
+Creates an `Employee` object with the given values.
+
+### Examples
+
+```ruby
+require 'time'
+require 'merge_hris_client'
+# setup authorization
+MergeHRISClient.configure do |config|
+  # Configure API key authorization: tokenAuth
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
+end
+
+api_instance = MergeHRISClient::EmployeesApi.new
+x_account_token = 'x_account_token_example' # String | Token identifying the end user.
+employee_endpoint_request = MergeHRISClient::EmployeeEndpointRequest.new({model: MergeHRISClient::EmployeeRequest.new}) # EmployeeEndpointRequest | 
+opts = {
+  is_debug_mode: true, # Boolean | Whether to include debug fields (such as log file links) in the response.
+  run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
+}
+
+begin
+  
+  result = api_instance.employees_create(x_account_token, employee_endpoint_request, opts)
+  p result
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling EmployeesApi->employees_create: #{e}"
+end
+```
+
+#### Using the employees_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EmployeeResponse>, Integer, Hash)> employees_create_with_http_info(x_account_token, employee_endpoint_request, opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.employees_create_with_http_info(x_account_token, employee_endpoint_request, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EmployeeResponse>
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling EmployeesApi->employees_create_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **x_account_token** | **String** | Token identifying the end user. |  |
+| **employee_endpoint_request** | [**EmployeeEndpointRequest**](EmployeeEndpointRequest.md) |  |  |
+| **is_debug_mode** | **Boolean** | Whether to include debug fields (such as log file links) in the response. | [optional] |
+| **run_async** | **Boolean** | Whether or not third-party updates should be run asynchronously. | [optional] |
+
+### Return type
+
+[**EmployeeResponse**](EmployeeResponse.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+
+## employees_ignore_create
+
+> <IgnoreCommonModel> employees_ignore_create(model_id, ignore_common_model_request)
+
+
+
+Ignores a specific row based on the `model_id` in the url. These records will have their properties set to null, and will not be updated in future syncs. The \"reason\" and \"message\" fields in the request body will be stored for audit purposes.
+
+### Examples
+
+```ruby
+require 'time'
+require 'merge_hris_client'
+# setup authorization
+MergeHRISClient.configure do |config|
+  # Configure API key authorization: tokenAuth
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
+end
+
+api_instance = MergeHRISClient::EmployeesApi.new
+model_id = TODO # String | 
+ignore_common_model_request = MergeHRISClient::IgnoreCommonModelRequest.new({reason: MergeHRISClient::ReasonEnum::GENERAL_CUSTOMER_REQUEST}) # IgnoreCommonModelRequest | 
+
+begin
+  
+  result = api_instance.employees_ignore_create(model_id, ignore_common_model_request)
+  p result
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling EmployeesApi->employees_ignore_create: #{e}"
+end
+```
+
+#### Using the employees_ignore_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IgnoreCommonModel>, Integer, Hash)> employees_ignore_create_with_http_info(model_id, ignore_common_model_request)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.employees_ignore_create_with_http_info(model_id, ignore_common_model_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IgnoreCommonModel>
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling EmployeesApi->employees_ignore_create_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **model_id** | [**String**](.md) |  |  |
+| **ignore_common_model_request** | [**IgnoreCommonModelRequest**](IgnoreCommonModelRequest.md) |  |  |
+
+### Return type
+
+[**IgnoreCommonModel**](IgnoreCommonModel.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
 
 
 ## employees_list
@@ -24,9 +178,9 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::EmployeesApi.new
@@ -133,9 +287,9 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::EmployeesApi.new

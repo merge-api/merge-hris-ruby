@@ -32,6 +32,32 @@ describe 'EmployeesApi' do
     end
   end
 
+  # unit tests for employees_create
+  # Creates an &#x60;Employee&#x60; object with the given values.
+  # @param x_account_token Token identifying the end user.
+  # @param employee_endpoint_request 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :is_debug_mode Whether to include debug fields (such as log file links) in the response.
+  # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
+  # @return [EmployeeResponse]
+  describe 'employees_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for employees_ignore_create
+  # Ignores a specific row based on the &#x60;model_id&#x60; in the url. These records will have their properties set to null, and will not be updated in future syncs. The \&quot;reason\&quot; and \&quot;message\&quot; fields in the request body will be stored for audit purposes.
+  # @param model_id 
+  # @param ignore_common_model_request 
+  # @param [Hash] opts the optional parameters
+  # @return [IgnoreCommonModel]
+  describe 'employees_ignore_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for employees_list
   # Returns a list of &#x60;Employee&#x60; objects.
   # @param x_account_token Token identifying the end user.

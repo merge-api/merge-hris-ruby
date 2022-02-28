@@ -24,20 +24,19 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::BankInfoApi.new
 x_account_token = 'x_account_token_example' # String | Token identifying the end user.
 opts = {
-  account_type: 'CHECKING', # String | The bank account type
-  bank_name: 'bank_name_example', # String | 
+  account_type: 'CHECKING', # String | If provided, will only return BankInfo's with this account type. Options: ('SAVINGS', 'CHECKING')
+  bank_name: 'bank_name_example', # String | If provided, will only return BankInfo's with this bank name.
   created_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects created after this datetime.
   created_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects created before this datetime.
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
-  employee: TODO, # String | If provided, will only return bank accounts for this employee.
   employee_id: 'employee_id_example', # String | If provided, will only return bank accounts for this employee.
   expand: 'employee', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   include_deleted_data: true, # Boolean | Whether to include data that was deleted in the third-party service.
@@ -46,7 +45,6 @@ opts = {
   modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified before this datetime.
   order_by: '-remote_created_at', # String | Overrides the default ordering for this endpoint.
   page_size: 56, # Integer | Number of results to return per page.
-  remote_created_at: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   remote_id: 'remote_id_example' # String | The API provider's ID for the given object.
 }
 
@@ -82,12 +80,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **x_account_token** | **String** | Token identifying the end user. |  |
-| **account_type** | **String** | The bank account type | [optional] |
-| **bank_name** | **String** |  | [optional] |
+| **account_type** | **String** | If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;) | [optional] |
+| **bank_name** | **String** | If provided, will only return BankInfo&#39;s with this bank name. | [optional] |
 | **created_after** | **Time** | If provided, will only return objects created after this datetime. | [optional] |
 | **created_before** | **Time** | If provided, will only return objects created before this datetime. | [optional] |
 | **cursor** | **String** | The pagination cursor value. | [optional] |
-| **employee** | [**String**](.md) | If provided, will only return bank accounts for this employee. | [optional] |
 | **employee_id** | **String** | If provided, will only return bank accounts for this employee. | [optional] |
 | **expand** | **String** | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] |
 | **include_deleted_data** | **Boolean** | Whether to include data that was deleted in the third-party service. | [optional] |
@@ -96,7 +93,6 @@ end
 | **modified_before** | **Time** | If provided, will only return objects modified before this datetime. | [optional] |
 | **order_by** | **String** | Overrides the default ordering for this endpoint. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
-| **remote_created_at** | **Time** |  | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |
 
 ### Return type
@@ -129,9 +125,9 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::BankInfoApi.new

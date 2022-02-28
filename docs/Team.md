@@ -7,7 +7,7 @@
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
 | **name** | **String** | The team&#39;s name. | [optional] |
-| **parent_team** | **String** | The team&#39;s parent team. | [optional] |
+| **parent_team** | **String** |  | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example

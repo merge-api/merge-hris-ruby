@@ -6,9 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
-| **employee** | **String** | The employee on the plan. | [optional] |
+| **employee** | **String** |  | [optional] |
 | **provider_name** | **String** | The name of the benefit provider. | [optional] |
-| **benefit_plan_type** | [**BenefitPlanTypeEnum**](BenefitPlanTypeEnum.md) | The type of benefit plan | [optional] |
+| **benefit_plan_type** | **String** | The type of benefit plan | [optional] |
 | **employee_contribution** | **Float** | The employee&#39;s contribution. | [optional] |
 | **company_contribution** | **Float** | The company&#39;s contribution. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |

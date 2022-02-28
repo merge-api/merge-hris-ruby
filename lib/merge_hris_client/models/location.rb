@@ -45,6 +45,9 @@ module MergeHRISClient
     # The location's country.
     attr_accessor :country
 
+    # The location's type. Can be either WORK or HOME
+    attr_accessor :location_type
+
     attr_accessor :remote_data
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -60,6 +63,7 @@ module MergeHRISClient
         :'state' => :'state',
         :'zip_code' => :'zip_code',
         :'country' => :'country',
+        :'location_type' => :'location_type',
         :'remote_data' => :'remote_data'
       }
     end
@@ -82,6 +86,7 @@ module MergeHRISClient
         :'state' => :'String',
         :'zip_code' => :'String',
         :'country' => :'CountryEnum',
+        :'location_type' => :'LocationTypeEnum',
         :'remote_data' => :'Array<RemoteData>'
       }
     end
@@ -98,6 +103,7 @@ module MergeHRISClient
         :'state',
         :'zip_code',
         :'country',
+        :'location_type',
         :'remote_data'
       ])
     end
@@ -157,6 +163,10 @@ module MergeHRISClient
         self.country = attributes[:'country']
       end
 
+      if attributes.key?(:'location_type')
+        self.location_type = attributes[:'location_type']
+      end
+
       if attributes.key?(:'remote_data')
         if (value = attributes[:'remote_data']).is_a?(Array)
           self.remote_data = value
@@ -192,6 +202,7 @@ module MergeHRISClient
           state == o.state &&
           zip_code == o.zip_code &&
           country == o.country &&
+          location_type == o.location_type &&
           remote_data == o.remote_data
     end
 
@@ -204,7 +215,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, name, phone_number, street_1, street_2, city, state, zip_code, country, remote_data].hash
+      [id, remote_id, name, phone_number, street_1, street_2, city, state, zip_code, country, location_type, remote_data].hash
     end
 
     # Builds the object from hash

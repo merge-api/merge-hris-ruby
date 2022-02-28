@@ -23,6 +23,7 @@ module MergeHRISClient
     # @param x_account_token [String] Token identifying the end user.
     # @param time_off_endpoint_request [TimeOffEndpointRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :is_debug_mode Whether to include debug fields (such as log file links) in the response.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @return [TimeOffResponse]
     def time_off_create(x_account_token, time_off_endpoint_request, opts = {})
@@ -34,6 +35,7 @@ module MergeHRISClient
     # @param x_account_token [String] Token identifying the end user.
     # @param time_off_endpoint_request [TimeOffEndpointRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :is_debug_mode Whether to include debug fields (such as log file links) in the response.
     # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
     # @return [Array<(TimeOffResponse, Integer, Hash)>] TimeOffResponse data, response status code and response headers
     def time_off_create_with_http_info(x_account_token, time_off_endpoint_request, opts = {})
@@ -53,6 +55,7 @@ module MergeHRISClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'is_debug_mode'] = opts[:'is_debug_mode'] if !opts[:'is_debug_mode'].nil?
       query_params[:'run_async'] = opts[:'run_async'] if !opts[:'run_async'].nil?
 
       # header parameters

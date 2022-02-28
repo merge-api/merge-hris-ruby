@@ -21,7 +21,6 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The employee the balance belongs to.
     attr_accessor :employee
 
     # The current PTO balance in terms of hours.
