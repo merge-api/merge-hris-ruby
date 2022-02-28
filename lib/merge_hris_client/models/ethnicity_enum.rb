@@ -35,9 +35,8 @@ module MergeHRISClient
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = EthnicityEnum.constants.select { |c| EthnicityEnum::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #EthnicityEnum" if constantValues.empty?
       value
     end
   end
+
 end

@@ -29,9 +29,8 @@ module MergeHRISClient
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = LocationTypeEnum.constants.select { |c| LocationTypeEnum::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #LocationTypeEnum" if constantValues.empty?
       value
     end
   end
+
 end
