@@ -1,6 +1,7 @@
 ## Description of the change
 
 > Description here
+
 ## Type of change
 - [ ] Bug fix (non-breaking change that fixes an issue)
 - [ ] New feature (non-breaking change that adds functionality)
@@ -8,7 +9,8 @@
 
 ## Related issues
 
-> All PRs at Merge must be backed by an Asana ticket. Create one here, and then replace this line with the link. https://app.asana.com/0/1198991781422585/list
+> All PRs at Merge must be backed by an Asana ticket. 
+
 ## Checklists
 
 ### Development
