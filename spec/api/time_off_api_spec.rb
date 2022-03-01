@@ -37,6 +37,7 @@ describe 'TimeOffApi' do
   # @param x_account_token Token identifying the end user.
   # @param time_off_endpoint_request 
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :is_debug_mode Whether to include debug fields (such as log file links) in the response.
   # @option opts [Boolean] :run_async Whether or not third-party updates should be run asynchronously.
   # @return [TimeOffResponse]
   describe 'time_off_create test' do

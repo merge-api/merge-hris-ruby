@@ -23,13 +23,13 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::LinkTokenApi.new
-end_user_details_request = MergeHRISClient::EndUserDetailsRequest.new({end_user_email_address: 'end_user_email_address_example', end_user_organization_name: 'end_user_organization_name_example', end_user_origin_id: 'end_user_origin_id_example', categories: ['hris']}) # EndUserDetailsRequest | 
+end_user_details_request = MergeHRISClient::EndUserDetailsRequest.new({end_user_email_address: 'end_user_email_address_example', end_user_organization_name: 'end_user_organization_name_example', end_user_origin_id: 'end_user_origin_id_example'}) # EndUserDetailsRequest | 
 
 begin
   

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
-| **employee** | **String** | The employee the balance belongs to. | [optional] |
+| **employee** | **String** |  | [optional] |
 | **balance** | **Float** | The current PTO balance in terms of hours. | [optional] |
 | **used** | **Float** | The amount of PTO used in terms of hours. | [optional] |
 | **policy_type** | [**PolicyTypeEnum**](PolicyTypeEnum.md) | The policy type of this time off balance. | [optional] |

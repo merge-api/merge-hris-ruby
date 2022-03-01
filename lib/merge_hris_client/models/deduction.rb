@@ -18,7 +18,6 @@ module MergeHRISClient
   class Deduction
     attr_accessor :id
 
-    # The deduction's employee payroll run.
     attr_accessor :employee_payroll_run
 
     # The deduction's name.

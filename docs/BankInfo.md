@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
-| **employee** | **String** | The employee with this bank account. | [optional] |
+| **employee** | **String** |  | [optional] |
 | **account_number** | **String** | The account number. | [optional] |
 | **routing_number** | **String** | The routing number. | [optional] |
 | **bank_name** | **String** | The bank name. | [optional] |

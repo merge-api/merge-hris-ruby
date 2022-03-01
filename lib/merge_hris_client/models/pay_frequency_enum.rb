@@ -23,7 +23,6 @@ module MergeHRISClient
     ANNUALLY = "ANNUALLY".freeze
     THIRTEEN_MONTHLY = "THIRTEEN-MONTHLY".freeze
     PRO_RATA = "PRO_RATA".freeze
-    NULL = "NULL".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -36,8 +35,8 @@ module MergeHRISClient
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = PayFrequencyEnum.constants.select { |c| PayFrequencyEnum::const_get(c) == value }
       value
     end
   end
+
 end

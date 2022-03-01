@@ -24,9 +24,9 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::EmploymentsApi.new
@@ -121,15 +121,16 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::EmploymentsApi.new
 x_account_token = 'x_account_token_example' # String | Token identifying the end user.
 id = TODO # String | 
 opts = {
+  expand: 'employee', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   include_remote_data: true # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
 }
 

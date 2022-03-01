@@ -7,19 +7,20 @@
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
 | **employee_number** | **String** | The employee&#39;s number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. | [optional] |
-| **company** | **String** | The ID of the employee&#39;s company. | [optional] |
+| **company** | **String** |  | [optional] |
 | **first_name** | **String** | The employee&#39;s first name. | [optional] |
 | **last_name** | **String** | The employee&#39;s last name. | [optional] |
 | **display_full_name** | **String** | The employee&#39;s full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name. | [optional] |
+| **groups** | **Array&lt;String&gt;** |  | [optional] |
 | **work_email** | **String** | The employee&#39;s work email. | [optional] |
 | **personal_email** | **String** | The employee&#39;s personal email. | [optional] |
 | **mobile_phone_number** | **String** | The employee&#39;s mobile phone number. | [optional] |
-| **employments** | **Array&lt;String&gt;** | Array of &#x60;Employment&#x60; IDs for this Employee. | [optional][readonly] |
-| **home_location** | **String** | The employee&#39;s home address. | [optional] |
-| **work_location** | **String** | The employee&#39;s work address. | [optional] |
-| **manager** | **String** | The employee ID of the employee&#39;s manager. | [optional] |
-| **team** | **String** | The employee&#39;s team. | [optional] |
-| **pay_group** | **String** | The employee&#39;s pay group | [optional] |
+| **employments** | **Array&lt;String&gt;** | Array of &#x60;Employment&#x60; IDs for this Employee. | [optional] |
+| **home_location** | **String** |  | [optional] |
+| **work_location** | **String** |  | [optional] |
+| **manager** | **String** |  | [optional] |
+| **team** | **String** |  | [optional] |
+| **pay_group** | **String** |  | [optional] |
 | **ssn** | **String** | The employee&#39;s social security number. | [optional] |
 | **gender** | [**GenderEnum**](GenderEnum.md) | The employee&#39;s gender. | [optional] |
 | **ethnicity** | [**EthnicityEnum**](EthnicityEnum.md) | The employee&#39;s ethnicity. | [optional] |
@@ -46,6 +47,7 @@ instance = MergeHRISClient::Employee.new(
   first_name: Jane,
   last_name: Doe,
   display_full_name: Jane Doe,
+  groups: [&quot;21a54124-397f-494d-985e-3c5b330b8a68&quot;],
   work_email: jane@merge.dev,
   personal_email: jane@gmail.com,
   mobile_phone_number: +1234567890,

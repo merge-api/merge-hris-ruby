@@ -24,6 +24,9 @@ module MergeHRISClient
 
     attr_accessor :data
 
+    # Pass an array of `MultipartFormField` objects in here instead of using the `data` param if `request_format` is set to `MULTIPART`.
+    attr_accessor :multipart_form_data
+
     attr_accessor :headers
 
     attr_accessor :request_format
@@ -35,6 +38,7 @@ module MergeHRISClient
         :'path' => :'path',
         :'base_url_override' => :'base_url_override',
         :'data' => :'data',
+        :'multipart_form_data' => :'multipart_form_data',
         :'headers' => :'headers',
         :'request_format' => :'request_format'
       }
@@ -52,7 +56,8 @@ module MergeHRISClient
         :'path' => :'String',
         :'base_url_override' => :'String',
         :'data' => :'String',
-        :'headers' => :'Hash<String, Object>',
+        :'multipart_form_data' => :'Array<MultipartFormFieldRequest>',
+        :'headers' => :'Hash<String, AnyType>',
         :'request_format' => :'RequestFormatEnum'
       }
     end
@@ -62,6 +67,7 @@ module MergeHRISClient
       Set.new([
         :'base_url_override',
         :'data',
+        :'multipart_form_data',
         :'headers',
         :'request_format'
       ])
@@ -96,6 +102,12 @@ module MergeHRISClient
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
+      end
+
+      if attributes.key?(:'multipart_form_data')
+        if (value = attributes[:'multipart_form_data']).is_a?(Array)
+          self.multipart_form_data = value
+        end
       end
 
       if attributes.key?(:'headers')
@@ -190,6 +202,7 @@ module MergeHRISClient
           path == o.path &&
           base_url_override == o.base_url_override &&
           data == o.data &&
+          multipart_form_data == o.multipart_form_data &&
           headers == o.headers &&
           request_format == o.request_format
     end
@@ -203,7 +216,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [method, path, base_url_override, data, headers, request_format].hash
+      [method, path, base_url_override, data, multipart_form_data, headers, request_format].hash
     end
 
     # Builds the object from hash
@@ -246,7 +259,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

@@ -34,8 +34,8 @@ module MergeHRISClient
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = MethodEnum.constants.select { |c| MethodEnum::const_get(c) == value }
       value
     end
   end
+
 end

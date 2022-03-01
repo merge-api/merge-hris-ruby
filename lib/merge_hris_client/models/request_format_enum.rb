@@ -17,6 +17,7 @@ module MergeHRISClient
   class RequestFormatEnum
     JSON = "JSON".freeze
     XML = "XML".freeze
+    MULTIPART = "MULTIPART".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -32,4 +33,5 @@ module MergeHRISClient
       value
     end
   end
+
 end

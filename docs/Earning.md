@@ -5,10 +5,10 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
-| **employee_payroll_run** | **String** | The earning&#39;s employee payroll run. | [optional] |
+| **employee_payroll_run** | **String** |  | [optional] |
 | **amount** | **Float** | The amount earned. | [optional] |
-| **type** | [**TypeEnum**](TypeEnum.md) | The type of earning. | [optional] |
-| **remote_data** | **Array&lt;Hash&lt;String, AnyType&gt;&gt;** |  | [optional] |
+| **type** | [**EarningTypeEnum**](EarningTypeEnum.md) | The type of earning. | [optional] |
+| **remote_data** | **String** |  | [optional][readonly] |
 
 ## Example
 

@@ -25,15 +25,16 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::TimeOffApi.new
 x_account_token = 'x_account_token_example' # String | Token identifying the end user.
 time_off_endpoint_request = MergeHRISClient::TimeOffEndpointRequest.new({model: MergeHRISClient::TimeOffRequest.new}) # TimeOffEndpointRequest | 
 opts = {
+  is_debug_mode: true, # Boolean | Whether to include debug fields (such as log file links) in the response.
   run_async: true # Boolean | Whether or not third-party updates should be run asynchronously.
 }
 
@@ -70,6 +71,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **x_account_token** | **String** | Token identifying the end user. |  |
 | **time_off_endpoint_request** | [**TimeOffEndpointRequest**](TimeOffEndpointRequest.md) |  |  |
+| **is_debug_mode** | **Boolean** | Whether to include debug fields (such as log file links) in the response. | [optional] |
 | **run_async** | **Boolean** | Whether or not third-party updates should be run asynchronously. | [optional] |
 
 ### Return type
@@ -102,9 +104,9 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::TimeOffApi.new
@@ -203,9 +205,9 @@ require 'merge_hris_client'
 # setup authorization
 MergeHRISClient.configure do |config|
   # Configure API key authorization: tokenAuth
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
 end
 
 api_instance = MergeHRISClient::TimeOffApi.new

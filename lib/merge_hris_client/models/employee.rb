@@ -24,7 +24,6 @@ module MergeHRISClient
     # The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user.
     attr_accessor :employee_number
 
-    # The ID of the employee's company.
     attr_accessor :company
 
     # The employee's first name.
@@ -35,6 +34,8 @@ module MergeHRISClient
 
     # The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.
     attr_accessor :display_full_name
+
+    attr_accessor :groups
 
     # The employee's work email.
     attr_accessor :work_email
@@ -48,19 +49,14 @@ module MergeHRISClient
     # Array of `Employment` IDs for this Employee.
     attr_accessor :employments
 
-    # The employee's home address.
     attr_accessor :home_location
 
-    # The employee's work address.
     attr_accessor :work_location
 
-    # The employee ID of the employee's manager.
     attr_accessor :manager
 
-    # The employee's team.
     attr_accessor :team
 
-    # The employee's pay group
     attr_accessor :pay_group
 
     # The employee's social security number.
@@ -108,6 +104,7 @@ module MergeHRISClient
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
         :'display_full_name' => :'display_full_name',
+        :'groups' => :'groups',
         :'work_email' => :'work_email',
         :'personal_email' => :'personal_email',
         :'mobile_phone_number' => :'mobile_phone_number',
@@ -147,6 +144,7 @@ module MergeHRISClient
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'display_full_name' => :'String',
+        :'groups' => :'Array<String>',
         :'work_email' => :'String',
         :'personal_email' => :'String',
         :'mobile_phone_number' => :'String',
@@ -167,7 +165,7 @@ module MergeHRISClient
         :'termination_date' => :'Time',
         :'avatar' => :'String',
         :'remote_data' => :'Array<RemoteData>',
-        :'custom_fields' => :'Hash<String, Object>'
+        :'custom_fields' => :'Hash<String, AnyType>'
       }
     end
 
@@ -244,6 +242,12 @@ module MergeHRISClient
 
       if attributes.key?(:'display_full_name')
         self.display_full_name = attributes[:'display_full_name']
+      end
+
+      if attributes.key?(:'groups')
+        if (value = attributes[:'groups']).is_a?(Array)
+          self.groups = value
+        end
       end
 
       if attributes.key?(:'work_email')
@@ -422,6 +426,7 @@ module MergeHRISClient
           first_name == o.first_name &&
           last_name == o.last_name &&
           display_full_name == o.display_full_name &&
+          groups == o.groups &&
           work_email == o.work_email &&
           personal_email == o.personal_email &&
           mobile_phone_number == o.mobile_phone_number &&
@@ -454,7 +459,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, remote_data, custom_fields].hash
+      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, remote_data, custom_fields].hash
     end
 
     # Builds the object from hash

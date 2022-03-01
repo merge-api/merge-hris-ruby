@@ -36,12 +36,11 @@ describe 'BankInfoApi' do
   # Returns a list of &#x60;BankInfo&#x60; objects.
   # @param x_account_token Token identifying the end user.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :account_type The bank account type
-  # @option opts [String] :bank_name 
+  # @option opts [String] :account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;)
+  # @option opts [String] :bank_name If provided, will only return BankInfo&#39;s with this bank name.
   # @option opts [Time] :created_after If provided, will only return objects created after this datetime.
   # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
   # @option opts [String] :cursor The pagination cursor value.
-  # @option opts [String] :employee If provided, will only return bank accounts for this employee.
   # @option opts [String] :employee_id If provided, will only return bank accounts for this employee.
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
@@ -50,7 +49,6 @@ describe 'BankInfoApi' do
   # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
   # @option opts [String] :order_by Overrides the default ordering for this endpoint.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @option opts [Time] :remote_created_at 
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
   # @return [PaginatedBankInfoList]
   describe 'bank_info_list test' do

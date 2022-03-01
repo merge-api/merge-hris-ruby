@@ -18,41 +18,19 @@ module MergeHRISClient
     # Company name.
     attr_accessor :name
 
-    # Category or categories this integration belongs to.
+    # Category or categories this integration belongs to. Multiple categories should be comma separated.<br/><br>Example: For [ats, hris], enter <i>ats,hris</i>
     attr_accessor :categories
 
-    # Company logo in rectangular shape.
+    # Company logo in rectangular shape. <b>Upload an image with a clear background.</b>
     attr_accessor :image
 
-    # Company logo in square shape.
+    # Company logo in square shape. <b>Upload an image with a white background.</b>
     attr_accessor :square_image
 
-    # The color of this integration used for buttons and text throughout the app and landing pages.
+    # The color of this integration used for buttons and text throughout the app and landing pages. <b>Choose a darker, saturated color.</b>
     attr_accessor :color
 
     attr_accessor :slug
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -242,7 +220,7 @@ module MergeHRISClient
       when :Date
         Date.parse(value)
       when :String
-        value.to_s
+        value
       when :Integer
         value.to_i
       when :Float

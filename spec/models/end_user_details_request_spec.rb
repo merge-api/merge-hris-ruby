@@ -55,4 +55,10 @@ describe MergeHRISClient::EndUserDetailsRequest do
     end
   end
 
+  describe 'test attribute "link_expiry_mins"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

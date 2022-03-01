@@ -9,6 +9,7 @@
 | **end_user_origin_id** | **String** |  |  |
 | **categories** | [**Array&lt;CategoriesEnum&gt;**](CategoriesEnum.md) |  | [optional] |
 | **integration** | **String** |  | [optional] |
+| **link_expiry_mins** | **Integer** |  | [optional][default to 30] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = MergeHRISClient::EndUserDetailsRequest.new(
   end_user_organization_name: null,
   end_user_origin_id: null,
   categories: null,
-  integration: null
+  integration: null,
+  link_expiry_mins: null
 )
 ```
 
