@@ -2,7 +2,7 @@ name: Ruby Gem
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
