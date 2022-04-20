@@ -29,7 +29,7 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::LinkTokenApi.new
-end_user_details_request = MergeHRISClient::EndUserDetailsRequest.new({end_user_email_address: 'end_user_email_address_example', end_user_organization_name: 'end_user_organization_name_example', end_user_origin_id: 'end_user_origin_id_example', categories: [MergeHRISClient::Categories143Enum::HRIS]}) # EndUserDetailsRequest | 
+end_user_details_request = MergeHRISClient::EndUserDetailsRequest.new({end_user_email_address: 'end_user_email_address_example', end_user_organization_name: 'end_user_organization_name_example', end_user_origin_id: 'end_user_origin_id_example', categories: [MergeHRISClient::CategoriesEnum::HRIS]}) # EndUserDetailsRequest | 
 
 begin
   
