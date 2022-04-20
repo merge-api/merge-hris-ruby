@@ -23,7 +23,7 @@ module MergeHRISClient
 
     attr_accessor :employee
 
-    # The current PTO balance in terms of hours.
+    # The current remaining PTO balance in terms of hours. This does not represent the starting PTO balance. If the API provider only provides PTO balance in terms of days, we estimate 8 hours per day.
     attr_accessor :balance
 
     # The amount of PTO used in terms of hours.

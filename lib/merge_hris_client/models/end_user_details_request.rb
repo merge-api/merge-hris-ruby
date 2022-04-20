@@ -23,8 +23,10 @@ module MergeHRISClient
 
     attr_accessor :categories
 
+    # The slug of a specific pre-selected integration for this linking flow token, for examples of slugs see https://www.merge.dev/docs/basics/integration-metadata
     attr_accessor :integration
 
+    # An integer number of minutes between [30, 720] for how long this token is valid. Defaults to 30
     attr_accessor :link_expiry_mins
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -115,12 +117,20 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "end_user_email_address", end_user_email_address cannot be nil.')
       end
 
+      if @end_user_email_address.to_s.length > 100
+        invalid_properties.push('invalid value for "end_user_email_address", the character length must be smaller than or equal to 100.')
+      end
+
       if @end_user_email_address.to_s.length < 1
         invalid_properties.push('invalid value for "end_user_email_address", the character length must be great than or equal to 1.')
       end
 
       if @end_user_organization_name.nil?
         invalid_properties.push('invalid value for "end_user_organization_name", end_user_organization_name cannot be nil.')
+      end
+
+      if @end_user_organization_name.to_s.length > 100
+        invalid_properties.push('invalid value for "end_user_organization_name", the character length must be smaller than or equal to 100.')
       end
 
       if @end_user_organization_name.to_s.length < 1
@@ -131,8 +141,16 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "end_user_origin_id", end_user_origin_id cannot be nil.')
       end
 
+      if @end_user_origin_id.to_s.length > 100
+        invalid_properties.push('invalid value for "end_user_origin_id", the character length must be smaller than or equal to 100.')
+      end
+
       if @end_user_origin_id.to_s.length < 1
         invalid_properties.push('invalid value for "end_user_origin_id", the character length must be great than or equal to 1.')
+      end
+
+      if @categories.nil?
+        invalid_properties.push('invalid value for "categories", categories cannot be nil.')
       end
 
       if !@integration.nil? && @integration.to_s.length < 1
@@ -154,11 +172,15 @@ module MergeHRISClient
     # @return true if the model is valid
     def valid?
       return false if @end_user_email_address.nil?
+      return false if @end_user_email_address.to_s.length > 100
       return false if @end_user_email_address.to_s.length < 1
       return false if @end_user_organization_name.nil?
+      return false if @end_user_organization_name.to_s.length > 100
       return false if @end_user_organization_name.to_s.length < 1
       return false if @end_user_origin_id.nil?
+      return false if @end_user_origin_id.to_s.length > 100
       return false if @end_user_origin_id.to_s.length < 1
+      return false if @categories.nil?
       return false if !@integration.nil? && @integration.to_s.length < 1
       return false if !@link_expiry_mins.nil? && @link_expiry_mins > 720
       return false if !@link_expiry_mins.nil? && @link_expiry_mins < 30
@@ -170,6 +192,10 @@ module MergeHRISClient
     def end_user_email_address=(end_user_email_address)
       if end_user_email_address.nil?
         fail ArgumentError, 'end_user_email_address cannot be nil'
+      end
+
+      if end_user_email_address.to_s.length > 100
+        fail ArgumentError, 'invalid value for "end_user_email_address", the character length must be smaller than or equal to 100.'
       end
 
       if end_user_email_address.to_s.length < 1
@@ -186,6 +212,10 @@ module MergeHRISClient
         fail ArgumentError, 'end_user_organization_name cannot be nil'
       end
 
+      if end_user_organization_name.to_s.length > 100
+        fail ArgumentError, 'invalid value for "end_user_organization_name", the character length must be smaller than or equal to 100.'
+      end
+
       if end_user_organization_name.to_s.length < 1
         fail ArgumentError, 'invalid value for "end_user_organization_name", the character length must be great than or equal to 1.'
       end
@@ -198,6 +228,10 @@ module MergeHRISClient
     def end_user_origin_id=(end_user_origin_id)
       if end_user_origin_id.nil?
         fail ArgumentError, 'end_user_origin_id cannot be nil'
+      end
+
+      if end_user_origin_id.to_s.length > 100
+        fail ArgumentError, 'invalid value for "end_user_origin_id", the character length must be smaller than or equal to 100.'
       end
 
       if end_user_origin_id.to_s.length < 1

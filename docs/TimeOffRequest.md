@@ -25,9 +25,9 @@ instance = MergeHRISClient::TimeOffRequest.new(
   employee: d2f972d0-2526-434b-9409-4c3b468e08f0,
   approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f,
   status: APPROVED,
-  employee_note: Trip to Iowa. Miss those cornfields!,
+  employee_note: Moving into the new apartment Kendall Roy gave me!,
   units: DAYS,
-  amount: 7,
+  amount: 3,
   request_type: VACATION,
   start_time: 2020-11-10T00:00Z,
   end_time: 2020-11-17T00:00Z

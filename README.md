@@ -66,9 +66,10 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::AccountDetailsApi.new
+x_account_token = 'x_account_token_example' # String | Token identifying the end user.
 
 begin
-  result = api_instance.account_details_retrieve
+  result = api_instance.account_details_retrieve(x_account_token)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Exception when calling AccountDetailsApi->account_details_retrieve: #{e}"
@@ -99,6 +100,7 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::EmployeesApi* | [**employees_create**](docs/EmployeesApi.md#employees_create) | **POST** /employees | 
 *MergeHRISClient::EmployeesApi* | [**employees_ignore_create**](docs/EmployeesApi.md#employees_ignore_create) | **POST** /employees/ignore/{model_id} | 
 *MergeHRISClient::EmployeesApi* | [**employees_list**](docs/EmployeesApi.md#employees_list) | **GET** /employees | 
+*MergeHRISClient::EmployeesApi* | [**employees_meta_post_retrieve**](docs/EmployeesApi.md#employees_meta_post_retrieve) | **GET** /employees/meta/post | 
 *MergeHRISClient::EmployeesApi* | [**employees_retrieve**](docs/EmployeesApi.md#employees_retrieve) | **GET** /employees/{id} | 
 *MergeHRISClient::EmploymentsApi* | [**employments_list**](docs/EmploymentsApi.md#employments_list) | **GET** /employments | 
 *MergeHRISClient::EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
@@ -123,9 +125,12 @@ Class | Method | HTTP request | Description
 *MergeHRISClient::TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 *MergeHRISClient::TimeOffApi* | [**time_off_create**](docs/TimeOffApi.md#time_off_create) | **POST** /time-off | 
 *MergeHRISClient::TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
+*MergeHRISClient::TimeOffApi* | [**time_off_meta_post_retrieve**](docs/TimeOffApi.md#time_off_meta_post_retrieve) | **GET** /time-off/meta/post | 
 *MergeHRISClient::TimeOffApi* | [**time_off_retrieve**](docs/TimeOffApi.md#time_off_retrieve) | **GET** /time-off/{id} | 
 *MergeHRISClient::TimeOffBalancesApi* | [**time_off_balances_list**](docs/TimeOffBalancesApi.md#time_off_balances_list) | **GET** /time-off-balances | 
 *MergeHRISClient::TimeOffBalancesApi* | [**time_off_balances_retrieve**](docs/TimeOffBalancesApi.md#time_off_balances_retrieve) | **GET** /time-off-balances/{id} | 
+*MergeHRISClient::WebhookReceiversApi* | [**webhook_receivers_create**](docs/WebhookReceiversApi.md#webhook_receivers_create) | **POST** /webhook-receivers | 
+*MergeHRISClient::WebhookReceiversApi* | [**webhook_receivers_list**](docs/WebhookReceiversApi.md#webhook_receivers_list) | **GET** /webhook-receivers | 
 
 
 ## Documentation for Models
@@ -172,9 +177,11 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::Issue](docs/Issue.md)
  - [MergeHRISClient::IssueStatusEnum](docs/IssueStatusEnum.md)
  - [MergeHRISClient::LinkToken](docs/LinkToken.md)
+ - [MergeHRISClient::LinkedAccountStatus](docs/LinkedAccountStatus.md)
  - [MergeHRISClient::Location](docs/Location.md)
  - [MergeHRISClient::LocationTypeEnum](docs/LocationTypeEnum.md)
  - [MergeHRISClient::MaritalStatusEnum](docs/MaritalStatusEnum.md)
+ - [MergeHRISClient::MetaResponse](docs/MetaResponse.md)
  - [MergeHRISClient::MethodEnum](docs/MethodEnum.md)
  - [MergeHRISClient::ModelOperation](docs/ModelOperation.md)
  - [MergeHRISClient::MultipartFormFieldRequest](docs/MultipartFormFieldRequest.md)
@@ -224,6 +231,8 @@ Class | Method | HTTP request | Description
  - [MergeHRISClient::UnitsEnum](docs/UnitsEnum.md)
  - [MergeHRISClient::ValidationProblemSource](docs/ValidationProblemSource.md)
  - [MergeHRISClient::WarningValidationProblem](docs/WarningValidationProblem.md)
+ - [MergeHRISClient::WebhookReceiver](docs/WebhookReceiver.md)
+ - [MergeHRISClient::WebhookReceiverRequest](docs/WebhookReceiverRequest.md)
 
 
 ## Documentation for Authorization

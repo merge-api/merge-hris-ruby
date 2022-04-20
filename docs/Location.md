@@ -12,7 +12,7 @@
 | **street_2** | **String** | Line 2 of the location&#39;s street address. | [optional] |
 | **city** | **String** | The location&#39;s city. | [optional] |
 | **state** | **String** | The location&#39;s state. Represents a region if outside of the US. | [optional] |
-| **zip_code** | **String** | The location&#39;s zip code. | [optional] |
+| **zip_code** | **String** | The location&#39;s zip code or postal code. | [optional] |
 | **country** | [**CountryEnum**](CountryEnum.md) | The location&#39;s country. | [optional] |
 | **location_type** | [**LocationTypeEnum**](LocationTypeEnum.md) | The location&#39;s type. Can be either WORK or HOME | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |

@@ -64,7 +64,7 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && x_account_token.nil?
         fail ArgumentError, "Missing the required parameter 'x_account_token' when calling EmploymentsApi.employments_list"
       end
-      allowable_values = ["employee"]
+      allowable_values = ["employee", "employee,pay_group", "pay_group"]
       if @api_client.config.client_side_validation && opts[:'expand'] && !allowable_values.include?(opts[:'expand'])
         fail ArgumentError, "invalid value for \"expand\", must be one of #{allowable_values}"
       end
@@ -156,7 +156,7 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling EmploymentsApi.employments_retrieve"
       end
-      allowable_values = ["employee"]
+      allowable_values = ["employee", "employee,pay_group", "pay_group"]
       if @api_client.config.client_side_validation && opts[:'expand'] && !allowable_values.include?(opts[:'expand'])
         fail ArgumentError, "invalid value for \"expand\", must be one of #{allowable_values}"
       end

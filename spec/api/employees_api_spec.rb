@@ -48,6 +48,7 @@ describe 'EmployeesApi' do
 
   # unit tests for employees_ignore_create
   # Ignores a specific row based on the &#x60;model_id&#x60; in the url. These records will have their properties set to null, and will not be updated in future syncs. The \&quot;reason\&quot; and \&quot;message\&quot; fields in the request body will be stored for audit purposes.
+  # @param x_account_token Token identifying the end user.
   # @param model_id 
   # @param ignore_common_model_request 
   # @param [Hash] opts the optional parameters
@@ -82,6 +83,17 @@ describe 'EmployeesApi' do
   # @option opts [String] :work_location_id If provided, will only return employees for this location.
   # @return [PaginatedEmployeeList]
   describe 'employees_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for employees_meta_post_retrieve
+  # Returns metadata for &#x60;Employee&#x60; POSTs.
+  # @param x_account_token Token identifying the end user.
+  # @param [Hash] opts the optional parameters
+  # @return [MetaResponse]
+  describe 'employees_meta_post_retrieve test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

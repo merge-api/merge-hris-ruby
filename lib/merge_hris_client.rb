@@ -59,9 +59,11 @@ require 'merge_hris_client/models/ignore_common_model_request'
 require 'merge_hris_client/models/issue'
 require 'merge_hris_client/models/issue_status_enum'
 require 'merge_hris_client/models/link_token'
+require 'merge_hris_client/models/linked_account_status'
 require 'merge_hris_client/models/location'
 require 'merge_hris_client/models/location_type_enum'
 require 'merge_hris_client/models/marital_status_enum'
+require 'merge_hris_client/models/meta_response'
 require 'merge_hris_client/models/method_enum'
 require 'merge_hris_client/models/model_operation'
 require 'merge_hris_client/models/multipart_form_field_request'
@@ -111,6 +113,8 @@ require 'merge_hris_client/models/time_off_status_enum'
 require 'merge_hris_client/models/units_enum'
 require 'merge_hris_client/models/validation_problem_source'
 require 'merge_hris_client/models/warning_validation_problem'
+require 'merge_hris_client/models/webhook_receiver'
+require 'merge_hris_client/models/webhook_receiver_request'
 
 # APIs
 require 'merge_hris_client/api/account_details_api'
@@ -139,6 +143,7 @@ require 'merge_hris_client/api/sync_status_api'
 require 'merge_hris_client/api/teams_api'
 require 'merge_hris_client/api/time_off_api'
 require 'merge_hris_client/api/time_off_balances_api'
+require 'merge_hris_client/api/webhook_receivers_api'
 
 module MergeHRISClient
   class << self

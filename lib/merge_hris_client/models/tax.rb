@@ -67,6 +67,7 @@ module MergeHRISClient
         :'name',
         :'amount',
         :'employer_tax',
+        :'remote_data'
       ])
     end
 

@@ -96,23 +96,29 @@ module MergeHRISClient
     end
 
     # Ignores a specific row based on the `model_id` in the url. These records will have their properties set to null, and will not be updated in future syncs. The \"reason\" and \"message\" fields in the request body will be stored for audit purposes.
+    # @param x_account_token [String] Token identifying the end user.
     # @param model_id [String] 
     # @param ignore_common_model_request [IgnoreCommonModelRequest] 
     # @param [Hash] opts the optional parameters
     # @return [IgnoreCommonModel]
-    def employees_ignore_create(model_id, ignore_common_model_request, opts = {})
-      data, _status_code, _headers = employees_ignore_create_with_http_info(model_id, ignore_common_model_request, opts)
+    def employees_ignore_create(x_account_token, model_id, ignore_common_model_request, opts = {})
+      data, _status_code, _headers = employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request, opts)
       data
     end
 
     # Ignores a specific row based on the &#x60;model_id&#x60; in the url. These records will have their properties set to null, and will not be updated in future syncs. The \&quot;reason\&quot; and \&quot;message\&quot; fields in the request body will be stored for audit purposes.
+    # @param x_account_token [String] Token identifying the end user.
     # @param model_id [String] 
     # @param ignore_common_model_request [IgnoreCommonModelRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(IgnoreCommonModel, Integer, Hash)>] IgnoreCommonModel data, response status code and response headers
-    def employees_ignore_create_with_http_info(model_id, ignore_common_model_request, opts = {})
+    def employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeesApi.employees_ignore_create ...'
+      end
+      # verify the required parameter 'x_account_token' is set
+      if @api_client.config.client_side_validation && x_account_token.nil?
+        fail ArgumentError, "Missing the required parameter 'x_account_token' when calling EmployeesApi.employees_ignore_create"
       end
       # verify the required parameter 'model_id' is set
       if @api_client.config.client_side_validation && model_id.nil?
@@ -134,6 +140,7 @@ module MergeHRISClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
+      header_params[:'X-Account-Token'] = x_account_token
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -280,6 +287,68 @@ module MergeHRISClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EmployeesApi#employees_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Returns metadata for `Employee` POSTs.
+    # @param x_account_token [String] Token identifying the end user.
+    # @param [Hash] opts the optional parameters
+    # @return [MetaResponse]
+    def employees_meta_post_retrieve(x_account_token, opts = {})
+      data, _status_code, _headers = employees_meta_post_retrieve_with_http_info(x_account_token, opts)
+      data
+    end
+
+    # Returns metadata for &#x60;Employee&#x60; POSTs.
+    # @param x_account_token [String] Token identifying the end user.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MetaResponse, Integer, Hash)>] MetaResponse data, response status code and response headers
+    def employees_meta_post_retrieve_with_http_info(x_account_token, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EmployeesApi.employees_meta_post_retrieve ...'
+      end
+      # verify the required parameter 'x_account_token' is set
+      if @api_client.config.client_side_validation && x_account_token.nil?
+        fail ArgumentError, "Missing the required parameter 'x_account_token' when calling EmployeesApi.employees_meta_post_retrieve"
+      end
+      # resource path
+      local_var_path = '/employees/meta/post'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-Account-Token'] = x_account_token
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetaResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['tokenAuth']
+
+      new_options = opts.merge(
+        :operation => :"EmployeesApi.employees_meta_post_retrieve",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EmployeesApi#employees_meta_post_retrieve\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

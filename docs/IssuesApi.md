@@ -35,8 +35,12 @@ opts = {
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
   end_date: 'end_date_example', # String | If included, will only include issues whose most recent action occurred before this time
   end_user_organization_name: 'end_user_organization_name_example', # String | 
+  first_incident_time_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return issues whose first incident time was after this datetime.
+  first_incident_time_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return issues whose first incident time was before this datetime.
   include_muted: 'include_muted_example', # String | If True, will include muted issues
   integration_name: 'integration_name_example', # String | 
+  last_incident_time_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return issues whose first incident time was after this datetime.
+  last_incident_time_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return issues whose first incident time was before this datetime.
   page_size: 56, # Integer | Number of results to return per page.
   start_date: 'start_date_example', # String | If included, will only include issues whose most recent action occurred after this time
   status: 'ONGOING' # String | 
@@ -77,8 +81,12 @@ end
 | **cursor** | **String** | The pagination cursor value. | [optional] |
 | **end_date** | **String** | If included, will only include issues whose most recent action occurred before this time | [optional] |
 | **end_user_organization_name** | **String** |  | [optional] |
+| **first_incident_time_after** | **Time** | If provided, will only return issues whose first incident time was after this datetime. | [optional] |
+| **first_incident_time_before** | **Time** | If provided, will only return issues whose first incident time was before this datetime. | [optional] |
 | **include_muted** | **String** | If True, will include muted issues | [optional] |
 | **integration_name** | **String** |  | [optional] |
+| **last_incident_time_after** | **Time** | If provided, will only return issues whose first incident time was after this datetime. | [optional] |
+| **last_incident_time_before** | **Time** | If provided, will only return issues whose first incident time was before this datetime. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
 | **start_date** | **String** | If included, will only include issues whose most recent action occurred after this time | [optional] |
 | **status** | **String** |  | [optional] |

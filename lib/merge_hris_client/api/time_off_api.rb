@@ -211,6 +211,68 @@ module MergeHRISClient
       return data, status_code, headers
     end
 
+    # Returns metadata for `TimeOff` POSTs.
+    # @param x_account_token [String] Token identifying the end user.
+    # @param [Hash] opts the optional parameters
+    # @return [MetaResponse]
+    def time_off_meta_post_retrieve(x_account_token, opts = {})
+      data, _status_code, _headers = time_off_meta_post_retrieve_with_http_info(x_account_token, opts)
+      data
+    end
+
+    # Returns metadata for &#x60;TimeOff&#x60; POSTs.
+    # @param x_account_token [String] Token identifying the end user.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MetaResponse, Integer, Hash)>] MetaResponse data, response status code and response headers
+    def time_off_meta_post_retrieve_with_http_info(x_account_token, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TimeOffApi.time_off_meta_post_retrieve ...'
+      end
+      # verify the required parameter 'x_account_token' is set
+      if @api_client.config.client_side_validation && x_account_token.nil?
+        fail ArgumentError, "Missing the required parameter 'x_account_token' when calling TimeOffApi.time_off_meta_post_retrieve"
+      end
+      # resource path
+      local_var_path = '/time-off/meta/post'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-Account-Token'] = x_account_token
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetaResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['tokenAuth']
+
+      new_options = opts.merge(
+        :operation => :"TimeOffApi.time_off_meta_post_retrieve",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TimeOffApi#time_off_meta_post_retrieve\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Returns a `TimeOff` object with the given `id`.
     # @param x_account_token [String] Token identifying the end user.
     # @param id [String] 

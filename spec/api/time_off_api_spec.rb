@@ -71,6 +71,17 @@ describe 'TimeOffApi' do
     end
   end
 
+  # unit tests for time_off_meta_post_retrieve
+  # Returns metadata for &#x60;TimeOff&#x60; POSTs.
+  # @param x_account_token Token identifying the end user.
+  # @param [Hash] opts the optional parameters
+  # @return [MetaResponse]
+  describe 'time_off_meta_post_retrieve test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for time_off_retrieve
   # Returns a &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
   # @param x_account_token Token identifying the end user.

@@ -12,6 +12,7 @@
 | **pay_period** | [**PayPeriodEnum**](PayPeriodEnum.md) | The time period this pay rate encompasses. | [optional] |
 | **pay_frequency** | [**PayFrequencyEnum**](PayFrequencyEnum.md) | The position&#39;s pay frequency. | [optional] |
 | **pay_currency** | [**PayCurrencyEnum**](PayCurrencyEnum.md) | The position&#39;s currency code. | [optional] |
+| **pay_group** | **String** |  | [optional] |
 | **flsa_status** | [**FlsaStatusEnum**](FlsaStatusEnum.md) | The position&#39;s FLSA status. | [optional] |
 | **effective_date** | **Time** | The position&#39;s effective date. | [optional] |
 | **employment_type** | [**EmploymentTypeEnum**](EmploymentTypeEnum.md) | The position&#39;s type of employment. | [optional] |
@@ -26,13 +27,14 @@ instance = MergeHRISClient::Employment.new(
   id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982,
   remote_id: 19202938,
   employee: 0958cbc6-6040-430a-848e-aafacbadf4ae,
-  job_title: Software Engineer,
-  pay_rate: 80000.00,
+  job_title: Executive Assistant to Tom Wambsgans,
+  pay_rate: 500.00,
   pay_period: YEAR,
   pay_frequency: BIWEEKLY,
   pay_currency: USD,
+  pay_group: d4e4837f-9900-484c-ac40-528365bb08ef,
   flsa_status: EXEMPT,
-  effective_date: 2020-10-06T18:42:34Z,
+  effective_date: 2023-10-06T18:42:34Z,
   employment_type: FULL TIME,
   remote_data: [{&quot;path&quot;:&quot;/jobs&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )

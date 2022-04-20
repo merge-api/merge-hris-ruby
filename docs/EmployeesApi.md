@@ -7,6 +7,7 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 | [**employees_create**](EmployeesApi.md#employees_create) | **POST** /employees |  |
 | [**employees_ignore_create**](EmployeesApi.md#employees_ignore_create) | **POST** /employees/ignore/{model_id} |  |
 | [**employees_list**](EmployeesApi.md#employees_list) | **GET** /employees |  |
+| [**employees_meta_post_retrieve**](EmployeesApi.md#employees_meta_post_retrieve) | **GET** /employees/meta/post |  |
 | [**employees_retrieve**](EmployeesApi.md#employees_retrieve) | **GET** /employees/{id} |  |
 
 
@@ -91,7 +92,7 @@ end
 
 ## employees_ignore_create
 
-> <IgnoreCommonModel> employees_ignore_create(model_id, ignore_common_model_request)
+> <IgnoreCommonModel> employees_ignore_create(x_account_token, model_id, ignore_common_model_request)
 
 
 
@@ -111,12 +112,13 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::EmployeesApi.new
+x_account_token = 'x_account_token_example' # String | Token identifying the end user.
 model_id = TODO # String | 
 ignore_common_model_request = MergeHRISClient::IgnoreCommonModelRequest.new({reason: MergeHRISClient::ReasonEnum::GENERAL_CUSTOMER_REQUEST}) # IgnoreCommonModelRequest | 
 
 begin
   
-  result = api_instance.employees_ignore_create(model_id, ignore_common_model_request)
+  result = api_instance.employees_ignore_create(x_account_token, model_id, ignore_common_model_request)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Error when calling EmployeesApi->employees_ignore_create: #{e}"
@@ -127,12 +129,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<IgnoreCommonModel>, Integer, Hash)> employees_ignore_create_with_http_info(model_id, ignore_common_model_request)
+> <Array(<IgnoreCommonModel>, Integer, Hash)> employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.employees_ignore_create_with_http_info(model_id, ignore_common_model_request)
+  data, status_code, headers = api_instance.employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <IgnoreCommonModel>
@@ -145,6 +147,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **x_account_token** | **String** | Token identifying the end user. |  |
 | **model_id** | [**String**](.md) |  |  |
 | **ignore_common_model_request** | [**IgnoreCommonModelRequest**](IgnoreCommonModelRequest.md) |  |  |
 
@@ -260,6 +263,77 @@ end
 ### Return type
 
 [**PaginatedEmployeeList**](PaginatedEmployeeList.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## employees_meta_post_retrieve
+
+> <MetaResponse> employees_meta_post_retrieve(x_account_token)
+
+
+
+Returns metadata for `Employee` POSTs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'merge_hris_client'
+# setup authorization
+MergeHRISClient.configure do |config|
+  # Configure API key authorization: tokenAuth
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
+end
+
+api_instance = MergeHRISClient::EmployeesApi.new
+x_account_token = 'x_account_token_example' # String | Token identifying the end user.
+
+begin
+  
+  result = api_instance.employees_meta_post_retrieve(x_account_token)
+  p result
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling EmployeesApi->employees_meta_post_retrieve: #{e}"
+end
+```
+
+#### Using the employees_meta_post_retrieve_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MetaResponse>, Integer, Hash)> employees_meta_post_retrieve_with_http_info(x_account_token)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.employees_meta_post_retrieve_with_http_info(x_account_token)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MetaResponse>
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling EmployeesApi->employees_meta_post_retrieve_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **x_account_token** | **String** | Token identifying the end user. |  |
+
+### Return type
+
+[**MetaResponse**](MetaResponse.md)
 
 ### Authorization
 

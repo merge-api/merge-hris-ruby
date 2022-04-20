@@ -14,34 +14,16 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The DataPassthrough Object ### Description The `DataPassthrough` object is used to send information to an otherwise-unsupported third-party endpoint.  ### Usage Example Create a `DataPassthrough` to get team hierarchies from your Rippling integration.
-  class DataPassthroughRequest
-    attr_accessor :method
+  class LinkedAccountStatus
+    attr_accessor :linked_account_status
 
-    attr_accessor :path
-
-    attr_accessor :base_url_override
-
-    attr_accessor :data
-
-    # Pass an array of `MultipartFormField` objects in here instead of using the `data` param if `request_format` is set to `MULTIPART`.
-    attr_accessor :multipart_form_data
-
-    # The headers to use for the request (Merge will handle the account's authorization headers). `Content-Type` header is required for passthrough. Choose content type corresponding to expected format of receiving server.
-    attr_accessor :headers
-
-    attr_accessor :request_format
+    attr_accessor :can_make_request
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'method' => :'method',
-        :'path' => :'path',
-        :'base_url_override' => :'base_url_override',
-        :'data' => :'data',
-        :'multipart_form_data' => :'multipart_form_data',
-        :'headers' => :'headers',
-        :'request_format' => :'request_format'
+        :'linked_account_status' => :'linked_account_status',
+        :'can_make_request' => :'can_make_request'
       }
     end
 
@@ -53,24 +35,14 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'method' => :'MethodEnum',
-        :'path' => :'String',
-        :'base_url_override' => :'String',
-        :'data' => :'String',
-        :'multipart_form_data' => :'Array<MultipartFormFieldRequest>',
-        :'headers' => :'Hash<String, AnyType>',
-        :'request_format' => :'RequestFormatEnum'
+        :'linked_account_status' => :'String',
+        :'can_make_request' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'base_url_override',
-        :'data',
-        :'multipart_form_data',
-        :'headers',
-        :'request_format'
       ])
     end
 
@@ -78,47 +50,23 @@ module MergeHRISClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::DataPassthroughRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MergeHRISClient::LinkedAccountStatus` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::DataPassthroughRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MergeHRISClient::LinkedAccountStatus`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'method')
-        self.method = attributes[:'method']
+      if attributes.key?(:'linked_account_status')
+        self.linked_account_status = attributes[:'linked_account_status']
       end
 
-      if attributes.key?(:'path')
-        self.path = attributes[:'path']
-      end
-
-      if attributes.key?(:'base_url_override')
-        self.base_url_override = attributes[:'base_url_override']
-      end
-
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
-      end
-
-      if attributes.key?(:'multipart_form_data')
-        if (value = attributes[:'multipart_form_data']).is_a?(Array)
-          self.multipart_form_data = value
-        end
-      end
-
-      if attributes.key?(:'headers')
-        if (value = attributes[:'headers']).is_a?(Hash)
-          self.headers = value
-        end
-      end
-
-      if attributes.key?(:'request_format')
-        self.request_format = attributes[:'request_format']
+      if attributes.key?(:'can_make_request')
+        self.can_make_request = attributes[:'can_make_request']
       end
     end
 
@@ -126,24 +74,12 @@ module MergeHRISClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @method.nil?
-        invalid_properties.push('invalid value for "method", method cannot be nil.')
+      if @linked_account_status.nil?
+        invalid_properties.push('invalid value for "linked_account_status", linked_account_status cannot be nil.')
       end
 
-      if @path.nil?
-        invalid_properties.push('invalid value for "path", path cannot be nil.')
-      end
-
-      if @path.to_s.length < 1
-        invalid_properties.push('invalid value for "path", the character length must be great than or equal to 1.')
-      end
-
-      if !@base_url_override.nil? && @base_url_override.to_s.length < 1
-        invalid_properties.push('invalid value for "base_url_override", the character length must be great than or equal to 1.')
-      end
-
-      if !@data.nil? && @data.to_s.length < 1
-        invalid_properties.push('invalid value for "data", the character length must be great than or equal to 1.')
+      if @can_make_request.nil?
+        invalid_properties.push('invalid value for "can_make_request", can_make_request cannot be nil.')
       end
 
       invalid_properties
@@ -152,46 +88,9 @@ module MergeHRISClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @method.nil?
-      return false if @path.nil?
-      return false if @path.to_s.length < 1
-      return false if !@base_url_override.nil? && @base_url_override.to_s.length < 1
-      return false if !@data.nil? && @data.to_s.length < 1
+      return false if @linked_account_status.nil?
+      return false if @can_make_request.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] path Value to be assigned
-    def path=(path)
-      if path.nil?
-        fail ArgumentError, 'path cannot be nil'
-      end
-
-      if path.to_s.length < 1
-        fail ArgumentError, 'invalid value for "path", the character length must be great than or equal to 1.'
-      end
-
-      @path = path
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] base_url_override Value to be assigned
-    def base_url_override=(base_url_override)
-      if !base_url_override.nil? && base_url_override.to_s.length < 1
-        fail ArgumentError, 'invalid value for "base_url_override", the character length must be great than or equal to 1.'
-      end
-
-      @base_url_override = base_url_override
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] data Value to be assigned
-    def data=(data)
-      if !data.nil? && data.to_s.length < 1
-        fail ArgumentError, 'invalid value for "data", the character length must be great than or equal to 1.'
-      end
-
-      @data = data
     end
 
     # Checks equality by comparing each attribute.
@@ -199,13 +98,8 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          method == o.method &&
-          path == o.path &&
-          base_url_override == o.base_url_override &&
-          data == o.data &&
-          multipart_form_data == o.multipart_form_data &&
-          headers == o.headers &&
-          request_format == o.request_format
+          linked_account_status == o.linked_account_status &&
+          can_make_request == o.can_make_request
     end
 
     # @see the `==` method
@@ -217,7 +111,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [method, path, base_url_override, data, multipart_form_data, headers, request_format].hash
+      [linked_account_status, can_make_request].hash
     end
 
     # Builds the object from hash
