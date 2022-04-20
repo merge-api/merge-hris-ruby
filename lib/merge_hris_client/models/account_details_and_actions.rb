@@ -30,6 +30,8 @@ module MergeHRISClient
 
     attr_accessor :end_user_email_address
 
+    attr_accessor :webhook_listener_url
+
     attr_accessor :integration
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,6 +44,7 @@ module MergeHRISClient
         :'end_user_origin_id' => :'end_user_origin_id',
         :'end_user_organization_name' => :'end_user_organization_name',
         :'end_user_email_address' => :'end_user_email_address',
+        :'webhook_listener_url' => :'webhook_listener_url',
         :'integration' => :'integration'
       }
     end
@@ -61,6 +64,7 @@ module MergeHRISClient
         :'end_user_origin_id' => :'String',
         :'end_user_organization_name' => :'String',
         :'end_user_email_address' => :'String',
+        :'webhook_listener_url' => :'String',
         :'integration' => :'AccountDetailsAndActionsIntegration'
       }
     end
@@ -114,6 +118,10 @@ module MergeHRISClient
         self.end_user_email_address = attributes[:'end_user_email_address']
       end
 
+      if attributes.key?(:'webhook_listener_url')
+        self.webhook_listener_url = attributes[:'webhook_listener_url']
+      end
+
       if attributes.key?(:'integration')
         self.integration = attributes[:'integration']
       end
@@ -139,6 +147,10 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "end_user_email_address", end_user_email_address cannot be nil.')
       end
 
+      if @webhook_listener_url.nil?
+        invalid_properties.push('invalid value for "webhook_listener_url", webhook_listener_url cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -149,6 +161,7 @@ module MergeHRISClient
       return false if @status.nil?
       return false if @end_user_organization_name.nil?
       return false if @end_user_email_address.nil?
+      return false if @webhook_listener_url.nil?
       true
     end
 
@@ -164,6 +177,7 @@ module MergeHRISClient
           end_user_origin_id == o.end_user_origin_id &&
           end_user_organization_name == o.end_user_organization_name &&
           end_user_email_address == o.end_user_email_address &&
+          webhook_listener_url == o.webhook_listener_url &&
           integration == o.integration
     end
 
@@ -176,7 +190,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, category, status, status_detail, end_user_origin_id, end_user_organization_name, end_user_email_address, integration].hash
+      [id, category, status, status_detail, end_user_origin_id, end_user_organization_name, end_user_email_address, webhook_listener_url, integration].hash
     end
 
     # Builds the object from hash

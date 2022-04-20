@@ -67,6 +67,12 @@ describe MergeHRISClient::AccountDetailsAndActions do
     end
   end
 
+  describe 'test attribute "webhook_listener_url"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "integration"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

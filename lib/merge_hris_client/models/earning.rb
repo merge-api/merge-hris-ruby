@@ -61,6 +61,7 @@ module MergeHRISClient
         :'employee_payroll_run',
         :'amount',
         :'type',
+        :'remote_data'
       ])
     end
 

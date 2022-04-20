@@ -39,7 +39,7 @@ module MergeHRISClient
     # The location's state. Represents a region if outside of the US.
     attr_accessor :state
 
-    # The location's zip code.
+    # The location's zip code or postal code.
     attr_accessor :zip_code
 
     # The location's country.

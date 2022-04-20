@@ -19,8 +19,8 @@ require 'merge_hris_client'
 instance = MergeHRISClient::Company.new(
   id: 1b998423-db0a-4037-a4cf-f79c60cb67b3,
   remote_id: 19202938,
-  legal_name: We Love Integrations Inc.,
-  display_name: We Love Integrations,
+  legal_name: Waystar Royco, Inc.,
+  display_name: Waystar Royco,
   eins: [&quot;12-3456789&quot;,&quot;12-3451111&quot;,&quot;11-0011000&quot;],
   remote_data: [{&quot;path&quot;:&quot;/companies&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )

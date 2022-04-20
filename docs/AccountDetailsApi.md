@@ -9,7 +9,7 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 ## account_details_retrieve
 
-> <AccountDetails> account_details_retrieve
+> <AccountDetails> account_details_retrieve(x_account_token)
 
 
 
@@ -29,10 +29,11 @@ MergeHRISClient.configure do |config|
 end
 
 api_instance = MergeHRISClient::AccountDetailsApi.new
+x_account_token = 'x_account_token_example' # String | Token identifying the end user.
 
 begin
   
-  result = api_instance.account_details_retrieve
+  result = api_instance.account_details_retrieve(x_account_token)
   p result
 rescue MergeHRISClient::ApiError => e
   puts "Error when calling AccountDetailsApi->account_details_retrieve: #{e}"
@@ -43,12 +44,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AccountDetails>, Integer, Hash)> account_details_retrieve_with_http_info
+> <Array(<AccountDetails>, Integer, Hash)> account_details_retrieve_with_http_info(x_account_token)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.account_details_retrieve_with_http_info
+  data, status_code, headers = api_instance.account_details_retrieve_with_http_info(x_account_token)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountDetails>
@@ -59,7 +60,9 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **x_account_token** | **String** | Token identifying the end user. |  |
 
 ### Return type
 

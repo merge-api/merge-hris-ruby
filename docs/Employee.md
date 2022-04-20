@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
-| **employee_number** | **String** | The employee&#39;s number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. | [optional] |
+| **employee_number** | **String** | The employee&#39;s number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers. | [optional] |
 | **company** | **String** |  | [optional] |
 | **first_name** | **String** | The employee&#39;s first name. | [optional] |
 | **last_name** | **String** | The employee&#39;s last name. | [optional] |
@@ -44,12 +44,12 @@ instance = MergeHRISClient::Employee.new(
   remote_id: 19202938,
   employee_number: 2,
   company: 8d9fd929-436c-4fd4-a48b-0c61f68d6178,
-  first_name: Jane,
-  last_name: Doe,
-  display_full_name: Jane Doe,
+  first_name: Greg,
+  last_name: Hirsch,
+  display_full_name: Cousin Greg Hirsch,
   groups: [&quot;21a54124-397f-494d-985e-3c5b330b8a68&quot;],
-  work_email: jane@merge.dev,
-  personal_email: jane@gmail.com,
+  work_email: greg@merge.dev,
+  personal_email: greg@gmail.com,
   mobile_phone_number: +1234567890,
   employments: [&quot;17a54124-287f-494d-965e-3c5b330c9a68&quot;],
   home_location: d2f972d0-2526-434b-9409-4c3b468e08f0,
@@ -58,8 +58,8 @@ instance = MergeHRISClient::Employee.new(
   team: 249c9faa-3045-4a31-953b-8f22d3613301,
   pay_group: ad1264e2-39be-4787-b749-f1aade9e3405,
   ssn: 1234567890,
-  gender: FEMALE,
-  ethnicity: AMERICAN_INDIAN_OR_ALASKA_NATIVE,
+  gender: MALE,
+  ethnicity: WHITE,
   marital_status: SINGLE,
   date_of_birth: 1990-11-10T00:00Z,
   hire_date: 2020-10-10T00:00Z,

@@ -6,6 +6,7 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 | ------ | ------------ | ----------- |
 | [**time_off_create**](TimeOffApi.md#time_off_create) | **POST** /time-off |  |
 | [**time_off_list**](TimeOffApi.md#time_off_list) | **GET** /time-off |  |
+| [**time_off_meta_post_retrieve**](TimeOffApi.md#time_off_meta_post_retrieve) | **GET** /time-off/meta/post |  |
 | [**time_off_retrieve**](TimeOffApi.md#time_off_retrieve) | **GET** /time-off/{id} |  |
 
 
@@ -178,6 +179,77 @@ end
 ### Return type
 
 [**PaginatedTimeOffList**](PaginatedTimeOffList.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## time_off_meta_post_retrieve
+
+> <MetaResponse> time_off_meta_post_retrieve(x_account_token)
+
+
+
+Returns metadata for `TimeOff` POSTs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'merge_hris_client'
+# setup authorization
+MergeHRISClient.configure do |config|
+  # Configure API key authorization: tokenAuth
+  config.api_key['tokenAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['tokenAuth'] = 'Bearer'
+end
+
+api_instance = MergeHRISClient::TimeOffApi.new
+x_account_token = 'x_account_token_example' # String | Token identifying the end user.
+
+begin
+  
+  result = api_instance.time_off_meta_post_retrieve(x_account_token)
+  p result
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling TimeOffApi->time_off_meta_post_retrieve: #{e}"
+end
+```
+
+#### Using the time_off_meta_post_retrieve_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MetaResponse>, Integer, Hash)> time_off_meta_post_retrieve_with_http_info(x_account_token)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.time_off_meta_post_retrieve_with_http_info(x_account_token)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MetaResponse>
+rescue MergeHRISClient::ApiError => e
+  puts "Error when calling TimeOffApi->time_off_meta_post_retrieve_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **x_account_token** | **String** | Token identifying the end user. |  |
+
+### Return type
+
+[**MetaResponse**](MetaResponse.md)
 
 ### Authorization
 

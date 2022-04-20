@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The PayGroup Object ### Description The `PayGroup` object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  ### Usage Example Fetch from the `LIST Employee` endpoint and expand groups to view an employees groups.
+  # # The Group Object ### Description The `Group` object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  Please note: The teams object will fulfill most use cases. The Groups object is for power-users that want all types of groups at a company and the optionality of pulling multiple groups for an employee.  ### Usage Example Fetch from the `LIST Employee` endpoint and expand groups to view an employee's groups.
   class Group
     attr_accessor :id
 

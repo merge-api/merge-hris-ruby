@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The Employment Object ### Description The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.
+  # # The Employment Object ### Description The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.  Please note: Employment objects are constructed if the object does not exist in the remote system.  ### Usage Example Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.
   class Employment
     attr_accessor :id
 
@@ -38,6 +38,8 @@ module MergeHRISClient
     # The position's currency code.
     attr_accessor :pay_currency
 
+    attr_accessor :pay_group
+
     # The position's FLSA status.
     attr_accessor :flsa_status
 
@@ -60,6 +62,7 @@ module MergeHRISClient
         :'pay_period' => :'pay_period',
         :'pay_frequency' => :'pay_frequency',
         :'pay_currency' => :'pay_currency',
+        :'pay_group' => :'pay_group',
         :'flsa_status' => :'flsa_status',
         :'effective_date' => :'effective_date',
         :'employment_type' => :'employment_type',
@@ -83,6 +86,7 @@ module MergeHRISClient
         :'pay_period' => :'PayPeriodEnum',
         :'pay_frequency' => :'PayFrequencyEnum',
         :'pay_currency' => :'PayCurrencyEnum',
+        :'pay_group' => :'String',
         :'flsa_status' => :'FlsaStatusEnum',
         :'effective_date' => :'Time',
         :'employment_type' => :'EmploymentTypeEnum',
@@ -100,6 +104,7 @@ module MergeHRISClient
         :'pay_period',
         :'pay_frequency',
         :'pay_currency',
+        :'pay_group',
         :'flsa_status',
         :'effective_date',
         :'employment_type',
@@ -154,6 +159,10 @@ module MergeHRISClient
         self.pay_currency = attributes[:'pay_currency']
       end
 
+      if attributes.key?(:'pay_group')
+        self.pay_group = attributes[:'pay_group']
+      end
+
       if attributes.key?(:'flsa_status')
         self.flsa_status = attributes[:'flsa_status']
       end
@@ -199,6 +208,7 @@ module MergeHRISClient
           pay_period == o.pay_period &&
           pay_frequency == o.pay_frequency &&
           pay_currency == o.pay_currency &&
+          pay_group == o.pay_group &&
           flsa_status == o.flsa_status &&
           effective_date == o.effective_date &&
           employment_type == o.employment_type &&
@@ -214,7 +224,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, job_title, pay_rate, pay_period, pay_frequency, pay_currency, flsa_status, effective_date, employment_type, remote_data].hash
+      [id, remote_id, employee, job_title, pay_rate, pay_period, pay_frequency, pay_currency, pay_group, flsa_status, effective_date, employment_type, remote_data].hash
     end
 
     # Builds the object from hash
