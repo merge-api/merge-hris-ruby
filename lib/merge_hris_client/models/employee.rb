@@ -94,6 +94,8 @@ module MergeHRISClient
     # Custom fields configured for a given model.
     attr_accessor :custom_fields
 
+    attr_accessor :remote_was_deleted
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -125,7 +127,8 @@ module MergeHRISClient
         :'termination_date' => :'termination_date',
         :'avatar' => :'avatar',
         :'remote_data' => :'remote_data',
-        :'custom_fields' => :'custom_fields'
+        :'custom_fields' => :'custom_fields',
+        :'remote_was_deleted' => :'remote_was_deleted'
       }
     end
 
@@ -165,7 +168,8 @@ module MergeHRISClient
         :'termination_date' => :'Time',
         :'avatar' => :'String',
         :'remote_data' => :'Array<RemoteData>',
-        :'custom_fields' => :'Hash<String, AnyType>'
+        :'custom_fields' => :'Hash<String, AnyType>',
+        :'remote_was_deleted' => :'Boolean'
       }
     end
 
@@ -197,7 +201,7 @@ module MergeHRISClient
         :'termination_date',
         :'avatar',
         :'remote_data',
-        :'custom_fields'
+        :'custom_fields',
       ])
     end
 
@@ -339,6 +343,10 @@ module MergeHRISClient
           self.custom_fields = value
         end
       end
+
+      if attributes.key?(:'remote_was_deleted')
+        self.remote_was_deleted = attributes[:'remote_was_deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -447,7 +455,8 @@ module MergeHRISClient
           termination_date == o.termination_date &&
           avatar == o.avatar &&
           remote_data == o.remote_data &&
-          custom_fields == o.custom_fields
+          custom_fields == o.custom_fields &&
+          remote_was_deleted == o.remote_was_deleted
     end
 
     # @see the `==` method
@@ -459,7 +468,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, remote_data, custom_fields].hash
+      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, remote_data, custom_fields, remote_was_deleted].hash
     end
 
     # Builds the object from hash

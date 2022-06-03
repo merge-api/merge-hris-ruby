@@ -38,6 +38,9 @@ module MergeHRISClient
 
     attr_accessor :remote_data
 
+    # Indicates whether or not this object has been deleted on the third-party.
+    attr_accessor :remote_was_deleted
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -48,7 +51,8 @@ module MergeHRISClient
         :'start_date' => :'start_date',
         :'end_date' => :'end_date',
         :'check_date' => :'check_date',
-        :'remote_data' => :'remote_data'
+        :'remote_data' => :'remote_data',
+        :'remote_was_deleted' => :'remote_was_deleted'
       }
     end
 
@@ -67,7 +71,8 @@ module MergeHRISClient
         :'start_date' => :'Time',
         :'end_date' => :'Time',
         :'check_date' => :'Time',
-        :'remote_data' => :'Array<RemoteData>'
+        :'remote_data' => :'Array<RemoteData>',
+        :'remote_was_deleted' => :'Boolean'
       }
     end
 
@@ -80,7 +85,7 @@ module MergeHRISClient
         :'start_date',
         :'end_date',
         :'check_date',
-        :'remote_data'
+        :'remote_data',
       ])
     end
 
@@ -132,6 +137,10 @@ module MergeHRISClient
           self.remote_data = value
         end
       end
+
+      if attributes.key?(:'remote_was_deleted')
+        self.remote_was_deleted = attributes[:'remote_was_deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -159,7 +168,8 @@ module MergeHRISClient
           start_date == o.start_date &&
           end_date == o.end_date &&
           check_date == o.check_date &&
-          remote_data == o.remote_data
+          remote_data == o.remote_data &&
+          remote_was_deleted == o.remote_was_deleted
     end
 
     # @see the `==` method
@@ -171,7 +181,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, run_state, run_type, start_date, end_date, check_date, remote_data].hash
+      [id, remote_id, run_state, run_type, start_date, end_date, check_date, remote_data, remote_was_deleted].hash
     end
 
     # Builds the object from hash

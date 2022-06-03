@@ -193,10 +193,14 @@ opts = {
   created_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects created after this datetime.
   created_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects created before this datetime.
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
+  display_full_name: 'display_full_name_example', # String | If provided, will only return employees with this display name.
+  employment_status: 'ACTIVE', # String | If provided, will only return employees with this employment status.
   expand: 'company', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+  first_name: 'first_name_example', # String | If provided, will only return employees with this first name.
   include_deleted_data: true, # Boolean | Whether to include data that was deleted in the third-party service.
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   include_sensitive_fields: true, # Boolean | Whether to include sensitive fields (such as social security numbers) in the response.
+  last_name: 'last_name_example', # String | If provided, will only return employees with this last name.
   manager_id: 'manager_id_example', # String | If provided, will only return employees for this manager.
   modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified after this datetime.
   modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified before this datetime.
@@ -245,10 +249,14 @@ end
 | **created_after** | **Time** | If provided, will only return objects created after this datetime. | [optional] |
 | **created_before** | **Time** | If provided, will only return objects created before this datetime. | [optional] |
 | **cursor** | **String** | The pagination cursor value. | [optional] |
+| **display_full_name** | **String** | If provided, will only return employees with this display name. | [optional] |
+| **employment_status** | **String** | If provided, will only return employees with this employment status. | [optional] |
 | **expand** | **String** | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] |
+| **first_name** | **String** | If provided, will only return employees with this first name. | [optional] |
 | **include_deleted_data** | **Boolean** | Whether to include data that was deleted in the third-party service. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **include_sensitive_fields** | **Boolean** | Whether to include sensitive fields (such as social security numbers) in the response. | [optional] |
+| **last_name** | **String** | If provided, will only return employees with this last name. | [optional] |
 | **manager_id** | **String** | If provided, will only return employees for this manager. | [optional] |
 | **modified_after** | **Time** | If provided, will only return objects modified after this datetime. | [optional] |
 | **modified_before** | **Time** | If provided, will only return objects modified before this datetime. | [optional] |

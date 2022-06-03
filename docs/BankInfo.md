@@ -13,6 +13,7 @@
 | **account_type** | [**AccountTypeEnum**](AccountTypeEnum.md) | The bank account type | [optional] |
 | **remote_created_at** | **Time** | When the matching bank object was created in the third party system. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = MergeHRISClient::BankInfo.new(
   bank_name: Chase,
   account_type: CHECKING,
   remote_created_at: 2021-12-06T10:11:26Z,
-  remote_data: [{&quot;path&quot;:&quot;/bank-info&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/bank-info&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

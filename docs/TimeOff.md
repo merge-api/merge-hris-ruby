@@ -16,6 +16,7 @@
 | **start_time** | **Time** | The day and time of the start of the time requested off. | [optional] |
 | **end_time** | **Time** | The day and time of the end of the time requested off. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** |  | [optional][readonly] |
 
 ## Example
 
@@ -34,7 +35,8 @@ instance = MergeHRISClient::TimeOff.new(
   request_type: VACATION,
   start_time: 2020-11-10T00:00Z,
   end_time: 2020-11-17T00:00Z,
-  remote_data: [{&quot;path&quot;:&quot;/leave&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/leave&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

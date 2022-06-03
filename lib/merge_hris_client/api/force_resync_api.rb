@@ -22,7 +22,7 @@ module MergeHRISClient
     # Force re-sync of all models. This is only available for organizations on Merge's Grow and Expand plans.
     # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @return [SyncStatus]
+    # @return [Array<SyncStatus>]
     def sync_status_resync_create(x_account_token, opts = {})
       data, _status_code, _headers = sync_status_resync_create_with_http_info(x_account_token, opts)
       data
@@ -31,7 +31,7 @@ module MergeHRISClient
     # Force re-sync of all models. This is only available for organizations on Merge&#39;s Grow and Expand plans.
     # @param x_account_token [String] Token identifying the end user.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(SyncStatus, Integer, Hash)>] SyncStatus data, response status code and response headers
+    # @return [Array<(Array<SyncStatus>, Integer, Hash)>] Array<SyncStatus> data, response status code and response headers
     def sync_status_resync_create_with_http_info(x_account_token, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ForceResyncApi.sync_status_resync_create ...'
@@ -59,7 +59,7 @@ module MergeHRISClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'SyncStatus'
+      return_type = opts[:debug_return_type] || 'Array<SyncStatus>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['tokenAuth']

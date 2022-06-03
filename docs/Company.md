@@ -10,6 +10,7 @@
 | **display_name** | **String** | The company&#39;s display name. | [optional] |
 | **eins** | **Array&lt;String&gt;** | The company&#39;s Employer Identification Numbers. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = MergeHRISClient::Company.new(
   legal_name: Waystar Royco, Inc.,
   display_name: Waystar Royco,
   eins: [&quot;12-3456789&quot;,&quot;12-3451111&quot;,&quot;11-0011000&quot;],
-  remote_data: [{&quot;path&quot;:&quot;/companies&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/companies&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

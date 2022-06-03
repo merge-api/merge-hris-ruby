@@ -34,5 +34,4 @@ module MergeHRISClient
       value
     end
   end
-
 end

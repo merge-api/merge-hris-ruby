@@ -33,6 +33,7 @@
 | **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 | **custom_fields** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) | Custom fields configured for a given model. | [optional] |
+| **remote_was_deleted** | **Boolean** |  | [optional][readonly] |
 
 ## Example
 
@@ -68,7 +69,8 @@ instance = MergeHRISClient::Employee.new(
   termination_date: 2021-10-12T00:00Z,
   avatar: http://alturl.com/h2h8m,
   remote_data: [{&quot;path&quot;:&quot;/people&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
-  custom_fields: null
+  custom_fields: null,
+  remote_was_deleted: null
 )
 ```
 

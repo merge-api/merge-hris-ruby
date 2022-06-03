@@ -36,7 +36,7 @@ describe 'ForceResyncApi' do
   # Force re-sync of all models. This is only available for organizations on Merge&#39;s Grow and Expand plans.
   # @param x_account_token Token identifying the end user.
   # @param [Hash] opts the optional parameters
-  # @return [SyncStatus]
+  # @return [Array<SyncStatus>]
   describe 'sync_status_resync_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

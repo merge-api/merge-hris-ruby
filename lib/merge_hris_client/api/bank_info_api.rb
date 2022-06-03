@@ -90,7 +90,6 @@ module MergeHRISClient
       query_params[:'created_after'] = opts[:'created_after'] if !opts[:'created_after'].nil?
       query_params[:'created_before'] = opts[:'created_before'] if !opts[:'created_before'].nil?
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
-      query_params[:'employee'] = opts[:'employee'] if !opts[:'employee'].nil?
       query_params[:'employee_id'] = opts[:'employee_id'] if !opts[:'employee_id'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
       query_params[:'include_deleted_data'] = opts[:'include_deleted_data'] if !opts[:'include_deleted_data'].nil?

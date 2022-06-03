@@ -9,6 +9,7 @@
 | **name** | **String** | The team&#39;s name. | [optional] |
 | **parent_team** | **String** |  | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = MergeHRISClient::Team.new(
   remote_id: 19202938,
   name: Engineering,
   parent_team: 1b998423-db0a-4037-a4cf-f79c60cb67b3,
-  remote_data: [{&quot;path&quot;:&quot;/teams&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/teams&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

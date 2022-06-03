@@ -9,7 +9,7 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 ## sync_status_resync_create
 
-> <SyncStatus> sync_status_resync_create(x_account_token)
+> <Array<SyncStatus>> sync_status_resync_create(x_account_token)
 
 
 
@@ -44,7 +44,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SyncStatus>, Integer, Hash)> sync_status_resync_create_with_http_info(x_account_token)
+> <Array(<Array<SyncStatus>>, Integer, Hash)> sync_status_resync_create_with_http_info(x_account_token)
 
 ```ruby
 begin
@@ -52,7 +52,7 @@ begin
   data, status_code, headers = api_instance.sync_status_resync_create_with_http_info(x_account_token)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <SyncStatus>
+  p data # => <Array<SyncStatus>>
 rescue MergeHRISClient::ApiError => e
   puts "Error when calling ForceResyncApi->sync_status_resync_create_with_http_info: #{e}"
 end
@@ -66,7 +66,7 @@ end
 
 ### Return type
 
-[**SyncStatus**](SyncStatus.md)
+[**Array&lt;SyncStatus&gt;**](SyncStatus.md)
 
 ### Authorization
 
