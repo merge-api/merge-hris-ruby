@@ -48,6 +48,8 @@ module MergeHRISClient
 
     attr_accessor :remote_data
 
+    attr_accessor :remote_was_deleted
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -62,7 +64,8 @@ module MergeHRISClient
         :'request_type' => :'request_type',
         :'start_time' => :'start_time',
         :'end_time' => :'end_time',
-        :'remote_data' => :'remote_data'
+        :'remote_data' => :'remote_data',
+        :'remote_was_deleted' => :'remote_was_deleted'
       }
     end
 
@@ -85,7 +88,8 @@ module MergeHRISClient
         :'request_type' => :'RequestTypeEnum',
         :'start_time' => :'Time',
         :'end_time' => :'Time',
-        :'remote_data' => :'Array<RemoteData>'
+        :'remote_data' => :'Array<RemoteData>',
+        :'remote_was_deleted' => :'Boolean'
       }
     end
 
@@ -102,7 +106,7 @@ module MergeHRISClient
         :'request_type',
         :'start_time',
         :'end_time',
-        :'remote_data'
+        :'remote_data',
       ])
     end
 
@@ -170,6 +174,10 @@ module MergeHRISClient
           self.remote_data = value
         end
       end
+
+      if attributes.key?(:'remote_was_deleted')
+        self.remote_was_deleted = attributes[:'remote_was_deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -201,7 +209,8 @@ module MergeHRISClient
           request_type == o.request_type &&
           start_time == o.start_time &&
           end_time == o.end_time &&
-          remote_data == o.remote_data
+          remote_data == o.remote_data &&
+          remote_was_deleted == o.remote_was_deleted
     end
 
     # @see the `==` method
@@ -213,7 +222,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, approver, status, employee_note, units, amount, request_type, start_time, end_time, remote_data].hash
+      [id, remote_id, employee, approver, status, employee_note, units, amount, request_type, start_time, end_time, remote_data, remote_was_deleted].hash
     end
 
     # Builds the object from hash

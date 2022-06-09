@@ -12,6 +12,7 @@
 | **end_date** | **Time** | The day and time the payroll run ended. | [optional] |
 | **check_date** | **Time** | The day and time the payroll run was checked. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = MergeHRISClient::PayrollRun.new(
   start_date: 2020-11-08T00:00Z,
   end_date: 2020-11-15T00:00Z,
   check_date: 2020-11-15T00:00Z,
-  remote_data: [{&quot;path&quot;:&quot;/payroll&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/payroll&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

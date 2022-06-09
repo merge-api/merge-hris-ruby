@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.1.1
 =end
 
 module MergeHRISClient
-  VERSION = '2.0.2'
+  VERSION = '2.0.3'
 end

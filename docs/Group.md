@@ -10,6 +10,7 @@
 | **name** | **String** | The group name. | [optional] |
 | **type** | [**GroupTypeEnum**](GroupTypeEnum.md) | The group type | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = MergeHRISClient::Group.new(
   parent_group: 2ef51b11-2c4e-4b02-8d1d-50592d9e96ef,
   name: COST_CENTER_US,
   type: COST_CENTER,
-  remote_data: [{&quot;path&quot;:&quot;/group&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/group&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

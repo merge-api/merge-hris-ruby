@@ -10,6 +10,7 @@
 | **employee_deduction** | **Float** | The amount the employee is deducting. | [optional] |
 | **company_deduction** | **Float** | The amount the company is deducting. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = MergeHRISClient::Deduction.new(
   name: Social Security,
   employee_deduction: 34.54,
   company_deduction: 78.78,
-  remote_data: [{&quot;path&quot;:&quot;/payroll-deduction&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/payroll-deduction&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

@@ -17,6 +17,7 @@
 | **effective_date** | **Time** | The position&#39;s effective date. | [optional] |
 | **employment_type** | [**EmploymentTypeEnum**](EmploymentTypeEnum.md) | The position&#39;s type of employment. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
 
 ## Example
 
@@ -28,7 +29,7 @@ instance = MergeHRISClient::Employment.new(
   remote_id: 19202938,
   employee: 0958cbc6-6040-430a-848e-aafacbadf4ae,
   job_title: Executive Assistant to Tom Wambsgans,
-  pay_rate: 500.00,
+  pay_rate: 50000.00,
   pay_period: YEAR,
   pay_frequency: BIWEEKLY,
   pay_currency: USD,
@@ -36,7 +37,8 @@ instance = MergeHRISClient::Employment.new(
   flsa_status: EXEMPT,
   effective_date: 2023-10-06T18:42:34Z,
   employment_type: FULL TIME,
-  remote_data: [{&quot;path&quot;:&quot;/jobs&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/jobs&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

@@ -16,6 +16,7 @@
 | **country** | [**CountryEnum**](CountryEnum.md) | The location&#39;s country. | [optional] |
 | **location_type** | [**LocationTypeEnum**](LocationTypeEnum.md) | The location&#39;s type. Can be either WORK or HOME | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
 
 ## Example
 
@@ -23,7 +24,7 @@
 require 'merge_hris_client'
 
 instance = MergeHRISClient::Location.new(
-  id: null,
+  id: f5e6a151-f44e-449a-afb1-8fd781905958,
   remote_id: 93018402,
   name: NYC Office,
   phone_number: +1111111111,
@@ -34,7 +35,8 @@ instance = MergeHRISClient::Location.new(
   zip_code: 10027,
   country: USA,
   location_type: WORK,
-  remote_data: [{&quot;path&quot;:&quot;/locations&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/locations&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

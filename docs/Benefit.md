@@ -12,6 +12,7 @@
 | **employee_contribution** | **Float** | The employee&#39;s contribution. | [optional] |
 | **company_contribution** | **Float** | The company&#39;s contribution. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = MergeHRISClient::Benefit.new(
   benefit_plan_type: MEDICAL,
   employee_contribution: 23.65,
   company_contribution: 150.0,
-  remote_data: [{&quot;path&quot;:&quot;/benefits&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/benefits&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

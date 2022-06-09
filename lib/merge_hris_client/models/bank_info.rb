@@ -40,6 +40,9 @@ module MergeHRISClient
 
     attr_accessor :remote_data
 
+    # Indicates whether or not this object has been deleted on the third-party.
+    attr_accessor :remote_was_deleted
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -51,7 +54,8 @@ module MergeHRISClient
         :'bank_name' => :'bank_name',
         :'account_type' => :'account_type',
         :'remote_created_at' => :'remote_created_at',
-        :'remote_data' => :'remote_data'
+        :'remote_data' => :'remote_data',
+        :'remote_was_deleted' => :'remote_was_deleted'
       }
     end
 
@@ -71,7 +75,8 @@ module MergeHRISClient
         :'bank_name' => :'String',
         :'account_type' => :'AccountTypeEnum',
         :'remote_created_at' => :'Time',
-        :'remote_data' => :'Array<RemoteData>'
+        :'remote_data' => :'Array<RemoteData>',
+        :'remote_was_deleted' => :'Boolean'
       }
     end
 
@@ -85,7 +90,7 @@ module MergeHRISClient
         :'bank_name',
         :'account_type',
         :'remote_created_at',
-        :'remote_data'
+        :'remote_data',
       ])
     end
 
@@ -141,6 +146,10 @@ module MergeHRISClient
           self.remote_data = value
         end
       end
+
+      if attributes.key?(:'remote_was_deleted')
+        self.remote_was_deleted = attributes[:'remote_was_deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -184,7 +193,8 @@ module MergeHRISClient
           bank_name == o.bank_name &&
           account_type == o.account_type &&
           remote_created_at == o.remote_created_at &&
-          remote_data == o.remote_data
+          remote_data == o.remote_data &&
+          remote_was_deleted == o.remote_was_deleted
     end
 
     # @see the `==` method
@@ -196,7 +206,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, account_number, routing_number, bank_name, account_type, remote_created_at, remote_data].hash
+      [id, remote_id, employee, account_number, routing_number, bank_name, account_type, remote_created_at, remote_data, remote_was_deleted].hash
     end
 
     # Builds the object from hash

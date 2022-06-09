@@ -8,7 +8,8 @@
 | **employee_payroll_run** | **String** |  | [optional] |
 | **amount** | **Float** | The amount earned. | [optional] |
 | **type** | [**EarningTypeEnum**](EarningTypeEnum.md) | The type of earning. | [optional] |
-| **remote_data** | **String** |  | [optional][readonly] |
+| **remote_data** | **Array&lt;Hash&lt;String, AnyType&gt;&gt;** |  | [optional] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = MergeHRISClient::Earning.new(
   employee_payroll_run: 35347df1-95e7-46e2-93cc-66f1191edca5,
   amount: 1002.34,
   type: SALARY,
-  remote_data: [{&quot;path&quot;:&quot;/payroll-earnings&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
+  remote_data: [{&quot;path&quot;:&quot;/payroll-earnings&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
+  remote_was_deleted: null
 )
 ```
 

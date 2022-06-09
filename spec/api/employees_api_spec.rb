@@ -67,10 +67,14 @@ describe 'EmployeesApi' do
   # @option opts [Time] :created_after If provided, will only return objects created after this datetime.
   # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
   # @option opts [String] :cursor The pagination cursor value.
+  # @option opts [String] :display_full_name If provided, will only return employees with this display name.
+  # @option opts [String] :employment_status If provided, will only return employees with this employment status.
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+  # @option opts [String] :first_name If provided, will only return employees with this first name.
   # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
+  # @option opts [String] :last_name If provided, will only return employees with this last name.
   # @option opts [String] :manager_id If provided, will only return employees for this manager.
   # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
   # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
