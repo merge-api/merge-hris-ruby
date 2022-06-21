@@ -17,6 +17,7 @@ module MergeHRISClient
   class EncodingEnum
     RAW = "RAW".freeze
     BASE64 = "BASE64".freeze
+    GZIP_BASE64 = "GZIP_BASE64".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

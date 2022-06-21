@@ -37,12 +37,13 @@ opts = {
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
   employee_id: 'employee_id_example', # String | If provided, will only return time off balances for this employee.
   expand: 'employee', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-  include_deleted_data: true, # Boolean | Whether to include data that was deleted in the third-party service.
+  include_deleted_data: true, # Boolean | Whether to include data that was marked as deleted by third party webhooks.
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified after this datetime.
   modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified before this datetime.
   page_size: 56, # Integer | Number of results to return per page.
   policy_type: 'BEREAVEMENT', # String | If provided, will only return TimeOffBalance with this policy type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT')
+  remote_fields: 'policy_type', # String | Which fields should be returned in non-normalized form.
   remote_id: 'remote_id_example' # String | The API provider's ID for the given object.
 }
 
@@ -83,12 +84,13 @@ end
 | **cursor** | **String** | The pagination cursor value. | [optional] |
 | **employee_id** | **String** | If provided, will only return time off balances for this employee. | [optional] |
 | **expand** | **String** | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] |
-| **include_deleted_data** | **Boolean** | Whether to include data that was deleted in the third-party service. | [optional] |
+| **include_deleted_data** | **Boolean** | Whether to include data that was marked as deleted by third party webhooks. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **modified_after** | **Time** | If provided, will only return objects modified after this datetime. | [optional] |
 | **modified_before** | **Time** | If provided, will only return objects modified before this datetime. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
 | **policy_type** | **String** | If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) | [optional] |
+| **remote_fields** | **String** | Which fields should be returned in non-normalized form. | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |
 
 ### Return type
@@ -131,7 +133,8 @@ x_account_token = 'x_account_token_example' # String | Token identifying the end
 id = TODO # String | 
 opts = {
   expand: 'employee', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-  include_remote_data: true # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
+  include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
+  remote_fields: 'policy_type' # String | Which fields should be returned in non-normalized form.
 }
 
 begin
@@ -169,6 +172,7 @@ end
 | **id** | [**String**](.md) |  |  |
 | **expand** | **String** | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
+| **remote_fields** | **String** | Which fields should be returned in non-normalized form. | [optional] |
 
 ### Return type
 

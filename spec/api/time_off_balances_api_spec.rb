@@ -41,12 +41,13 @@ describe 'TimeOffBalancesApi' do
   # @option opts [String] :cursor The pagination cursor value.
   # @option opts [String] :employee_id If provided, will only return time off balances for this employee.
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-  # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
+  # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
   # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :policy_type If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;)
+  # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
   # @return [PaginatedTimeOffBalanceList]
   describe 'time_off_balances_list test' do
@@ -62,6 +63,7 @@ describe 'TimeOffBalancesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
+  # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
   # @return [TimeOffBalance]
   describe 'time_off_balances_retrieve test' do
     it 'should work' do

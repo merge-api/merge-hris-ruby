@@ -17,7 +17,7 @@
 | **deductions** | [**Array&lt;Deduction&gt;**](Deduction.md) |  | [optional][readonly] |
 | **taxes** | [**Array&lt;Tax&gt;**](Tax.md) |  | [optional][readonly] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
-| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted by third party webhooks. | [optional][readonly] |
 
 ## Example
 

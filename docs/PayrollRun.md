@@ -12,7 +12,7 @@
 | **end_date** | **Time** | The day and time the payroll run ended. | [optional] |
 | **check_date** | **Time** | The day and time the payroll run was checked. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
-| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted by third party webhooks. | [optional][readonly] |
 
 ## Example
 

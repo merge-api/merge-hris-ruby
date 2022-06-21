@@ -36,7 +36,7 @@ opts = {
   created_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects created before this datetime.
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
   employee_payroll_run_id: 'employee_payroll_run_id_example', # String | If provided, will only return deductions for this employee payroll run.
-  include_deleted_data: true, # Boolean | Whether to include data that was deleted in the third-party service.
+  include_deleted_data: true, # Boolean | Whether to include data that was marked as deleted by third party webhooks.
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified after this datetime.
   modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified before this datetime.
@@ -80,7 +80,7 @@ end
 | **created_before** | **Time** | If provided, will only return objects created before this datetime. | [optional] |
 | **cursor** | **String** | The pagination cursor value. | [optional] |
 | **employee_payroll_run_id** | **String** | If provided, will only return deductions for this employee payroll run. | [optional] |
-| **include_deleted_data** | **Boolean** | Whether to include data that was deleted in the third-party service. | [optional] |
+| **include_deleted_data** | **Boolean** | Whether to include data that was marked as deleted by third party webhooks. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **modified_after** | **Time** | If provided, will only return objects modified after this datetime. | [optional] |
 | **modified_before** | **Time** | If provided, will only return objects modified before this datetime. | [optional] |

@@ -24,6 +24,8 @@ module MergeHRISClient
 
     attr_accessor :response
 
+    attr_accessor :response_headers
+
     attr_accessor :headers
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -33,6 +35,7 @@ module MergeHRISClient
         :'path' => :'path',
         :'status' => :'status',
         :'response' => :'response',
+        :'response_headers' => :'response_headers',
         :'headers' => :'headers'
       }
     end
@@ -49,7 +52,8 @@ module MergeHRISClient
         :'path' => :'String',
         :'status' => :'Integer',
         :'response' => :'Hash<String, Object>',
-        :'headers' => :'Hash<String, Object>'
+        :'response_headers' => :'Hash<String, Object>',
+        :'headers' => :'Hash<String, AnyType>'
       }
     end
 
@@ -89,6 +93,12 @@ module MergeHRISClient
       if attributes.key?(:'response')
         if (value = attributes[:'response']).is_a?(Hash)
           self.response = value
+        end
+      end
+
+      if attributes.key?(:'response_headers')
+        if (value = attributes[:'response_headers']).is_a?(Hash)
+          self.response_headers = value
         end
       end
 
@@ -141,6 +151,7 @@ module MergeHRISClient
           path == o.path &&
           status == o.status &&
           response == o.response &&
+          response_headers == o.response_headers &&
           headers == o.headers
     end
 
@@ -153,7 +164,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [method, path, status, response, headers].hash
+      [method, path, status, response, response_headers, headers].hash
     end
 
     # Builds the object from hash
