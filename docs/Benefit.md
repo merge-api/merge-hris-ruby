@@ -12,7 +12,7 @@
 | **employee_contribution** | **Float** | The employee&#39;s contribution. | [optional] |
 | **company_contribution** | **Float** | The company&#39;s contribution. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
-| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted by third party webhooks. | [optional][readonly] |
 
 ## Example
 

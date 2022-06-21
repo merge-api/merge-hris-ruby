@@ -27,11 +27,12 @@ module MergeHRISClient
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Time] :ended_after If provided, will only return payroll runs ended after this datetime.
     # @option opts [Time] :ended_before If provided, will only return payroll runs ended before this datetime.
-    # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
+    # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @option opts [String] :run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;)
     # @option opts [Time] :started_after If provided, will only return payroll runs started after this datetime.
@@ -50,11 +51,12 @@ module MergeHRISClient
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Time] :ended_after If provided, will only return payroll runs ended after this datetime.
     # @option opts [Time] :ended_before If provided, will only return payroll runs ended before this datetime.
-    # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
+    # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
     # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
     # @option opts [String] :run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;)
     # @option opts [Time] :started_after If provided, will only return payroll runs started after this datetime.
@@ -67,6 +69,10 @@ module MergeHRISClient
       # verify the required parameter 'x_account_token' is set
       if @api_client.config.client_side_validation && x_account_token.nil?
         fail ArgumentError, "Missing the required parameter 'x_account_token' when calling PayrollRunsApi.payroll_runs_list"
+      end
+      allowable_values = ["run_state", "run_state,run_type", "run_type"]
+      if @api_client.config.client_side_validation && opts[:'remote_fields'] && !allowable_values.include?(opts[:'remote_fields'])
+        fail ArgumentError, "invalid value for \"remote_fields\", must be one of #{allowable_values}"
       end
       allowable_values = ["CORRECTION", "OFF_CYCLE", "REGULAR", "SIGN_ON_BONUS", "TERMINATION"]
       if @api_client.config.client_side_validation && opts[:'run_type'] && !allowable_values.include?(opts[:'run_type'])
@@ -87,6 +93,7 @@ module MergeHRISClient
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'remote_fields'] = opts[:'remote_fields'] if !opts[:'remote_fields'].nil?
       query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
       query_params[:'run_type'] = opts[:'run_type'] if !opts[:'run_type'].nil?
       query_params[:'started_after'] = opts[:'started_after'] if !opts[:'started_after'].nil?
@@ -132,6 +139,7 @@ module MergeHRISClient
     # @param id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
+    # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
     # @return [PayrollRun]
     def payroll_runs_retrieve(x_account_token, id, opts = {})
       data, _status_code, _headers = payroll_runs_retrieve_with_http_info(x_account_token, id, opts)
@@ -143,6 +151,7 @@ module MergeHRISClient
     # @param id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
+    # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
     # @return [Array<(PayrollRun, Integer, Hash)>] PayrollRun data, response status code and response headers
     def payroll_runs_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging
@@ -156,12 +165,17 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling PayrollRunsApi.payroll_runs_retrieve"
       end
+      allowable_values = ["run_state", "run_state,run_type", "run_type"]
+      if @api_client.config.client_side_validation && opts[:'remote_fields'] && !allowable_values.include?(opts[:'remote_fields'])
+        fail ArgumentError, "invalid value for \"remote_fields\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/payroll-runs/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
+      query_params[:'remote_fields'] = opts[:'remote_fields'] if !opts[:'remote_fields'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

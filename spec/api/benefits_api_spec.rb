@@ -41,7 +41,7 @@ describe 'BenefitsApi' do
   # @option opts [String] :cursor The pagination cursor value.
   # @option opts [String] :employee_id If provided, will only return time off for this employee.
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-  # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
+  # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
   # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.

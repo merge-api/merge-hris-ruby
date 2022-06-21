@@ -10,7 +10,7 @@
 | **employee_deduction** | **Float** | The amount the employee is deducting. | [optional] |
 | **company_deduction** | **Float** | The amount the company is deducting. | [optional] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
-| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. | [optional] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] |
 
 ## Example
 

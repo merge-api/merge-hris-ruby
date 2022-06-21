@@ -71,7 +71,7 @@ describe 'EmployeesApi' do
   # @option opts [String] :employment_status If provided, will only return employees with this employment status.
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   # @option opts [String] :first_name If provided, will only return employees with this first name.
-  # @option opts [Boolean] :include_deleted_data Whether to include data that was deleted in the third-party service.
+  # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
   # @option opts [String] :last_name If provided, will only return employees with this last name.
@@ -81,6 +81,7 @@ describe 'EmployeesApi' do
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :pay_group_id If provided, will only return employees for this pay group
   # @option opts [String] :personal_email If provided, will only return Employees with this personal email
+  # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
   # @option opts [String] :team_id If provided, will only return employees for this team.
   # @option opts [String] :work_email If provided, will only return Employees with this work email
@@ -111,6 +112,7 @@ describe 'EmployeesApi' do
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
+  # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
   # @return [Employee]
   describe 'employees_retrieve test' do
     it 'should work' do
