@@ -9,7 +9,6 @@
 | **name** | **String** | The tax&#39;s name. | [optional] |
 | **amount** | **Float** | The tax amount. | [optional] |
 | **employer_tax** | **Boolean** | Whether or not the employer is responsible for paying the tax. | [optional] |
-| **remote_data** | **Array&lt;Hash&lt;String, AnyType&gt;&gt;** |  | [optional] |
 | **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] |
 
 ## Example
@@ -23,7 +22,6 @@ instance = MergeHRISClient::Tax.new(
   name: California State Income Tax,
   amount: 100.25,
   employer_tax: false,
-  remote_data: [{&quot;path&quot;:&quot;/tax&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
   remote_was_deleted: null
 )
 ```

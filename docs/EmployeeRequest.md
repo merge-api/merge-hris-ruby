@@ -10,6 +10,7 @@
 | **first_name** | **String** | The employee&#39;s first name. | [optional] |
 | **last_name** | **String** | The employee&#39;s last name. | [optional] |
 | **display_full_name** | **String** | The employee&#39;s full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name. | [optional] |
+| **username** | **String** | The employee&#39;s username that appears in the remote UI. | [optional] |
 | **groups** | **Array&lt;String&gt;** |  | [optional] |
 | **work_email** | **String** | The employee&#39;s work email. | [optional] |
 | **personal_email** | **String** | The employee&#39;s personal email. | [optional] |
@@ -27,6 +28,7 @@
 | **date_of_birth** | **Time** | The employee&#39;s date of birth. | [optional] |
 | **hire_date** | **Time** | The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you&#39;re looking for the employee&#39;s start date, refer to the start_date field. | [optional] |
 | **start_date** | **Time** | The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date. | [optional] |
+| **remote_created_at** | **Time** | When the third party&#39;s employee was created. | [optional] |
 | **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) | The employment status of the employee. | [optional] |
 | **termination_date** | **Time** | The employee&#39;s termination date. | [optional] |
 | **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] |
@@ -44,6 +46,7 @@ instance = MergeHRISClient::EmployeeRequest.new(
   first_name: Greg,
   last_name: Hirsch,
   display_full_name: Cousin Greg Hirsch,
+  username: cousingreg,
   groups: [&quot;21a54124-397f-494d-985e-3c5b330b8a68&quot;],
   work_email: greg@merge.dev,
   personal_email: greg@gmail.com,
@@ -61,6 +64,7 @@ instance = MergeHRISClient::EmployeeRequest.new(
   date_of_birth: 1990-11-10T00:00Z,
   hire_date: 2020-10-10T00:00Z,
   start_date: 2020-10-11T00:00Z,
+  remote_created_at: 2020-10-11T00:00Z,
   employment_status: INACTIVE,
   termination_date: 2021-10-12T00:00Z,
   avatar: http://alturl.com/h2h8m,

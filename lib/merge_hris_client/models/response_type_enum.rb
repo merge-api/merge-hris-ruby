@@ -14,9 +14,9 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  class UnitsEnum
-    HOURS = "HOURS".freeze
-    DAYS = "DAYS".freeze
+  class ResponseTypeEnum
+    JSON = "JSON".freeze
+    BASE64_GZIP = "BASE64_GZIP".freeze
 
     MERGE_NONSTANDARD_VALUE = "MERGE_NONSTANDARD_VALUE".freeze
 
@@ -28,7 +28,7 @@ module MergeHRISClient
     # @return [String] The enum value
     def build_from_hash(value)
       @raw_value = value
-      if ["HOURS", "DAYS", ].include? value
+      if ["JSON", "BASE64_GZIP", ].include? value
         @value = value
       else
         @value = MERGE_NONSTANDARD_VALUE
