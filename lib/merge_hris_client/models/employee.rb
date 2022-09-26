@@ -35,6 +35,9 @@ module MergeHRISClient
     # The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.
     attr_accessor :display_full_name
 
+    # The employee's username that appears in the remote UI.
+    attr_accessor :username
+
     attr_accessor :groups
 
     # The employee's work email.
@@ -80,6 +83,9 @@ module MergeHRISClient
     # The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date.
     attr_accessor :start_date
 
+    # When the third party's employee was created.
+    attr_accessor :remote_created_at
+
     # The employment status of the employee.
     attr_accessor :employment_status
 
@@ -106,6 +112,7 @@ module MergeHRISClient
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
         :'display_full_name' => :'display_full_name',
+        :'username' => :'username',
         :'groups' => :'groups',
         :'work_email' => :'work_email',
         :'personal_email' => :'personal_email',
@@ -123,6 +130,7 @@ module MergeHRISClient
         :'date_of_birth' => :'date_of_birth',
         :'hire_date' => :'hire_date',
         :'start_date' => :'start_date',
+        :'remote_created_at' => :'remote_created_at',
         :'employment_status' => :'employment_status',
         :'termination_date' => :'termination_date',
         :'avatar' => :'avatar',
@@ -147,6 +155,7 @@ module MergeHRISClient
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'display_full_name' => :'String',
+        :'username' => :'String',
         :'groups' => :'Array<String>',
         :'work_email' => :'String',
         :'personal_email' => :'String',
@@ -164,11 +173,12 @@ module MergeHRISClient
         :'date_of_birth' => :'Time',
         :'hire_date' => :'Time',
         :'start_date' => :'Time',
+        :'remote_created_at' => :'Time',
         :'employment_status' => :'EmploymentStatusEnum',
         :'termination_date' => :'Time',
         :'avatar' => :'String',
         :'remote_data' => :'Array<RemoteData>',
-        :'custom_fields' => :'Hash<String, AnyType>',
+        :'custom_fields' => :'Hash<String, Object>',
         :'remote_was_deleted' => :'Boolean'
       }
     end
@@ -182,6 +192,7 @@ module MergeHRISClient
         :'first_name',
         :'last_name',
         :'display_full_name',
+        :'username',
         :'work_email',
         :'personal_email',
         :'mobile_phone_number',
@@ -197,6 +208,7 @@ module MergeHRISClient
         :'date_of_birth',
         :'hire_date',
         :'start_date',
+        :'remote_created_at',
         :'employment_status',
         :'termination_date',
         :'avatar',
@@ -246,6 +258,10 @@ module MergeHRISClient
 
       if attributes.key?(:'display_full_name')
         self.display_full_name = attributes[:'display_full_name']
+      end
+
+      if attributes.key?(:'username')
+        self.username = attributes[:'username']
       end
 
       if attributes.key?(:'groups')
@@ -318,6 +334,10 @@ module MergeHRISClient
 
       if attributes.key?(:'start_date')
         self.start_date = attributes[:'start_date']
+      end
+
+      if attributes.key?(:'remote_created_at')
+        self.remote_created_at = attributes[:'remote_created_at']
       end
 
       if attributes.key?(:'employment_status')
@@ -434,6 +454,7 @@ module MergeHRISClient
           first_name == o.first_name &&
           last_name == o.last_name &&
           display_full_name == o.display_full_name &&
+          username == o.username &&
           groups == o.groups &&
           work_email == o.work_email &&
           personal_email == o.personal_email &&
@@ -451,6 +472,7 @@ module MergeHRISClient
           date_of_birth == o.date_of_birth &&
           hire_date == o.hire_date &&
           start_date == o.start_date &&
+          remote_created_at == o.remote_created_at &&
           employment_status == o.employment_status &&
           termination_date == o.termination_date &&
           avatar == o.avatar &&
@@ -468,7 +490,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, remote_data, custom_fields, remote_was_deleted].hash
+      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, username, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, remote_created_at, employment_status, termination_date, avatar, remote_data, custom_fields, remote_was_deleted].hash
     end
 
     # Builds the object from hash

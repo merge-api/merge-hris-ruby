@@ -61,7 +61,7 @@ module MergeHRISClient
         :'base_url_override' => :'String',
         :'data' => :'String',
         :'multipart_form_data' => :'Array<MultipartFormFieldRequest>',
-        :'headers' => :'Hash<String, AnyType>',
+        :'headers' => :'Hash<String, Object>',
         :'request_format' => :'RequestFormatEnum',
         :'normalize_response' => :'Boolean'
       }

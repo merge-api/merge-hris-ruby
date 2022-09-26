@@ -29,8 +29,6 @@ module MergeHRISClient
     # Whether or not the employer is responsible for paying the tax.
     attr_accessor :employer_tax
 
-    attr_accessor :remote_data
-
     # Indicates whether or not this object has been deleted by third party webhooks.
     attr_accessor :remote_was_deleted
 
@@ -42,7 +40,6 @@ module MergeHRISClient
         :'name' => :'name',
         :'amount' => :'amount',
         :'employer_tax' => :'employer_tax',
-        :'remote_data' => :'remote_data',
         :'remote_was_deleted' => :'remote_was_deleted'
       }
     end
@@ -60,7 +57,6 @@ module MergeHRISClient
         :'name' => :'String',
         :'amount' => :'Float',
         :'employer_tax' => :'Boolean',
-        :'remote_data' => :'Array<Hash<String, AnyType>>',
         :'remote_was_deleted' => :'Boolean'
       }
     end
@@ -72,7 +68,6 @@ module MergeHRISClient
         :'name',
         :'amount',
         :'employer_tax',
-        :'remote_data',
       ])
     end
 
@@ -111,12 +106,6 @@ module MergeHRISClient
         self.employer_tax = attributes[:'employer_tax']
       end
 
-      if attributes.key?(:'remote_data')
-        if (value = attributes[:'remote_data']).is_a?(Array)
-          self.remote_data = value
-        end
-      end
-
       if attributes.key?(:'remote_was_deleted')
         self.remote_was_deleted = attributes[:'remote_was_deleted']
       end
@@ -145,7 +134,6 @@ module MergeHRISClient
           name == o.name &&
           amount == o.amount &&
           employer_tax == o.employer_tax &&
-          remote_data == o.remote_data &&
           remote_was_deleted == o.remote_was_deleted
     end
 
@@ -158,7 +146,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, employee_payroll_run, name, amount, employer_tax, remote_data, remote_was_deleted].hash
+      [id, employee_payroll_run, name, amount, employer_tax, remote_was_deleted].hash
     end
 
     # Builds the object from hash
