@@ -38,7 +38,7 @@ module MergeHRISClient
     end
 
     def self.build_from_hash(value)
-      IssueStatusEnum.new.build_from_hash(value)
+      UnitsEnum.new.build_from_hash(value)
     end
   end
 
