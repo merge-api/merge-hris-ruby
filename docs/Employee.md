@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
-| **employee_number** | **String** | The employee&#39;s number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers. | [optional] |
-| **company** | **String** |  | [optional] |
+| **employee_number** | **String** | The employee&#39;s number that appears in the third-party integration&#39;s UI. | [optional] |
+| **company** | **String** | The ID of the employee&#39;s company. | [optional] |
 | **first_name** | **String** | The employee&#39;s first name. | [optional] |
 | **last_name** | **String** | The employee&#39;s last name. | [optional] |
 | **display_full_name** | **String** | The employee&#39;s full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name. | [optional] |
@@ -17,25 +17,27 @@
 | **personal_email** | **String** | The employee&#39;s personal email. | [optional] |
 | **mobile_phone_number** | **String** | The employee&#39;s mobile phone number. | [optional] |
 | **employments** | **Array&lt;String&gt;** | Array of &#x60;Employment&#x60; IDs for this Employee. | [optional] |
-| **home_location** | **String** |  | [optional] |
-| **work_location** | **String** |  | [optional] |
-| **manager** | **String** |  | [optional] |
-| **team** | **String** |  | [optional] |
-| **pay_group** | **String** |  | [optional] |
+| **home_location** | **String** | The employee&#39;s home address. | [optional] |
+| **work_location** | **String** | The employee&#39;s work address. | [optional] |
+| **manager** | **String** | The employee ID of the employee&#39;s manager. | [optional] |
+| **team** | **String** | The employee&#39;s team. | [optional] |
+| **pay_group** | **String** | The employee&#39;s pay group | [optional] |
 | **ssn** | **String** | The employee&#39;s social security number. | [optional] |
-| **gender** | [**GenderEnum**](GenderEnum.md) | The employee&#39;s gender. | [optional] |
-| **ethnicity** | [**EthnicityEnum**](EthnicityEnum.md) | The employee&#39;s ethnicity. | [optional] |
-| **marital_status** | [**MaritalStatusEnum**](MaritalStatusEnum.md) | The employee&#39;s marital status. | [optional] |
+| **gender** | [**GenderEnum**](GenderEnum.md) | The employee&#39;s gender.  * &#x60;MALE&#x60; - MALE * &#x60;FEMALE&#x60; - FEMALE * &#x60;NON-BINARY&#x60; - NON-BINARY * &#x60;OTHER&#x60; - OTHER * &#x60;PREFER_NOT_TO_DISCLOSE&#x60; - PREFER_NOT_TO_DISCLOSE | [optional] |
+| **ethnicity** | [**EthnicityEnum**](EthnicityEnum.md) | The employee&#39;s ethnicity.  * &#x60;AMERICAN_INDIAN_OR_ALASKA_NATIVE&#x60; - AMERICAN_INDIAN_OR_ALASKA_NATIVE * &#x60;ASIAN_OR_INDIAN_SUBCONTINENT&#x60; - ASIAN_OR_INDIAN_SUBCONTINENT * &#x60;BLACK_OR_AFRICAN_AMERICAN&#x60; - BLACK_OR_AFRICAN_AMERICAN * &#x60;HISPANIC_OR_LATINO&#x60; - HISPANIC_OR_LATINO * &#x60;NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER&#x60; - NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER * &#x60;TWO_OR_MORE_RACES&#x60; - TWO_OR_MORE_RACES * &#x60;WHITE&#x60; - WHITE * &#x60;PREFER_NOT_TO_DISCLOSE&#x60; - PREFER_NOT_TO_DISCLOSE | [optional] |
+| **marital_status** | [**MaritalStatusEnum**](MaritalStatusEnum.md) | The employee&#39;s filing status as related to marital status.  * &#x60;SINGLE&#x60; - SINGLE * &#x60;MARRIED_FILING_JOINTLY&#x60; - MARRIED_FILING_JOINTLY * &#x60;MARRIED_FILING_SEPARATELY&#x60; - MARRIED_FILING_SEPARATELY * &#x60;HEAD_OF_HOUSEHOLD&#x60; - HEAD_OF_HOUSEHOLD * &#x60;QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD&#x60; - QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD | [optional] |
 | **date_of_birth** | **Time** | The employee&#39;s date of birth. | [optional] |
 | **hire_date** | **Time** | The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you&#39;re looking for the employee&#39;s start date, refer to the start_date field. | [optional] |
-| **start_date** | **Time** | The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date. | [optional] |
+| **start_date** | **Time** | The date that the employee started working. If an employee was rehired, the most recent start date will be returned. | [optional] |
 | **remote_created_at** | **Time** | When the third party&#39;s employee was created. | [optional] |
-| **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) | The employment status of the employee. | [optional] |
+| **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) | The employment status of the employee.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE | [optional] |
 | **termination_date** | **Time** | The employee&#39;s termination date. | [optional] |
 | **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] |
-| **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 | **custom_fields** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) | Custom fields configured for a given model. | [optional] |
 | **remote_was_deleted** | **Boolean** |  | [optional][readonly] |
+| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
+| **modified_at** | **Time** | This is the datetime that this object was last updated by Merge | [optional][readonly] |
+| **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
 
@@ -72,9 +74,11 @@ instance = MergeHRISClient::Employee.new(
   employment_status: INACTIVE,
   termination_date: 2021-10-12T00:00Z,
   avatar: http://alturl.com/h2h8m,
-  remote_data: [{&quot;path&quot;:&quot;/people&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}],
   custom_fields: null,
-  remote_was_deleted: null
+  remote_was_deleted: null,
+  field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
+  modified_at: 2021-10-16T00:00Z,
+  remote_data: [{&quot;path&quot;:&quot;/people&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
 

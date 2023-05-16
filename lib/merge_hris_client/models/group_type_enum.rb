@@ -19,6 +19,7 @@ module MergeHRISClient
     DEPARTMENT = "DEPARTMENT".freeze
     COST_CENTER = "COST_CENTER".freeze
     BUSINESS_UNIT = "BUSINESS_UNIT".freeze
+    GROUP = "GROUP".freeze
 
     MERGE_NONSTANDARD_VALUE = "MERGE_NONSTANDARD_VALUE".freeze
 
@@ -30,7 +31,7 @@ module MergeHRISClient
     # @return [String] The enum value
     def build_from_hash(value)
       @raw_value = value
-      if ["TEAM", "DEPARTMENT", "COST_CENTER", "BUSINESS_UNIT", ].include? value
+      if ["TEAM", "DEPARTMENT", "COST_CENTER", "BUSINESS_UNIT", "GROUP", ].include? value
         @value = value
       else
         @value = MERGE_NONSTANDARD_VALUE

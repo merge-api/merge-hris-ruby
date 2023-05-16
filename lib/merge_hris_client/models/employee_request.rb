@@ -14,14 +14,12 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
+  # # The Employee Object ### Description The `Employee` object is used to represent any person who has been employed by a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
   class EmployeeRequest
-    # The third-party API ID of the matching object.
-    attr_accessor :remote_id
-
-    # The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers.
+    # The employee's number that appears in the third-party integration's UI.
     attr_accessor :employee_number
 
+    # The ID of the employee's company.
     attr_accessor :company
 
     # The employee's first name.
@@ -50,26 +48,31 @@ module MergeHRISClient
     # Array of `Employment` IDs for this Employee.
     attr_accessor :employments
 
+    # The employee's home address.
     attr_accessor :home_location
 
+    # The employee's work address.
     attr_accessor :work_location
 
+    # The employee ID of the employee's manager.
     attr_accessor :manager
 
+    # The employee's team.
     attr_accessor :team
 
+    # The employee's pay group
     attr_accessor :pay_group
 
     # The employee's social security number.
     attr_accessor :ssn
 
-    # The employee's gender.
+    # The employee's gender.  * `MALE` - MALE * `FEMALE` - FEMALE * `NON-BINARY` - NON-BINARY * `OTHER` - OTHER * `PREFER_NOT_TO_DISCLOSE` - PREFER_NOT_TO_DISCLOSE
     attr_accessor :gender
 
-    # The employee's ethnicity.
+    # The employee's ethnicity.  * `AMERICAN_INDIAN_OR_ALASKA_NATIVE` - AMERICAN_INDIAN_OR_ALASKA_NATIVE * `ASIAN_OR_INDIAN_SUBCONTINENT` - ASIAN_OR_INDIAN_SUBCONTINENT * `BLACK_OR_AFRICAN_AMERICAN` - BLACK_OR_AFRICAN_AMERICAN * `HISPANIC_OR_LATINO` - HISPANIC_OR_LATINO * `NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER` - NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER * `TWO_OR_MORE_RACES` - TWO_OR_MORE_RACES * `WHITE` - WHITE * `PREFER_NOT_TO_DISCLOSE` - PREFER_NOT_TO_DISCLOSE
     attr_accessor :ethnicity
 
-    # The employee's marital status.
+    # The employee's filing status as related to marital status.  * `SINGLE` - SINGLE * `MARRIED_FILING_JOINTLY` - MARRIED_FILING_JOINTLY * `MARRIED_FILING_SEPARATELY` - MARRIED_FILING_SEPARATELY * `HEAD_OF_HOUSEHOLD` - HEAD_OF_HOUSEHOLD * `QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD` - QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD
     attr_accessor :marital_status
 
     # The employee's date of birth.
@@ -78,13 +81,10 @@ module MergeHRISClient
     # The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you're looking for the employee's start date, refer to the start_date field.
     attr_accessor :hire_date
 
-    # The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date.
+    # The date that the employee started working. If an employee was rehired, the most recent start date will be returned.
     attr_accessor :start_date
 
-    # When the third party's employee was created.
-    attr_accessor :remote_created_at
-
-    # The employment status of the employee.
+    # The employment status of the employee.  * `ACTIVE` - ACTIVE * `PENDING` - PENDING * `INACTIVE` - INACTIVE
     attr_accessor :employment_status
 
     # The employee's termination date.
@@ -93,13 +93,13 @@ module MergeHRISClient
     # The URL of the employee's avatar image.
     attr_accessor :avatar
 
-    # Custom fields configured for a given model.
-    attr_accessor :custom_fields
+    attr_accessor :integration_params
+
+    attr_accessor :linked_account_params
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'remote_id' => :'remote_id',
         :'employee_number' => :'employee_number',
         :'company' => :'company',
         :'first_name' => :'first_name',
@@ -123,11 +123,11 @@ module MergeHRISClient
         :'date_of_birth' => :'date_of_birth',
         :'hire_date' => :'hire_date',
         :'start_date' => :'start_date',
-        :'remote_created_at' => :'remote_created_at',
         :'employment_status' => :'employment_status',
         :'termination_date' => :'termination_date',
         :'avatar' => :'avatar',
-        :'custom_fields' => :'custom_fields'
+        :'integration_params' => :'integration_params',
+        :'linked_account_params' => :'linked_account_params'
       }
     end
 
@@ -139,7 +139,6 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'remote_id' => :'String',
         :'employee_number' => :'String',
         :'company' => :'String',
         :'first_name' => :'String',
@@ -163,18 +162,17 @@ module MergeHRISClient
         :'date_of_birth' => :'Time',
         :'hire_date' => :'Time',
         :'start_date' => :'Time',
-        :'remote_created_at' => :'Time',
         :'employment_status' => :'EmploymentStatusEnum',
         :'termination_date' => :'Time',
         :'avatar' => :'String',
-        :'custom_fields' => :'Hash<String, Object>'
+        :'integration_params' => :'Hash<String, Object>',
+        :'linked_account_params' => :'Hash<String, Object>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'remote_id',
         :'employee_number',
         :'company',
         :'first_name',
@@ -196,11 +194,11 @@ module MergeHRISClient
         :'date_of_birth',
         :'hire_date',
         :'start_date',
-        :'remote_created_at',
         :'employment_status',
         :'termination_date',
         :'avatar',
-        :'custom_fields'
+        :'integration_params',
+        :'linked_account_params'
       ])
     end
 
@@ -218,10 +216,6 @@ module MergeHRISClient
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'remote_id')
-        self.remote_id = attributes[:'remote_id']
-      end
 
       if attributes.key?(:'employee_number')
         self.employee_number = attributes[:'employee_number']
@@ -319,10 +313,6 @@ module MergeHRISClient
         self.start_date = attributes[:'start_date']
       end
 
-      if attributes.key?(:'remote_created_at')
-        self.remote_created_at = attributes[:'remote_created_at']
-      end
-
       if attributes.key?(:'employment_status')
         self.employment_status = attributes[:'employment_status']
       end
@@ -335,9 +325,15 @@ module MergeHRISClient
         self.avatar = attributes[:'avatar']
       end
 
-      if attributes.key?(:'custom_fields')
-        if (value = attributes[:'custom_fields']).is_a?(Hash)
-          self.custom_fields = value
+      if attributes.key?(:'integration_params')
+        if (value = attributes[:'integration_params']).is_a?(Hash)
+          self.integration_params = value
+        end
+      end
+
+      if attributes.key?(:'linked_account_params')
+        if (value = attributes[:'linked_account_params']).is_a?(Hash)
+          self.linked_account_params = value
         end
       end
     end
@@ -420,7 +416,6 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          remote_id == o.remote_id &&
           employee_number == o.employee_number &&
           company == o.company &&
           first_name == o.first_name &&
@@ -444,11 +439,11 @@ module MergeHRISClient
           date_of_birth == o.date_of_birth &&
           hire_date == o.hire_date &&
           start_date == o.start_date &&
-          remote_created_at == o.remote_created_at &&
           employment_status == o.employment_status &&
           termination_date == o.termination_date &&
           avatar == o.avatar &&
-          custom_fields == o.custom_fields
+          integration_params == o.integration_params &&
+          linked_account_params == o.linked_account_params
     end
 
     # @see the `==` method
@@ -460,7 +455,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [remote_id, employee_number, company, first_name, last_name, display_full_name, username, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, remote_created_at, employment_status, termination_date, avatar, custom_fields].hash
+      [employee_number, company, first_name, last_name, display_full_name, username, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, integration_params, linked_account_params].hash
     end
 
     # Builds the object from hash

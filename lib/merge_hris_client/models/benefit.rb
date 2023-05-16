@@ -14,13 +14,14 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The Benefit Object ### Description The `Benefit` object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.
+  # # The Benefit Object ### Description The `Benefit` object is used to represent a benefit that an employee has enrolled in.  ### Usage Example Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.
   class Benefit
     attr_accessor :id
 
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
+    # The employee on the plan.
     attr_accessor :employee
 
     # The name of the benefit provider.
@@ -35,10 +36,15 @@ module MergeHRISClient
     # The company's contribution.
     attr_accessor :company_contribution
 
-    attr_accessor :remote_data
-
     # Indicates whether or not this object has been deleted by third party webhooks.
     attr_accessor :remote_was_deleted
+
+    attr_accessor :field_mappings
+
+    # This is the datetime that this object was last updated by Merge
+    attr_accessor :modified_at
+
+    attr_accessor :remote_data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -50,8 +56,10 @@ module MergeHRISClient
         :'benefit_plan_type' => :'benefit_plan_type',
         :'employee_contribution' => :'employee_contribution',
         :'company_contribution' => :'company_contribution',
-        :'remote_data' => :'remote_data',
-        :'remote_was_deleted' => :'remote_was_deleted'
+        :'remote_was_deleted' => :'remote_was_deleted',
+        :'field_mappings' => :'field_mappings',
+        :'modified_at' => :'modified_at',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -70,8 +78,10 @@ module MergeHRISClient
         :'benefit_plan_type' => :'String',
         :'employee_contribution' => :'Float',
         :'company_contribution' => :'Float',
-        :'remote_data' => :'Array<RemoteData>',
-        :'remote_was_deleted' => :'Boolean'
+        :'remote_was_deleted' => :'Boolean',
+        :'field_mappings' => :'Hash<String, Object>',
+        :'modified_at' => :'Time',
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
@@ -84,7 +94,8 @@ module MergeHRISClient
         :'benefit_plan_type',
         :'employee_contribution',
         :'company_contribution',
-        :'remote_data',
+        :'field_mappings',
+        :'remote_data'
       ])
     end
 
@@ -131,14 +142,24 @@ module MergeHRISClient
         self.company_contribution = attributes[:'company_contribution']
       end
 
+      if attributes.key?(:'remote_was_deleted')
+        self.remote_was_deleted = attributes[:'remote_was_deleted']
+      end
+
+      if attributes.key?(:'field_mappings')
+        if (value = attributes[:'field_mappings']).is_a?(Hash)
+          self.field_mappings = value
+        end
+      end
+
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
       if attributes.key?(:'remote_data')
         if (value = attributes[:'remote_data']).is_a?(Array)
           self.remote_data = value
         end
-      end
-
-      if attributes.key?(:'remote_was_deleted')
-        self.remote_was_deleted = attributes[:'remote_was_deleted']
       end
     end
 
@@ -167,8 +188,10 @@ module MergeHRISClient
           benefit_plan_type == o.benefit_plan_type &&
           employee_contribution == o.employee_contribution &&
           company_contribution == o.company_contribution &&
-          remote_data == o.remote_data &&
-          remote_was_deleted == o.remote_was_deleted
+          remote_was_deleted == o.remote_was_deleted &&
+          field_mappings == o.field_mappings &&
+          modified_at == o.modified_at &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -180,7 +203,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, provider_name, benefit_plan_type, employee_contribution, company_contribution, remote_data, remote_was_deleted].hash
+      [id, remote_id, employee, provider_name, benefit_plan_type, employee_contribution, company_contribution, remote_was_deleted, field_mappings, modified_at, remote_data].hash
     end
 
     # Builds the object from hash

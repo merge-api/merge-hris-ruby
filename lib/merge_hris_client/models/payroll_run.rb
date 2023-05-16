@@ -14,17 +14,17 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The PayrollRun Object ### Description The `PayrollRun` object is used to represent a payroll run. This payroll run is not specific to an employee.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.
+  # # The PayrollRun Object ### Description The `PayrollRun` object is used to represent a group of pay statements for a specific pay schedule.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.
   class PayrollRun
     attr_accessor :id
 
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The state of the payroll run
+    # The state of the payroll run  * `PAID` - PAID * `DRAFT` - DRAFT * `APPROVED` - APPROVED * `FAILED` - FAILED * `CLOSED` - CLOSED
     attr_accessor :run_state
 
-    # The type of the payroll run
+    # The type of the payroll run  * `REGULAR` - REGULAR * `OFF_CYCLE` - OFF_CYCLE * `CORRECTION` - CORRECTION * `TERMINATION` - TERMINATION * `SIGN_ON_BONUS` - SIGN_ON_BONUS
     attr_accessor :run_type
 
     # The day and time the payroll run started.
@@ -36,10 +36,15 @@ module MergeHRISClient
     # The day and time the payroll run was checked.
     attr_accessor :check_date
 
-    attr_accessor :remote_data
-
     # Indicates whether or not this object has been deleted by third party webhooks.
     attr_accessor :remote_was_deleted
+
+    attr_accessor :field_mappings
+
+    # This is the datetime that this object was last updated by Merge
+    attr_accessor :modified_at
+
+    attr_accessor :remote_data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -51,8 +56,10 @@ module MergeHRISClient
         :'start_date' => :'start_date',
         :'end_date' => :'end_date',
         :'check_date' => :'check_date',
-        :'remote_data' => :'remote_data',
-        :'remote_was_deleted' => :'remote_was_deleted'
+        :'remote_was_deleted' => :'remote_was_deleted',
+        :'field_mappings' => :'field_mappings',
+        :'modified_at' => :'modified_at',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -71,8 +78,10 @@ module MergeHRISClient
         :'start_date' => :'Time',
         :'end_date' => :'Time',
         :'check_date' => :'Time',
-        :'remote_data' => :'Array<RemoteData>',
-        :'remote_was_deleted' => :'Boolean'
+        :'remote_was_deleted' => :'Boolean',
+        :'field_mappings' => :'Hash<String, Object>',
+        :'modified_at' => :'Time',
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
@@ -85,7 +94,8 @@ module MergeHRISClient
         :'start_date',
         :'end_date',
         :'check_date',
-        :'remote_data',
+        :'field_mappings',
+        :'remote_data'
       ])
     end
 
@@ -132,14 +142,24 @@ module MergeHRISClient
         self.check_date = attributes[:'check_date']
       end
 
+      if attributes.key?(:'remote_was_deleted')
+        self.remote_was_deleted = attributes[:'remote_was_deleted']
+      end
+
+      if attributes.key?(:'field_mappings')
+        if (value = attributes[:'field_mappings']).is_a?(Hash)
+          self.field_mappings = value
+        end
+      end
+
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
       if attributes.key?(:'remote_data')
         if (value = attributes[:'remote_data']).is_a?(Array)
           self.remote_data = value
         end
-      end
-
-      if attributes.key?(:'remote_was_deleted')
-        self.remote_was_deleted = attributes[:'remote_was_deleted']
       end
     end
 
@@ -168,8 +188,10 @@ module MergeHRISClient
           start_date == o.start_date &&
           end_date == o.end_date &&
           check_date == o.check_date &&
-          remote_data == o.remote_data &&
-          remote_was_deleted == o.remote_was_deleted
+          remote_was_deleted == o.remote_was_deleted &&
+          field_mappings == o.field_mappings &&
+          modified_at == o.modified_at &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -181,7 +203,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, run_state, run_type, start_date, end_date, check_date, remote_data, remote_was_deleted].hash
+      [id, remote_id, run_state, run_type, start_date, end_date, check_date, remote_was_deleted, field_mappings, modified_at, remote_data].hash
     end
 
     # Builds the object from hash

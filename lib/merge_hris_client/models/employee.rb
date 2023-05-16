@@ -14,16 +14,17 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
+  # # The Employee Object ### Description The `Employee` object is used to represent any person who has been employed by a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
   class Employee
     attr_accessor :id
 
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
-    # The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers.
+    # The employee's number that appears in the third-party integration's UI.
     attr_accessor :employee_number
 
+    # The ID of the employee's company.
     attr_accessor :company
 
     # The employee's first name.
@@ -52,26 +53,31 @@ module MergeHRISClient
     # Array of `Employment` IDs for this Employee.
     attr_accessor :employments
 
+    # The employee's home address.
     attr_accessor :home_location
 
+    # The employee's work address.
     attr_accessor :work_location
 
+    # The employee ID of the employee's manager.
     attr_accessor :manager
 
+    # The employee's team.
     attr_accessor :team
 
+    # The employee's pay group
     attr_accessor :pay_group
 
     # The employee's social security number.
     attr_accessor :ssn
 
-    # The employee's gender.
+    # The employee's gender.  * `MALE` - MALE * `FEMALE` - FEMALE * `NON-BINARY` - NON-BINARY * `OTHER` - OTHER * `PREFER_NOT_TO_DISCLOSE` - PREFER_NOT_TO_DISCLOSE
     attr_accessor :gender
 
-    # The employee's ethnicity.
+    # The employee's ethnicity.  * `AMERICAN_INDIAN_OR_ALASKA_NATIVE` - AMERICAN_INDIAN_OR_ALASKA_NATIVE * `ASIAN_OR_INDIAN_SUBCONTINENT` - ASIAN_OR_INDIAN_SUBCONTINENT * `BLACK_OR_AFRICAN_AMERICAN` - BLACK_OR_AFRICAN_AMERICAN * `HISPANIC_OR_LATINO` - HISPANIC_OR_LATINO * `NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER` - NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER * `TWO_OR_MORE_RACES` - TWO_OR_MORE_RACES * `WHITE` - WHITE * `PREFER_NOT_TO_DISCLOSE` - PREFER_NOT_TO_DISCLOSE
     attr_accessor :ethnicity
 
-    # The employee's marital status.
+    # The employee's filing status as related to marital status.  * `SINGLE` - SINGLE * `MARRIED_FILING_JOINTLY` - MARRIED_FILING_JOINTLY * `MARRIED_FILING_SEPARATELY` - MARRIED_FILING_SEPARATELY * `HEAD_OF_HOUSEHOLD` - HEAD_OF_HOUSEHOLD * `QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD` - QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD
     attr_accessor :marital_status
 
     # The employee's date of birth.
@@ -80,13 +86,13 @@ module MergeHRISClient
     # The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you're looking for the employee's start date, refer to the start_date field.
     attr_accessor :hire_date
 
-    # The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date.
+    # The date that the employee started working. If an employee was rehired, the most recent start date will be returned.
     attr_accessor :start_date
 
     # When the third party's employee was created.
     attr_accessor :remote_created_at
 
-    # The employment status of the employee.
+    # The employment status of the employee.  * `ACTIVE` - ACTIVE * `PENDING` - PENDING * `INACTIVE` - INACTIVE
     attr_accessor :employment_status
 
     # The employee's termination date.
@@ -95,12 +101,17 @@ module MergeHRISClient
     # The URL of the employee's avatar image.
     attr_accessor :avatar
 
-    attr_accessor :remote_data
-
     # Custom fields configured for a given model.
     attr_accessor :custom_fields
 
     attr_accessor :remote_was_deleted
+
+    attr_accessor :field_mappings
+
+    # This is the datetime that this object was last updated by Merge
+    attr_accessor :modified_at
+
+    attr_accessor :remote_data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -134,9 +145,11 @@ module MergeHRISClient
         :'employment_status' => :'employment_status',
         :'termination_date' => :'termination_date',
         :'avatar' => :'avatar',
-        :'remote_data' => :'remote_data',
         :'custom_fields' => :'custom_fields',
-        :'remote_was_deleted' => :'remote_was_deleted'
+        :'remote_was_deleted' => :'remote_was_deleted',
+        :'field_mappings' => :'field_mappings',
+        :'modified_at' => :'modified_at',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -177,9 +190,11 @@ module MergeHRISClient
         :'employment_status' => :'EmploymentStatusEnum',
         :'termination_date' => :'Time',
         :'avatar' => :'String',
-        :'remote_data' => :'Array<RemoteData>',
         :'custom_fields' => :'Hash<String, Object>',
-        :'remote_was_deleted' => :'Boolean'
+        :'remote_was_deleted' => :'Boolean',
+        :'field_mappings' => :'Hash<String, Object>',
+        :'modified_at' => :'Time',
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
@@ -212,8 +227,9 @@ module MergeHRISClient
         :'employment_status',
         :'termination_date',
         :'avatar',
-        :'remote_data',
         :'custom_fields',
+        :'field_mappings',
+        :'remote_data'
       ])
     end
 
@@ -352,12 +368,6 @@ module MergeHRISClient
         self.avatar = attributes[:'avatar']
       end
 
-      if attributes.key?(:'remote_data')
-        if (value = attributes[:'remote_data']).is_a?(Array)
-          self.remote_data = value
-        end
-      end
-
       if attributes.key?(:'custom_fields')
         if (value = attributes[:'custom_fields']).is_a?(Hash)
           self.custom_fields = value
@@ -366,6 +376,22 @@ module MergeHRISClient
 
       if attributes.key?(:'remote_was_deleted')
         self.remote_was_deleted = attributes[:'remote_was_deleted']
+      end
+
+      if attributes.key?(:'field_mappings')
+        if (value = attributes[:'field_mappings']).is_a?(Hash)
+          self.field_mappings = value
+        end
+      end
+
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
+      if attributes.key?(:'remote_data')
+        if (value = attributes[:'remote_data']).is_a?(Array)
+          self.remote_data = value
+        end
       end
     end
 
@@ -476,9 +502,11 @@ module MergeHRISClient
           employment_status == o.employment_status &&
           termination_date == o.termination_date &&
           avatar == o.avatar &&
-          remote_data == o.remote_data &&
           custom_fields == o.custom_fields &&
-          remote_was_deleted == o.remote_was_deleted
+          remote_was_deleted == o.remote_was_deleted &&
+          field_mappings == o.field_mappings &&
+          modified_at == o.modified_at &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -490,7 +518,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, username, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, remote_created_at, employment_status, termination_date, avatar, remote_data, custom_fields, remote_was_deleted].hash
+      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, username, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, remote_created_at, employment_status, termination_date, avatar, custom_fields, remote_was_deleted, field_mappings, modified_at, remote_data].hash
     end
 
     # Builds the object from hash
