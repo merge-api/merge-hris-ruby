@@ -43,12 +43,13 @@ describe 'PayrollRunsApi' do
   # @option opts [Time] :ended_before If provided, will only return payroll runs ended before this datetime.
   # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
-  # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
-  # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
+  # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
+  # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
+  # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-  # @option opts [String] :run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;)
+  # @option opts [String] :run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;)  * &#x60;REGULAR&#x60; - REGULAR * &#x60;OFF_CYCLE&#x60; - OFF_CYCLE * &#x60;CORRECTION&#x60; - CORRECTION * &#x60;TERMINATION&#x60; - TERMINATION * &#x60;SIGN_ON_BONUS&#x60; - SIGN_ON_BONUS
+  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
   # @option opts [Time] :started_after If provided, will only return payroll runs started after this datetime.
   # @option opts [Time] :started_before If provided, will only return payroll runs started before this datetime.
   # @return [PaginatedPayrollRunList]
@@ -64,7 +65,8 @@ describe 'PayrollRunsApi' do
   # @param id 
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
-  # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
+  # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
+  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
   # @return [PayrollRun]
   describe 'payroll_runs_retrieve test' do
     it 'should work' do

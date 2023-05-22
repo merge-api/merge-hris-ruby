@@ -100,10 +100,10 @@ module MergeHRISClient
     # @param model_id [String] 
     # @param ignore_common_model_request [IgnoreCommonModelRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [IgnoreCommonModel]
+    # @return [nil]
     def employees_ignore_create(x_account_token, model_id, ignore_common_model_request, opts = {})
-      data, _status_code, _headers = employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request, opts)
-      data
+      employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request, opts)
+      nil
     end
 
     # Ignores a specific row based on the &#x60;model_id&#x60; in the url. These records will have their properties set to null, and will not be updated in future syncs. The \&quot;reason\&quot; and \&quot;message\&quot; fields in the request body will be stored for audit purposes.
@@ -111,7 +111,7 @@ module MergeHRISClient
     # @param model_id [String] 
     # @param ignore_common_model_request [IgnoreCommonModelRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(IgnoreCommonModel, Integer, Hash)>] IgnoreCommonModel data, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeesApi.employees_ignore_create ...'
@@ -136,8 +136,6 @@ module MergeHRISClient
 
       # header parameters
       header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])
       header_params[:'X-Account-Token'] = x_account_token
@@ -149,7 +147,7 @@ module MergeHRISClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(ignore_common_model_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'IgnoreCommonModel'
+      return_type = opts[:debug_return_type]
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['tokenAuth']
@@ -179,22 +177,28 @@ module MergeHRISClient
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [String] :display_full_name If provided, will only return employees with this display name.
-    # @option opts [String] :employment_status If provided, will only return employees with this employment status.
+    # @option opts [String] :employment_status If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [String] :first_name If provided, will only return employees with this first name.
+    # @option opts [String] :groups If provided, will only return employees matching the group ids; multiple groups can be separated by commas.
     # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
     # @option opts [String] :last_name If provided, will only return employees with this last name.
     # @option opts [String] :manager_id If provided, will only return employees for this manager.
-    # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
-    # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
+    # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
+    # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :pay_group_id If provided, will only return employees for this pay group
     # @option opts [String] :personal_email If provided, will only return Employees with this personal email
-    # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
+    # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
+    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [Time] :started_after If provided, will only return employees that started after this datetime.
+    # @option opts [Time] :started_before If provided, will only return employees that started before this datetime.
     # @option opts [String] :team_id If provided, will only return employees for this team.
+    # @option opts [Time] :terminated_after If provided, will only return employees that were terminated after this datetime.
+    # @option opts [Time] :terminated_before If provided, will only return employees that were terminated before this datetime.
     # @option opts [String] :work_email If provided, will only return Employees with this work email
     # @option opts [String] :work_location_id If provided, will only return employees for this location.
     # @return [PaginatedEmployeeList]
@@ -211,22 +215,28 @@ module MergeHRISClient
     # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [String] :display_full_name If provided, will only return employees with this display name.
-    # @option opts [String] :employment_status If provided, will only return employees with this employment status.
+    # @option opts [String] :employment_status If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [String] :first_name If provided, will only return employees with this first name.
+    # @option opts [String] :groups If provided, will only return employees matching the group ids; multiple groups can be separated by commas.
     # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
     # @option opts [String] :last_name If provided, will only return employees with this last name.
     # @option opts [String] :manager_id If provided, will only return employees for this manager.
-    # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
-    # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
+    # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
+    # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :pay_group_id If provided, will only return employees for this pay group
     # @option opts [String] :personal_email If provided, will only return Employees with this personal email
-    # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
+    # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
+    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [Time] :started_after If provided, will only return employees that started after this datetime.
+    # @option opts [Time] :started_before If provided, will only return employees that started before this datetime.
     # @option opts [String] :team_id If provided, will only return employees for this team.
+    # @option opts [Time] :terminated_after If provided, will only return employees that were terminated after this datetime.
+    # @option opts [Time] :terminated_before If provided, will only return employees that were terminated before this datetime.
     # @option opts [String] :work_email If provided, will only return Employees with this work email
     # @option opts [String] :work_location_id If provided, will only return employees for this location.
     # @return [Array<(PaginatedEmployeeList, Integer, Hash)>] PaginatedEmployeeList data, response status code and response headers
@@ -250,6 +260,10 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && opts[:'remote_fields'] && !allowable_values.include?(opts[:'remote_fields'])
         fail ArgumentError, "invalid value for \"remote_fields\", must be one of #{allowable_values}"
       end
+      allowable_values = ["employment_status", "employment_status,ethnicity", "employment_status,ethnicity,gender", "employment_status,ethnicity,gender,marital_status", "employment_status,ethnicity,marital_status", "employment_status,gender", "employment_status,gender,marital_status", "employment_status,marital_status", "ethnicity", "ethnicity,gender", "ethnicity,gender,marital_status", "ethnicity,marital_status", "gender", "gender,marital_status", "marital_status"]
+      if @api_client.config.client_side_validation && opts[:'show_enum_origins'] && !allowable_values.include?(opts[:'show_enum_origins'])
+        fail ArgumentError, "invalid value for \"show_enum_origins\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/employees'
 
@@ -263,6 +277,7 @@ module MergeHRISClient
       query_params[:'employment_status'] = opts[:'employment_status'] if !opts[:'employment_status'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
       query_params[:'first_name'] = opts[:'first_name'] if !opts[:'first_name'].nil?
+      query_params[:'groups'] = opts[:'groups'] if !opts[:'groups'].nil?
       query_params[:'include_deleted_data'] = opts[:'include_deleted_data'] if !opts[:'include_deleted_data'].nil?
       query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
       query_params[:'include_sensitive_fields'] = opts[:'include_sensitive_fields'] if !opts[:'include_sensitive_fields'].nil?
@@ -275,7 +290,12 @@ module MergeHRISClient
       query_params[:'personal_email'] = opts[:'personal_email'] if !opts[:'personal_email'].nil?
       query_params[:'remote_fields'] = opts[:'remote_fields'] if !opts[:'remote_fields'].nil?
       query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
+      query_params[:'show_enum_origins'] = opts[:'show_enum_origins'] if !opts[:'show_enum_origins'].nil?
+      query_params[:'started_after'] = opts[:'started_after'] if !opts[:'started_after'].nil?
+      query_params[:'started_before'] = opts[:'started_before'] if !opts[:'started_before'].nil?
       query_params[:'team_id'] = opts[:'team_id'] if !opts[:'team_id'].nil?
+      query_params[:'terminated_after'] = opts[:'terminated_after'] if !opts[:'terminated_after'].nil?
+      query_params[:'terminated_before'] = opts[:'terminated_before'] if !opts[:'terminated_before'].nil?
       query_params[:'work_email'] = opts[:'work_email'] if !opts[:'work_email'].nil?
       query_params[:'work_location_id'] = opts[:'work_location_id'] if !opts[:'work_location_id'].nil?
 
@@ -383,7 +403,8 @@ module MergeHRISClient
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
-    # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
+    # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
+    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
     # @return [Employee]
     def employees_retrieve(x_account_token, id, opts = {})
       data, _status_code, _headers = employees_retrieve_with_http_info(x_account_token, id, opts)
@@ -397,7 +418,8 @@ module MergeHRISClient
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
-    # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
+    # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
+    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
     # @return [Array<(Employee, Integer, Hash)>] Employee data, response status code and response headers
     def employees_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging
@@ -419,6 +441,10 @@ module MergeHRISClient
       if @api_client.config.client_side_validation && opts[:'remote_fields'] && !allowable_values.include?(opts[:'remote_fields'])
         fail ArgumentError, "invalid value for \"remote_fields\", must be one of #{allowable_values}"
       end
+      allowable_values = ["employment_status", "employment_status,ethnicity", "employment_status,ethnicity,gender", "employment_status,ethnicity,gender,marital_status", "employment_status,ethnicity,marital_status", "employment_status,gender", "employment_status,gender,marital_status", "employment_status,marital_status", "ethnicity", "ethnicity,gender", "ethnicity,gender,marital_status", "ethnicity,marital_status", "gender", "gender,marital_status", "marital_status"]
+      if @api_client.config.client_side_validation && opts[:'show_enum_origins'] && !allowable_values.include?(opts[:'show_enum_origins'])
+        fail ArgumentError, "invalid value for \"show_enum_origins\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/employees/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
@@ -428,6 +454,7 @@ module MergeHRISClient
       query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
       query_params[:'include_sensitive_fields'] = opts[:'include_sensitive_fields'] if !opts[:'include_sensitive_fields'].nil?
       query_params[:'remote_fields'] = opts[:'remote_fields'] if !opts[:'remote_fields'].nil?
+      query_params[:'show_enum_origins'] = opts[:'show_enum_origins'] if !opts[:'show_enum_origins'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

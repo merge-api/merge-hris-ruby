@@ -14,28 +14,27 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The TimeOff Object ### Description The `TimeOff` object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the `LIST TimeOffs` endpoint and filter by `ID` to show all time off requests.
+  # # The TimeOff Object ### Description The `TimeOff` object is used to represent all employees' Time Off entries.  ### Usage Example Fetch from the `LIST TimeOffs` endpoint and filter by `ID` to show all time off requests.
   class TimeOffRequest
-    # The third-party API ID of the matching object.
-    attr_accessor :remote_id
-
+    # The employee requesting time off.
     attr_accessor :employee
 
+    # The Merge ID of the employee with the ability to approve the time off request.
     attr_accessor :approver
 
-    # The status of this time off request.
+    # The status of this time off request.  * `REQUESTED` - REQUESTED * `APPROVED` - APPROVED * `DECLINED` - DECLINED * `CANCELLED` - CANCELLED * `DELETED` - DELETED
     attr_accessor :status
 
     # The employee note for this time off request.
     attr_accessor :employee_note
 
-    # The unit of time requested.
+    # The measurement that the third-party integration uses to count time requested.  * `HOURS` - HOURS * `DAYS` - DAYS
     attr_accessor :units
 
-    # The number of time off units requested.
+    # The time off quantity measured by the prescribed “units”.
     attr_accessor :amount
 
-    # The type of time off request.
+    # The type of time off request.  * `VACATION` - VACATION * `SICK` - SICK * `PERSONAL` - PERSONAL * `JURY_DUTY` - JURY_DUTY * `VOLUNTEER` - VOLUNTEER * `BEREAVEMENT` - BEREAVEMENT
     attr_accessor :request_type
 
     # The day and time of the start of the time requested off.
@@ -44,10 +43,13 @@ module MergeHRISClient
     # The day and time of the end of the time requested off.
     attr_accessor :end_time
 
+    attr_accessor :integration_params
+
+    attr_accessor :linked_account_params
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'remote_id' => :'remote_id',
         :'employee' => :'employee',
         :'approver' => :'approver',
         :'status' => :'status',
@@ -56,7 +58,9 @@ module MergeHRISClient
         :'amount' => :'amount',
         :'request_type' => :'request_type',
         :'start_time' => :'start_time',
-        :'end_time' => :'end_time'
+        :'end_time' => :'end_time',
+        :'integration_params' => :'integration_params',
+        :'linked_account_params' => :'linked_account_params'
       }
     end
 
@@ -68,7 +72,6 @@ module MergeHRISClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'remote_id' => :'String',
         :'employee' => :'String',
         :'approver' => :'String',
         :'status' => :'TimeOffStatusEnum',
@@ -77,14 +80,15 @@ module MergeHRISClient
         :'amount' => :'Float',
         :'request_type' => :'RequestTypeEnum',
         :'start_time' => :'Time',
-        :'end_time' => :'Time'
+        :'end_time' => :'Time',
+        :'integration_params' => :'Hash<String, Object>',
+        :'linked_account_params' => :'Hash<String, Object>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'remote_id',
         :'employee',
         :'approver',
         :'status',
@@ -93,7 +97,9 @@ module MergeHRISClient
         :'amount',
         :'request_type',
         :'start_time',
-        :'end_time'
+        :'end_time',
+        :'integration_params',
+        :'linked_account_params'
       ])
     end
 
@@ -111,10 +117,6 @@ module MergeHRISClient
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'remote_id')
-        self.remote_id = attributes[:'remote_id']
-      end
 
       if attributes.key?(:'employee')
         self.employee = attributes[:'employee']
@@ -151,6 +153,18 @@ module MergeHRISClient
       if attributes.key?(:'end_time')
         self.end_time = attributes[:'end_time']
       end
+
+      if attributes.key?(:'integration_params')
+        if (value = attributes[:'integration_params']).is_a?(Hash)
+          self.integration_params = value
+        end
+      end
+
+      if attributes.key?(:'linked_account_params')
+        if (value = attributes[:'linked_account_params']).is_a?(Hash)
+          self.linked_account_params = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -171,7 +185,6 @@ module MergeHRISClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          remote_id == o.remote_id &&
           employee == o.employee &&
           approver == o.approver &&
           status == o.status &&
@@ -180,7 +193,9 @@ module MergeHRISClient
           amount == o.amount &&
           request_type == o.request_type &&
           start_time == o.start_time &&
-          end_time == o.end_time
+          end_time == o.end_time &&
+          integration_params == o.integration_params &&
+          linked_account_params == o.linked_account_params
     end
 
     # @see the `==` method
@@ -192,7 +207,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [remote_id, employee, approver, status, employee_note, units, amount, request_type, start_time, end_time].hash
+      [employee, approver, status, employee_note, units, amount, request_type, start_time, end_time, integration_params, linked_account_params].hash
     end
 
     # Builds the object from hash

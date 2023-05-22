@@ -10,6 +10,7 @@
 | **next_sync_start** | **Time** |  | [optional] |
 | **status** | [**SyncStatusStatusEnum**](SyncStatusStatusEnum.md) |  |  |
 | **is_initial_sync** | **Boolean** |  |  |
+| **selective_sync_configurations_usage** | [**SelectiveSyncConfigurationsUsageEnum**](SelectiveSyncConfigurationsUsageEnum.md) |  | [optional] |
 
 ## Example
 
@@ -17,12 +18,13 @@
 require 'merge_hris_client'
 
 instance = MergeHRISClient::SyncStatus.new(
-  model_name: Candidate,
-  model_id: ats.Candidate,
+  model_name: Employee,
+  model_id: hris.Employee,
   last_sync_start: 2021-03-30T19:44:18.695973Z,
   next_sync_start: 2021-03-30T20:44:18.662942Z,
   status: SYNCING,
-  is_initial_sync: true
+  is_initial_sync: true,
+  selective_sync_configurations_usage: null
 )
 ```
 

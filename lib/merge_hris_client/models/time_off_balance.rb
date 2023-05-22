@@ -14,28 +14,34 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The TimeOffBalance Object ### Description The `TimeOffBalance` object is used to represent a Time Off Balance for an employee.  ### Usage Example Fetch from the `LIST TimeOffBalances` endpoint and filter by `ID` to show all time off balances.
+  # # The TimeOffBalance Object ### Description The `TimeOffBalance` object is used to represent current balances for an employee's Time Off plan.  ### Usage Example Fetch from the `LIST TimeOffBalances` endpoint and filter by `ID` to show all time off balances.
   class TimeOffBalance
     attr_accessor :id
 
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
+    # The employee the balance belongs to.
     attr_accessor :employee
 
-    # The current remaining PTO balance in terms of hours. This does not represent the starting PTO balance. If the API provider only provides PTO balance in terms of days, we estimate 8 hours per day.
+    # The current remaining PTO balance, always measured in terms of hours.
     attr_accessor :balance
 
     # The amount of PTO used in terms of hours.
     attr_accessor :used
 
-    # The policy type of this time off balance.
+    # The policy type of this time off balance.  * `VACATION` - VACATION * `SICK` - SICK * `PERSONAL` - PERSONAL * `JURY_DUTY` - JURY_DUTY * `VOLUNTEER` - VOLUNTEER * `BEREAVEMENT` - BEREAVEMENT
     attr_accessor :policy_type
-
-    attr_accessor :remote_data
 
     # Indicates whether or not this object has been deleted by third party webhooks.
     attr_accessor :remote_was_deleted
+
+    attr_accessor :field_mappings
+
+    # This is the datetime that this object was last updated by Merge
+    attr_accessor :modified_at
+
+    attr_accessor :remote_data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -46,8 +52,10 @@ module MergeHRISClient
         :'balance' => :'balance',
         :'used' => :'used',
         :'policy_type' => :'policy_type',
-        :'remote_data' => :'remote_data',
-        :'remote_was_deleted' => :'remote_was_deleted'
+        :'remote_was_deleted' => :'remote_was_deleted',
+        :'field_mappings' => :'field_mappings',
+        :'modified_at' => :'modified_at',
+        :'remote_data' => :'remote_data'
       }
     end
 
@@ -65,8 +73,10 @@ module MergeHRISClient
         :'balance' => :'Float',
         :'used' => :'Float',
         :'policy_type' => :'PolicyTypeEnum',
-        :'remote_data' => :'Array<RemoteData>',
-        :'remote_was_deleted' => :'Boolean'
+        :'remote_was_deleted' => :'Boolean',
+        :'field_mappings' => :'Hash<String, Object>',
+        :'modified_at' => :'Time',
+        :'remote_data' => :'Array<RemoteData>'
       }
     end
 
@@ -78,7 +88,8 @@ module MergeHRISClient
         :'balance',
         :'used',
         :'policy_type',
-        :'remote_data',
+        :'field_mappings',
+        :'remote_data'
       ])
     end
 
@@ -121,14 +132,24 @@ module MergeHRISClient
         self.policy_type = attributes[:'policy_type']
       end
 
+      if attributes.key?(:'remote_was_deleted')
+        self.remote_was_deleted = attributes[:'remote_was_deleted']
+      end
+
+      if attributes.key?(:'field_mappings')
+        if (value = attributes[:'field_mappings']).is_a?(Hash)
+          self.field_mappings = value
+        end
+      end
+
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
       if attributes.key?(:'remote_data')
         if (value = attributes[:'remote_data']).is_a?(Array)
           self.remote_data = value
         end
-      end
-
-      if attributes.key?(:'remote_was_deleted')
-        self.remote_was_deleted = attributes[:'remote_was_deleted']
       end
     end
 
@@ -156,8 +177,10 @@ module MergeHRISClient
           balance == o.balance &&
           used == o.used &&
           policy_type == o.policy_type &&
-          remote_data == o.remote_data &&
-          remote_was_deleted == o.remote_was_deleted
+          remote_was_deleted == o.remote_was_deleted &&
+          field_mappings == o.field_mappings &&
+          modified_at == o.modified_at &&
+          remote_data == o.remote_data
     end
 
     # @see the `==` method
@@ -169,7 +192,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, balance, used, policy_type, remote_data, remote_was_deleted].hash
+      [id, remote_id, employee, balance, used, policy_type, remote_was_deleted, field_mappings, modified_at, remote_data].hash
     end
 
     # Builds the object from hash

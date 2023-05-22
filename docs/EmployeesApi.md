@@ -92,7 +92,7 @@ end
 
 ## employees_ignore_create
 
-> <IgnoreCommonModel> employees_ignore_create(x_account_token, model_id, ignore_common_model_request)
+> employees_ignore_create(x_account_token, model_id, ignore_common_model_request)
 
 
 
@@ -118,8 +118,7 @@ ignore_common_model_request = MergeHRISClient::IgnoreCommonModelRequest.new({rea
 
 begin
   
-  result = api_instance.employees_ignore_create(x_account_token, model_id, ignore_common_model_request)
-  p result
+  api_instance.employees_ignore_create(x_account_token, model_id, ignore_common_model_request)
 rescue MergeHRISClient::ApiError => e
   puts "Error when calling EmployeesApi->employees_ignore_create: #{e}"
 end
@@ -127,9 +126,9 @@ end
 
 #### Using the employees_ignore_create_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(<IgnoreCommonModel>, Integer, Hash)> employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request)
+> <Array(nil, Integer, Hash)> employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request)
 
 ```ruby
 begin
@@ -137,7 +136,7 @@ begin
   data, status_code, headers = api_instance.employees_ignore_create_with_http_info(x_account_token, model_id, ignore_common_model_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <IgnoreCommonModel>
+  p data # => nil
 rescue MergeHRISClient::ApiError => e
   puts "Error when calling EmployeesApi->employees_ignore_create_with_http_info: #{e}"
 end
@@ -153,7 +152,7 @@ end
 
 ### Return type
 
-[**IgnoreCommonModel**](IgnoreCommonModel.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -162,7 +161,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## employees_list
@@ -194,22 +193,28 @@ opts = {
   created_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects created before this datetime.
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
   display_full_name: 'display_full_name_example', # String | If provided, will only return employees with this display name.
-  employment_status: 'ACTIVE', # String | If provided, will only return employees with this employment status.
+  employment_status: 'ACTIVE', # String | If provided, will only return employees with this employment status.  * `ACTIVE` - ACTIVE * `PENDING` - PENDING * `INACTIVE` - INACTIVE
   expand: 'company', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   first_name: 'first_name_example', # String | If provided, will only return employees with this first name.
+  groups: 'groups_example', # String | If provided, will only return employees matching the group ids; multiple groups can be separated by commas.
   include_deleted_data: true, # Boolean | Whether to include data that was marked as deleted by third party webhooks.
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   include_sensitive_fields: true, # Boolean | Whether to include sensitive fields (such as social security numbers) in the response.
   last_name: 'last_name_example', # String | If provided, will only return employees with this last name.
   manager_id: 'manager_id_example', # String | If provided, will only return employees for this manager.
-  modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified after this datetime.
-  modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return objects modified before this datetime.
+  modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, only objects synced by Merge after this date time will be returned.
+  modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, only objects synced by Merge before this date time will be returned.
   page_size: 56, # Integer | Number of results to return per page.
   pay_group_id: 'pay_group_id_example', # String | If provided, will only return employees for this pay group
   personal_email: TODO, # String | If provided, will only return Employees with this personal email
-  remote_fields: 'employment_status', # String | Which fields should be returned in non-normalized form.
+  remote_fields: 'employment_status', # String | Deprecated. Use show_enum_origins.
   remote_id: 'remote_id_example', # String | The API provider's ID for the given object.
+  show_enum_origins: 'employment_status', # String | Which fields should be returned in non-normalized form.
+  started_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return employees that started after this datetime.
+  started_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return employees that started before this datetime.
   team_id: 'team_id_example', # String | If provided, will only return employees for this team.
+  terminated_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return employees that were terminated after this datetime.
+  terminated_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return employees that were terminated before this datetime.
   work_email: TODO, # String | If provided, will only return Employees with this work email
   work_location_id: 'work_location_id_example' # String | If provided, will only return employees for this location.
 }
@@ -251,22 +256,28 @@ end
 | **created_before** | **Time** | If provided, will only return objects created before this datetime. | [optional] |
 | **cursor** | **String** | The pagination cursor value. | [optional] |
 | **display_full_name** | **String** | If provided, will only return employees with this display name. | [optional] |
-| **employment_status** | **String** | If provided, will only return employees with this employment status. | [optional] |
+| **employment_status** | **String** | If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE | [optional] |
 | **expand** | **String** | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] |
 | **first_name** | **String** | If provided, will only return employees with this first name. | [optional] |
+| **groups** | **String** | If provided, will only return employees matching the group ids; multiple groups can be separated by commas. | [optional] |
 | **include_deleted_data** | **Boolean** | Whether to include data that was marked as deleted by third party webhooks. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **include_sensitive_fields** | **Boolean** | Whether to include sensitive fields (such as social security numbers) in the response. | [optional] |
 | **last_name** | **String** | If provided, will only return employees with this last name. | [optional] |
 | **manager_id** | **String** | If provided, will only return employees for this manager. | [optional] |
-| **modified_after** | **Time** | If provided, will only return objects modified after this datetime. | [optional] |
-| **modified_before** | **Time** | If provided, will only return objects modified before this datetime. | [optional] |
+| **modified_after** | **Time** | If provided, only objects synced by Merge after this date time will be returned. | [optional] |
+| **modified_before** | **Time** | If provided, only objects synced by Merge before this date time will be returned. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
 | **pay_group_id** | **String** | If provided, will only return employees for this pay group | [optional] |
 | **personal_email** | [**String**](.md) | If provided, will only return Employees with this personal email | [optional] |
-| **remote_fields** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |
+| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **started_after** | **Time** | If provided, will only return employees that started after this datetime. | [optional] |
+| **started_before** | **Time** | If provided, will only return employees that started before this datetime. | [optional] |
 | **team_id** | **String** | If provided, will only return employees for this team. | [optional] |
+| **terminated_after** | **Time** | If provided, will only return employees that were terminated after this datetime. | [optional] |
+| **terminated_before** | **Time** | If provided, will only return employees that were terminated before this datetime. | [optional] |
 | **work_email** | [**String**](.md) | If provided, will only return Employees with this work email | [optional] |
 | **work_location_id** | **String** | If provided, will only return employees for this location. | [optional] |
 
@@ -383,7 +394,8 @@ opts = {
   expand: 'company', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   include_sensitive_fields: true, # Boolean | Whether to include sensitive fields (such as social security numbers) in the response.
-  remote_fields: 'employment_status' # String | Which fields should be returned in non-normalized form.
+  remote_fields: 'employment_status', # String | Deprecated. Use show_enum_origins.
+  show_enum_origins: 'employment_status' # String | Which fields should be returned in non-normalized form.
 }
 
 begin
@@ -422,7 +434,8 @@ end
 | **expand** | **String** | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **include_sensitive_fields** | **Boolean** | Whether to include sensitive fields (such as social security numbers) in the response. | [optional] |
-| **remote_fields** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
+| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
 
 ### Return type
 

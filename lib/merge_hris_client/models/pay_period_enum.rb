@@ -19,6 +19,7 @@ module MergeHRISClient
     DAY = "DAY".freeze
     WEEK = "WEEK".freeze
     EVERY_TWO_WEEKS = "EVERY_TWO_WEEKS".freeze
+    SEMIMONTHLY = "SEMIMONTHLY".freeze
     MONTH = "MONTH".freeze
     QUARTER = "QUARTER".freeze
     EVERY_SIX_MONTHS = "EVERY_SIX_MONTHS".freeze
@@ -34,7 +35,7 @@ module MergeHRISClient
     # @return [String] The enum value
     def build_from_hash(value)
       @raw_value = value
-      if ["HOUR", "DAY", "WEEK", "EVERY_TWO_WEEKS", "MONTH", "QUARTER", "EVERY_SIX_MONTHS", "YEAR", ].include? value
+      if ["HOUR", "DAY", "WEEK", "EVERY_TWO_WEEKS", "SEMIMONTHLY", "MONTH", "QUARTER", "EVERY_SIX_MONTHS", "YEAR", ].include? value
         @value = value
       else
         @value = MERGE_NONSTANDARD_VALUE

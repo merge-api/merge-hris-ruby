@@ -52,7 +52,7 @@ describe 'EmployeesApi' do
   # @param model_id 
   # @param ignore_common_model_request 
   # @param [Hash] opts the optional parameters
-  # @return [IgnoreCommonModel]
+  # @return [nil]
   describe 'employees_ignore_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -68,22 +68,28 @@ describe 'EmployeesApi' do
   # @option opts [Time] :created_before If provided, will only return objects created before this datetime.
   # @option opts [String] :cursor The pagination cursor value.
   # @option opts [String] :display_full_name If provided, will only return employees with this display name.
-  # @option opts [String] :employment_status If provided, will only return employees with this employment status.
+  # @option opts [String] :employment_status If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   # @option opts [String] :first_name If provided, will only return employees with this first name.
+  # @option opts [String] :groups If provided, will only return employees matching the group ids; multiple groups can be separated by commas.
   # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
   # @option opts [String] :last_name If provided, will only return employees with this last name.
   # @option opts [String] :manager_id If provided, will only return employees for this manager.
-  # @option opts [Time] :modified_after If provided, will only return objects modified after this datetime.
-  # @option opts [Time] :modified_before If provided, will only return objects modified before this datetime.
+  # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
+  # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :pay_group_id If provided, will only return employees for this pay group
   # @option opts [String] :personal_email If provided, will only return Employees with this personal email
-  # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
+  # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
+  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+  # @option opts [Time] :started_after If provided, will only return employees that started after this datetime.
+  # @option opts [Time] :started_before If provided, will only return employees that started before this datetime.
   # @option opts [String] :team_id If provided, will only return employees for this team.
+  # @option opts [Time] :terminated_after If provided, will only return employees that were terminated after this datetime.
+  # @option opts [Time] :terminated_before If provided, will only return employees that were terminated before this datetime.
   # @option opts [String] :work_email If provided, will only return Employees with this work email
   # @option opts [String] :work_location_id If provided, will only return employees for this location.
   # @return [PaginatedEmployeeList]
@@ -112,7 +118,8 @@ describe 'EmployeesApi' do
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
-  # @option opts [String] :remote_fields Which fields should be returned in non-normalized form.
+  # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
+  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
   # @return [Employee]
   describe 'employees_retrieve test' do
     it 'should work' do
