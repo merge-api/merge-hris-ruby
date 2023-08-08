@@ -47,7 +47,7 @@ describe 'BankInfoApi' do
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
   # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
-  # @option opts [String] :order_by Overrides the default ordering for this endpoint.
+  # @option opts [String] :order_by Overrides the default ordering for this endpoint. Possible values include: remote_created_at, -remote_created_at.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.

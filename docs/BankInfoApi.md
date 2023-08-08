@@ -43,7 +43,7 @@ opts = {
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, only objects synced by Merge after this date time will be returned.
   modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, only objects synced by Merge before this date time will be returned.
-  order_by: '-remote_created_at', # String | Overrides the default ordering for this endpoint.
+  order_by: '-remote_created_at', # String | Overrides the default ordering for this endpoint. Possible values include: remote_created_at, -remote_created_at.
   page_size: 56, # Integer | Number of results to return per page.
   remote_fields: 'account_type', # String | Deprecated. Use show_enum_origins.
   remote_id: 'remote_id_example', # String | The API provider's ID for the given object.
@@ -93,7 +93,7 @@ end
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **modified_after** | **Time** | If provided, only objects synced by Merge after this date time will be returned. | [optional] |
 | **modified_before** | **Time** | If provided, only objects synced by Merge before this date time will be returned. | [optional] |
-| **order_by** | **String** | Overrides the default ordering for this endpoint. | [optional] |
+| **order_by** | **String** | Overrides the default ordering for this endpoint. Possible values include: remote_created_at, -remote_created_at. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
 | **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |

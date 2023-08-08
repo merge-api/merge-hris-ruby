@@ -11,9 +11,12 @@
 | **benefit_plan_type** | **String** | The type of benefit plan | [optional] |
 | **employee_contribution** | **Float** | The employee&#39;s contribution. | [optional] |
 | **company_contribution** | **Float** | The company&#39;s contribution. | [optional] |
+| **start_date** | **Time** | The day and time the benefit started. | [optional] |
+| **end_date** | **Time** | The day and time the benefit ended. | [optional] |
 | **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted by third party webhooks. | [optional][readonly] |
-| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
+| **employer_benefit** | **String** | The employer benefit plan the employee is enrolled in. | [optional] |
 | **modified_at** | **Time** | This is the datetime that this object was last updated by Merge | [optional][readonly] |
+| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -26,12 +29,15 @@ instance = MergeHRISClient::Benefit.new(
   remote_id: 19202938,
   employee: d2f972d0-2526-434b-9409-4c3b468e08f0,
   provider_name: Blue Shield of California,
-  benefit_plan_type: MEDICAL,
+  benefit_plan_type: null,
   employee_contribution: 23.65,
   company_contribution: 150.0,
+  start_date: null,
+  end_date: null,
   remote_was_deleted: null,
-  field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
+  employer_benefit: null,
   modified_at: 2021-10-16T00:00Z,
+  field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   remote_data: [{&quot;path&quot;:&quot;/benefits&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```

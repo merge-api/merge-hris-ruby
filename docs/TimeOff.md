@@ -16,8 +16,8 @@
 | **start_time** | **Time** | The day and time of the start of the time requested off. | [optional] |
 | **end_time** | **Time** | The day and time of the end of the time requested off. | [optional] |
 | **remote_was_deleted** | **Boolean** |  | [optional][readonly] |
-| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
 | **modified_at** | **Time** | This is the datetime that this object was last updated by Merge | [optional][readonly] |
+| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -38,8 +38,8 @@ instance = MergeHRISClient::TimeOff.new(
   start_time: 2020-11-10T00:00Z,
   end_time: 2020-11-17T00:00Z,
   remote_was_deleted: null,
-  field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   modified_at: 2021-10-16T00:00Z,
+  field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   remote_data: [{&quot;path&quot;:&quot;/leave&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
