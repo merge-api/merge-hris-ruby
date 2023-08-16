@@ -35,8 +35,8 @@
 | **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] |
 | **custom_fields** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) | Custom fields configured for a given model. | [optional] |
 | **remote_was_deleted** | **Boolean** |  | [optional][readonly] |
-| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
 | **modified_at** | **Time** | This is the datetime that this object was last updated by Merge | [optional][readonly] |
+| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -76,8 +76,8 @@ instance = MergeHRISClient::Employee.new(
   avatar: http://alturl.com/h2h8m,
   custom_fields: null,
   remote_was_deleted: null,
-  field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   modified_at: 2021-10-16T00:00Z,
+  field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   remote_data: [{&quot;path&quot;:&quot;/people&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```

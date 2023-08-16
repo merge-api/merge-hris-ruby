@@ -17,8 +17,8 @@
 | **deductions** | [**Array&lt;Deduction&gt;**](Deduction.md) |  | [optional][readonly] |
 | **taxes** | [**Array&lt;Tax&gt;**](Tax.md) |  | [optional][readonly] |
 | **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted by third party webhooks. | [optional][readonly] |
-| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
 | **modified_at** | **Time** | This is the datetime that this object was last updated by Merge | [optional][readonly] |
+| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -40,8 +40,8 @@ instance = MergeHRISClient::EmployeePayrollRun.new(
   deductions: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;name&quot;:&quot;Social Security&quot;,&quot;employee_deduction&quot;:34.54,&quot;company_deduction&quot;:78.78}],
   taxes: [{&quot;employee_payroll_run&quot;:&quot;35347df1-95e7-46e2-93cc-66f1191edca5&quot;,&quot;name&quot;:&quot;California State Income Tax&quot;,&quot;amount&quot;:100.25,&quot;employer_tax&quot;:&quot;False&quot;}],
   remote_was_deleted: null,
-  field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   modified_at: 2021-10-16T00:00Z,
+  field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   remote_data: [{&quot;path&quot;:&quot;/employee-payroll&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )
 ```
