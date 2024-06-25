@@ -28,6 +28,9 @@ module MergeHRISClient
     # The employee's last name.
     attr_accessor :last_name
 
+    # The employee's preferred first name.
+    attr_accessor :preferred_name
+
     # The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.
     attr_accessor :display_full_name
 
@@ -104,6 +107,7 @@ module MergeHRISClient
         :'company' => :'company',
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
+        :'preferred_name' => :'preferred_name',
         :'display_full_name' => :'display_full_name',
         :'username' => :'username',
         :'groups' => :'groups',
@@ -143,6 +147,7 @@ module MergeHRISClient
         :'company' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'preferred_name' => :'String',
         :'display_full_name' => :'String',
         :'username' => :'String',
         :'groups' => :'Array<String>',
@@ -177,6 +182,7 @@ module MergeHRISClient
         :'company',
         :'first_name',
         :'last_name',
+        :'preferred_name',
         :'display_full_name',
         :'username',
         :'work_email',
@@ -231,6 +237,10 @@ module MergeHRISClient
 
       if attributes.key?(:'last_name')
         self.last_name = attributes[:'last_name']
+      end
+
+      if attributes.key?(:'preferred_name')
+        self.preferred_name = attributes[:'preferred_name']
       end
 
       if attributes.key?(:'display_full_name')
@@ -420,6 +430,7 @@ module MergeHRISClient
           company == o.company &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          preferred_name == o.preferred_name &&
           display_full_name == o.display_full_name &&
           username == o.username &&
           groups == o.groups &&
@@ -455,7 +466,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [employee_number, company, first_name, last_name, display_full_name, username, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, integration_params, linked_account_params].hash
+      [employee_number, company, first_name, last_name, preferred_name, display_full_name, username, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, employment_status, termination_date, avatar, integration_params, linked_account_params].hash
     end
 
     # Builds the object from hash

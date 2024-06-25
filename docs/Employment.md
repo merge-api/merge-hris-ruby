@@ -6,6 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
+| **created_at** | **Time** | The datetime that this object was created by Merge. | [optional][readonly] |
+| **modified_at** | **Time** | The datetime that this object was modified by Merge. | [optional][readonly] |
 | **employee** | **String** | The employee holding this position. | [optional] |
 | **job_title** | **String** | The position&#39;s title. | [optional] |
 | **pay_rate** | **Float** | The position&#39;s pay rate in dollars. | [optional] |
@@ -16,9 +18,8 @@
 | **flsa_status** | [**FlsaStatusEnum**](FlsaStatusEnum.md) | The position&#39;s FLSA status.  * &#x60;EXEMPT&#x60; - EXEMPT * &#x60;SALARIED_NONEXEMPT&#x60; - SALARIED_NONEXEMPT * &#x60;NONEXEMPT&#x60; - NONEXEMPT * &#x60;OWNER&#x60; - OWNER | [optional] |
 | **effective_date** | **Time** | The position&#39;s effective date. | [optional] |
 | **employment_type** | [**EmploymentTypeEnum**](EmploymentTypeEnum.md) | The position&#39;s type of employment.  * &#x60;FULL_TIME&#x60; - FULL_TIME * &#x60;PART_TIME&#x60; - PART_TIME * &#x60;INTERN&#x60; - INTERN * &#x60;CONTRACTOR&#x60; - CONTRACTOR * &#x60;FREELANCE&#x60; - FREELANCE | [optional] |
-| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted by third party webhooks. | [optional][readonly] |
-| **modified_at** | **Time** | This is the datetime that this object was last updated by Merge | [optional][readonly] |
-| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted in the third party platform. | [optional][readonly] |
+| **field_mappings** | **Object** |  | [optional][readonly] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -29,6 +30,8 @@ require 'merge_hris_client'
 instance = MergeHRISClient::Employment.new(
   id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982,
   remote_id: 19202938,
+  created_at: 2021-09-15T00:00Z,
+  modified_at: 2021-10-16T00:00Z,
   employee: 0958cbc6-6040-430a-848e-aafacbadf4ae,
   job_title: Executive Assistant to Tom Wambsgans,
   pay_rate: 50000.00,
@@ -40,7 +43,6 @@ instance = MergeHRISClient::Employment.new(
   effective_date: 2023-10-06T18:42:34Z,
   employment_type: FULL TIME,
   remote_was_deleted: null,
-  modified_at: 2021-10-16T00:00Z,
   field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   remote_data: [{&quot;path&quot;:&quot;/jobs&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )

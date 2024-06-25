@@ -21,6 +21,12 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
+    # The datetime that this object was created by Merge.
+    attr_accessor :created_at
+
+    # The datetime that this object was modified by Merge.
+    attr_accessor :modified_at
+
     # The employee's number that appears in the third-party integration's UI.
     attr_accessor :employee_number
 
@@ -32,6 +38,9 @@ module MergeHRISClient
 
     # The employee's last name.
     attr_accessor :last_name
+
+    # The employee's preferred first name.
+    attr_accessor :preferred_name
 
     # The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.
     attr_accessor :display_full_name
@@ -106,9 +115,6 @@ module MergeHRISClient
 
     attr_accessor :remote_was_deleted
 
-    # This is the datetime that this object was last updated by Merge
-    attr_accessor :modified_at
-
     attr_accessor :field_mappings
 
     attr_accessor :remote_data
@@ -118,10 +124,13 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
+        :'created_at' => :'created_at',
+        :'modified_at' => :'modified_at',
         :'employee_number' => :'employee_number',
         :'company' => :'company',
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
+        :'preferred_name' => :'preferred_name',
         :'display_full_name' => :'display_full_name',
         :'username' => :'username',
         :'groups' => :'groups',
@@ -147,7 +156,6 @@ module MergeHRISClient
         :'avatar' => :'avatar',
         :'custom_fields' => :'custom_fields',
         :'remote_was_deleted' => :'remote_was_deleted',
-        :'modified_at' => :'modified_at',
         :'field_mappings' => :'field_mappings',
         :'remote_data' => :'remote_data'
       }
@@ -163,10 +171,13 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
+        :'created_at' => :'Time',
+        :'modified_at' => :'Time',
         :'employee_number' => :'String',
         :'company' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'preferred_name' => :'String',
         :'display_full_name' => :'String',
         :'username' => :'String',
         :'groups' => :'Array<String>',
@@ -192,8 +203,7 @@ module MergeHRISClient
         :'avatar' => :'String',
         :'custom_fields' => :'Hash<String, Object>',
         :'remote_was_deleted' => :'Boolean',
-        :'modified_at' => :'Time',
-        :'field_mappings' => :'Hash<String, Object>',
+        :'field_mappings' => :'Object',
         :'remote_data' => :'Array<RemoteData>'
       }
     end
@@ -206,6 +216,7 @@ module MergeHRISClient
         :'company',
         :'first_name',
         :'last_name',
+        :'preferred_name',
         :'display_full_name',
         :'username',
         :'work_email',
@@ -256,6 +267,14 @@ module MergeHRISClient
         self.remote_id = attributes[:'remote_id']
       end
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
       if attributes.key?(:'employee_number')
         self.employee_number = attributes[:'employee_number']
       end
@@ -270,6 +289,10 @@ module MergeHRISClient
 
       if attributes.key?(:'last_name')
         self.last_name = attributes[:'last_name']
+      end
+
+      if attributes.key?(:'preferred_name')
+        self.preferred_name = attributes[:'preferred_name']
       end
 
       if attributes.key?(:'display_full_name')
@@ -378,14 +401,8 @@ module MergeHRISClient
         self.remote_was_deleted = attributes[:'remote_was_deleted']
       end
 
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
-      end
-
       if attributes.key?(:'field_mappings')
-        if (value = attributes[:'field_mappings']).is_a?(Hash)
-          self.field_mappings = value
-        end
+        self.field_mappings = attributes[:'field_mappings']
       end
 
       if attributes.key?(:'remote_data')
@@ -475,10 +492,13 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
+          created_at == o.created_at &&
+          modified_at == o.modified_at &&
           employee_number == o.employee_number &&
           company == o.company &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          preferred_name == o.preferred_name &&
           display_full_name == o.display_full_name &&
           username == o.username &&
           groups == o.groups &&
@@ -504,7 +524,6 @@ module MergeHRISClient
           avatar == o.avatar &&
           custom_fields == o.custom_fields &&
           remote_was_deleted == o.remote_was_deleted &&
-          modified_at == o.modified_at &&
           field_mappings == o.field_mappings &&
           remote_data == o.remote_data
     end
@@ -518,7 +537,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee_number, company, first_name, last_name, display_full_name, username, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, remote_created_at, employment_status, termination_date, avatar, custom_fields, remote_was_deleted, modified_at, field_mappings, remote_data].hash
+      [id, remote_id, created_at, modified_at, employee_number, company, first_name, last_name, preferred_name, display_full_name, username, groups, work_email, personal_email, mobile_phone_number, employments, home_location, work_location, manager, team, pay_group, ssn, gender, ethnicity, marital_status, date_of_birth, hire_date, start_date, remote_created_at, employment_status, termination_date, avatar, custom_fields, remote_was_deleted, field_mappings, remote_data].hash
     end
 
     # Builds the object from hash

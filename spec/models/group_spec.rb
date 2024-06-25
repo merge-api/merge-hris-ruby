@@ -37,6 +37,18 @@ describe MergeHRISClient::Group do
     end
   end
 
+  describe 'test attribute "created_at"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "modified_at"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "parent_group"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -61,7 +73,7 @@ describe MergeHRISClient::Group do
     end
   end
 
-  describe 'test attribute "modified_at"' do
+  describe 'test attribute "is_commonly_used_as_team"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

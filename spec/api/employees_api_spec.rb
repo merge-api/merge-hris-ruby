@@ -69,12 +69,15 @@ describe 'EmployeesApi' do
   # @option opts [String] :cursor The pagination cursor value.
   # @option opts [String] :display_full_name If provided, will only return employees with this display name.
   # @option opts [String] :employment_status If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE
+  # @option opts [String] :employment_type If provided, will only return employees that have an employment of the specified employment_type.
   # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   # @option opts [String] :first_name If provided, will only return employees with this first name.
   # @option opts [String] :groups If provided, will only return employees matching the group ids; multiple groups can be separated by commas.
+  # @option opts [String] :home_location_id If provided, will only return employees for this home location.
   # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
+  # @option opts [String] :job_title If provided, will only return employees that have an employment of the specified job_title.
   # @option opts [String] :last_name If provided, will only return employees with this last name.
   # @option opts [String] :manager_id If provided, will only return employees for this manager.
   # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
@@ -84,7 +87,7 @@ describe 'EmployeesApi' do
   # @option opts [String] :personal_email If provided, will only return Employees with this personal email
   # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+  # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   # @option opts [Time] :started_after If provided, will only return employees that started after this datetime.
   # @option opts [Time] :started_before If provided, will only return employees that started before this datetime.
   # @option opts [String] :team_id If provided, will only return employees for this team.
@@ -119,7 +122,7 @@ describe 'EmployeesApi' do
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [Boolean] :include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response.
   # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+  # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   # @return [Employee]
   describe 'employees_retrieve test' do
     it 'should work' do

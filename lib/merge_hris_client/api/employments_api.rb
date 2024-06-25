@@ -35,7 +35,7 @@ module MergeHRISClient
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [PaginatedEmploymentList]
     def employments_list(x_account_token, opts = {})
       data, _status_code, _headers = employments_list_with_http_info(x_account_token, opts)
@@ -58,7 +58,7 @@ module MergeHRISClient
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Array<(PaginatedEmploymentList, Integer, Hash)>] PaginatedEmploymentList data, response status code and response headers
     def employments_list_with_http_info(x_account_token, opts = {})
       if @api_client.config.debugging
@@ -146,7 +146,7 @@ module MergeHRISClient
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Employment]
     def employments_retrieve(x_account_token, id, opts = {})
       data, _status_code, _headers = employments_retrieve_with_http_info(x_account_token, id, opts)
@@ -160,7 +160,7 @@ module MergeHRISClient
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Array<(Employment, Integer, Hash)>] Employment data, response status code and response headers
     def employments_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging

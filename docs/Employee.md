@@ -6,10 +6,13 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
+| **created_at** | **Time** | The datetime that this object was created by Merge. | [optional][readonly] |
+| **modified_at** | **Time** | The datetime that this object was modified by Merge. | [optional][readonly] |
 | **employee_number** | **String** | The employee&#39;s number that appears in the third-party integration&#39;s UI. | [optional] |
 | **company** | **String** | The ID of the employee&#39;s company. | [optional] |
 | **first_name** | **String** | The employee&#39;s first name. | [optional] |
 | **last_name** | **String** | The employee&#39;s last name. | [optional] |
+| **preferred_name** | **String** | The employee&#39;s preferred first name. | [optional] |
 | **display_full_name** | **String** | The employee&#39;s full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name. | [optional] |
 | **username** | **String** | The employee&#39;s username that appears in the remote UI. | [optional] |
 | **groups** | **Array&lt;String&gt;** |  | [optional] |
@@ -35,8 +38,7 @@
 | **avatar** | **String** | The URL of the employee&#39;s avatar image. | [optional] |
 | **custom_fields** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) | Custom fields configured for a given model. | [optional] |
 | **remote_was_deleted** | **Boolean** |  | [optional][readonly] |
-| **modified_at** | **Time** | This is the datetime that this object was last updated by Merge | [optional][readonly] |
-| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
+| **field_mappings** | **Object** |  | [optional][readonly] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -47,10 +49,13 @@ require 'merge_hris_client'
 instance = MergeHRISClient::Employee.new(
   id: 0958cbc6-6040-430a-848e-aafacbadf4ae,
   remote_id: 19202938,
+  created_at: 2021-09-15T00:00Z,
+  modified_at: 2021-10-16T00:00Z,
   employee_number: 2,
   company: 8d9fd929-436c-4fd4-a48b-0c61f68d6178,
   first_name: Greg,
   last_name: Hirsch,
+  preferred_name: Greg the egg,
   display_full_name: Cousin Greg Hirsch,
   username: cousingreg,
   groups: [&quot;21a54124-397f-494d-985e-3c5b330b8a68&quot;],
@@ -76,7 +81,6 @@ instance = MergeHRISClient::Employee.new(
   avatar: http://alturl.com/h2h8m,
   custom_fields: null,
   remote_was_deleted: null,
-  modified_at: 2021-10-16T00:00Z,
   field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   remote_data: [{&quot;path&quot;:&quot;/people&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )

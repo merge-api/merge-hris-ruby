@@ -49,7 +49,7 @@ describe 'PayrollRunsApi' do
   # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
   # @option opts [String] :run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;)  * &#x60;REGULAR&#x60; - REGULAR * &#x60;OFF_CYCLE&#x60; - OFF_CYCLE * &#x60;CORRECTION&#x60; - CORRECTION * &#x60;TERMINATION&#x60; - TERMINATION * &#x60;SIGN_ON_BONUS&#x60; - SIGN_ON_BONUS
-  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+  # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   # @option opts [Time] :started_after If provided, will only return payroll runs started after this datetime.
   # @option opts [Time] :started_before If provided, will only return payroll runs started before this datetime.
   # @return [PaginatedPayrollRunList]
@@ -66,7 +66,7 @@ describe 'PayrollRunsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+  # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   # @return [PayrollRun]
   describe 'payroll_runs_retrieve test' do
     it 'should work' do

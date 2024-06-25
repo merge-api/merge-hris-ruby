@@ -45,7 +45,7 @@ opts = {
   remote_fields: 'run_state', # String | Deprecated. Use show_enum_origins.
   remote_id: 'remote_id_example', # String | The API provider's ID for the given object.
   run_type: 'CORRECTION', # String | If provided, will only return PayrollRun's with this status. Options: ('REGULAR', 'OFF_CYCLE', 'CORRECTION', 'TERMINATION', 'SIGN_ON_BONUS')  * `REGULAR` - REGULAR * `OFF_CYCLE` - OFF_CYCLE * `CORRECTION` - CORRECTION * `TERMINATION` - TERMINATION * `SIGN_ON_BONUS` - SIGN_ON_BONUS
-  show_enum_origins: 'run_state', # String | Which fields should be returned in non-normalized form.
+  show_enum_origins: 'run_state', # String | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   started_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return payroll runs started after this datetime.
   started_before: Time.parse('2013-10-20T19:20:30+01:00') # Time | If provided, will only return payroll runs started before this datetime.
 }
@@ -95,7 +95,7 @@ end
 | **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |
 | **run_type** | **String** | If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;)  * &#x60;REGULAR&#x60; - REGULAR * &#x60;OFF_CYCLE&#x60; - OFF_CYCLE * &#x60;CORRECTION&#x60; - CORRECTION * &#x60;TERMINATION&#x60; - TERMINATION * &#x60;SIGN_ON_BONUS&#x60; - SIGN_ON_BONUS | [optional] |
-| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **show_enum_origins** | **String** | A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional] |
 | **started_after** | **Time** | If provided, will only return payroll runs started after this datetime. | [optional] |
 | **started_before** | **Time** | If provided, will only return payroll runs started before this datetime. | [optional] |
 
@@ -140,7 +140,7 @@ id = TODO # String |
 opts = {
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   remote_fields: 'run_state', # String | Deprecated. Use show_enum_origins.
-  show_enum_origins: 'run_state' # String | Which fields should be returned in non-normalized form.
+  show_enum_origins: 'run_state' # String | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
 }
 
 begin
@@ -178,7 +178,7 @@ end
 | **id** | [**String**](.md) |  |  |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
-| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **show_enum_origins** | **String** | A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional] |
 
 ### Return type
 

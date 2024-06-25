@@ -18,10 +18,13 @@ module MergeHRISClient
   class DataPassthroughRequest
     attr_accessor :method
 
+    # The path of the request in the third party's platform.
     attr_accessor :path
 
+    # An optional override of the third party's base url for the request.
     attr_accessor :base_url_override
 
+    # The data with the request. You must include a `request_format` parameter matching the data's format
     attr_accessor :data
 
     # Pass an array of `MultipartFormField` objects in here instead of using the `data` param if `request_format` is set to `MULTIPART`.

@@ -27,12 +27,14 @@ module MergeHRISClient
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
+    # @option opts [String] :is_commonly_used_as_team If provided, specifies whether to return only Group objects which refer to a team in the third party platform. Note that this is an opinionated view based on how a team may be represented in the third party platform.
     # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
     # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
+    # @option opts [String] :names If provided, will only return groups with these names. Multiple values can be separated by commas.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @option opts [String] :types If provided, will only return groups of these types. Multiple values can be separated by commas.
     # @return [PaginatedGroupList]
     def groups_list(x_account_token, opts = {})
@@ -48,12 +50,14 @@ module MergeHRISClient
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
+    # @option opts [String] :is_commonly_used_as_team If provided, specifies whether to return only Group objects which refer to a team in the third party platform. Note that this is an opinionated view based on how a team may be represented in the third party platform.
     # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
     # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
+    # @option opts [String] :names If provided, will only return groups with these names. Multiple values can be separated by commas.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @option opts [String] :types If provided, will only return groups of these types. Multiple values can be separated by commas.
     # @return [Array<(PaginatedGroupList, Integer, Hash)>] PaginatedGroupList data, response status code and response headers
     def groups_list_with_http_info(x_account_token, opts = {})
@@ -82,8 +86,10 @@ module MergeHRISClient
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
       query_params[:'include_deleted_data'] = opts[:'include_deleted_data'] if !opts[:'include_deleted_data'].nil?
       query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
+      query_params[:'is_commonly_used_as_team'] = opts[:'is_commonly_used_as_team'] if !opts[:'is_commonly_used_as_team'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
+      query_params[:'names'] = opts[:'names'] if !opts[:'names'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'remote_fields'] = opts[:'remote_fields'] if !opts[:'remote_fields'].nil?
       query_params[:'remote_id'] = opts[:'remote_id'] if !opts[:'remote_id'].nil?
@@ -131,7 +137,7 @@ module MergeHRISClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Group]
     def groups_retrieve(x_account_token, id, opts = {})
       data, _status_code, _headers = groups_retrieve_with_http_info(x_account_token, id, opts)
@@ -144,7 +150,7 @@ module MergeHRISClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Array<(Group, Integer, Hash)>] Group data, response status code and response headers
     def groups_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging

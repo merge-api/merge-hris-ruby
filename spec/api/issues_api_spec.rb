@@ -33,7 +33,7 @@ describe 'IssuesApi' do
   end
 
   # unit tests for issues_list
-  # Gets issues.
+  # Gets all issues for Organization.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :account_token 
   # @option opts [String] :cursor The pagination cursor value.
@@ -41,10 +41,11 @@ describe 'IssuesApi' do
   # @option opts [String] :end_user_organization_name 
   # @option opts [Time] :first_incident_time_after If provided, will only return issues whose first incident time was after this datetime.
   # @option opts [Time] :first_incident_time_before If provided, will only return issues whose first incident time was before this datetime.
-  # @option opts [String] :include_muted If True, will include muted issues
+  # @option opts [String] :include_muted If true, will include muted issues
   # @option opts [String] :integration_name 
   # @option opts [Time] :last_incident_time_after If provided, will only return issues whose last incident time was after this datetime.
   # @option opts [Time] :last_incident_time_before If provided, will only return issues whose last incident time was before this datetime.
+  # @option opts [String] :linked_account_id If provided, will only include issues pertaining to the linked account passed in.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :start_date If included, will only include issues whose most recent action occurred after this time
   # @option opts [String] :status Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED

@@ -31,6 +31,12 @@ describe MergeHRISClient::AccountIntegration do
     end
   end
 
+  describe 'test attribute "abbreviated_name"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "categories"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -61,13 +67,19 @@ describe MergeHRISClient::AccountIntegration do
     end
   end
 
-  describe 'test attribute "is_in_beta"' do
+  describe 'test attribute "api_endpoints_to_documentation_urls"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "api_endpoints_to_documentation_urls"' do
+  describe 'test attribute "webhook_setup_guide_url"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "category_beta_status"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
