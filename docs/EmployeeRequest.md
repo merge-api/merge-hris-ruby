@@ -8,6 +8,7 @@
 | **company** | **String** | The ID of the employee&#39;s company. | [optional] |
 | **first_name** | **String** | The employee&#39;s first name. | [optional] |
 | **last_name** | **String** | The employee&#39;s last name. | [optional] |
+| **preferred_name** | **String** | The employee&#39;s preferred first name. | [optional] |
 | **display_full_name** | **String** | The employee&#39;s full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name. | [optional] |
 | **username** | **String** | The employee&#39;s username that appears in the remote UI. | [optional] |
 | **groups** | **Array&lt;String&gt;** |  | [optional] |
@@ -43,6 +44,7 @@ instance = MergeHRISClient::EmployeeRequest.new(
   company: 8d9fd929-436c-4fd4-a48b-0c61f68d6178,
   first_name: Greg,
   last_name: Hirsch,
+  preferred_name: Greg the egg,
   display_full_name: Cousin Greg Hirsch,
   username: cousingreg,
   groups: [&quot;21a54124-397f-494d-985e-3c5b330b8a68&quot;],

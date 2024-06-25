@@ -16,6 +16,7 @@ require 'time'
 module MergeHRISClient
   # # The GenerateRemoteKey Object ### Description The `GenerateRemoteKey` object is used to represent a request for a new remote key.  ### Usage Example Post a `GenerateRemoteKey` to create a new remote key.
   class GenerateRemoteKeyRequest
+    # The name of the remote key
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

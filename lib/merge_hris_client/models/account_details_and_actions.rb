@@ -30,12 +30,17 @@ module MergeHRISClient
 
     attr_accessor :end_user_email_address
 
+    # The tenant or domain the customer has provided access to.
+    attr_accessor :subdomain
+
     attr_accessor :webhook_listener_url
 
     # Whether a Production Linked Account's credentials match another existing Production Linked Account. This field is `null` for Test Linked Accounts, incomplete Production Linked Accounts, and ignored duplicate Production Linked Account sets.
     attr_accessor :is_duplicate
 
     attr_accessor :integration
+
+    attr_accessor :account_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -47,9 +52,11 @@ module MergeHRISClient
         :'end_user_origin_id' => :'end_user_origin_id',
         :'end_user_organization_name' => :'end_user_organization_name',
         :'end_user_email_address' => :'end_user_email_address',
+        :'subdomain' => :'subdomain',
         :'webhook_listener_url' => :'webhook_listener_url',
         :'is_duplicate' => :'is_duplicate',
-        :'integration' => :'integration'
+        :'integration' => :'integration',
+        :'account_type' => :'account_type'
       }
     end
 
@@ -68,9 +75,11 @@ module MergeHRISClient
         :'end_user_origin_id' => :'String',
         :'end_user_organization_name' => :'String',
         :'end_user_email_address' => :'String',
+        :'subdomain' => :'String',
         :'webhook_listener_url' => :'String',
         :'is_duplicate' => :'Boolean',
-        :'integration' => :'AccountDetailsAndActionsIntegration'
+        :'integration' => :'AccountDetailsAndActionsIntegration',
+        :'account_type' => :'String'
       }
     end
 
@@ -124,6 +133,10 @@ module MergeHRISClient
         self.end_user_email_address = attributes[:'end_user_email_address']
       end
 
+      if attributes.key?(:'subdomain')
+        self.subdomain = attributes[:'subdomain']
+      end
+
       if attributes.key?(:'webhook_listener_url')
         self.webhook_listener_url = attributes[:'webhook_listener_url']
       end
@@ -134,6 +147,10 @@ module MergeHRISClient
 
       if attributes.key?(:'integration')
         self.integration = attributes[:'integration']
+      end
+
+      if attributes.key?(:'account_type')
+        self.account_type = attributes[:'account_type']
       end
     end
 
@@ -161,6 +178,10 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "webhook_listener_url", webhook_listener_url cannot be nil.')
       end
 
+      if @account_type.nil?
+        invalid_properties.push('invalid value for "account_type", account_type cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -172,6 +193,7 @@ module MergeHRISClient
       return false if @end_user_organization_name.nil?
       return false if @end_user_email_address.nil?
       return false if @webhook_listener_url.nil?
+      return false if @account_type.nil?
       true
     end
 
@@ -187,9 +209,11 @@ module MergeHRISClient
           end_user_origin_id == o.end_user_origin_id &&
           end_user_organization_name == o.end_user_organization_name &&
           end_user_email_address == o.end_user_email_address &&
+          subdomain == o.subdomain &&
           webhook_listener_url == o.webhook_listener_url &&
           is_duplicate == o.is_duplicate &&
-          integration == o.integration
+          integration == o.integration &&
+          account_type == o.account_type
     end
 
     # @see the `==` method
@@ -201,7 +225,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, category, status, status_detail, end_user_origin_id, end_user_organization_name, end_user_email_address, webhook_listener_url, is_duplicate, integration].hash
+      [id, category, status, status_detail, end_user_origin_id, end_user_organization_name, end_user_email_address, subdomain, webhook_listener_url, is_duplicate, integration, account_type].hash
     end
 
     # Builds the object from hash

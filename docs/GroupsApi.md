@@ -37,12 +37,14 @@ opts = {
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
   include_deleted_data: true, # Boolean | Whether to include data that was marked as deleted by third party webhooks.
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
+  is_commonly_used_as_team: 'is_commonly_used_as_team_example', # String | If provided, specifies whether to return only Group objects which refer to a team in the third party platform. Note that this is an opinionated view based on how a team may be represented in the third party platform.
   modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, only objects synced by Merge after this date time will be returned.
   modified_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, only objects synced by Merge before this date time will be returned.
+  names: 'names_example', # String | If provided, will only return groups with these names. Multiple values can be separated by commas.
   page_size: 56, # Integer | Number of results to return per page.
   remote_fields: 'type', # String | Deprecated. Use show_enum_origins.
   remote_id: 'remote_id_example', # String | The API provider's ID for the given object.
-  show_enum_origins: 'type', # String | Which fields should be returned in non-normalized form.
+  show_enum_origins: 'type', # String | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   types: 'types_example' # String | If provided, will only return groups of these types. Multiple values can be separated by commas.
 }
 
@@ -83,12 +85,14 @@ end
 | **cursor** | **String** | The pagination cursor value. | [optional] |
 | **include_deleted_data** | **Boolean** | Whether to include data that was marked as deleted by third party webhooks. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
+| **is_commonly_used_as_team** | **String** | If provided, specifies whether to return only Group objects which refer to a team in the third party platform. Note that this is an opinionated view based on how a team may be represented in the third party platform. | [optional] |
 | **modified_after** | **Time** | If provided, only objects synced by Merge after this date time will be returned. | [optional] |
 | **modified_before** | **Time** | If provided, only objects synced by Merge before this date time will be returned. | [optional] |
+| **names** | **String** | If provided, will only return groups with these names. Multiple values can be separated by commas. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
 | **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |
-| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **show_enum_origins** | **String** | A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional] |
 | **types** | **String** | If provided, will only return groups of these types. Multiple values can be separated by commas. | [optional] |
 
 ### Return type
@@ -132,7 +136,7 @@ id = TODO # String |
 opts = {
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   remote_fields: 'type', # String | Deprecated. Use show_enum_origins.
-  show_enum_origins: 'type' # String | Which fields should be returned in non-normalized form.
+  show_enum_origins: 'type' # String | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
 }
 
 begin
@@ -170,7 +174,7 @@ end
 | **id** | [**String**](.md) |  |  |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
-| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **show_enum_origins** | **String** | A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional] |
 
 ### Return type
 

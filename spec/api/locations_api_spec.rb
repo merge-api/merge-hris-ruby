@@ -41,12 +41,13 @@ describe 'LocationsApi' do
   # @option opts [String] :cursor The pagination cursor value.
   # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
+  # @option opts [String] :location_type If provided, will only return locations with this location_type  * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK
   # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
   # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+  # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   # @return [PaginatedLocationList]
   describe 'locations_list test' do
     it 'should work' do
@@ -61,7 +62,7 @@ describe 'LocationsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+  # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   # @return [Location]
   describe 'locations_retrieve test' do
     it 'should work' do

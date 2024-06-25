@@ -18,6 +18,9 @@ module MergeHRISClient
     # Company name.
     attr_accessor :name
 
+    # Optional. This shortened name appears in places with limited space, usually in conjunction with the platform's logo (e.g., Merge Link menu).<br><br>Example: <i>Workforce Now (in lieu of ADP Workforce Now), SuccessFactors (in lieu of SAP SuccessFactors)</i>
+    attr_accessor :abbreviated_name
+
     # Category or categories this integration belongs to. Multiple categories should be comma separated, i.e. [ats, hris].
     attr_accessor :categories
 
@@ -32,23 +35,28 @@ module MergeHRISClient
 
     attr_accessor :slug
 
-    # If checked, this integration will not appear in the linking flow, and will appear elsewhere with a Beta tag.
-    attr_accessor :is_in_beta
-
     # Mapping of API endpoints to documentation urls for support. Example: {'GET': [['/common-model-scopes', 'https://docs.merge.dev/accounting/common-model-scopes/#common_model_scopes_retrieve'],['/common-model-actions', 'https://docs.merge.dev/accounting/common-model-actions/#common_model_actions_retrieve']], 'POST': []}
     attr_accessor :api_endpoints_to_documentation_urls
+
+    # Setup guide URL for third party webhook creation. Exposed in Merge Docs.
+    attr_accessor :webhook_setup_guide_url
+
+    # Category or categories this integration is in beta status for.
+    attr_accessor :category_beta_status
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
+        :'abbreviated_name' => :'abbreviated_name',
         :'categories' => :'categories',
         :'image' => :'image',
         :'square_image' => :'square_image',
         :'color' => :'color',
         :'slug' => :'slug',
-        :'is_in_beta' => :'is_in_beta',
-        :'api_endpoints_to_documentation_urls' => :'api_endpoints_to_documentation_urls'
+        :'api_endpoints_to_documentation_urls' => :'api_endpoints_to_documentation_urls',
+        :'webhook_setup_guide_url' => :'webhook_setup_guide_url',
+        :'category_beta_status' => :'category_beta_status'
       }
     end
 
@@ -61,21 +69,25 @@ module MergeHRISClient
     def self.openapi_types
       {
         :'name' => :'String',
+        :'abbreviated_name' => :'String',
         :'categories' => :'Array<CategoriesEnum>',
         :'image' => :'String',
         :'square_image' => :'String',
         :'color' => :'String',
         :'slug' => :'String',
-        :'is_in_beta' => :'Boolean',
-        :'api_endpoints_to_documentation_urls' => :'Hash<String, Object>'
+        :'api_endpoints_to_documentation_urls' => :'Hash<String, Object>',
+        :'webhook_setup_guide_url' => :'String',
+        :'category_beta_status' => :'Object'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'abbreviated_name',
         :'image',
         :'square_image',
+        :'webhook_setup_guide_url',
       ])
     end
 
@@ -96,6 +108,10 @@ module MergeHRISClient
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'abbreviated_name')
+        self.abbreviated_name = attributes[:'abbreviated_name']
       end
 
       if attributes.key?(:'categories')
@@ -120,14 +136,18 @@ module MergeHRISClient
         self.slug = attributes[:'slug']
       end
 
-      if attributes.key?(:'is_in_beta')
-        self.is_in_beta = attributes[:'is_in_beta']
-      end
-
       if attributes.key?(:'api_endpoints_to_documentation_urls')
         if (value = attributes[:'api_endpoints_to_documentation_urls']).is_a?(Hash)
           self.api_endpoints_to_documentation_urls = value
         end
+      end
+
+      if attributes.key?(:'webhook_setup_guide_url')
+        self.webhook_setup_guide_url = attributes[:'webhook_setup_guide_url']
+      end
+
+      if attributes.key?(:'category_beta_status')
+        self.category_beta_status = attributes[:'category_beta_status']
       end
     end
 
@@ -181,13 +201,15 @@ module MergeHRISClient
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
+          abbreviated_name == o.abbreviated_name &&
           categories == o.categories &&
           image == o.image &&
           square_image == o.square_image &&
           color == o.color &&
           slug == o.slug &&
-          is_in_beta == o.is_in_beta &&
-          api_endpoints_to_documentation_urls == o.api_endpoints_to_documentation_urls
+          api_endpoints_to_documentation_urls == o.api_endpoints_to_documentation_urls &&
+          webhook_setup_guide_url == o.webhook_setup_guide_url &&
+          category_beta_status == o.category_beta_status
     end
 
     # @see the `==` method
@@ -199,7 +221,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, categories, image, square_image, color, slug, is_in_beta, api_endpoints_to_documentation_urls].hash
+      [name, abbreviated_name, categories, image, square_image, color, slug, api_endpoints_to_documentation_urls, webhook_setup_guide_url, category_beta_status].hash
     end
 
     # Builds the object from hash

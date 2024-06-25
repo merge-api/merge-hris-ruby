@@ -21,6 +21,12 @@ module MergeHRISClient
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
 
+    # The datetime that this object was created by Merge.
+    attr_accessor :created_at
+
+    # The datetime that this object was modified by Merge.
+    attr_accessor :modified_at
+
     # The employee holding this position.
     attr_accessor :employee
 
@@ -51,11 +57,8 @@ module MergeHRISClient
     # The position's type of employment.  * `FULL_TIME` - FULL_TIME * `PART_TIME` - PART_TIME * `INTERN` - INTERN * `CONTRACTOR` - CONTRACTOR * `FREELANCE` - FREELANCE
     attr_accessor :employment_type
 
-    # Indicates whether or not this object has been deleted by third party webhooks.
+    # Indicates whether or not this object has been deleted in the third party platform.
     attr_accessor :remote_was_deleted
-
-    # This is the datetime that this object was last updated by Merge
-    attr_accessor :modified_at
 
     attr_accessor :field_mappings
 
@@ -66,6 +69,8 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
+        :'created_at' => :'created_at',
+        :'modified_at' => :'modified_at',
         :'employee' => :'employee',
         :'job_title' => :'job_title',
         :'pay_rate' => :'pay_rate',
@@ -77,7 +82,6 @@ module MergeHRISClient
         :'effective_date' => :'effective_date',
         :'employment_type' => :'employment_type',
         :'remote_was_deleted' => :'remote_was_deleted',
-        :'modified_at' => :'modified_at',
         :'field_mappings' => :'field_mappings',
         :'remote_data' => :'remote_data'
       }
@@ -93,6 +97,8 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
+        :'created_at' => :'Time',
+        :'modified_at' => :'Time',
         :'employee' => :'String',
         :'job_title' => :'String',
         :'pay_rate' => :'Float',
@@ -104,8 +110,7 @@ module MergeHRISClient
         :'effective_date' => :'Time',
         :'employment_type' => :'EmploymentTypeEnum',
         :'remote_was_deleted' => :'Boolean',
-        :'modified_at' => :'Time',
-        :'field_mappings' => :'Hash<String, Object>',
+        :'field_mappings' => :'Object',
         :'remote_data' => :'Array<RemoteData>'
       }
     end
@@ -152,6 +157,14 @@ module MergeHRISClient
         self.remote_id = attributes[:'remote_id']
       end
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
       if attributes.key?(:'employee')
         self.employee = attributes[:'employee']
       end
@@ -196,14 +209,8 @@ module MergeHRISClient
         self.remote_was_deleted = attributes[:'remote_was_deleted']
       end
 
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
-      end
-
       if attributes.key?(:'field_mappings')
-        if (value = attributes[:'field_mappings']).is_a?(Hash)
-          self.field_mappings = value
-        end
+        self.field_mappings = attributes[:'field_mappings']
       end
 
       if attributes.key?(:'remote_data')
@@ -233,6 +240,8 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
+          created_at == o.created_at &&
+          modified_at == o.modified_at &&
           employee == o.employee &&
           job_title == o.job_title &&
           pay_rate == o.pay_rate &&
@@ -244,7 +253,6 @@ module MergeHRISClient
           effective_date == o.effective_date &&
           employment_type == o.employment_type &&
           remote_was_deleted == o.remote_was_deleted &&
-          modified_at == o.modified_at &&
           field_mappings == o.field_mappings &&
           remote_data == o.remote_data
     end
@@ -258,7 +266,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, employee, job_title, pay_rate, pay_period, pay_frequency, pay_currency, pay_group, flsa_status, effective_date, employment_type, remote_was_deleted, modified_at, field_mappings, remote_data].hash
+      [id, remote_id, created_at, modified_at, employee, job_title, pay_rate, pay_period, pay_frequency, pay_currency, pay_group, flsa_status, effective_date, employment_type, remote_was_deleted, field_mappings, remote_data].hash
     end
 
     # Builds the object from hash

@@ -27,7 +27,7 @@ module MergeHRISClient
     # The integration categories to show in Merge Link.
     attr_accessor :categories
 
-    # The slug of a specific pre-selected integration for this linking flow token. For examples of slugs, see https://www.merge.dev/docs/basics/integration-metadata/.
+    # The slug of a specific pre-selected integration for this linking flow token. For examples of slugs, see https://docs.merge.dev/guides/merge-link/single-integration/.
     attr_accessor :integration
 
     # An integer number of minutes between [30, 720 or 10080 if for a Magic Link URL] for how long this token is valid. Defaults to 30.
@@ -39,6 +39,15 @@ module MergeHRISClient
     # An array of objects to specify the models and fields that will be disabled for a given Linked Account. Each object uses model_id, enabled_actions, and disabled_fields to specify the model, method, and fields that are scoped for a given Linked Account.
     attr_accessor :common_models
 
+    # When creating a Link Token, you can set permissions for Common Models that will apply to the account that is going to be linked. Any model or field not specified in link token payload will default to existing settings.
+    attr_accessor :category_common_model_scopes
+
+    # The language code for the language to localize Merge Link to.
+    attr_accessor :language
+
+    # A JSON object containing integration-specific configuration options.
+    attr_accessor :integration_specific_config
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -49,7 +58,10 @@ module MergeHRISClient
         :'integration' => :'integration',
         :'link_expiry_mins' => :'link_expiry_mins',
         :'should_create_magic_link_url' => :'should_create_magic_link_url',
-        :'common_models' => :'common_models'
+        :'common_models' => :'common_models',
+        :'category_common_model_scopes' => :'category_common_model_scopes',
+        :'language' => :'language',
+        :'integration_specific_config' => :'integration_specific_config'
       }
     end
 
@@ -68,7 +80,10 @@ module MergeHRISClient
         :'integration' => :'String',
         :'link_expiry_mins' => :'Integer',
         :'should_create_magic_link_url' => :'Boolean',
-        :'common_models' => :'Array<CommonModelScopesBodyRequest>'
+        :'common_models' => :'Array<CommonModelScopesBodyRequest>',
+        :'category_common_model_scopes' => :'Hash<String, Array<IndividualCommonModelScopeDeserializerRequest>>',
+        :'language' => :'String',
+        :'integration_specific_config' => :'Hash<String, Object>'
       }
     end
 
@@ -77,7 +92,10 @@ module MergeHRISClient
       Set.new([
         :'integration',
         :'should_create_magic_link_url',
-        :'common_models'
+        :'common_models',
+        :'category_common_model_scopes',
+        :'language',
+        :'integration_specific_config'
       ])
     end
 
@@ -133,6 +151,22 @@ module MergeHRISClient
       if attributes.key?(:'common_models')
         if (value = attributes[:'common_models']).is_a?(Array)
           self.common_models = value
+        end
+      end
+
+      if attributes.key?(:'category_common_model_scopes')
+        if (value = attributes[:'category_common_model_scopes']).is_a?(Hash)
+          self.category_common_model_scopes = value
+        end
+      end
+
+      if attributes.key?(:'language')
+        self.language = attributes[:'language']
+      end
+
+      if attributes.key?(:'integration_specific_config')
+        if (value = attributes[:'integration_specific_config']).is_a?(Hash)
+          self.integration_specific_config = value
         end
       end
     end
@@ -193,6 +227,14 @@ module MergeHRISClient
         invalid_properties.push('invalid value for "link_expiry_mins", must be greater than or equal to 30.')
       end
 
+      if !@language.nil? && @language.to_s.length > 2
+        invalid_properties.push('invalid value for "language", the character length must be smaller than or equal to 2.')
+      end
+
+      if !@language.nil? && @language.to_s.length < 1
+        invalid_properties.push('invalid value for "language", the character length must be great than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -212,6 +254,8 @@ module MergeHRISClient
       return false if !@integration.nil? && @integration.to_s.length < 1
       return false if !@link_expiry_mins.nil? && @link_expiry_mins > 10080
       return false if !@link_expiry_mins.nil? && @link_expiry_mins < 30
+      return false if !@language.nil? && @language.to_s.length > 2
+      return false if !@language.nil? && @language.to_s.length < 1
       true
     end
 
@@ -293,6 +337,20 @@ module MergeHRISClient
       @link_expiry_mins = link_expiry_mins
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] language Value to be assigned
+    def language=(language)
+      if !language.nil? && language.to_s.length > 2
+        fail ArgumentError, 'invalid value for "language", the character length must be smaller than or equal to 2.'
+      end
+
+      if !language.nil? && language.to_s.length < 1
+        fail ArgumentError, 'invalid value for "language", the character length must be great than or equal to 1.'
+      end
+
+      @language = language
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -305,7 +363,10 @@ module MergeHRISClient
           integration == o.integration &&
           link_expiry_mins == o.link_expiry_mins &&
           should_create_magic_link_url == o.should_create_magic_link_url &&
-          common_models == o.common_models
+          common_models == o.common_models &&
+          category_common_model_scopes == o.category_common_model_scopes &&
+          language == o.language &&
+          integration_specific_config == o.integration_specific_config
     end
 
     # @see the `==` method
@@ -317,7 +378,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [end_user_email_address, end_user_organization_name, end_user_origin_id, categories, integration, link_expiry_mins, should_create_magic_link_url, common_models].hash
+      [end_user_email_address, end_user_organization_name, end_user_origin_id, categories, integration, link_expiry_mins, should_create_magic_link_url, common_models, category_common_model_scopes, language, integration_specific_config].hash
     end
 
     # Builds the object from hash

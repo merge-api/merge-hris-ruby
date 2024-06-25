@@ -14,12 +14,18 @@ require 'date'
 require 'time'
 
 module MergeHRISClient
-  # # The Group Object ### Description The `Group` object is used to represent any subset of employees, such as `PayGroup` or `Team`. Employees can be in multiple Groups.  ### Usage Example Fetch from the `LIST Employee` endpoint and expand groups to view an employee's groups.
+  # # The Group Object ### Description The `Group` object is used to represent any subset of employees across, for example, `DEPARTMENT` or `TEAM`. Employees can be in multiple Groups.  ### Usage Example Fetch from the `LIST Employee` endpoint and expand groups to view an employee's groups.
   class Group
     attr_accessor :id
 
     # The third-party API ID of the matching object.
     attr_accessor :remote_id
+
+    # The datetime that this object was created by Merge.
+    attr_accessor :created_at
+
+    # The datetime that this object was modified by Merge.
+    attr_accessor :modified_at
 
     # The parent group for this group.
     attr_accessor :parent_group
@@ -27,14 +33,14 @@ module MergeHRISClient
     # The group name.
     attr_accessor :name
 
-    # The group type  * `TEAM` - TEAM * `DEPARTMENT` - DEPARTMENT * `COST_CENTER` - COST_CENTER * `BUSINESS_UNIT` - BUSINESS_UNIT * `GROUP` - GROUP
+    # The Group type returned directly from the third-party.  * `TEAM` - TEAM * `DEPARTMENT` - DEPARTMENT * `COST_CENTER` - COST_CENTER * `BUSINESS_UNIT` - BUSINESS_UNIT * `GROUP` - GROUP
     attr_accessor :type
 
-    # Indicates whether or not this object has been deleted by third party webhooks.
+    # Indicates whether or not this object has been deleted in the third party platform.
     attr_accessor :remote_was_deleted
 
-    # This is the datetime that this object was last updated by Merge
-    attr_accessor :modified_at
+    # Indicates whether the Group refers to a team in the third party platform. Note that this is an opinionated view based on how Merge observes most organizations representing teams in each third party platform. If your customer uses a platform different from most, there is a chance this will not be correct.
+    attr_accessor :is_commonly_used_as_team
 
     attr_accessor :field_mappings
 
@@ -45,11 +51,13 @@ module MergeHRISClient
       {
         :'id' => :'id',
         :'remote_id' => :'remote_id',
+        :'created_at' => :'created_at',
+        :'modified_at' => :'modified_at',
         :'parent_group' => :'parent_group',
         :'name' => :'name',
         :'type' => :'type',
         :'remote_was_deleted' => :'remote_was_deleted',
-        :'modified_at' => :'modified_at',
+        :'is_commonly_used_as_team' => :'is_commonly_used_as_team',
         :'field_mappings' => :'field_mappings',
         :'remote_data' => :'remote_data'
       }
@@ -65,12 +73,14 @@ module MergeHRISClient
       {
         :'id' => :'String',
         :'remote_id' => :'String',
+        :'created_at' => :'Time',
+        :'modified_at' => :'Time',
         :'parent_group' => :'String',
         :'name' => :'String',
         :'type' => :'GroupTypeEnum',
         :'remote_was_deleted' => :'Boolean',
-        :'modified_at' => :'Time',
-        :'field_mappings' => :'Hash<String, Object>',
+        :'is_commonly_used_as_team' => :'Boolean',
+        :'field_mappings' => :'Object',
         :'remote_data' => :'Array<RemoteData>'
       }
     end
@@ -82,6 +92,7 @@ module MergeHRISClient
         :'parent_group',
         :'name',
         :'type',
+        :'is_commonly_used_as_team',
         :'field_mappings',
         :'remote_data'
       ])
@@ -110,6 +121,14 @@ module MergeHRISClient
         self.remote_id = attributes[:'remote_id']
       end
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
       if attributes.key?(:'parent_group')
         self.parent_group = attributes[:'parent_group']
       end
@@ -126,14 +145,12 @@ module MergeHRISClient
         self.remote_was_deleted = attributes[:'remote_was_deleted']
       end
 
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
+      if attributes.key?(:'is_commonly_used_as_team')
+        self.is_commonly_used_as_team = attributes[:'is_commonly_used_as_team']
       end
 
       if attributes.key?(:'field_mappings')
-        if (value = attributes[:'field_mappings']).is_a?(Hash)
-          self.field_mappings = value
-        end
+        self.field_mappings = attributes[:'field_mappings']
       end
 
       if attributes.key?(:'remote_data')
@@ -163,11 +180,13 @@ module MergeHRISClient
       self.class == o.class &&
           id == o.id &&
           remote_id == o.remote_id &&
+          created_at == o.created_at &&
+          modified_at == o.modified_at &&
           parent_group == o.parent_group &&
           name == o.name &&
           type == o.type &&
           remote_was_deleted == o.remote_was_deleted &&
-          modified_at == o.modified_at &&
+          is_commonly_used_as_team == o.is_commonly_used_as_team &&
           field_mappings == o.field_mappings &&
           remote_data == o.remote_data
     end
@@ -181,7 +200,7 @@ module MergeHRISClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, remote_id, parent_group, name, type, remote_was_deleted, modified_at, field_mappings, remote_data].hash
+      [id, remote_id, created_at, modified_at, parent_group, name, type, remote_was_deleted, is_commonly_used_as_team, field_mappings, remote_data].hash
     end
 
     # Builds the object from hash

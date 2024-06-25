@@ -16,6 +16,7 @@ require 'time'
 module MergeHRISClient
   # # The RemoteKeyForRegeneration Object ### Description The `RemoteKeyForRegeneration` object is used to exchange an old remote key for a new one  ### Usage Example Post a `RemoteKeyForRegeneration` to swap out an old remote key for a new one
   class RemoteKeyForRegenerationRequest
+    # The name of the remote key
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

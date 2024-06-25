@@ -14,7 +14,7 @@
 require 'merge_hris_client'
 
 instance = MergeHRISClient::DebugModelLogSummary.new(
-  url: https://harvest.greenhouse.io/v1/candidates/,
+  url: www.exampleintegration.com/api/v1/exampleapi,
   method: POST,
   status_code: 200
 )
