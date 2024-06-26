@@ -35,7 +35,7 @@ module MergeHRISClient
     # @option opts [String] :policy_type If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;)  * &#x60;VACATION&#x60; - VACATION * &#x60;SICK&#x60; - SICK * &#x60;PERSONAL&#x60; - PERSONAL * &#x60;JURY_DUTY&#x60; - JURY_DUTY * &#x60;VOLUNTEER&#x60; - VOLUNTEER * &#x60;BEREAVEMENT&#x60; - BEREAVEMENT
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [PaginatedTimeOffBalanceList]
     def time_off_balances_list(x_account_token, opts = {})
       data, _status_code, _headers = time_off_balances_list_with_http_info(x_account_token, opts)
@@ -58,7 +58,7 @@ module MergeHRISClient
     # @option opts [String] :policy_type If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;)  * &#x60;VACATION&#x60; - VACATION * &#x60;SICK&#x60; - SICK * &#x60;PERSONAL&#x60; - PERSONAL * &#x60;JURY_DUTY&#x60; - JURY_DUTY * &#x60;VOLUNTEER&#x60; - VOLUNTEER * &#x60;BEREAVEMENT&#x60; - BEREAVEMENT
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Array<(PaginatedTimeOffBalanceList, Integer, Hash)>] PaginatedTimeOffBalanceList data, response status code and response headers
     def time_off_balances_list_with_http_info(x_account_token, opts = {})
       if @api_client.config.debugging
@@ -146,7 +146,7 @@ module MergeHRISClient
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [TimeOffBalance]
     def time_off_balances_retrieve(x_account_token, id, opts = {})
       data, _status_code, _headers = time_off_balances_retrieve_with_http_info(x_account_token, id, opts)
@@ -160,7 +160,7 @@ module MergeHRISClient
     # @option opts [String] :expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Array<(TimeOffBalance, Integer, Hash)>] TimeOffBalance data, response status code and response headers
     def time_off_balances_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging

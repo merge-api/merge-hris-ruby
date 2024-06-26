@@ -27,12 +27,13 @@ module MergeHRISClient
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
+    # @option opts [String] :location_type If provided, will only return locations with this location_type  * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK
     # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
     # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [PaginatedLocationList]
     def locations_list(x_account_token, opts = {})
       data, _status_code, _headers = locations_list_with_http_info(x_account_token, opts)
@@ -47,12 +48,13 @@ module MergeHRISClient
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
+    # @option opts [String] :location_type If provided, will only return locations with this location_type  * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK
     # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
     # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
     # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Array<(PaginatedLocationList, Integer, Hash)>] PaginatedLocationList data, response status code and response headers
     def locations_list_with_http_info(x_account_token, opts = {})
       if @api_client.config.debugging
@@ -61,6 +63,10 @@ module MergeHRISClient
       # verify the required parameter 'x_account_token' is set
       if @api_client.config.client_side_validation && x_account_token.nil?
         fail ArgumentError, "Missing the required parameter 'x_account_token' when calling LocationsApi.locations_list"
+      end
+      allowable_values = ["HOME", "WORK"]
+      if @api_client.config.client_side_validation && opts[:'location_type'] && !allowable_values.include?(opts[:'location_type'])
+        fail ArgumentError, "invalid value for \"location_type\", must be one of #{allowable_values}"
       end
       allowable_values = ["location_type"]
       if @api_client.config.client_side_validation && opts[:'remote_fields'] && !allowable_values.include?(opts[:'remote_fields'])
@@ -80,6 +86,7 @@ module MergeHRISClient
       query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
       query_params[:'include_deleted_data'] = opts[:'include_deleted_data'] if !opts[:'include_deleted_data'].nil?
       query_params[:'include_remote_data'] = opts[:'include_remote_data'] if !opts[:'include_remote_data'].nil?
+      query_params[:'location_type'] = opts[:'location_type'] if !opts[:'location_type'].nil?
       query_params[:'modified_after'] = opts[:'modified_after'] if !opts[:'modified_after'].nil?
       query_params[:'modified_before'] = opts[:'modified_before'] if !opts[:'modified_before'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
@@ -128,7 +135,7 @@ module MergeHRISClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Location]
     def locations_retrieve(x_account_token, id, opts = {})
       data, _status_code, _headers = locations_retrieve_with_http_info(x_account_token, id, opts)
@@ -141,7 +148,7 @@ module MergeHRISClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
     # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-    # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+    # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
     # @return [Array<(Location, Integer, Hash)>] Location data, response status code and response headers
     def locations_retrieve_with_http_info(x_account_token, id, opts = {})
       if @api_client.config.debugging

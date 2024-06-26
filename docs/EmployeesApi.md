@@ -194,12 +194,15 @@ opts = {
   cursor: 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw', # String | The pagination cursor value.
   display_full_name: 'display_full_name_example', # String | If provided, will only return employees with this display name.
   employment_status: 'ACTIVE', # String | If provided, will only return employees with this employment status.  * `ACTIVE` - ACTIVE * `PENDING` - PENDING * `INACTIVE` - INACTIVE
+  employment_type: 'employment_type_example', # String | If provided, will only return employees that have an employment of the specified employment_type.
   expand: 'company', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   first_name: 'first_name_example', # String | If provided, will only return employees with this first name.
   groups: 'groups_example', # String | If provided, will only return employees matching the group ids; multiple groups can be separated by commas.
+  home_location_id: 'home_location_id_example', # String | If provided, will only return employees for this home location.
   include_deleted_data: true, # Boolean | Whether to include data that was marked as deleted by third party webhooks.
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   include_sensitive_fields: true, # Boolean | Whether to include sensitive fields (such as social security numbers) in the response.
+  job_title: 'job_title_example', # String | If provided, will only return employees that have an employment of the specified job_title.
   last_name: 'last_name_example', # String | If provided, will only return employees with this last name.
   manager_id: 'manager_id_example', # String | If provided, will only return employees for this manager.
   modified_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, only objects synced by Merge after this date time will be returned.
@@ -209,7 +212,7 @@ opts = {
   personal_email: TODO, # String | If provided, will only return Employees with this personal email
   remote_fields: 'employment_status', # String | Deprecated. Use show_enum_origins.
   remote_id: 'remote_id_example', # String | The API provider's ID for the given object.
-  show_enum_origins: 'employment_status', # String | Which fields should be returned in non-normalized form.
+  show_enum_origins: 'employment_status', # String | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   started_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return employees that started after this datetime.
   started_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return employees that started before this datetime.
   team_id: 'team_id_example', # String | If provided, will only return employees for this team.
@@ -257,12 +260,15 @@ end
 | **cursor** | **String** | The pagination cursor value. | [optional] |
 | **display_full_name** | **String** | If provided, will only return employees with this display name. | [optional] |
 | **employment_status** | **String** | If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE | [optional] |
+| **employment_type** | **String** | If provided, will only return employees that have an employment of the specified employment_type. | [optional] |
 | **expand** | **String** | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] |
 | **first_name** | **String** | If provided, will only return employees with this first name. | [optional] |
 | **groups** | **String** | If provided, will only return employees matching the group ids; multiple groups can be separated by commas. | [optional] |
+| **home_location_id** | **String** | If provided, will only return employees for this home location. | [optional] |
 | **include_deleted_data** | **Boolean** | Whether to include data that was marked as deleted by third party webhooks. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **include_sensitive_fields** | **Boolean** | Whether to include sensitive fields (such as social security numbers) in the response. | [optional] |
+| **job_title** | **String** | If provided, will only return employees that have an employment of the specified job_title. | [optional] |
 | **last_name** | **String** | If provided, will only return employees with this last name. | [optional] |
 | **manager_id** | **String** | If provided, will only return employees for this manager. | [optional] |
 | **modified_after** | **Time** | If provided, only objects synced by Merge after this date time will be returned. | [optional] |
@@ -272,7 +278,7 @@ end
 | **personal_email** | [**String**](.md) | If provided, will only return Employees with this personal email | [optional] |
 | **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |
-| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **show_enum_origins** | **String** | A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional] |
 | **started_after** | **Time** | If provided, will only return employees that started after this datetime. | [optional] |
 | **started_before** | **Time** | If provided, will only return employees that started before this datetime. | [optional] |
 | **team_id** | **String** | If provided, will only return employees for this team. | [optional] |
@@ -395,7 +401,7 @@ opts = {
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   include_sensitive_fields: true, # Boolean | Whether to include sensitive fields (such as social security numbers) in the response.
   remote_fields: 'employment_status', # String | Deprecated. Use show_enum_origins.
-  show_enum_origins: 'employment_status' # String | Which fields should be returned in non-normalized form.
+  show_enum_origins: 'employment_status' # String | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
 }
 
 begin
@@ -435,7 +441,7 @@ end
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **include_sensitive_fields** | **Boolean** | Whether to include sensitive fields (such as social security numbers) in the response. | [optional] |
 | **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
-| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **show_enum_origins** | **String** | A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional] |
 
 ### Return type
 

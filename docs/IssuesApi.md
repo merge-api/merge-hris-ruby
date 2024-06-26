@@ -14,7 +14,7 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 
 
-Gets issues.
+Gets all issues for Organization.
 
 ### Examples
 
@@ -37,10 +37,11 @@ opts = {
   end_user_organization_name: 'end_user_organization_name_example', # String | 
   first_incident_time_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return issues whose first incident time was after this datetime.
   first_incident_time_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return issues whose first incident time was before this datetime.
-  include_muted: 'include_muted_example', # String | If True, will include muted issues
+  include_muted: 'include_muted_example', # String | If true, will include muted issues
   integration_name: 'integration_name_example', # String | 
   last_incident_time_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return issues whose last incident time was after this datetime.
   last_incident_time_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | If provided, will only return issues whose last incident time was before this datetime.
+  linked_account_id: 'linked_account_id_example', # String | If provided, will only include issues pertaining to the linked account passed in.
   page_size: 56, # Integer | Number of results to return per page.
   start_date: 'start_date_example', # String | If included, will only include issues whose most recent action occurred after this time
   status: 'ONGOING' # String | Status of the issue. Options: ('ONGOING', 'RESOLVED')  * `ONGOING` - ONGOING * `RESOLVED` - RESOLVED
@@ -83,10 +84,11 @@ end
 | **end_user_organization_name** | **String** |  | [optional] |
 | **first_incident_time_after** | **Time** | If provided, will only return issues whose first incident time was after this datetime. | [optional] |
 | **first_incident_time_before** | **Time** | If provided, will only return issues whose first incident time was before this datetime. | [optional] |
-| **include_muted** | **String** | If True, will include muted issues | [optional] |
+| **include_muted** | **String** | If true, will include muted issues | [optional] |
 | **integration_name** | **String** |  | [optional] |
 | **last_incident_time_after** | **Time** | If provided, will only return issues whose last incident time was after this datetime. | [optional] |
 | **last_incident_time_before** | **Time** | If provided, will only return issues whose last incident time was before this datetime. | [optional] |
+| **linked_account_id** | **String** | If provided, will only include issues pertaining to the linked account passed in. | [optional] |
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
 | **start_date** | **String** | If included, will only include issues whose most recent action occurred after this time | [optional] |
 | **status** | **String** | Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED | [optional] |

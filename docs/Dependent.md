@@ -6,6 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
+| **created_at** | **Time** | The datetime that this object was created by Merge. | [optional][readonly] |
+| **modified_at** | **Time** | The datetime that this object was modified by Merge. | [optional][readonly] |
 | **first_name** | **String** | The dependents&#39;s first name. | [optional] |
 | **middle_name** | **String** | The dependents&#39;s middle name. | [optional] |
 | **last_name** | **String** | The dependents&#39;s last name. | [optional] |
@@ -17,9 +19,8 @@
 | **home_location** | **String** | The dependents&#39;s home address. | [optional] |
 | **is_student** | **Boolean** | Whether or not the dependent is a student | [optional] |
 | **ssn** | **String** | The dependents&#39;s social security number. | [optional] |
-| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted by third party webhooks. | [optional][readonly] |
-| **modified_at** | **Time** | This is the datetime that this object was last updated by Merge | [optional][readonly] |
-| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
+| **remote_was_deleted** | **Boolean** | Indicates whether or not this object has been deleted in the third party platform. | [optional][readonly] |
+| **field_mappings** | **Object** |  | [optional][readonly] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -30,6 +31,8 @@ require 'merge_hris_client'
 instance = MergeHRISClient::Dependent.new(
   id: null,
   remote_id: 19202940,
+  created_at: 2021-09-15T00:00Z,
+  modified_at: 2021-10-16T00:00Z,
   first_name: Greg,
   middle_name: A,
   last_name: Hirsch,
@@ -42,7 +45,6 @@ instance = MergeHRISClient::Dependent.new(
   is_student: null,
   ssn: 1234567890,
   remote_was_deleted: null,
-  modified_at: 2021-10-16T00:00Z,
   field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   remote_data: [{&quot;path&quot;:&quot;/dependent&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )

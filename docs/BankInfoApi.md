@@ -47,7 +47,7 @@ opts = {
   page_size: 56, # Integer | Number of results to return per page.
   remote_fields: 'account_type', # String | Deprecated. Use show_enum_origins.
   remote_id: 'remote_id_example', # String | The API provider's ID for the given object.
-  show_enum_origins: 'account_type' # String | Which fields should be returned in non-normalized form.
+  show_enum_origins: 'account_type' # String | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
 }
 
 begin
@@ -97,7 +97,7 @@ end
 | **page_size** | **Integer** | Number of results to return per page. | [optional] |
 | **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
 | **remote_id** | **String** | The API provider&#39;s ID for the given object. | [optional] |
-| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **show_enum_origins** | **String** | A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional] |
 
 ### Return type
 
@@ -141,7 +141,7 @@ opts = {
   expand: 'employee', # String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   include_remote_data: true, # Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   remote_fields: 'account_type', # String | Deprecated. Use show_enum_origins.
-  show_enum_origins: 'account_type' # String | Which fields should be returned in non-normalized form.
+  show_enum_origins: 'account_type' # String | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
 }
 
 begin
@@ -180,7 +180,7 @@ end
 | **expand** | **String** | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] |
 | **include_remote_data** | **Boolean** | Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] |
 | **remote_fields** | **String** | Deprecated. Use show_enum_origins. | [optional] |
-| **show_enum_origins** | **String** | Which fields should be returned in non-normalized form. | [optional] |
+| **show_enum_origins** | **String** | A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional] |
 
 ### Return type
 

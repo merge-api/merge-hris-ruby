@@ -21,7 +21,7 @@ require 'merge_hris_client'
 instance = MergeHRISClient::Issue.new(
   id: 3fa85f64-5717-4562-b3fc-2c963f66afa6,
   status: ONGOING,
-  error_description: string,
+  error_description: Missing Permissions,
   end_user: b82302de-852e-4e60-b050-edf9da3b7c02,
   first_incident_time: 2022-12-05T16:19:15.161Z,
   last_incident_time: 2022-12-05T16:19:15.161Z,

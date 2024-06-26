@@ -6,6 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional][readonly] |
 | **remote_id** | **String** | The third-party API ID of the matching object. | [optional] |
+| **created_at** | **Time** | The datetime that this object was created by Merge. | [optional][readonly] |
+| **modified_at** | **Time** | The datetime that this object was modified by Merge. | [optional][readonly] |
 | **employee** | **String** | The employee requesting time off. | [optional] |
 | **approver** | **String** | The Merge ID of the employee with the ability to approve the time off request. | [optional] |
 | **status** | [**TimeOffStatusEnum**](TimeOffStatusEnum.md) | The status of this time off request.  * &#x60;REQUESTED&#x60; - REQUESTED * &#x60;APPROVED&#x60; - APPROVED * &#x60;DECLINED&#x60; - DECLINED * &#x60;CANCELLED&#x60; - CANCELLED * &#x60;DELETED&#x60; - DELETED | [optional] |
@@ -16,8 +18,7 @@
 | **start_time** | **Time** | The day and time of the start of the time requested off. | [optional] |
 | **end_time** | **Time** | The day and time of the end of the time requested off. | [optional] |
 | **remote_was_deleted** | **Boolean** |  | [optional][readonly] |
-| **modified_at** | **Time** | This is the datetime that this object was last updated by Merge | [optional][readonly] |
-| **field_mappings** | [**Hash&lt;String, AnyType&gt;**](AnyType.md) |  | [optional][readonly] |
+| **field_mappings** | **Object** |  | [optional][readonly] |
 | **remote_data** | [**Array&lt;RemoteData&gt;**](RemoteData.md) |  | [optional][readonly] |
 
 ## Example
@@ -28,6 +29,8 @@ require 'merge_hris_client'
 instance = MergeHRISClient::TimeOff.new(
   id: 91b2b905-e866-40c8-8be2-efe53827a0aa,
   remote_id: 19202938,
+  created_at: 2021-09-15T00:00Z,
+  modified_at: 2021-10-16T00:00Z,
   employee: d2f972d0-2526-434b-9409-4c3b468e08f0,
   approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f,
   status: APPROVED,
@@ -38,7 +41,6 @@ instance = MergeHRISClient::TimeOff.new(
   start_time: 2020-11-10T00:00Z,
   end_time: 2020-11-17T00:00Z,
   remote_was_deleted: null,
-  modified_at: 2021-10-16T00:00Z,
   field_mappings: {&quot;organization_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;},&quot;linked_account_defined_targets&quot;:{&quot;custom_key&quot;:&quot;custom_value&quot;}},
   remote_data: [{&quot;path&quot;:&quot;/leave&quot;,&quot;data&quot;:[&quot;Varies by platform&quot;]}]
 )

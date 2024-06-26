@@ -41,12 +41,14 @@ describe 'GroupsApi' do
   # @option opts [String] :cursor The pagination cursor value.
   # @option opts [Boolean] :include_deleted_data Whether to include data that was marked as deleted by third party webhooks.
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
+  # @option opts [String] :is_commonly_used_as_team If provided, specifies whether to return only Group objects which refer to a team in the third party platform. Note that this is an opinionated view based on how a team may be represented in the third party platform.
   # @option opts [Time] :modified_after If provided, only objects synced by Merge after this date time will be returned.
   # @option opts [Time] :modified_before If provided, only objects synced by Merge before this date time will be returned.
+  # @option opts [String] :names If provided, will only return groups with these names. Multiple values can be separated by commas.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
   # @option opts [String] :remote_id The API provider&#39;s ID for the given object.
-  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+  # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   # @option opts [String] :types If provided, will only return groups of these types. Multiple values can be separated by commas.
   # @return [PaginatedGroupList]
   describe 'groups_list test' do
@@ -62,7 +64,7 @@ describe 'GroupsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models.
   # @option opts [String] :remote_fields Deprecated. Use show_enum_origins.
-  # @option opts [String] :show_enum_origins Which fields should be returned in non-normalized form.
+  # @option opts [String] :show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
   # @return [Group]
   describe 'groups_retrieve test' do
     it 'should work' do
